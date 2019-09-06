@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddNewActivity.AddNewHospitalsActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_settings"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/colorPrimary">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/close_Hospital_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="0dp"
+                    android:text="Close"
+                    android:textColor="@android:color/white"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <!--           <TextView
+                               android:id="@+id/petshop_next_btn"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="Update"
+                               android:textColor="@android:color/white"
+                               android:textSize="17sp"
+                               android:textStyle="bold"
+                               android:layout_marginRight="10dp"
+                               android:layout_alignParentEnd="true"
+                               /-->
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <!-- //Use Here  -->
+            <ImageView
+                android:id="@+id/select_Hospital_image"
+                android:layout_width="132dp"
+                android:layout_height="139dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:cropToPadding="false"
+                android:scaleType="centerCrop"
+                android:src="@drawable/select_product_image" />
+            <TextView
+                android:id="@+id/title_admin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/select_Hospital_image"
+                android:text="Insert Hospital Informations"
+                android:textColor="@color/grey"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_alignParentStart="true"
+                />
+
+            <EditText
+                android:id="@+id/add_Hospital_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_admin"
+                android:inputType="textMultiLine"
+                android:layout_marginTop="10dp"
+                android:padding="20dp"
+                android:hint="Name"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:background="@drawable/input_design"
+                />
+
+            <EditText
+                android:id="@+id/add_Hospital_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/add_Hospital_name"
+                android:inputType="number"
+                android:layout_marginTop="10dp"
+                android:padding="20dp"
+                android:hint="Phone Number"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:background="@drawable/input_design"
+                />
+
+            <EditText
+                android:id="@+id/add_Hospital_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/add_Hospital_phone"
+                android:inputType="textMultiLine"
+                android:layout_marginTop="6dp"
+                android:padding="20dp"
+                android:hint="Description"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:background="@drawable/input_design"
+                />
+
+            <EditText
+                android:id="@+id/add_Hospital_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/add_Hospital_description"
+                android:inputType="textMultiLine"
+                android:layout_marginTop="6dp"
+                android:padding="20dp"
+                android:hint="Location"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:background="@drawable/input_design"
+                />
+            <EditText
+                android:id="@+id/add_Hospital_location_la"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/add_Hospital_location"
+                android:inputType="numberDecimal"
+                android:layout_marginTop="6dp"
+                android:padding="20dp"
+                android:hint="Location latitude"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:background="@drawable/input_design"
+                />
+            <EditText
+                android:id="@+id/add_Hospital_location_long"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/add_Hospital_location_la"
+                android:inputType="numberDecimal"
+                android:layout_marginTop="6dp"
+                android:padding="20dp"
+                android:hint="Location longtitude"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:background="@drawable/input_design"
+                />
+            <EditText
+                android:id="@+id/add_Hospital_servicetype"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/add_Hospital_location_long"
+                android:inputType="textMultiLine"
+                android:layout_marginTop="6dp"
+                android:padding="20dp"
+                android:hint="Service Type"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:background="@drawable/input_design"
+                />
+
+            <EditText
+                android:id="@+id/add_Hospital_servicetime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/add_Hospital_servicetype"
+                android:inputType="date"
+                android:layout_marginTop="6dp"
+                android:padding="20dp"
+                android:hint="Service Time"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:background="@drawable/input_design"
+                />
+
+
+            <Button
+                android:id="@+id/add_new_Hospital_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/add_Hospital_servicetime"
+                android:text="Add New"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:padding="17dp"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:background="@drawable/buttons"
+                />
+
+            <ProgressBar
+                android:id="@+id/Add_Hospital_ProgressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="78dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/add_new_Hospital_btn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-59dp"
+                android:visibility="invisible"
+                />
+            <TextView
+                android:id="@+id/emtry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Add_Hospital_ProgressBar"
+                android:text="Insert"
+                android:textColor="@color/grey"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_alignParentStart="true"
+                android:visibility="invisible"
+                />
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

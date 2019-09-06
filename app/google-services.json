@@ -1,0 +1,119 @@
+{
+  "project_info": {
+    "project_number": "398535436798",
+    "firebase_url": "https://my-pets-phuket-bb27e.firebaseio.com",
+    "project_id": "my-pets-phuket-bb27e",
+    "storage_bucket": "my-pets-phuket-bb27e.appspot.com"
+  },
+  "User" : {
+    "0912" : {
+      "IsStaff" : "true",
+      "Password" : "1234",
+      "name" : "John Wick",
+      "restaurantId" : "01",
+      "secureCode" : "abc123"
+    },
+    "1234" : {
+      "Password" : "1234",
+      "isStaff" : "false",
+      "name" : "Jackie Chan",
+      "secureCode" : "abc123"
+    },
+    "0988123344" : {
+      "homeAddress" : "257 Carriann cove trl west",
+      "isStaff" : "false",
+      "name" : "Eddydn",
+      "password" : "1234",
+      "phone" : "0988123344",
+      "secureCode" : "abc123"
+    },
+    "0988123355" : {
+      "IsStaff" : "false",
+      "Passsword" : "1234",
+      "name" : "EddyLEe",
+      "secureCode" : "abc123"
+    },
+    "0988123388" : {
+      "IsStaff" : "false",
+      "Password" : "1234",
+      "name" : "Tom Cruise",
+      "secureCode" : "abc123"
+    },
+    "+13104004494" : {
+      "balance" : "0.0",
+      "homeAddress" : "",
+      "name" : "",
+      "phone" : "+13104004494"
+    },
+    "+40740629077" : {
+      "balance" : "0.0",
+      "homeAddress" : "Adress ES",
+      "name" : "",
+      "phone" : "+40740629077"
+    },
+    "+40745874291" : {
+      "balance" : "0.0",
+      "name" : "",
+      "phone" : "+40745874291"
+    },
+    "+84393332157" : {
+      "IsStaff" : "true",
+      "balance" : 0,
+      "name" : "",
+      "phone" : "+841693332157",
+      "restarantId" : "01"
+    },
+    "+84988353682" : {
+      "balance" : 984000.1,
+      "homeAddress" : "256 address",
+      "name" : "Eddy lee",
+      "phone" : "+84988353682"
+    },
+    "+917002873284" : {
+      "balance" : "0.0",
+      "homeAddress" : "Street view Man...",
+      "name" : "ani",
+      "phone" : "+917002873284"
+    }
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398535436798:android:f3eba35010eea255",
+        "android_client_info": {
+          "package_name": "com.project.mypetsphuket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398535436798-1rhkgsr8q28v252kido9rmqe2kmci4ls.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.project.mypetsphuket",
+            "certificate_hash": "e6f690a860a6ff9a9c4fe6ae9a5925f9f98cc726"
+          }
+        },
+        {
+          "client_id": "398535436798-0qt4da6cnetonampdl8fgh7v5a9ggms2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg92PiDsVtsbtWG6XFsbttvCM8psbJ7J8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398535436798-0qt4da6cnetonampdl8fgh7v5a9ggms2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

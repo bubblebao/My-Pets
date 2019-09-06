@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#46A0CF</color>
+    <color name="colorPrimaryDark">#46A0CF</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorButton">#36A9DD</color>
+
+    <color name="green">#5cb85c</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="grey">#616161</color>
+    <color name="silver">#969696</color>
+    <color name="blue">#0288D1</color>
+    <color name="light_grey">#FFBDBDBD</color>
+    <color name="dark_grey">#333434</color>
+    <color name="transparent_black">#CC000000</color>
+    <color name="stock_activity_background">#FFFAFAFA</color>
+
+</resources>
