@@ -18,8 +18,8 @@
 
     <ImageView
         android:id="@+id/login_appname"
-        android:layout_width="319dp"
-        android:layout_height="64dp"
+        android:layout_width="310dp"
+        android:layout_height="55dp"
         android:layout_below="@id/login_applogo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
