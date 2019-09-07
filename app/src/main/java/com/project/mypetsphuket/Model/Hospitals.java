@@ -3,14 +3,32 @@ package com.project.mypetsphuket.Model;
 public class Hospitals {
 
    // Name, Description, Phone, Location, Locationlatitude, Locationlongtitude, Servicetype
-    String Name, Description, Phone, Location, Locationlatitude, Locationlongtitude, Servicetype , Servicetime ;
+    String Image , Name, Description, Phone, Location, Locationlatitude, Locationlongtitude, Servicetype , Servicetime ;
 
-    public String getServicetime() {
-        return Servicetime;
+
+    public Hospitals()
+    {
+
     }
 
-    public void setServicetime(String servicetime) {
+    public Hospitals(String image, String name, String description, String phone, String location, String locationlatitude, String locationlongtitude, String servicetype, String servicetime) {
+        Image = image;
+        Name = name;
+        Description = description;
+        Phone = phone;
+        Location = location;
+        Locationlatitude = locationlatitude;
+        Locationlongtitude = locationlongtitude;
+        Servicetype = servicetype;
         Servicetime = servicetime;
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
     }
 
     public String getName() {
@@ -67,5 +85,13 @@ public class Hospitals {
 
     public void setServicetype(String servicetype) {
         Servicetype = servicetype;
+    }
+
+    public String getServicetime() {
+        return Servicetime;
+    }
+
+    public void setServicetime(String servicetime) {
+        Servicetime = servicetime;
     }
 }

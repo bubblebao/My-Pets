@@ -1,5 +1,4 @@
 package com.project.mypetsphuket;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,7 +28,6 @@ import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.util.HashMap;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -37,7 +35,6 @@ public class SettingsActivity extends AppCompatActivity {
     private CircleImageView profileImageView;
     private EditText fullNameEditText, userPhoneEditText, addressEditText;
     private TextView profileChangeTextBtn,  closeTextBtn, saveTextButton;
-
     private Uri imageUri;
     private String myUrl = "";
     private StorageTask uploadTask;
@@ -62,11 +59,7 @@ public class SettingsActivity extends AppCompatActivity {
         closeTextBtn = (TextView) findViewById(R.id.close_settings_btn);
         saveTextButton = (TextView) findViewById(R.id.update_account_settings_btn);
 
-
         userInfoDisplay(profileImageView, fullNameEditText, userPhoneEditText, addressEditText);
-
-
-
 
         closeTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override

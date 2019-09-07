@@ -1,9 +1,38 @@
 package com.project.mypetsphuket.Model;
 
-public class Petshops
-{
+public class Petshops {
 
-    String Name, Description, Phone, Location, Locationlatitude, Locationlongtitude, Servicetype , Servicetime ;
+    public Petshops(String name, String description, String phone, String location, String locationlatitude, String locationlongtitude, String servicetype, String servicetime) {
+        Name = name;
+        Description = description;
+        Phone = phone;
+        Location = location;
+        Locationlatitude = locationlatitude;
+        Locationlongtitude = locationlongtitude;
+        Servicetype = servicetype;
+        Servicetime = servicetime;
+
+    }
+
+
+    public Petshops()
+    {
+
+    }
+
+    String Image , Name, Description, Phone, Location, Locationlatitude, Locationlongtitude, Servicetype , Servicetime ;
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
+    }
+
+    public Petshops(String image) {
+        Image = image;
+    }
 
     public String getName() {
         return Name;

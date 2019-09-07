@@ -8,6 +8,14 @@ public class Doctors {
         return Servicetime;
     }
 
+    public Doctors()
+    {
+
+    }
+
+
+
+
     public void setServicetime(String servicetime) {
         Servicetime = servicetime;
     }

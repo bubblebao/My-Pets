@@ -1,7 +1,37 @@
 package com.project.mypetsphuket.Model;
 
 public class Emergencys {
-    String Name, Description, Phone, Location, Locationlatitude, Locationlongtitude, Servicetype , Servicetime ;
+    String Image , Name, Description, Phone, Location, Locationlatitude, Locationlongtitude, Servicetype , Servicetime ;
+
+
+    public Emergencys()
+    {
+
+    }
+
+    public Emergencys(String image, String name, String description, String phone, String location, String locationlatitude, String locationlongtitude, String servicetype, String servicetime) {
+        Image = image;
+        Name = name;
+        Description = description;
+        Phone = phone;
+        Location = location;
+        Locationlatitude = locationlatitude;
+        Locationlongtitude = locationlongtitude;
+        Servicetype = servicetype;
+        Servicetime = servicetime;
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
+    }
+
+    public Emergencys(String image) {
+        Image = image;
+    }
 
     public String getName() {
         return Name;
