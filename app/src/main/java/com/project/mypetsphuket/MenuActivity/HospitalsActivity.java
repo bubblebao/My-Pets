@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.project.mypetsphuket.R;
 
 public class HospitalsActivity extends AppCompatActivity {
@@ -32,5 +33,11 @@ public class HospitalsActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onStart() {
+      //  FirebaseRecyclerAdapter;
+        super.onStart();
     }
 }

@@ -17,14 +17,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-    allprojects {
-
         gradle.projectsEvaluated {
             tasks.withType(JavaCompile) {
                 options.compilerArgs << "-Xlint:deprecation"
             }
         }
+
     }
 }
 
@@ -42,7 +40,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:17.2.0'
     implementation 'com.google.firebase:firebase-database:19.0.0'
     implementation 'com.google.firebase:firebase-storage:19.0.0'
-    implementation 'com.firebaseui:firebase-ui-database:3.2.2'
+
+    implementation 'com.firebaseui:firebase-ui-database:5.1.0'
 
 
     implementation 'io.paperdb:paperdb:2.6'
