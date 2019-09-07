@@ -6,23 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
-
     <ImageView
         android:id="@+id/register_applogo"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:src="@drawable/applogo"
+        android:layout_width="374dp"
+        android:layout_height="182dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        />
+        android:layout_marginTop="20dp"
+        android:src="@drawable/mypet_logo" />
+
+
+    <ImageView
+        android:id="@+id/register_appname"
+        android:layout_width="319dp"
+        android:layout_height="64dp"
+        android:layout_below="@id/register_applogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/appname" />
 
     <EditText
         android:id="@+id/register_username_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/register_applogo"
+        android:layout_below="@+id/register_appname"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/input_design"
         android:hint="Name"

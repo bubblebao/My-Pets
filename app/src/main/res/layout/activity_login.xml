@@ -8,22 +8,33 @@
 
     <ImageView
         android:id="@+id/login_applogo"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_width="374dp"
+        android:layout_height="182dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        android:src="@drawable/applogo" />
+        android:layout_marginTop="20dp"
+        android:src="@drawable/mypet_logo" />
+
+
+    <ImageView
+        android:id="@+id/login_appname"
+        android:layout_width="319dp"
+        android:layout_height="64dp"
+        android:layout_below="@id/login_applogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/appname" />
 
     <EditText
         android:id="@+id/login_phone_number_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/login_applogo"
+        android:layout_below="@+id/login_appname"
         android:background="@drawable/input_design_login"
         android:padding="20dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
         android:hint="Phone Number"
         android:inputType="number"
         android:textColor="@color/colorPrimaryDark"
@@ -92,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/linear_layout_1"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="35dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/buttons"
         android:padding="17dp"
