@@ -22,7 +22,7 @@
         android:layout_height="55dp"
         android:layout_below="@id/login_applogo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="0dp"
         android:src="@drawable/appname" />
 
     <EditText
@@ -124,7 +124,6 @@
         android:text="I'm an Admin"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp" />
-
 
 
     <TextView
