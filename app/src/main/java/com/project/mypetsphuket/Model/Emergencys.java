@@ -1,17 +1,16 @@
 package com.project.mypetsphuket.Model;
 
 public class Emergencys {
-    private String image , name, description, phone, location, locationlatitude, locationlongtitude, servicetype , servicetime ;
+    private String image, name,  url ,description, phone, location, locationlatitude, locationlongtitude, servicetype, servicetime, rating;
 
 
-    public Emergencys()
-    {
-
+    public Emergencys() {
     }
 
-    public Emergencys(String image, String name, String description, String phone, String location, String locationlatitude, String locationlongtitude, String servicetype, String servicetime) {
+    public Emergencys(String image, String name, String url, String description, String phone, String location, String locationlatitude, String locationlongtitude, String servicetype, String servicetime, String rating) {
         this.image = image;
         this.name = name;
+        this.url = url;
         this.description = description;
         this.phone = phone;
         this.location = location;
@@ -19,6 +18,7 @@ public class Emergencys {
         this.locationlongtitude = locationlongtitude;
         this.servicetype = servicetype;
         this.servicetime = servicetime;
+        this.rating = rating;
     }
 
     public String getImage() {
@@ -35,6 +35,14 @@ public class Emergencys {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getDescription() {
@@ -91,5 +99,13 @@ public class Emergencys {
 
     public void setServicetime(String servicetime) {
         this.servicetime = servicetime;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 }

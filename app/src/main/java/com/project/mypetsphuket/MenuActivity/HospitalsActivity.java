@@ -94,7 +94,7 @@ public class HospitalsActivity extends AppCompatActivity {
 
         clearAll();
 
-        Query query = reference.child("Images");
+        Query query = reference.child("Hospitals");
 
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -107,6 +107,7 @@ public class HospitalsActivity extends AppCompatActivity {
                     images.setUrl(snapshot.child("url").getValue().toString());
                     images.setName(snapshot.child("name").getValue().toString());
                     images.setDescription(snapshot.child("description").getValue().toString());
+                    images.setRating(snapshot.child("rating").getValue().toString());
                     images.setLocation(snapshot.child("location").getValue().toString());
 
                     imagesList.add(images);

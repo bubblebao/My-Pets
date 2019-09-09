@@ -32,16 +32,27 @@
                     android:layout_alignParentStart="true"
                     />
 
+                <!--     <TextView
+                         android:id="@+id/update_account_settings_btn"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="Update"
+                         android:textColor="@android:color/white"
+                         android:textSize="17sp"
+                         android:textStyle="bold"
+                         android:layout_marginRight="10dp"
+                         android:layout_alignParentEnd="true"
+                         />  -->
+
                 <TextView
-                    android:id="@+id/petshop_next_btn"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/Petshop_Title"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Update"
+                    android:layout_alignParentStart="true"
+                    android:text="Pet Shops"
                     android:textColor="@android:color/white"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
-                    android:layout_marginRight="10dp"
-                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:textSize="18dp"
                     />
 
             </RelativeLayout>
@@ -51,29 +62,18 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
-        >
+        android:layout_marginTop="40dp">
 
-        <!-- //Use Here  -->
-        <TextView
-            android:id="@+id/profile_image_change_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Petshop"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
-            android:textColor="@android:color/black"
-            android:layout_below="@+id/settings_profile_image"
-            android:layout_centerHorizontal="true"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/PetshopRecycleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="25dp"
             />
 
 
     </RelativeLayout>
-
 </RelativeLayout>

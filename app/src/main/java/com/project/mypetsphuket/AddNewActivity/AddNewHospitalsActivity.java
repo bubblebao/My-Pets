@@ -281,7 +281,7 @@ public class AddNewHospitalsActivity extends AppCompatActivity {
      //   HospitalMap.put("pid", HospitalRandomKey);
 
      //   HospitalMap.put("id", HospitalRandomKey);
-        HospitalMap.put("image", downloadImageUrl);
+        HospitalMap.put("url", downloadImageUrl);
         HospitalMap.put("category", CategoryName);
         HospitalMap.put("name", Name);
         HospitalMap.put("phone", Phone);
@@ -292,7 +292,7 @@ public class AddNewHospitalsActivity extends AppCompatActivity {
         HospitalMap.put("servicrtime", Servicetime);
         HospitalMap.put("servicrtype", Servicetype);
 
-        HospitalRef.child(String.valueOf(maxId+1)).setValue(HospitalMap)
+        HospitalRef.child(CategoryName + String.valueOf(maxId+1)).setValue(HospitalMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

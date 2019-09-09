@@ -44,6 +44,18 @@
                               android:layout_alignParentEnd="true"
                               />
                 -->
+
+                <TextView
+                    android:id="@+id/hospitals_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Hospitals"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    />
+
             </RelativeLayout>
 
         </androidx.appcompat.widget.Toolbar>
@@ -57,32 +69,13 @@
         android:layout_height="match_parent"
         android:layout_marginTop="50dp">
 
-        <TextView
-            android:id="@+id/hospitals_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="0dp"
-            android:text="Hospitals"
-            android:textColor="@android:color/darker_gray"
-            android:gravity="center"
-            android:textSize="18dp"
-            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/hospitals_title">
-
+            android:layout_height="match_parent">
 
         </androidx.recyclerview.widget.RecyclerView>
-
-
-
-
-
-
 
 
 

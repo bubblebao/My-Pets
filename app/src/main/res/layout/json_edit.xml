@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!--         {
+      "Admins" : {
+        "1111" : {
+          "name" : "ad",
+          "password" : "1111",
+          "phone" : "1111"
+        },
+        "+66822828303" : {
+          "name" : "ADMIN",
+          "password" : "1",
+          "phone" : "+66822828303"
+        }
+      },
+      "Doctors" : [ null, {
+        "Category" : "doctor",
+        "Image" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2Fprimary%3AProject%2Fbring.png%E0%B8%81.%E0%B8%A2.%2009%2C%202019%2007%3A21%3A07%20%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%87.jpg?alt=media&token=57c93e12-b9ec-477a-8049-5044651a936f",
+        "location" : "Samkong",
+        "locationlatitude" : "854.225",
+        "locationlongtitude" : "825.55",
+        "name" : "Dr. Vivek Thakur",
+        "phone" : "864698",
+        "servicrtime" : "doh",
+        "specialist" : "Dog",
+        "working" : "bdidgbs",
+        "rating" : "4.3",
+        "url" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Vivek%20Thakur.png?alt=media&token=bd8c4aa8-f621-48a3-bc74-8eb6050a6ac2"
+      }, {
+        "Category" : "doctor",
+        "Image" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2Fprimary%3AProject%2FMaeluan%20Phuket%20Animal%20Hospital-2.png%E0%B8%81.%E0%B8%A2.%2009%2C%202019%2007%3A37%3A12%20%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%87.jpg?alt=media&token=2a29961e-a1ba-48f3-aae0-6d11125ea75d",
+        "location" : "D Condo",
+        "locationlatitude" : "0545.555",
+        "locationlongtitude" : "855.75",
+        "name" : "Dr. Sagar ",
+        "phone" : "854885668",
+        "servicrtime" : "cat",
+        "specialist" : "Cat",
+        "working" : "RTB",
+        "rating" : "4.3",
+        "url" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Sagar.png?alt=media&token=84ef8e63-8ccb-471c-b537-cc1dc14fa1d3"
+      }, {
+        "Category" : "doctor",
+        "Image" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2Fprimary%3AProject%2FMaeluan%20Phuket%20Animal%20Hospital-2.png%E0%B8%81.%E0%B8%A2.%2009%2C%202019%2007%3A37%3A12%20%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%87.jpg?alt=media&token=2a29961e-a1ba-48f3-aae0-6d11125ea75d",
+        "location" : "D Plus",
+        "locationlatitude" : "45.65151",
+        "locationlongtitude" : "855.75",
+        "name" : "Dr. Ashish ",
+        "phone" : "8548852668",
+        "servicrtime" : "cat",
+        "specialist" : "Cat",
+        "working" : "RTB",
+        "rating" : "4.1",
+        "url" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Ashish.png?alt=media&token=dc235f4f-2c49-4222-aba4-f98546a53e4a"
+      }, {
+        "Category" : "doctor",
+        "Image" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Diksha%20Sen.png?alt=media&token=cea92102-4a6b-43c8-a810-2ab8dad48434",
+        "location" : "D Plus",
+        "locationlatitude" : "45.65151",
+        "locationlongtitude" : "855.75",
+        "name" : "Dr. Diksha Sen ",
+        "phone" : "8548852668",
+        "servicrtime" : "cat",
+        "specialist" : "Cat",
+        "working" : "RTB",
+        "rating" : "4.8",
+        "url" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Diksha%20Sen.png?alt=media&token=cea92102-4a6b-43c8-a810-2ab8dad48434"
+      }, {
+        "Category" : "doctor",
+        "Image" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+        "location" : "D Condo",
+        "locationlatitude" : "0545.555",
+        "locationlongtitude" : "855.75",
+        "name" : "Dr. Guru Barapatre ",
+        "phone" : "854885668",
+        "servicrtime" : "cat",
+        "specialist" : "Cat",
+        "working" : "RTB",
+        "rating" : "4.3",
+        "url" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308"
+      } ],
+      "Emergencys" : [ null, {
+        "location" : "hdhhd",
+        "locationlatitude" : "8545",
+        "locationlongtitude" : "8545",
+        "category" : "emergency",
+        "description" : "nhjdhh",
+        "id" : "ก.ย. 06, 2019 04:45:05 ก่อนเที่ยง ",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Emergencys%2Fprimary%3AMIUI%2FGallery%2Fcloud%2Fowner%2Fmy%20shopping%20%2FScreenshot_2018-12-24-01-27-00-266_com.instagram.android.png%E0%B8%81.%E0%B8%A2.%2006%2C%202019%2004%3A45%3A05%20%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%87%20.jpg?alt=media&token=42d8362c-9d24-42cb-8cfe-e2d88b8fec3a",
+        "name" : "dhhdd",
+        "phone" : "8545",
+        "rating" : "4.3",
+        "servicrtime" : "hxud",
+        "servicrtype" : "hxud"
+      } ],
+      "Hospitals" : [ null, {
+        "location" : "าดนดนพนพ",
+        "locationlatitude" : "88598",
+        "locationlongtitude" : "85569",
+        "category" : "hospital",
+        "description" : "หระ้ร",
+        "id" : "ก.ย. 05, 201923:46:24 หลังเที่ยง",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Hospitals%2Fprimary%3AMIUI%2FGallery%2Fcloud%2Fowner%2Fmy%20shopping%20%2FScreenshot_2018-12-23-22-55-28-975_com.instagram.android.png%E0%B8%81.%E0%B8%A2.%2005%2C%20201923%3A46%3A24%20%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%87.jpg?alt=media&token=85693397-45ae-4031-ab6c-974eb8e0bc93",
+        "name" : "อยู่​ไหน​ละ​ครับ​",
+        "phone" : "087",
+        "rating" : "4.3",
+        "servicrtype" : "อยู่​บ้าน​น้อง​เค้า​"
+      }, {
+        "location" : "jugs",
+        "locationlatitude" : "55556",
+        "locationlongtitude" : "8545",
+        "category" : "hospital",
+        "description" : "dhduxh",
+        "id" : "ก.ย. 06, 2019 04:34:52 ก่อนเที่ยง ",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Hospitals%2Fprimary%3AMIUI%2FGallery%2Fcloud%2Fowner%2Fmy%20shopping%20%2FScreenshot_2018-12-24-00-47-50-562_com.instagram.android.png%E0%B8%81.%E0%B8%A2.%2006%2C%202019%2004%3A34%3A52%20%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%87%20.jpg?alt=media&token=460c9380-97a5-4070-adfc-65461d9b695b",
+        "name" : "dhhfhd",
+        "phone" : "5545",
+        "rating" : "4.3",
+        "servicrtime" : "had dh",
+        "servicrtype" : "had dh"
+      }, {
+        "location" : "08768555",
+        "locationlatitude" : "8648.555",
+        "locationlongtitude" : "8645.85",
+        "category" : "hospital",
+        "description" : "zbygso",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Hospitals%2Fprimary%3AProject%2Fmodern.png%E0%B8%81.%E0%B8%A2.%2009%2C%202019%2007%3A20%3A15%20%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%87%20.jpg?alt=media&token=877da589-f8aa-41ca-8a03-e427f426066d",
+        "name" : "fkfhxi",
+        "phone" : "087658999",
+        "rating" : "4.6",
+        "servicrtime" : "pet",
+        "servicrtype" : "pet"
+      } ],
+      "Images" : {
+        "image1" : {
+          "description" : "this is 1",
+          "location" : "Patong",
+          "name" : "RTB",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/test-recycleview.appspot.com/o/Akane%20Koi%20House.png?alt=media&token=d87783ea-776f-41cd-a65f-7e174f11c25f"
+        },
+        "image2" : {
+          "description" : "this is 2",
+          "location" : "Karon",
+          "name" : "Siriroth",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/test-recycleview.appspot.com/o/young_adult_shutterstock.jpg.CROP.promo-mediumlarge.png?alt=media&token=71c51bce-9a8e-4c9a-a5e4-796210e17607"
+        },
+        "image3" : {
+          "description" : "this is 3",
+          "location" : "Kata",
+          "name" : "ISSO",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/test-recycleview.appspot.com/o/Maeluan%20Phuket%20Animal%20Hospital.png?alt=media&token=4a3671a6-61ef-44de-9c78-52931681e6d1"
+        }
+      },
+      "Petshops" : [ null, {
+        "location" : "120 Ranong, Mueang, Phuket",
+        "locationlatitude" : "70889",
+        "locationlongtitude" : "98.3788",
+        "category" : "petshop",
+        "description" : "Petshop",
+        "id" : "ก.ย. 06, 2019 04:48:46 ก่อนเที่ยง ",
+        "image" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Petshops%2Fprimary%3AMIUI%2FGallery%2Fcloud%2Fowner%2Fmy%20shopping%20%2FScreenshot_2018-12-24-13-51-47-346_com.airgoat.goat.png%E0%B8%81.%E0%B8%A2.%2006%2C%202019%2004%3A48%3A46%20%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%87%20.jpg?alt=media&token=51ba6757-c749-4716-af79-caf8ab2a8c10",
+        "name" : "Baan Indy",
+        "phone" : "0993147733",
+        "rating" : "4.3",
+        "servicrtime" : "Pet",
+        "servicrtype" : "Pet"
+      } ],
+      "Products" : {
+        "2" : {
+          "location" : "pato",
+          "category" : "Product",
+          "date" : "ก.ย. 09, 2019",
+          "description" : "one",
+          "image" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Product%20Images%2Fprimary%3AProject%2FMaeluan%20Phuket%20Animal%20Hospital-2.png%E0%B8%81.%E0%B8%A2.%2009%2C%20201907%3A38%3A47%20%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%87.jpg?alt=media&token=6c6e0d1f-a415-43d5-ac8c-61f0738f17d5",
+          "id" : "ก.ย. 09, 201907:38:47 ก่อนเที่ยง",
+          "name" : "Product 1",
+          "rating" : "4.3",
+          "price" : "500",
+          "time" : "07:38:47 ก่อนเที่ยง"
+        },
+        "emergency02:47:37 ก่อนเที่ยง" : {
+          "location" : "ฉลอง",
+          "locationlatitude" : "8258.556",
+          "locationlongtitude" : "8864.52",
+          "category" : "emergency",
+          "description" : "ปลา",
+          "image" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Product%20Images%2Fprimary%3AProject%2Findy.pngemergency02%3A47%3A37%20%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%87.jpg?alt=media&token=0a7284c7-1c61-41d5-aad4-60acc1eb939e",
+          "id" : "emergency02:47:37 ก่อนเที่ยง",
+          "name" : "indy",
+          "price" : "250"
+        }
+      },
+      "Profiles" : {
+        "AA" : {
+          "email" : "VSEDW",
+          "name" : "aa",
+          "permission" : true,
+          "profilePic" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/indy.png?alt=media&token=59e40cdf-012f-419f-bb55-6f5c16de3ec1"
+        },
+        "BB" : {
+          "email" : "thepm_@gmaom,com",
+          "name" : "bb",
+          "permission" : false,
+          "profilePic" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Rattanathibet%20Referral%20Animal%20Hospital.png?alt=media&token=cda483ee-8c3e-4332-90c8-2bba583ae5e0"
+        }
+      },
+      "Users" : {
+        "0000" : {
+          "name" : "baoo",
+          "password" : "0000",
+          "phone" : "0000"
+        },
+        "00000" : {
+          "name" : "benz",
+          "password" : "000000",
+          "phone" : "00000"
+        },
+        "12345" : {
+          "name" : "asdsads",
+          "password" : "12345",
+          "phone" : "12345"
+        },
+        "0812737055" : {
+          "name" : "bao",
+          "password" : "12345",
+          "phone" : "0812737055"
+        },
+        "+66822828303" : {
+          "address" : "UK",
+          "image" : "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Profile%20pictures%2F%2B66822828303.jpg?alt=media&token=2847ded5-cfd5-483b-8385-1dd6a1d9e32a",
+          "name" : "Bob Marlay",
+          "password" : "2",
+          "phone" : "+66822828303",
+          "phoneOrder" : "+66822828303"
+        }
+      }
+    }
+           -->
+
+</LinearLayout>

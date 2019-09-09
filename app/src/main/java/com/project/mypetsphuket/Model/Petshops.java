@@ -2,13 +2,14 @@ package com.project.mypetsphuket.Model;
 
 public class Petshops {
 
-    private String image , name, description, phone, location, locationlatitude, locationlongtitude, servicetype , servicetime ;
+    private String image , url , name, description, phone, location, locationlatitude, locationlongtitude, servicetype , srvicetime , rating ;
 
     public Petshops() { }
 
 
-    public Petshops(String image, String name, String description, String phone, String location, String locationlatitude, String locationlongtitude, String servicetype, String servicetime) {
+    public Petshops(String image, String url, String name, String description, String phone, String location, String locationlatitude, String locationlongtitude, String servicetype, String srvicetime, String rating) {
         this.image = image;
+        this.url = url;
         this.name = name;
         this.description = description;
         this.phone = phone;
@@ -16,7 +17,8 @@ public class Petshops {
         this.locationlatitude = locationlatitude;
         this.locationlongtitude = locationlongtitude;
         this.servicetype = servicetype;
-        this.servicetime = servicetime;
+        this.srvicetime = srvicetime;
+        this.rating = rating;
     }
 
     public String getImage() {
@@ -25,6 +27,14 @@ public class Petshops {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getName() {
@@ -83,11 +93,19 @@ public class Petshops {
         this.servicetype = servicetype;
     }
 
-    public String getServicetime() {
-        return servicetime;
+    public String getSrvicetime() {
+        return srvicetime;
     }
 
-    public void setServicetime(String servicetime) {
-        this.servicetime = servicetime;
+    public void setSrvicetime(String srvicetime) {
+        this.srvicetime = srvicetime;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 }

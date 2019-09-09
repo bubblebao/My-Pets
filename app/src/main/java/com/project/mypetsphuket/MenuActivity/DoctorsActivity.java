@@ -49,9 +49,7 @@ public class DoctorsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_doctors);
         closeTextBtn = (TextView) findViewById(R.id.close_doctors_btn);
       //  NextTextButton = (TextView) findViewById(R.id.update_settings_btn);
-
-
-        // userInfoDisplay(profileImageView, fullNameEditText, userPhoneEditText, addressEditText);
+      // userInfoDisplay(profileImageView, fullNameEditText, userPhoneEditText, addressEditText);
 
         closeTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +61,7 @@ public class DoctorsActivity extends AppCompatActivity {
 
         Log.d(TAG,"onCreate started");
 
-        recyclerView = (RecyclerView) findViewById(R.id.DocRecycleView);
+        recyclerView = (RecyclerView) findViewById(R.id.DocRecycleView);  //here
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -92,9 +90,10 @@ public class DoctorsActivity extends AppCompatActivity {
                     Doctors doctors = new Doctors();
 
                     doctors.setUrl(snapshot.child("url").getValue().toString());
-                    doctors.setName(snapshot.child("Name").getValue().toString());
-                    doctors.setSpecialist(snapshot.child("Specialist").getValue().toString());
-                    doctors.setLocation(snapshot.child("Location").getValue().toString());
+                    doctors.setName(snapshot.child("name").getValue().toString());
+                    doctors.setSpecialist(snapshot.child("specialist").getValue().toString());
+                    doctors.setLocation(snapshot.child("location").getValue().toString());
+                    doctors.setRating(snapshot.child("rating").getValue().toString());
 
                     doctorsList.add(doctors);
                 }

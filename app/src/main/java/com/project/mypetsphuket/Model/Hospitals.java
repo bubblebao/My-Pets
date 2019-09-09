@@ -3,13 +3,14 @@ package com.project.mypetsphuket.Model;
 public class Hospitals {
 
    // Name, Description, Phone, Location, Locationlatitude, Locationlongtitude, Servicetype
-    private String image , name, description, phone, location, locationlatitude, locationlongtitude, servicetype , srvicetime ;
+    private String image , url , name, description, phone, location, locationlatitude, locationlongtitude, servicetype , srvicetime , rating ;
 
 
     public Hospitals() {}
 
-    public Hospitals(String image, String name, String description, String phone, String location, String locationlatitude, String locationlongtitude, String servicetype, String srvicetime) {
+    public Hospitals(String image, String url, String name, String description, String phone, String location, String locationlatitude, String locationlongtitude, String servicetype, String srvicetime, String rating) {
         this.image = image;
+        this.url = url;
         this.name = name;
         this.description = description;
         this.phone = phone;
@@ -18,6 +19,7 @@ public class Hospitals {
         this.locationlongtitude = locationlongtitude;
         this.servicetype = servicetype;
         this.srvicetime = srvicetime;
+        this.rating = rating;
     }
 
     public String getImage() {
@@ -26,6 +28,14 @@ public class Hospitals {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getName() {
@@ -90,5 +100,13 @@ public class Hospitals {
 
     public void setSrvicetime(String srvicetime) {
         this.srvicetime = srvicetime;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 }

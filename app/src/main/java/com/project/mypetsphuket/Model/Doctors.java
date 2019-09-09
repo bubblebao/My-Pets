@@ -2,14 +2,14 @@ package com.project.mypetsphuket.Model;
 
 public class Doctors {
 
-    private String name, phone ,  url,  working , location, locationlatitude, locationlongtitude,servicetime, specialist ;
+    private String name, phone ,  url,  working , location, locationlatitude, locationlongtitude,servicetime, specialist , rating;
 
     public Doctors()
     {
 
     }
 
-    public Doctors(String name, String phone, String url, String working, String location, String locationlatitude, String locationlongtitude, String servicetime, String specialist) {
+    public Doctors(String name, String phone, String url, String working, String location, String locationlatitude, String locationlongtitude, String servicetime, String specialist, String rating) {
         this.name = name;
         this.phone = phone;
         this.url = url;
@@ -19,6 +19,7 @@ public class Doctors {
         this.locationlongtitude = locationlongtitude;
         this.servicetime = servicetime;
         this.specialist = specialist;
+        this.rating = rating;
     }
 
     public String getName() {
@@ -91,5 +92,13 @@ public class Doctors {
 
     public void setSpecialist(String specialist) {
         this.specialist = specialist;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 }

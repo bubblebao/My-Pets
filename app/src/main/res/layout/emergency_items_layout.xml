@@ -14,36 +14,31 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="6dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        >
+        android:padding="5dp">
 
         <LinearLayout
+            android:background="@color/background_CardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/Doctor_imageView"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:id="@+id/Emergency_imageView"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/ic_emergency_load"
                 android:scaleType="fitXY"
-                android:background="@drawable/ic_doctor_load"
 
                 />
 
-
-
             <RelativeLayout
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/Doc_Name"
+                    android:id="@+id/Emer_Name"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="Doctor Name"
+                    android:text="Emergency Name"
                     android:textAlignment="textStart"
                     android:layout_marginLeft="5dp"
                     android:textSize="15dp"
@@ -51,13 +46,13 @@
                     android:textStyle="bold"/>
 
                 <TextView
-                    android:id="@+id/Doc_Description"
+                    android:id="@+id/Emer_Description"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/Doc_Name"
+                    android:layout_below="@+id/Emer_Name"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="Doctor Description"
+                    android:text="Emergency Description"
                     android:textAlignment="textStart"
                     android:textColor="@color/black_grey"
                     android:textSize="12dp" />
@@ -65,16 +60,16 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:layout_below="@id/Doc_Description"
+                    android:layout_below="@id/Emer_Description"
                     android:layout_marginTop="9dp"
                     android:src="@drawable/ic_mark_blue" />
 
                 <TextView
-                    android:id="@+id/Doctor_location"
+                    android:id="@+id/Emergency_location"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/Doc_Description"
-                    android:text="Doctor location"
+                    android:layout_below="@+id/Emer_Description"
+                    android:text="Emergency location"
                     android:layout_marginTop="12dp"
                     android:layout_marginLeft="23dp"
                     android:textAlignment="textStart"
@@ -98,7 +93,7 @@
 
 
                 <ImageView
-                    android:id="@+id/Doctor_Rate"
+                    android:id="@+id/Emer_star"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_below="@id/map_mark"
@@ -108,7 +103,7 @@
 
 
                 <TextView
-                    android:id="@+id/Doc_Rating"
+                    android:id="@+id/Emer_Rating"
                     android:layout_width="20dp"
                     android:layout_height="wrap_content"
                     android:text="4.5"

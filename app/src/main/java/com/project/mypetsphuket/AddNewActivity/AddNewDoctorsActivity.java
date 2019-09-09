@@ -69,7 +69,7 @@ public class AddNewDoctorsActivity extends AppCompatActivity {
         DoctorImagesRef = FirebaseStorage.getInstance().getReference().child(parentDbName);
         DoctorRef =    FirebaseDatabase.getInstance().getReference().child(parentDbName);
 
-        closeTextBtn = (TextView) findViewById(R.id.close_Doctor_btn);
+        closeTextBtn = (TextView) findViewById(R.id.close_add_Doctor_btn);
         InputDoctorImage = (ImageView) findViewById(R.id.select_Doctor_image);
         InputName = (EditText) findViewById(R.id.add_Doctor_name);
         InputDescription = (EditText) findViewById(R.id.add_Doctor_description);
@@ -286,7 +286,7 @@ public class AddNewDoctorsActivity extends AppCompatActivity {
         //   DoctorMap.put("pid", DoctorRandomKey);
 
       //  DoctorMap.put("Id", DoctorRandomKey);
-        DoctorMap.put("image", downloadImageUrl);
+        DoctorMap.put("url", downloadImageUrl);
         DoctorMap.put("category", CategoryName);
         DoctorMap.put("name", Name);
         DoctorMap.put("phone", Phone);
@@ -297,7 +297,7 @@ public class AddNewDoctorsActivity extends AppCompatActivity {
         DoctorMap.put("servicetime", Servicetime);
         DoctorMap.put("specialist", Specialist);
 
-        DoctorRef.child(String.valueOf(maxId+1)).setValue(DoctorMap)
+        DoctorRef.child(CategoryName+String.valueOf(maxId+1)).setValue(DoctorMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

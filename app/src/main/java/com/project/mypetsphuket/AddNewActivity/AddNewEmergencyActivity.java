@@ -275,7 +275,7 @@ public class AddNewEmergencyActivity extends AppCompatActivity {
         //   EmergencyMap.put("pid", EmergencyRandomKey);
 
   //      EmergencyMap.put("id", EmergencyRandomKey);
-        EmergencyMap.put("image", downloadImageUrl);
+        EmergencyMap.put("url", downloadImageUrl);
         EmergencyMap.put("category", CategoryName);
         EmergencyMap.put("name", Name);
         EmergencyMap.put("phone", Phone);
@@ -286,7 +286,7 @@ public class AddNewEmergencyActivity extends AppCompatActivity {
         EmergencyMap.put("servicrtime", Servicetime);
         EmergencyMap.put("servicrtype", Servicetype);
 
-        EmergencyRef.child(String.valueOf(maxId+1)).setValue(EmergencyMap)
+        EmergencyRef.child(CategoryName+String.valueOf(maxId+1)).setValue(EmergencyMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

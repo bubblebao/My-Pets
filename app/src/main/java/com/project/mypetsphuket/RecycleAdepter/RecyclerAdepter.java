@@ -41,6 +41,7 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
         holder.tvName.setText(imagesList.get(position).getName());
         holder.tvDescription.setText(imagesList.get(position).getDescription());
         holder.tvLocation.setText(imagesList.get(position).getLocation());
+        holder.tvRating.setText(imagesList.get(position).getRating());
         Picasso.get().load(imagesList.get((position)).getUrl())
                 .into(holder.imageView);
     }
@@ -56,13 +57,15 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
         TextView tvName;
         TextView tvDescription;
         TextView tvLocation;
+        TextView tvRating;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = (ImageView) itemView.findViewById(R.id.imageView);
+            imageView = (ImageView) itemView.findViewById(R.id.HosImageView);
             tvName = (TextView) itemView.findViewById(R.id.Hospital_name);
             tvDescription = (TextView) itemView.findViewById(R.id.tvDescription);
             tvLocation = (TextView) itemView.findViewById(R.id.tvLocation);
+            tvRating = (TextView) itemView.findViewById(R.id.Hosp_rate);
         }
     }
 }

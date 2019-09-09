@@ -67,7 +67,7 @@ public class AddNewPetshopActivity extends AppCompatActivity {
         PetshopImagesRef = FirebaseStorage.getInstance().getReference().child(parentDbName);
         PetshopRef =    FirebaseDatabase.getInstance().getReference().child(parentDbName);
 
-        closeTextBtn = (TextView) findViewById(R.id.close_Petshop_btn);
+        closeTextBtn = (TextView) findViewById(R.id.close_Petshop_add_btn);
         InputPetshopImage = (ImageView) findViewById(R.id.select_Petshop_image);
         InputName = (EditText) findViewById(R.id.add_Petshop_name);
         InputDescription = (EditText) findViewById(R.id.add_Petshop_description);
@@ -281,18 +281,18 @@ public class AddNewPetshopActivity extends AppCompatActivity {
         //   PetshopMap.put("pid", PetshopRandomKey);
 
    //     PetshopMap.put("id", PetshopRandomKey);
-        PetshopMap.put("image", downloadImageUrl);
+        PetshopMap.put("url", downloadImageUrl);
         PetshopMap.put("category", CategoryName);
         PetshopMap.put("name", Name);
         PetshopMap.put("phone", Phone);
         PetshopMap.put("description", Description);
-        PetshopMap.put("Location", Location);
-        PetshopMap.put("Locationlatitude", Locationlatitude);
-        PetshopMap.put("Locationlongtitude", Locationlongtitude);
+        PetshopMap.put("location", Location);
+        PetshopMap.put("locationlatitude", Locationlatitude);
+        PetshopMap.put("locationlongtitude", Locationlongtitude);
         PetshopMap.put("servicrtime", Servicetime);
         PetshopMap.put("servicrtype", Servicetype);
 
-        PetshopRef.child(String.valueOf(maxId+1)).setValue(PetshopMap)
+        PetshopRef.child(CategoryName+String.valueOf(maxId+1)).setValue(PetshopMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

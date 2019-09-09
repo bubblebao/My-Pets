@@ -14,7 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MenuActivity.ProductActivity"></activity>
         <activity android:name=".AddNewActivity.AddNewEmergencyActivity" />
         <activity android:name=".AddNewActivity.AddNewPetshopActivity" />
         <activity android:name=".AddNewActivity.AddNewDoctorsActivity" />

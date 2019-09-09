@@ -42,6 +42,7 @@ public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.
         holder.tvName.setText(doctorsList.get(position).getName());
         holder.tvDescription.setText(doctorsList.get(position).getSpecialist());
         holder.tvLocation.setText(doctorsList.get(position).getLocation());
+        holder.tvRating.setText(doctorsList.get(position).getRating());
         Picasso.get().load(doctorsList.get((position)).getUrl())
                 .into(holder.imageView);
     }
@@ -57,13 +58,15 @@ public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.
         TextView tvName;
         TextView tvDescription;
         TextView tvLocation;
+        TextView tvRating;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.Doctor_imageView);
-            tvName = (TextView) itemView.findViewById(R.id.DocName);
-            tvDescription = (TextView) itemView.findViewById(R.id.DocDescription);
+            tvName = (TextView) itemView.findViewById(R.id.Doc_Name);
+            tvDescription = (TextView) itemView.findViewById(R.id.Doc_Description);
             tvLocation = (TextView) itemView.findViewById(R.id.Doctor_location);
+            tvRating = (TextView) itemView.findViewById(R.id.Doc_Rating);
         }
     }
 }
