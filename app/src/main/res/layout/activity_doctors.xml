@@ -51,57 +51,33 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp">
-
+        android:layout_marginTop="40dp">
 
         <TextView
-            android:id="@+id/profile_image_change_btn"
-            android:layout_width="wrap_content"
+            android:id="@+id/doctor_title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"
             android:text="Doctors"
-            android:textSize="17sp"
+            android:textColor="@android:color/darker_gray"
+            android:gravity="center"
+            android:textSize="18dp"
             android:textStyle="bold"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="4dp"
-            android:textColor="@android:color/black"
-            android:layout_below="@+id/settings_profile_image"
-            android:layout_centerHorizontal="true"
             />
 
-        <EditText
-            android:id="@+id/settings_phone_number"
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/DocRecycleView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/profile_image_change_btn"
-            android:hint="Phone Number..."
-            android:layout_margin="15dp"
-            android:padding="10dp"
-            />
+            android:layout_height="match_parent"
+            android:layout_below="@id/doctor_title">
 
-        <EditText
-            android:id="@+id/settings_full_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/settings_phone_number"
-            android:hint="Full Name..."
-            android:layout_margin="15dp"
-            android:padding="10dp"
-            />
 
-        <EditText
-            android:id="@+id/settings_address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/settings_full_name"
-            android:hint="Address..."
-            android:layout_margin="15dp"
-            android:padding="10dp"
-            />
-
+        </androidx.recyclerview.widget.RecyclerView>
 
     </RelativeLayout>
 

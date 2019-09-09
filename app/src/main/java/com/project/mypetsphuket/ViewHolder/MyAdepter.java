@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.project.mypetsphuket.Model.Profile;
+import com.project.mypetsphuket.Spare.Profile;
 import com.project.mypetsphuket.R;
 import com.squareup.picasso.Picasso;
 

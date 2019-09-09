@@ -1,4 +1,4 @@
-package com.project.mypetsphuket.Model;
+package com.project.mypetsphuket.Spare;
 
 public class Products {
 

@@ -4,7 +4,6 @@ public class Images {
 
     private String name , description , url ,location ;
 
-
     public Images (){}
 
     public Images(String name, String description, String url, String location) {
