@@ -32,18 +32,6 @@
                     android:layout_alignParentStart="true"
                     />
 
-                          <TextView
-                               android:id="@+id/petshop_next_btn"
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="Update"
-                               android:textColor="@android:color/white"
-                               android:textSize="17sp"
-                               android:textStyle="bold"
-                               android:layout_marginRight="10dp"
-                               android:layout_alignParentEnd="true"
-                              android:visibility="invisible"
-                              ></TextView>
 
 
             </RelativeLayout>
@@ -119,7 +107,7 @@
             />
 
         <EditText
-            android:id="@+id/shop_location"
+            android:id="@+id/product_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/product_description"
@@ -131,52 +119,30 @@
             android:layout_marginRight="45dp"
             android:background="@drawable/input_design"
             />
+
+
+
         <EditText
-            android:id="@+id/shop_location_la"
+            android:id="@+id/product_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/shop_location"
-            android:inputType="numberDecimal"
-            android:layout_marginTop="6dp"
-            android:padding="20dp"
-            android:hint="Location latitude"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="45dp"
-            android:background="@drawable/input_design"
-            />
-        <EditText
-            android:id="@+id/shop_location_long"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/shop_location_la"
-            android:inputType="numberDecimal"
-            android:layout_marginTop="6dp"
-            android:padding="20dp"
-            android:hint="Location longtitude"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="45dp"
-            android:background="@drawable/input_design"
-            />
-        <EditText
-            android:id="@+id/shop_service_type"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/shop_location_long"
+            android:layout_below="@+id/product_location"
             android:inputType="textMultiLine"
             android:layout_marginTop="6dp"
             android:padding="20dp"
-            android:hint="Service Type"
+            android:hint="Product Price..."
             android:layout_marginLeft="45dp"
             android:layout_marginRight="45dp"
             android:background="@drawable/input_design"
             />
+
 
 
         <Button
             android:id="@+id/add_new_product"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/shop_service_type"
+            android:layout_below="@+id/product_price"
             android:text="Add New"
             android:layout_marginLeft="45dp"
             android:layout_marginRight="45dp"

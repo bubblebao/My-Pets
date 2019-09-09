@@ -286,9 +286,9 @@ public class AddNewHospitalsActivity extends AppCompatActivity {
         HospitalMap.put("name", Name);
         HospitalMap.put("phone", Phone);
         HospitalMap.put("description", Description);
-        HospitalMap.put("Location", Location);
-        HospitalMap.put("Locationlatitude", Locationlatitude);
-        HospitalMap.put("Locationlongtitude", Locationlongtitude);
+        HospitalMap.put("location", Location);
+        HospitalMap.put("locationlatitude", Locationlatitude);
+        HospitalMap.put("locationlongtitude", Locationlongtitude);
         HospitalMap.put("servicrtime", Servicetime);
         HospitalMap.put("servicrtype", Servicetype);
 

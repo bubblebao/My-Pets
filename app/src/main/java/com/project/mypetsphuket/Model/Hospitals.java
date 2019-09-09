@@ -3,95 +3,92 @@ package com.project.mypetsphuket.Model;
 public class Hospitals {
 
    // Name, Description, Phone, Location, Locationlatitude, Locationlongtitude, Servicetype
-    String Image , Name, Description, Phone, Location, Locationlatitude, Locationlongtitude, Servicetype , Servicetime ;
+    private String image , name, description, phone, location, locationlatitude, locationlongtitude, servicetype , srvicetime ;
 
 
-    public Hospitals()
-    {
+    public Hospitals() {}
 
-    }
-
-    public Hospitals(String image, String name, String description, String phone, String location, String locationlatitude, String locationlongtitude, String servicetype, String servicetime) {
-        Image = image;
-        Name = name;
-        Description = description;
-        Phone = phone;
-        Location = location;
-        Locationlatitude = locationlatitude;
-        Locationlongtitude = locationlongtitude;
-        Servicetype = servicetype;
-        Servicetime = servicetime;
+    public Hospitals(String image, String name, String description, String phone, String location, String locationlatitude, String locationlongtitude, String servicetype, String srvicetime) {
+        this.image = image;
+        this.name = name;
+        this.description = description;
+        this.phone = phone;
+        this.location = location;
+        this.locationlatitude = locationlatitude;
+        this.locationlongtitude = locationlongtitude;
+        this.servicetype = servicetype;
+        this.srvicetime = srvicetime;
     }
 
     public String getImage() {
-        return Image;
+        return image;
     }
 
     public void setImage(String image) {
-        Image = image;
+        this.image = image;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public String getPhone() {
-        return Phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
-        Phone = phone;
+        this.phone = phone;
     }
 
     public String getLocation() {
-        return Location;
+        return location;
     }
 
     public void setLocation(String location) {
-        Location = location;
+        this.location = location;
     }
 
     public String getLocationlatitude() {
-        return Locationlatitude;
+        return locationlatitude;
     }
 
     public void setLocationlatitude(String locationlatitude) {
-        Locationlatitude = locationlatitude;
+        this.locationlatitude = locationlatitude;
     }
 
     public String getLocationlongtitude() {
-        return Locationlongtitude;
+        return locationlongtitude;
     }
 
     public void setLocationlongtitude(String locationlongtitude) {
-        Locationlongtitude = locationlongtitude;
+        this.locationlongtitude = locationlongtitude;
     }
 
     public String getServicetype() {
-        return Servicetype;
+        return servicetype;
     }
 
     public void setServicetype(String servicetype) {
-        Servicetype = servicetype;
+        this.servicetype = servicetype;
     }
 
-    public String getServicetime() {
-        return Servicetime;
+    public String getSrvicetime() {
+        return srvicetime;
     }
 
-    public void setServicetime(String servicetime) {
-        Servicetime = servicetime;
+    public void setSrvicetime(String srvicetime) {
+        this.srvicetime = srvicetime;
     }
 }

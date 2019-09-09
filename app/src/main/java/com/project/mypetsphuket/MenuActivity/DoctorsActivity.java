@@ -16,7 +16,7 @@ public class DoctorsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors);
         closeTextBtn = (TextView) findViewById(R.id.close_doctors_btn);
-        NextTextButton = (TextView) findViewById(R.id.update_settings_btn);
+      //  NextTextButton = (TextView) findViewById(R.id.update_settings_btn);
 
 
         // userInfoDisplay(profileImageView, fullNameEditText, userPhoneEditText, addressEditText);

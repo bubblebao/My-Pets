@@ -280,9 +280,9 @@ public class AddNewEmergencyActivity extends AppCompatActivity {
         EmergencyMap.put("name", Name);
         EmergencyMap.put("phone", Phone);
         EmergencyMap.put("description", Description);
-        EmergencyMap.put("Location", Location);
-        EmergencyMap.put("Locationlatitude", Locationlatitude);
-        EmergencyMap.put("Locationlongtitude", Locationlongtitude);
+        EmergencyMap.put("location", Location);
+        EmergencyMap.put("locationlatitude", Locationlatitude);
+        EmergencyMap.put("locationlongtitude", Locationlongtitude);
         EmergencyMap.put("servicrtime", Servicetime);
         EmergencyMap.put("servicrtype", Servicetype);
 

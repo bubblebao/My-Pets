@@ -1,5 +1,6 @@
 package com.project.mypetsphuket.ViewHolder;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -7,40 +8,80 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.project.mypetsphuket.Interface.ItemClickListner;
+
 import com.project.mypetsphuket.R;
+import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
 
-public class HospitalViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class HospitalViewHolder extends RecyclerView.ViewHolder {
 
     public TextView txtHospitalName, txtHospitalDescription, txtHospitalLocation;
     public ImageView imageView;
-    public ItemClickListner listner;
+   // public ItemClickListner listner;
+    View hView;
 
     public HospitalViewHolder(@NonNull View itemView) {
-
-
         super(itemView);
 
-        imageView = (ImageView) itemView.findViewById(R.id.Hospital_image);
-        txtHospitalDescription = (TextView) itemView.findViewById(R.id.Hospital_description);
-        txtHospitalLocation = (TextView) itemView.findViewById(R.id.Hospital_location);
+        hView = itemView;
+
+ /*       itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                hClickListener.onItemClick(view, getAdapterPosition());
+
+
+            }
+        });
+
+
+        itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                hClickListener.onItemLongClick(view,getAdapterPosition());
+                return false;
+            }
+        });
+    }
+
+    public void setDetail(Context ctx  , String Name , String Description , String location, String image ){
+
+    /*    ImageView HospitalImage = hView.findViewById(R.id.Hospital_image);
+        TextView HospitalName = hView.findViewById(R.id.Hospital_name);
+        TextView HospitalDescription = hView.findViewById(R.id.Hospital_description);
+        TextView HospitalLocation = hView.findViewById(R.id.Hospital_location);
+
+        HospitalName.setText(Name);
+        HospitalDescription.setText(Name);
+        HospitalLocation.setText(Name);
+
+        Picasso.get().load(image).into(HospitalImage);
+
+    }
+
+    private HospitalViewHolder.ClickListener hClickListener;
+
+    public interface ClickListener {
+
+        void onItemClick(View view , int position);
+        void onItemLongClick(View view,int position);
 
 
     }
-    public void setItemClickListner(ItemClickListner listner){
 
-        this.listner = listner;
+    public void setOnClickListener (HospitalViewHolder.ClickListener clickListener ){
 
-    }
+        hClickListener = clickListener;
 
 
-    @Override
-    public void onClick(View view) {
+  */  }
 
-        listner.onClick(view, getAdapterPosition(), false);
-
-    }
 
 }
+
+
+
+
+
+

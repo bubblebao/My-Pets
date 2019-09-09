@@ -17,7 +17,7 @@ public class EmergencyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_emergency);
 
         closeTextBtn = (TextView) findViewById(R.id.close_emergency_btn);
-        NextTextButton = (TextView) findViewById(R.id.update_settings_btn);
+        //NextTextButton = (TextView) findViewById(R.id.update_settings_btn);
 
 
         closeTextBtn.setOnClickListener(new View.OnClickListener() {

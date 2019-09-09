@@ -88,7 +88,7 @@ public class AddNewDoctorsActivity extends AppCompatActivity {
         DoctorRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                maxId=(dataSnapshot.getChildrenCount());
             }
 
             @Override
@@ -286,16 +286,16 @@ public class AddNewDoctorsActivity extends AppCompatActivity {
         //   DoctorMap.put("pid", DoctorRandomKey);
 
       //  DoctorMap.put("Id", DoctorRandomKey);
-        DoctorMap.put("Image", downloadImageUrl);
-        DoctorMap.put("Category", CategoryName);
-        DoctorMap.put("Name", Name);
-        DoctorMap.put("Phone", Phone);
-        DoctorMap.put("Working", Working);
-        DoctorMap.put("Location", Location);
-        DoctorMap.put("Locationlatitude", Locationlatitude);
-        DoctorMap.put("Locationlongtitude", Locationlongtitude);
-        DoctorMap.put("Servicrtime", Servicetime);
-        DoctorMap.put("Specialist", Specialist);
+        DoctorMap.put("image", downloadImageUrl);
+        DoctorMap.put("category", CategoryName);
+        DoctorMap.put("name", Name);
+        DoctorMap.put("phone", Phone);
+        DoctorMap.put("working", Working);
+        DoctorMap.put("location", Location);
+        DoctorMap.put("locationlatitude", Locationlatitude);
+        DoctorMap.put("locationlongtitude", Locationlongtitude);
+        DoctorMap.put("servicetime", Servicetime);
+        DoctorMap.put("specialist", Specialist);
 
         DoctorRef.child(String.valueOf(maxId+1)).setValue(DoctorMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

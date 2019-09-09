@@ -21,8 +21,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -36,15 +39,16 @@ import java.util.HashMap;
 public class AdminAddNewProductActivity extends AppCompatActivity {
 
     private TextView closeTextBtn , NextTextButton;
-    private String CategoryName, Description, Name, Location , Locationlatitude ,Locationlongtitude , Servicetype , saveCurrentDate, saveCurrentTime;
+    private String CategoryName, Description, Name, Location , Locationlatitude ,Locationlongtitude , Price , saveCurrentDate, saveCurrentTime;
     private Button AddNewProductButton;
     private ImageView InputProductImage;
-    private EditText InputProductName, InputProductDescription ,InputLocation ,InputLocationlatitude ,InputLocationlongtitude, InputServicetype;
+    private EditText InputProductName, InputProductDescription ,InputLocation ,InputLocationlatitude ,InputLocationlongtitude, InputProductPrice;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
     private String productRandomKey, downloadImageUrl;
     private StorageReference ProductImagesRef;
     private DatabaseReference ProductsRef;
+    long maxId=0;
 
     private ProgressBar loadingProgress;
 
@@ -59,7 +63,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
 
 
 
-        Toast.makeText(AdminAddNewProductActivity.this, "This is  " + CategoryName + " ready to add now ", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(AdminAddNewProductActivity.this, "This is  " + CategoryName + " ready to add now ", Toast.LENGTH_SHORT).show();
       //  Toast.makeText(AdminAddNewProductActivity.this, "+ +", Toast.LENGTH_SHORT).show();
         closeTextBtn = (TextView) findViewById(R.id.close_admin_btn);
         CategoryName = getIntent().getExtras().get("category").toString();
@@ -70,25 +74,36 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         InputProductImage = (ImageView) findViewById(R.id.select_product_image);
         InputProductName = (EditText) findViewById(R.id.product_name);
         InputProductDescription = (EditText) findViewById(R.id.product_description);
-        InputLocation = (EditText) findViewById(R.id.shop_location);
-        InputLocationlongtitude  = (EditText) findViewById(R.id.shop_location_long);
-        InputLocationlatitude  = (EditText) findViewById(R.id.shop_location_la);
-        InputServicetype = (EditText) findViewById(R.id.shop_service_type);
+        InputLocation = (EditText) findViewById(R.id.product_location);
+        InputProductPrice = (EditText) findViewById(R.id.product_price);
 
         AddNewProductButton = (Button) findViewById(R.id.add_new_product);
 
 
         loadingProgress = findViewById(R.id.Add_Product_ProgressBar);
 
+        ProductsRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            maxId=(dataSnapshot.getChildrenCount());
 
-        InputProductImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                    }
 
-                OpenGallery();
+                          @Override
+                         public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
+                  }
+                 });
+
+
+                InputProductImage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        OpenGallery();
+
+                    }
+                });
 
         AddNewProductButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,9 +133,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         Name = InputProductName.getText().toString();
         Description = InputProductDescription.getText().toString();
         Location = InputLocation.getText().toString();
-        Locationlatitude = InputLocationlatitude.getText().toString();
-        Locationlongtitude = InputLocationlongtitude.getText().toString();
-        Servicetype = InputServicetype.getText().toString();
+        Price = InputProductPrice.getText().toString();
 
         if (ImageUri == null) {
 
@@ -134,17 +147,9 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
 
             Toast.makeText(this, "Please write place location !", Toast.LENGTH_SHORT).show();
 
-        } else if (TextUtils.isEmpty(Locationlatitude)) {
+         }else if (TextUtils.isEmpty(Price)) {
 
-            Toast.makeText(this, "Please write  place Location latitude !", Toast.LENGTH_SHORT).show();
-
-        } else if (TextUtils.isEmpty(Locationlongtitude)) {
-
-            Toast.makeText(this, "Please  place location Location longtitude !", Toast.LENGTH_SHORT).show();
-
-        }else if (TextUtils.isEmpty(Servicetype)) {
-
-            Toast.makeText(this, "Please write Service type !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please write Price !", Toast.LENGTH_SHORT).show();
 
         }
         else
@@ -168,7 +173,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         AddNewProductButton.setVisibility(View.INVISIBLE);
         loadingProgress.setVisibility(View.VISIBLE);
 
-        productRandomKey = CategoryName+ saveCurrentTime;
+        productRandomKey = saveCurrentDate + saveCurrentTime;
 
         final StorageReference filePath = ProductImagesRef.child(ImageUri.getLastPathSegment() + productRandomKey + ".jpg");
         final UploadTask uploadTask = filePath.putFile(ImageUri);
@@ -221,21 +226,22 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
     private void SaveProductInfoToDatabase() {
 
         HashMap<String, Object> productMap = new HashMap<>();
-        productMap.put("pid", productRandomKey);
 
+        productMap.put("pid", productRandomKey);
         productMap.put("image", downloadImageUrl);
         productMap.put("category", CategoryName);
         productMap.put("pname",Name);
         productMap.put("description", Description);
-        productMap.put("Location", Location);
-        productMap.put("Locationlatitude", Locationlatitude);
-        productMap.put("Locationlongtitude", Locationlongtitude);
-        productMap.put("servicrtype", Servicetype);
+        productMap.put("location", Location);
+        productMap.put("price", Price);
+        productMap.put("date", saveCurrentDate);
+        productMap.put("time", saveCurrentTime);
 
         //Location , Locationlatitude ,Locationlongtitude , Servicetype
       //  productMap.put("date", saveCurrentDate);
       //  productMap.put("time", saveCurrentTime);
-        ProductsRef.child(productRandomKey).updateChildren(productMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+        ProductsRef.child(String.valueOf(maxId+1)).updateChildren(productMap)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful())

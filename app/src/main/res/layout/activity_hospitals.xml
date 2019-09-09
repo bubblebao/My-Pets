@@ -69,14 +69,19 @@
             android:textSize="18dp"
             android:textStyle="bold" />
 
-
-
-       <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_menu"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            android:layout_below="@id/hospitals_title"/>
+            android:layout_below="@id/hospitals_title">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+
 
 
 

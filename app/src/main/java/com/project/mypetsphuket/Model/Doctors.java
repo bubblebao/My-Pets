@@ -2,11 +2,7 @@ package com.project.mypetsphuket.Model;
 
 public class Doctors {
 
-    String Name, Phone , Working , Location, Locationlatitude, Locationlongtitude,Servicetime, Specialist ;
-
-    public String getServicetime() {
-        return Servicetime;
-    }
+    private String name, phone , working , location, locationlatitude, locationlongtitude,servicetime, specialist ;
 
     public Doctors()
     {
@@ -14,65 +10,78 @@ public class Doctors {
     }
 
 
-
-
-    public void setServicetime(String servicetime) {
-        Servicetime = servicetime;
+    public Doctors(String name, String phone, String working, String location, String locationlatitude, String locationlongtitude, String servicetime, String specialist) {
+        this.name = name;
+        this.phone = phone;
+        this.working = working;
+        this.location = location;
+        this.locationlatitude = locationlatitude;
+        this.locationlongtitude = locationlongtitude;
+        this.servicetime = servicetime;
+        this.specialist = specialist;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getPhone() {
-        return Phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
-        Phone = phone;
+        this.phone = phone;
     }
 
     public String getWorking() {
-        return Working;
+        return working;
     }
 
     public void setWorking(String working) {
-        Working = working;
+        this.working = working;
     }
 
     public String getLocation() {
-        return Location;
+        return location;
     }
 
     public void setLocation(String location) {
-        Location = location;
+        this.location = location;
     }
 
     public String getLocationlatitude() {
-        return Locationlatitude;
+        return locationlatitude;
     }
 
     public void setLocationlatitude(String locationlatitude) {
-        Locationlatitude = locationlatitude;
+        this.locationlatitude = locationlatitude;
     }
 
     public String getLocationlongtitude() {
-        return Locationlongtitude;
+        return locationlongtitude;
     }
 
     public void setLocationlongtitude(String locationlongtitude) {
-        Locationlongtitude = locationlongtitude;
+        this.locationlongtitude = locationlongtitude;
+    }
+
+    public String getServicetime() {
+        return servicetime;
+    }
+
+    public void setServicetime(String servicetime) {
+        this.servicetime = servicetime;
     }
 
     public String getSpecialist() {
-        return Specialist;
+        return specialist;
     }
 
     public void setSpecialist(String specialist) {
-        Specialist = specialist;
+        this.specialist = specialist;
     }
 }

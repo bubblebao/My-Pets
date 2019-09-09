@@ -5,77 +5,7 @@
     "project_id": "my-pets-phuket-bb27e",
     "storage_bucket": "my-pets-phuket-bb27e.appspot.com"
   },
-  "User" : {
-    "0912" : {
-      "IsStaff" : "true",
-      "Password" : "1234",
-      "name" : "John Wick",
-      "restaurantId" : "01",
-      "secureCode" : "abc123"
-    },
-    "1234" : {
-      "Password" : "1234",
-      "isStaff" : "false",
-      "name" : "Jackie Chan",
-      "secureCode" : "abc123"
-    },
-    "0988123344" : {
-      "homeAddress" : "257 Carriann cove trl west",
-      "isStaff" : "false",
-      "name" : "Eddydn",
-      "password" : "1234",
-      "phone" : "0988123344",
-      "secureCode" : "abc123"
-    },
-    "0988123355" : {
-      "IsStaff" : "false",
-      "Passsword" : "1234",
-      "name" : "EddyLEe",
-      "secureCode" : "abc123"
-    },
-    "0988123388" : {
-      "IsStaff" : "false",
-      "Password" : "1234",
-      "name" : "Tom Cruise",
-      "secureCode" : "abc123"
-    },
-    "+13104004494" : {
-      "balance" : "0.0",
-      "homeAddress" : "",
-      "name" : "",
-      "phone" : "+13104004494"
-    },
-    "+40740629077" : {
-      "balance" : "0.0",
-      "homeAddress" : "Adress ES",
-      "name" : "",
-      "phone" : "+40740629077"
-    },
-    "+40745874291" : {
-      "balance" : "0.0",
-      "name" : "",
-      "phone" : "+40745874291"
-    },
-    "+84393332157" : {
-      "IsStaff" : "true",
-      "balance" : 0,
-      "name" : "",
-      "phone" : "+841693332157",
-      "restarantId" : "01"
-    },
-    "+84988353682" : {
-      "balance" : 984000.1,
-      "homeAddress" : "256 address",
-      "name" : "Eddy lee",
-      "phone" : "+84988353682"
-    },
-    "+917002873284" : {
-      "balance" : "0.0",
-      "homeAddress" : "Street view Man...",
-      "name" : "ani",
-      "phone" : "+917002873284"
-    }
-  },
+
   "client": [
     {
       "client_info": {

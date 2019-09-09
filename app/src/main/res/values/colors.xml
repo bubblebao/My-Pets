@@ -18,4 +18,8 @@
     <color name="transparent_black">#CC000000</color>
     <color name="stock_activity_background">#FFFAFAFA</color>
 
+    <color name="background_CardView">#D1EDFD</color>
+
+
+
 </resources>
