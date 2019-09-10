@@ -117,8 +117,7 @@ public class AddNewHospitalsActivity extends AppCompatActivity {
 
 
                 ValidateHospitalData();
-                AddNewHospitalButton.setVisibility(View.INVISIBLE);
-                loadingProgress.setVisibility(View.VISIBLE);
+
 
             }
         });
@@ -163,7 +162,13 @@ public class AddNewHospitalsActivity extends AppCompatActivity {
         Servicetime = InputServicetype.getText().toString();
         Rating = InputRating.getText().toString();
 
+        AddNewHospitalButton.setVisibility(View.INVISIBLE);
+        loadingProgress.setVisibility(View.VISIBLE);
+
         if (ImageUri == null) {
+
+            AddNewHospitalButton.setVisibility(View.INVISIBLE);
+            loadingProgress.setVisibility(View.VISIBLE);
 
             Toast.makeText(this, "Hospital image is mandatory !", Toast.LENGTH_SHORT).show();
             AddNewHospitalButton.setVisibility(View.VISIBLE);
@@ -243,7 +248,7 @@ public class AddNewHospitalsActivity extends AppCompatActivity {
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                 Toast.makeText(AddNewHospitalsActivity.this, "Hospital Image uploaded Successfully", Toast.LENGTH_SHORT).show();
-                AddNewHospitalButton.setVisibility(View.INVISIBLE);
+                AddNewHospitalButton.setVisibility(View.VISIBLE);
 
                 Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
@@ -300,8 +305,8 @@ public class AddNewHospitalsActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    Intent intent = new Intent(AddNewHospitalsActivity.this, AdminCategoryActivity.class);
-               /*     startActivity(intent);   */
+                /*    Intent intent = new Intent(AddNewHospitalsActivity.this, AdminCategoryActivity.class);
+                    startActivity(intent);   */
                     Toast.makeText(AddNewHospitalsActivity.this, "Hospital is added successfully", Toast.LENGTH_SHORT).show();
                     AddNewHospitalButton.setVisibility(View.VISIBLE);
 

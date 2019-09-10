@@ -7,33 +7,26 @@
     android:layout_marginTop="20dp"
     android:layout_marginStart="15dp"
     android:layout_marginEnd="15dp"
-    app:cardElevation="15dp"
+    app:cardElevation="10dp"
     app:cardUseCompatPadding="false"
     app:contentPadding="5.0dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="6dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        >
+        android:padding="2.0dp">
 
         <LinearLayout
+            android:background="@color/background_CardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/Doctor_imageView"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
                 android:scaleType="fitXY"
-                android:background="@drawable/ic_doctor_load"
-
-                />
-
-
+                android:background="@drawable/ic_doctor_load" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"

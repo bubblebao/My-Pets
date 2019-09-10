@@ -67,7 +67,7 @@
             android:layout_marginTop="10dp"
             android:cropToPadding="false"
             android:scaleType="centerCrop"
-            android:src="@drawable/select_product_image" />
+            android:src="@drawable/mypet_logo" />
 
 
         <EditText
@@ -120,7 +120,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/product_price"
-            android:text="Add Product"
+            android:text="Contract Us"
             android:layout_marginLeft="45dp"
             android:layout_marginRight="45dp"
             android:padding="17dp"

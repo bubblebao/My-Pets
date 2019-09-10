@@ -116,8 +116,7 @@ public class AddNewPetshopActivity extends AppCompatActivity {
 
 
                 ValidatePetshopData();
-                AddNewPetshopButton.setVisibility(View.INVISIBLE);
-                loadingProgress.setVisibility(View.VISIBLE);
+
 
             }
         });
@@ -160,6 +159,9 @@ public class AddNewPetshopActivity extends AppCompatActivity {
         Servicetype = InputServicetype.getText().toString();
         Servicetime = InputServicetype.getText().toString();
         Rating = InputRating.getText().toString();
+
+        AddNewPetshopButton.setVisibility(View.INVISIBLE);
+        loadingProgress.setVisibility(View.VISIBLE);
 
         if (ImageUri == null) {
 
@@ -248,7 +250,7 @@ public class AddNewPetshopActivity extends AppCompatActivity {
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                 Toast.makeText(AddNewPetshopActivity.this, "Petshop Image uploaded Successfully", Toast.LENGTH_SHORT).show();
-                AddNewPetshopButton.setVisibility(View.INVISIBLE);
+                AddNewPetshopButton.setVisibility(View.VISIBLE);
 
                 Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override

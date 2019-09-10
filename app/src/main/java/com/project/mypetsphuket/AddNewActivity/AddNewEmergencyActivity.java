@@ -114,8 +114,7 @@ public class AddNewEmergencyActivity extends AppCompatActivity {
 
 
                 ValidateEmergencyData();
-                AddNewEmergencyButton.setVisibility(View.INVISIBLE);
-                loadingProgress.setVisibility(View.VISIBLE);
+
 
             }
         });
@@ -156,6 +155,9 @@ public class AddNewEmergencyActivity extends AppCompatActivity {
         Servicetype = InputServicetype.getText().toString();
         Servicetime = InputServicetype.getText().toString();
         Rating = InputRating.getText().toString();
+
+        AddNewEmergencyButton.setVisibility(View.INVISIBLE);
+        loadingProgress.setVisibility(View.VISIBLE);
 
         if (ImageUri == null) {
 
@@ -237,7 +239,7 @@ public class AddNewEmergencyActivity extends AppCompatActivity {
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                 Toast.makeText(AddNewEmergencyActivity.this, "Emergency Image uploaded Successfully", Toast.LENGTH_SHORT).show();
-                AddNewEmergencyButton.setVisibility(View.INVISIBLE);
+                AddNewEmergencyButton.setVisibility(View.VISIBLE);
 
                 Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
