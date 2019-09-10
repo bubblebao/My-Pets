@@ -18,7 +18,7 @@
     <color name="transparent_black">#CC000000</color>
     <color name="stock_activity_background">#FFFAFAFA</color>
 
-    <color name="background_CardView">#D1EDFD</color>
+    <color name="background_CardView">#FFFFFF</color>
     <color name="background_CardView_Emer">#F0E1FF</color>
 
 

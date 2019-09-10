@@ -194,7 +194,7 @@ public class HomeActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
 
             Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
-            startActivity(intent);
+          //  startActivity(intent);
 
         }
         else if (id == R.id.nav_doctor) {
