@@ -194,11 +194,25 @@
                 />
 
 
+            <EditText
+                android:id="@+id/add_Emergency_rating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/add_Emergency_servicetime"
+                android:inputType="numberDecimal"
+                android:layout_marginTop="6dp"
+                android:padding="20dp"
+                android:hint="Rating"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:background="@drawable/input_design"
+                />
+
             <Button
                 android:id="@+id/add_new_Emergency_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/add_Emergency_servicetime"
+                android:layout_below="@+id/add_Emergency_rating"
                 android:text="Add New"
                 android:layout_marginLeft="45dp"
                 android:layout_marginRight="45dp"

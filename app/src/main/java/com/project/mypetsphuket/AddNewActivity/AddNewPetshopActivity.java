@@ -41,10 +41,10 @@ import java.util.HashMap;
 public class AddNewPetshopActivity extends AppCompatActivity {
 
     private TextView closeTextBtn, NextTextButton;
-    private String CategoryName, Name, Description, Phone, Location, Locationlatitude, Locationlongtitude, Servicetime , Servicetype, saveCurrentDate, saveCurrentTime;
+    private String CategoryName, Name, Description, Phone, Location, Locationlatitude, Locationlongtitude, Servicetime , Servicetype, saveCurrentDate, saveCurrentTime , Rating;
     private Button AddNewPetshopButton;
     private ImageView InputPetshopImage;
-    private EditText InputName, InputDescription, InputPhone, InputLocation, InputLocationlatitude, InputLocationlongtitude,InputServicetime , InputServicetype;
+    private EditText InputName, InputDescription, InputPhone, InputLocation, InputLocationlatitude, InputLocationlongtitude,InputServicetime , InputServicetype , InputRating;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
     private String PetshopRandomKey, downloadImageUrl;
@@ -77,6 +77,8 @@ public class AddNewPetshopActivity extends AppCompatActivity {
         InputLocationlongtitude = (EditText) findViewById(R.id.add_Petshop_location_long);
         InputServicetime = (EditText) findViewById(R.id.add_Petshop_servicetime);
         InputServicetype = (EditText) findViewById(R.id.add_Petshop_servicetype);
+        InputRating = (EditText) findViewById(R.id.add_Petshop_rating);
+
 
         Petshop = new Petshops();
 
@@ -157,6 +159,7 @@ public class AddNewPetshopActivity extends AppCompatActivity {
         Locationlongtitude = InputLocationlongtitude.getText().toString();
         Servicetype = InputServicetype.getText().toString();
         Servicetime = InputServicetype.getText().toString();
+        Rating = InputRating.getText().toString();
 
         if (ImageUri == null) {
 
@@ -204,7 +207,12 @@ public class AddNewPetshopActivity extends AppCompatActivity {
             Toast.makeText(this, "Please write Service type !", Toast.LENGTH_SHORT).show();
             AddNewPetshopButton.setVisibility(View.VISIBLE);
 
-        } else {
+        } else if (TextUtils.isEmpty(Rating)) {
+
+            Toast.makeText(this, "Please Petshop Rating !", Toast.LENGTH_SHORT).show();
+            AddNewPetshopButton.setVisibility(View.VISIBLE);
+
+        }else {
 
             StorePetshopInformation();
         }
@@ -280,7 +288,7 @@ public class AddNewPetshopActivity extends AppCompatActivity {
         HashMap<String, Object> PetshopMap = new HashMap<>();
         //   PetshopMap.put("pid", PetshopRandomKey);
 
-   //     PetshopMap.put("id", PetshopRandomKey);
+        PetshopMap.put("id", String.valueOf(maxId+1));
         PetshopMap.put("url", downloadImageUrl);
         PetshopMap.put("category", CategoryName);
         PetshopMap.put("name", Name);
@@ -291,6 +299,7 @@ public class AddNewPetshopActivity extends AppCompatActivity {
         PetshopMap.put("locationlongtitude", Locationlongtitude);
         PetshopMap.put("servicrtime", Servicetime);
         PetshopMap.put("servicrtype", Servicetype);
+        PetshopMap.put("rating", Rating);
 
         PetshopRef.child(CategoryName+String.valueOf(maxId+1)).setValue(PetshopMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -298,7 +307,7 @@ public class AddNewPetshopActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Intent intent = new Intent(AddNewPetshopActivity.this, AdminCategoryActivity.class);
-                            startActivity(intent);
+                      /*      startActivity(intent);   */
                             Toast.makeText(AddNewPetshopActivity.this, "Petshop is added successfully", Toast.LENGTH_SHORT).show();
                             AddNewPetshopButton.setVisibility(View.VISIBLE);
 

@@ -40,10 +40,10 @@ import java.util.HashMap;
 public class AddNewDoctorsActivity extends AppCompatActivity {
 
     private TextView closeTextBtn, NextTextButton;
-    private String CategoryName, Name, Phone , Working , Location, Locationlatitude, Locationlongtitude,Servicetime, Specialist , saveCurrentDate, saveCurrentTime;;
+    private String CategoryName, Name, Phone , Working , Location, Locationlatitude, Locationlongtitude,Servicetime, Specialist , saveCurrentDate, saveCurrentTime,Rating;;
     private Button AddNewDoctorButton;
     private ImageView InputDoctorImage;
-    private EditText InputName, InputDescription, InputPhone, InputLocation, InputLocationlatitude, InputLocationlongtitude, InputServicetime ,InputServicetype;
+    private EditText InputName, InputDescription, InputPhone, InputLocation, InputLocationlatitude, InputLocationlongtitude, InputServicetime ,InputServicetype,InputRating;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
     private String DoctorRandomKey, downloadImageUrl;
@@ -79,6 +79,8 @@ public class AddNewDoctorsActivity extends AppCompatActivity {
         InputLocationlongtitude = (EditText) findViewById(R.id.add_Doctor_location_long);
         InputServicetime = (EditText) findViewById(R.id.add_Doctor_servicetime);
         InputServicetype = (EditText) findViewById(R.id.add_Doctor_specialist);
+        InputRating = (EditText) findViewById(R.id.add_Doctor_rating);
+
 
         Doctor = new Doctors();
 
@@ -163,6 +165,7 @@ public class AddNewDoctorsActivity extends AppCompatActivity {
         Locationlongtitude = InputLocationlongtitude.getText().toString();
         Specialist = InputServicetype.getText().toString();
         Servicetime = InputServicetype.getText().toString();
+        Rating = InputRating.getText().toString();
 
         if (ImageUri == null) {
 
@@ -285,7 +288,7 @@ public class AddNewDoctorsActivity extends AppCompatActivity {
         HashMap<String, Object> DoctorMap = new HashMap<>();
         //   DoctorMap.put("pid", DoctorRandomKey);
 
-      //  DoctorMap.put("Id", DoctorRandomKey);
+        DoctorMap.put("id", String.valueOf(maxId+1));
         DoctorMap.put("url", downloadImageUrl);
         DoctorMap.put("category", CategoryName);
         DoctorMap.put("name", Name);
@@ -296,14 +299,15 @@ public class AddNewDoctorsActivity extends AppCompatActivity {
         DoctorMap.put("locationlongtitude", Locationlongtitude);
         DoctorMap.put("servicetime", Servicetime);
         DoctorMap.put("specialist", Specialist);
+        DoctorMap.put("rating", Rating);
 
         DoctorRef.child(CategoryName+String.valueOf(maxId+1)).setValue(DoctorMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Intent intent = new Intent(AddNewDoctorsActivity.this, AdminCategoryActivity.class);
-                            startActivity(intent);
+                         /*   Intent intent = new Intent(AddNewDoctorsActivity.this, AdminCategoryActivity.class);
+                            startActivity(intent);   */
                             Toast.makeText(AddNewDoctorsActivity.this, "Doctor is added successfully", Toast.LENGTH_SHORT).show();
                             AddNewDoctorButton.setVisibility(View.VISIBLE);
 

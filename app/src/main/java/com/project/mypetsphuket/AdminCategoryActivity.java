@@ -83,7 +83,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
            public void onClick(View v) {
 
                Intent intent = new Intent(AdminCategoryActivity.this, AddNewEmergencyActivity.class);
-               intent.putExtra("category", "Product");
+               intent.putExtra("category", "emergency");
                startActivity(intent);
 
            }

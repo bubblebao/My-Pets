@@ -40,10 +40,10 @@ import java.util.HashMap;
 public class AddNewHospitalsActivity extends AppCompatActivity {
 
     private TextView closeTextBtn, NextTextButton;
-    private String CategoryName, Name, Description, Phone, Location, Locationlatitude, Locationlongtitude, Servicetime , Servicetype, saveCurrentDate, saveCurrentTime;
+    private String CategoryName, Name, Description, Phone, Location, Locationlatitude, Locationlongtitude, Servicetime , Servicetype, saveCurrentDate, saveCurrentTime ,Rating;
     private Button AddNewHospitalButton;
     private ImageView InputHospitalImage;
-    private EditText InputName, InputDescription, InputPhone, InputLocation, InputLocationlatitude, InputLocationlongtitude,InputServicetime , InputServicetype;
+    private EditText InputName, InputDescription, InputPhone, InputLocation, InputLocationlatitude, InputLocationlongtitude,InputServicetime , InputServicetype,InputRating;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
     private String HospitalRandomKey, downloadImageUrl;
@@ -79,6 +79,7 @@ public class AddNewHospitalsActivity extends AppCompatActivity {
         InputLocationlongtitude = (EditText) findViewById(R.id.add_Hospital_location_long);
         InputServicetime = (EditText) findViewById(R.id.add_Hospital_servicetime);
         InputServicetype = (EditText) findViewById(R.id.add_Hospital_servicetype);
+        InputRating = (EditText) findViewById(R.id.add_Hospital_rating);
 
         Hospital = new Hospitals();
 
@@ -160,6 +161,7 @@ public class AddNewHospitalsActivity extends AppCompatActivity {
         Locationlongtitude = InputLocationlongtitude.getText().toString();
         Servicetype = InputServicetype.getText().toString();
         Servicetime = InputServicetype.getText().toString();
+        Rating = InputRating.getText().toString();
 
         if (ImageUri == null) {
 
@@ -280,7 +282,7 @@ public class AddNewHospitalsActivity extends AppCompatActivity {
         HashMap<String, Object> HospitalMap = new HashMap<>();
      //   HospitalMap.put("pid", HospitalRandomKey);
 
-     //   HospitalMap.put("id", HospitalRandomKey);
+        HospitalMap.put("id", String.valueOf(maxId+1));
         HospitalMap.put("url", downloadImageUrl);
         HospitalMap.put("category", CategoryName);
         HospitalMap.put("name", Name);
@@ -291,6 +293,7 @@ public class AddNewHospitalsActivity extends AppCompatActivity {
         HospitalMap.put("locationlongtitude", Locationlongtitude);
         HospitalMap.put("servicrtime", Servicetime);
         HospitalMap.put("servicrtype", Servicetype);
+        HospitalMap.put("rating", Rating);
 
         HospitalRef.child(CategoryName + String.valueOf(maxId+1)).setValue(HospitalMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -298,7 +301,7 @@ public class AddNewHospitalsActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     Intent intent = new Intent(AddNewHospitalsActivity.this, AdminCategoryActivity.class);
-                    startActivity(intent);
+               /*     startActivity(intent);   */
                     Toast.makeText(AddNewHospitalsActivity.this, "Hospital is added successfully", Toast.LENGTH_SHORT).show();
                     AddNewHospitalButton.setVisibility(View.VISIBLE);
 

@@ -40,10 +40,10 @@ import java.util.HashMap;
 
 public class AddNewEmergencyActivity extends AppCompatActivity {
     private TextView closeTextBtn, NextTextButton;
-    private String CategoryName, Name, Description, Phone, Location, Locationlatitude, Locationlongtitude, Servicetime , Servicetype, saveCurrentDate, saveCurrentTime;
+    private String CategoryName, Name, Description, Phone, Location, Locationlatitude, Locationlongtitude, Servicetime , Servicetype, saveCurrentDate, saveCurrentTime,Rating;
     private Button AddNewEmergencyButton;
     private ImageView InputEmergencyImage;
-    private EditText InputName, InputDescription, InputPhone, InputLocation, InputLocationlatitude, InputLocationlongtitude,InputServicetime , InputServicetype;
+    private EditText InputName, InputDescription, InputPhone, InputLocation, InputLocationlatitude, InputLocationlongtitude,InputServicetime , InputServicetype ,InputRating;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
     private String EmergencyRandomKey, downloadImageUrl;
@@ -76,6 +76,7 @@ public class AddNewEmergencyActivity extends AppCompatActivity {
         InputLocationlongtitude = (EditText) findViewById(R.id.add_Emergency_location_long);
         InputServicetime = (EditText) findViewById(R.id.add_Emergency_servicetime);
         InputServicetype = (EditText) findViewById(R.id.add_Emergency_servicetype);
+        InputRating = (EditText) findViewById(R.id.add_Emergency_rating);
 
         Emergency = new Emergencys();
 
@@ -154,6 +155,7 @@ public class AddNewEmergencyActivity extends AppCompatActivity {
         Locationlongtitude = InputLocationlongtitude.getText().toString();
         Servicetype = InputServicetype.getText().toString();
         Servicetime = InputServicetype.getText().toString();
+        Rating = InputRating.getText().toString();
 
         if (ImageUri == null) {
 
@@ -274,7 +276,7 @@ public class AddNewEmergencyActivity extends AppCompatActivity {
         HashMap<String, Object> EmergencyMap = new HashMap<>();
         //   EmergencyMap.put("pid", EmergencyRandomKey);
 
-  //      EmergencyMap.put("id", EmergencyRandomKey);
+        EmergencyMap.put("id", String.valueOf(maxId+1));
         EmergencyMap.put("url", downloadImageUrl);
         EmergencyMap.put("category", CategoryName);
         EmergencyMap.put("name", Name);
@@ -285,14 +287,15 @@ public class AddNewEmergencyActivity extends AppCompatActivity {
         EmergencyMap.put("locationlongtitude", Locationlongtitude);
         EmergencyMap.put("servicrtime", Servicetime);
         EmergencyMap.put("servicrtype", Servicetype);
+        EmergencyMap.put("rating", Rating);
 
         EmergencyRef.child(CategoryName+String.valueOf(maxId+1)).setValue(EmergencyMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Intent intent = new Intent(AddNewEmergencyActivity.this, AdminCategoryActivity.class);
-                            startActivity(intent);
+                          /*  Intent intent = new Intent(AddNewEmergencyActivity.this, AdminCategoryActivity.class);
+                            startActivity(intent);   */
                             Toast.makeText(AddNewEmergencyActivity.this, "Emergency is added successfully", Toast.LENGTH_SHORT).show();
                             AddNewEmergencyButton.setVisibility(View.VISIBLE);
 
