@@ -64,7 +64,7 @@ public class PetshopRecyclerAdepter extends RecyclerView.Adapter<PetshopRecycler
             imageView = (ImageView) itemView.findViewById(R.id.Petshop_imageView);
             tvName = (TextView) itemView.findViewById(R.id.Petshop_Name);
             tvDescription = (TextView) itemView.findViewById(R.id.Petshop_Description);
-            tvLocation = (TextView) itemView.findViewById(R.id.Petshopgency_location);
+            tvLocation = (TextView) itemView.findViewById(R.id.Petshop_location);
             tvRating = (TextView) itemView.findViewById(R.id.Petshop_Rating);
 
         }

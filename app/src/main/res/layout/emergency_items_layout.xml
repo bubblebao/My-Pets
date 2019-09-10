@@ -17,7 +17,7 @@
         android:padding="5dp">
 
         <LinearLayout
-            android:background="@color/background_CardView"
+            android:background="@color/background_CardView_Emer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

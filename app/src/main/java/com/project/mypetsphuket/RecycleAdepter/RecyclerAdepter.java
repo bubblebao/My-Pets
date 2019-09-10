@@ -63,8 +63,8 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.HosImageView);
             tvName = (TextView) itemView.findViewById(R.id.Hospital_name);
-            tvDescription = (TextView) itemView.findViewById(R.id.tvDescription);
-            tvLocation = (TextView) itemView.findViewById(R.id.tvLocation);
+            tvDescription = (TextView) itemView.findViewById(R.id.Hospital_Description);
+            tvLocation = (TextView) itemView.findViewById(R.id.Hospital_Location);
             tvRating = (TextView) itemView.findViewById(R.id.Hosp_rate);
         }
     }

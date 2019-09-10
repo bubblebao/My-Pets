@@ -41,13 +41,13 @@
                     android:layout_height="wrap_content"
                     android:text="Hospital Name"
                     android:textAlignment="textStart"
-                    android:layout_marginLeft="3dp"
+                    android:layout_marginLeft="8dp"
                     android:textSize="15dp"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold"/>
 
                 <TextView
-                    android:id="@+id/tvDescription"
+                    android:id="@+id/Hospital_Description"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/Hospital_name"
@@ -56,26 +56,53 @@
                     android:text="Hospital Description"
                     android:textAlignment="textStart"
                     android:textColor="@color/black_grey"
-                    android:textSize="11dp" />
+                    android:textSize="12dp" />
 
                 <ImageView
+                    android:id="@+id/marker"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:layout_below="@id/tvDescription"
+                    android:layout_below="@id/Hospital_Description"
                     android:layout_marginTop="9dp"
+                    android:layout_marginLeft="8dp"
                     android:src="@drawable/ic_mark_blue" />
 
                 <TextView
-                    android:id="@+id/tvLocation"
+                    android:id="@+id/Hospital_Location"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvDescription"
+                    android:layout_below="@+id/Hospital_Description"
                     android:text="Hospital location"
                     android:layout_marginTop="12dp"
-                    android:layout_marginLeft="23dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/marker"
                     android:textAlignment="textStart"
                     android:textSize="12dp"
                     android:textColor="@color/grey" />
+
+
+                <ImageView
+                    android:id="@+id/Hosp_Star"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_toRightOf="@id/Hospital_Description"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/ic_rate_star" />
+
+                <TextView
+                    android:id="@+id/Hosp_rate"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Hosp_Star"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@id/Hospital_Location"
+                    android:layout_marginLeft="25dp"
+                    android:textAlignment="center"
+                    android:text="4.5"
+                    android:textSize="12dp"
+                    android:textStyle="bold"/>
 
             </RelativeLayout>
 
@@ -93,8 +120,8 @@
                     android:layout_marginTop="0dp"/>
 
 
-                <ImageView
-                    android:id="@+id/HospStar"
+                <!--ImageView
+                    android:id="@+id/Hosp_Star"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_below="@id/map_mark"
@@ -114,7 +141,7 @@
                     android:layout_marginLeft="30dp"
                     android:textAlignment="center"
                     android:textSize="12dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"/-->
 
 
 

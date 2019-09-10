@@ -68,7 +68,7 @@
                     android:src="@drawable/ic_mark_blue" />
 
                 <TextView
-                    android:id="@+id/Petshopgency_location"
+                    android:id="@+id/Petshop_location"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/Petshop_Description"
@@ -78,6 +78,29 @@
                     android:textAlignment="textStart"
                     android:textSize="12dp"
                     android:textColor="@color/grey" />
+
+                <ImageView
+                    android:id="@+id/Petshop_star"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_toRightOf="@id/Petshop_Description"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/ic_rate_star" />
+
+                <TextView
+                    android:id="@+id/Petshop_Rating"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Petshop_star"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@id/Petshop_location"
+                    android:layout_marginLeft="25dp"
+                    android:textAlignment="center"
+                    android:text="4.5"
+                    android:textSize="12dp"
+                    android:textStyle="bold"/>
 
             </RelativeLayout>
 
@@ -95,7 +118,7 @@
                     android:layout_marginTop="0dp"/>
 
 
-                <ImageView
+                <!--ImageView
                     android:id="@+id/Petshop_star"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -116,7 +139,7 @@
                     android:layout_marginLeft="30dp"
                     android:textAlignment="center"
                     android:textSize="12dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"/-->
 
 
 
