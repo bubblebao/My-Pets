@@ -133,7 +133,7 @@ public class AddNewHospitalsActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data); //new
 
         if (requestCode == GalleryPick && resultCode == RESULT_OK && data != null) {
 
@@ -300,7 +300,7 @@ public class AddNewHospitalsActivity extends AppCompatActivity {
         HospitalMap.put("servicrtype", Servicetype);
         HospitalMap.put("rating", Rating);
 
-        HospitalRef.child(CategoryName + String.valueOf(maxId+1)).setValue(HospitalMap)
+        HospitalRef.child(/*CategoryName + */String.valueOf(maxId+1)).setValue(HospitalMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

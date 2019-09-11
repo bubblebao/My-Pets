@@ -87,7 +87,7 @@ public class HomeActivity extends AppCompatActivity
        //String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
         //userNameTextView.setText(UserPhoneKey);
         userNameTextView.setText(Prevalent.currentOnlineUser.getName());
-        Picasso.get().load(Prevalent.currentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
+        Picasso.get().load(Prevalent.currentOnlineUser.getUrl()).placeholder(R.drawable.profile).into(profileImageView);
 
 
 

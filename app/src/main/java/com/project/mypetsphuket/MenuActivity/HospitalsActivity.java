@@ -49,7 +49,7 @@ public class HospitalsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
 
     //Vars
-    private ArrayList<Images> imagesList;
+    private ArrayList<Hospitals> hospitalList;
     private RecyclerAdepter recyclerAdepter;
 
     @Override
@@ -74,7 +74,7 @@ public class HospitalsActivity extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference();
         mStorageRef = FirebaseStorage.getInstance().getReference();
 
-        imagesList = new ArrayList<>();
+        hospitalList = new ArrayList<>();
 
         init();
 
@@ -102,18 +102,18 @@ public class HospitalsActivity extends AppCompatActivity {
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren() ){
 
-                    Images images = new Images();
+                    Hospitals hospitals = new Hospitals();
 
-                    images.setUrl(snapshot.child("url").getValue().toString());
-                    images.setName(snapshot.child("name").getValue().toString());
-                    images.setDescription(snapshot.child("description").getValue().toString());
-                    images.setRating(snapshot.child("rating").getValue().toString());
-                    images.setLocation(snapshot.child("location").getValue().toString());
+                    hospitals.setUrl(snapshot.child("url").getValue().toString());
+                    hospitals.setName(snapshot.child("name").getValue().toString());
+                    hospitals.setDescription(snapshot.child("description").getValue().toString());
+                    hospitals.setRating(snapshot.child("rating").getValue().toString());
+                    hospitals.setLocation(snapshot.child("location").getValue().toString());
 
-                    imagesList.add(images);
+                    hospitalList.add(hospitals);
                 }
 
-                recyclerAdepter = new RecyclerAdepter(mcontext,imagesList);
+                recyclerAdepter = new RecyclerAdepter(mcontext,hospitalList );
                 recyclerView.setAdapter(recyclerAdepter);
                 recyclerAdepter.notifyDataSetChanged();
 
@@ -132,16 +132,16 @@ public class HospitalsActivity extends AppCompatActivity {
 
     private void clearAll() {
 
-        if (imagesList != null){
+        if (hospitalList != null){
 
-            imagesList.clear();
+            hospitalList.clear();
             if (recyclerAdepter!= null){
 
                 recyclerAdepter.notifyDataSetChanged();
             }
         }
 
-        imagesList = new ArrayList<>();
+        hospitalList = new ArrayList<>();
 
     }
 

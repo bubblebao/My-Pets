@@ -132,6 +132,7 @@ public class AddNewPetshopActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == GalleryPick && resultCode == RESULT_OK && data != null) {
 
             ImageUri = data.getData();
@@ -303,7 +304,7 @@ public class AddNewPetshopActivity extends AppCompatActivity {
         PetshopMap.put("servicrtype", Servicetype);
         PetshopMap.put("rating", Rating);
 
-        PetshopRef.child(CategoryName+String.valueOf(maxId+1)).setValue(PetshopMap)
+        PetshopRef.child(/*CategoryName+*/String.valueOf(maxId+1)).setValue(PetshopMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

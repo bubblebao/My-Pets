@@ -4,34 +4,17 @@ import com.google.firebase.firestore.auth.User;
 
 public class Users {
 
-    private String name, phone, password, image, address;
+    private String name, phone, password, image, address ,url;
 
-    public Users(){
+    public Users() { }
 
-    }
-
-    public Users(String name, String phone, String password) {
+    public Users(String name, String phone, String password, String image, String address, String url) {
         this.name = name;
         this.phone = phone;
         this.password = password;
         this.image = image;
         this.address = address;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
+        this.url = url;
     }
 
     public String getName() {
@@ -56,5 +39,29 @@ public class Users {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

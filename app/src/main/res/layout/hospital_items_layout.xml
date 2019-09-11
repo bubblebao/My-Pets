@@ -22,7 +22,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/HosImageView"
+                android:id="@+id/Hospital_ImageView"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:background="@drawable/ic_hospital"
@@ -58,7 +58,7 @@
                     android:textSize="12dp" />
 
                 <ImageView
-                    android:id="@+id/marker"
+                    android:id="@+id/Marker"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_below="@id/Hospital_Description"
@@ -74,14 +74,14 @@
                     android:text="Hospital location"
                     android:layout_marginTop="12dp"
                     android:layout_marginLeft="5dp"
-                    android:layout_toRightOf="@id/marker"
+                    android:layout_toRightOf="@id/Marker"
                     android:textAlignment="textStart"
                     android:textSize="12dp"
                     android:textColor="@color/grey" />
 
 
                 <ImageView
-                    android:id="@+id/Hosp_Star"
+                    android:id="@+id/Hospital_Star"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_toRightOf="@id/Hospital_Description"
@@ -90,10 +90,10 @@
                     android:src="@drawable/ic_rate_star" />
 
                 <TextView
-                    android:id="@+id/Hosp_rate"
+                    android:id="@+id/Hospital_Rate"
                     android:layout_width="20dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/Hosp_Star"
+                    android:layout_below="@id/Hospital_Star"
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_marginTop="5dp"
                     android:layout_toRightOf="@id/Hospital_Location"
@@ -120,7 +120,7 @@
 
 
                 <!--ImageView
-                    android:id="@+id/Hosp_Star"
+                    android:id="@+id/Hospital_Star"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_below="@id/map_mark"
@@ -130,7 +130,7 @@
 
 
                 <TextView
-                    android:id="@+id/Hosp_rate"
+                    android:id="@+id/Hospital_Rate"
                     android:layout_width="20dp"
                     android:layout_height="wrap_content"
                     android:text="4.5"

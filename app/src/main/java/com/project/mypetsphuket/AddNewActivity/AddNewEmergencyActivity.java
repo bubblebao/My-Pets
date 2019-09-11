@@ -291,7 +291,7 @@ public class AddNewEmergencyActivity extends AppCompatActivity {
         EmergencyMap.put("servicrtype", Servicetype);
         EmergencyMap.put("rating", Rating);
 
-        EmergencyRef.child(CategoryName+String.valueOf(maxId+1)).setValue(EmergencyMap)
+        EmergencyRef.child(/*CategoryName+*/String.valueOf(maxId+1)).setValue(EmergencyMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

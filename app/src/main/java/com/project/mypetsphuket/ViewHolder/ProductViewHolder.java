@@ -7,14 +7,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.project.mypetsphuket.Interface.ItemClickListner;
+import com.project.mypetsphuket.Interface.onClick;
 import com.project.mypetsphuket.R;
 
 public class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public TextView txtProductName, txtProductDescription, txtProductPrice;
     public ImageView imageView;
-    public ItemClickListner listner;
+    public onClick listner;
 
 
     public ProductViewHolder(@NonNull View itemView) {
@@ -26,7 +26,7 @@ public class ProductViewHolder extends RecyclerView.ViewHolder implements View.O
         txtProductPrice = (TextView) itemView.findViewById(R.id.product_price);
     }
 
-    public void setItemClickListner (ItemClickListner listner){
+    public void setItemClickListner (onClick listner){
         this.listner = listner;
 
     }

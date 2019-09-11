@@ -192,7 +192,7 @@ public class SettingsActivity extends AppCompatActivity {
                          HashMap<String, Object> userMap = new HashMap<>();
                          userMap. put("name", fullNameEditText.getText().toString());
                          userMap. put("address", addressEditText.getText().toString());
-                         userMap. put("image", myUrl);
+                         userMap. put("url", myUrl);
                          ref.child(Prevalent.currentOnlineUser.getPhone()).updateChildren(userMap);
 
 
@@ -232,10 +232,10 @@ public class SettingsActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
 
 
-                    if (dataSnapshot.child("image").exists()) {
+                    if (dataSnapshot.child("url").exists()) {
 
                         //Load Get
-                        String image = dataSnapshot.child("image").getValue().toString();
+                        String image = dataSnapshot.child("url").getValue().toString();
                         String name = dataSnapshot.child("name").getValue().toString();
                         String phone = dataSnapshot.child("phone").getValue().toString();
                         String address = dataSnapshot.child("address").getValue().toString();

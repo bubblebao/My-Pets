@@ -136,6 +136,7 @@ public class AddNewDoctorsActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == GalleryPick && resultCode == RESULT_OK && data != null) {
 
             ImageUri = data.getData();
@@ -310,7 +311,7 @@ public class AddNewDoctorsActivity extends AppCompatActivity {
         DoctorMap.put("specialist", Specialist);
         DoctorMap.put("rating", Rating);
 
-        DoctorRef.child(CategoryName+String.valueOf(maxId+1)).setValue(DoctorMap)
+        DoctorRef.child(String.valueOf(maxId+1)).setValue(DoctorMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
