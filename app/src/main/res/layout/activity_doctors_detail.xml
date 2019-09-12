@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DelailsActivity.HospitalsDetailActivity">
+    tools:context=".DelailsActivity.DoctorsDetailActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -21,14 +21,15 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/close_Hospital_detail_btn"
+                    android:id="@+id/close_Doctor_detail_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Close"
                     android:textColor="@android:color/white"
                     android:textSize="17sp"
                     android:textStyle="bold"
-                    android:layout_alignParentStart="true" />
+                    android:layout_alignParentStart="true"
+                    />
 
                 <!--     <TextView
                          android:id="@+id/update_account_settings_btn"
@@ -43,11 +44,11 @@
                          />  -->
 
                 <TextView
-                    android:id="@+id/Hospital_Detail_Title"
+                    android:id="@+id/Doctor_Detail_Title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:text="My Pets Hospital Detials"
+                    android:text="My Pets Doctor Detials"
                     android:textColor="@android:color/white"
                     android:gravity="center"
                     android:textSize="16sp"
@@ -60,40 +61,41 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="56dp">
 
         <ImageView
-            android:id="@+id/Hospital_Detail_ImageView"
+            android:id="@+id/Doctor_Detail_ImageView"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/ic_hospital"
+            android:background="@drawable/ic_doctor_load"
             android:scaleType="fitXY" />
 
         <TextView
-            android:id="@+id/txt_Hospital_Name"
+            android:id="@+id/txt_Doctor_Name"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Hospital_Detail_ImageView"
+            android:layout_below="@id/Doctor_Detail_ImageView"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="30dp"
-            android:text="Hospital Name   : "
+            android:text="Doctor Name   : "
             android:textAlignment="textStart"
             android:textColor="@color/colorPrimary"
             android:textSize="18dp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/Hospital_Detail_Name"
+            android:id="@+id/Doctor_Detail_Name"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Hospital_Detail_ImageView"
+            android:layout_below="@id/Doctor_Detail_ImageView"
             android:layout_marginLeft="14dp"
             android:layout_marginTop="30dp"
-            android:layout_toRightOf="@id/txt_Hospital_Name"
+            android:layout_toRightOf="@id/txt_Doctor_Name"
             android:text="Name"
             android:textAlignment="textStart"
             android:textColor="@color/colorPrimary"
@@ -101,73 +103,99 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txt_Hospital_Detail_Description"
+            android:id="@+id/txt_Doctor_Detail_Specialist"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Hospital_Detail_Name"
+            android:layout_below="@+id/Doctor_Detail_Name"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="30dp"
-            android:text="Hospital Description :"
+            android:text="Doctor Specialist :"
             android:textAlignment="textStart"
             android:textColor="@color/black_grey"
             android:textSize="15dp" />
 
         <TextView
-            android:id="@+id/Hospital_Detail_Description"
+            android:id="@+id/Doctor_Detail_Specialist"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Hospital_Detail_Name"
+            android:layout_below="@+id/Doctor_Detail_Name"
             android:layout_marginLeft="14dp"
             android:layout_marginTop="30dp"
-            android:layout_toRightOf="@id/txt_Hospital_Detail_Description"
-            android:text="Description"
+            android:layout_toRightOf="@id/txt_Doctor_Detail_Specialist"
+            android:text="Specialist"
             android:textAlignment="textStart"
             android:textColor="@color/black_grey"
             android:textSize="15dp" />
 
 
         <TextView
-            android:id="@+id/txt_Hospital_DetailLocation"
-            android:layout_width="130dp"
+            android:id="@+id/txt_Doctor_Detail_Working"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_Hospital_Detail_Description"
+            android:layout_below="@+id/txt_Doctor_Detail_Specialist"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="15dp"
-            android:text="Hospital location :"
+            android:text="Doctor Working at :"
             android:textAlignment="textStart"
             android:textColor="@color/grey"
             android:textSize="15dp" />
 
         <TextView
-            android:id="@+id/Hospital_DetailLocation"
+            android:id="@+id/Doctor_Detail_Working"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Hospital_Detail_Description"
+            android:layout_below="@+id/Doctor_Detail_Specialist"
+            android:layout_marginLeft="14dp"
             android:layout_marginTop="30dp"
-            android:layout_marginLeft="12dp"
-            android:layout_toRightOf="@id/txt_Hospital_Detail_Description"
-            android:text="Hospital location :"
+            android:layout_toRightOf="@id/txt_Doctor_Detail_Working"
+            android:text="Working"
+            android:textAlignment="textStart"
+            android:textColor="@color/black_grey"
+            android:textSize="15dp" />
+
+
+        <TextView
+            android:id="@+id/txt_Doctor_Detail_Location"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_Doctor_Detail_Working"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+            android:text="Doctor location :"
+            android:textAlignment="textStart"
+            android:textColor="@color/grey"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/Doctor_Detail_Location"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Doctor_Detail_Working"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="14dp"
+            android:layout_toRightOf="@id/txt_Doctor_Detail_Location"
+            android:text="Location "
             android:textAlignment="textStart"
             android:textColor="@color/grey"
             android:textSize="15dp" />
 
 
         <ImageView
-            android:id="@+id/Hospital_Detail_Star"
+            android:id="@+id/Doctor_Detail_Star"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="38dp"
-            android:layout_toRightOf="@id/Hospital_Detail_ImageView"
+            android:layout_toRightOf="@id/Doctor_Detail_ImageView"
             android:src="@drawable/ic_rate_star" />
 
         <TextView
-            android:id="@+id/Hospital_Detail_Rate"
+            android:id="@+id/Doctor_Detail_Rate"
             android:layout_width="25dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="42dp"
             android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@id/Hospital_Detail_Star"
+            android:layout_toRightOf="@id/Doctor_Detail_Star"
             android:text="4.5"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"

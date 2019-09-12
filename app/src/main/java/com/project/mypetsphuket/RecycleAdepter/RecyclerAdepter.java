@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.project.mypetsphuket.DelailsActivity.HospitalsDetailActivity;
 import com.project.mypetsphuket.Interface.ItemClickListner;
 import com.project.mypetsphuket.Model.Hospitals;
-import com.project.mypetsphuket.Model.Images;
 import com.project.mypetsphuket.R;
 import com.squareup.picasso.Picasso;
 
@@ -40,9 +39,9 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
         return new ViewHolder(view);
     }
 
-
+            //**    1. implements View.OnClickListener  *//
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        //Defined parameter
+        // 2. Defined parameter
         ItemClickListner itemClickListner;
         ImageView imageView;
         TextView HospitalName;
@@ -60,9 +59,12 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
             HospitalLocation = (TextView) itemView.findViewById(R.id.Hospital_Location);
             HospitalRating = (TextView) itemView.findViewById(R.id.Hospital_Rate);
 
+            // 3 .Set OnClickListener
             itemView.setOnClickListener(this);
         }
 
+
+        //  4.  Set onClick
         @Override
         public void onClick(View v) {
 
@@ -70,13 +72,12 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
 
         }
 
-        public void setItemClickListner(ItemClickListner itemClickListner) {
+        ////Set setItemClickListner
+        private void setItemClickListner(ItemClickListner itemClickListner) {
 
             this.itemClickListner = itemClickListner ;
         }
     }
-
-
 
 
     @Override
@@ -89,19 +90,20 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
         Picasso.get().load(hospitalList.get((position)).getUrl())
                 .into(holder.imageView);
 
-        holder.setItemClickListner(new ItemClickListner() {
 
+        // 5. setItemClickListner
+        holder.setItemClickListner(new ItemClickListner() {
             @Override
             public void onItemClickListner(View v, int position) {
 
-                //Insert Data from Hospitals
+                //6. Set to passing Data
                 String gName = hospitalList.get(position).getName();
                 String gDescription = hospitalList.get(position).getDescription();
                 String gLocation = hospitalList.get(position).getLocation();
                 String gRating = hospitalList.get(position).getRating();
                 String gUrl = hospitalList.get(position).getUrl();
 
-                //Put Data to HospitalsDetailActivity
+                //7. Put Data to HospitalsDetailActivity
                 Intent intent = new Intent(mContext, HospitalsDetailActivity.class);
                 intent.putExtra("Name",gName);
                 intent.putExtra("Description",gDescription);
@@ -138,12 +140,10 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
         });   */
 
     }
-
     @Override
     public int getItemCount() {
         return hospitalList.size();
     }
-
 
 
 }

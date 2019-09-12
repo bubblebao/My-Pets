@@ -19,7 +19,7 @@ public class HospitalsDetailActivity extends AppCompatActivity {
     private ImageView HospitalImageView;
     private TextView HospitalName;
     private TextView HospitalDescription;
-    private  TextView HospitalLocation;
+    private TextView HospitalLocation;
     private TextView HospitalRating;
     private TextView  closeTextBtn;
 

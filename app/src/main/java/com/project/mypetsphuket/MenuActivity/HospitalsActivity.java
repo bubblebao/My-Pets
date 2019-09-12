@@ -8,15 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.material.card.MaterialCardView;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,14 +21,11 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.project.mypetsphuket.Model.Hospitals;
-import com.project.mypetsphuket.Model.Images;
 import com.project.mypetsphuket.R;
 import com.project.mypetsphuket.RecycleAdepter.RecyclerAdepter;
-import com.project.mypetsphuket.ViewHolder.HospitalViewHolder;
 
 import java.util.ArrayList;
 
-import io.paperdb.Paper;
 
 public class HospitalsActivity extends AppCompatActivity {
 
@@ -60,7 +52,6 @@ public class HospitalsActivity extends AppCompatActivity {
         //NextTextButon = (TextView) findViewById(R.id.hospitals_next_btn);
         Log.d(TAG,"onCreate started");
 
-        //  hDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Hospitals");
         //   ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
         recyclerView = (RecyclerView) findViewById(R.id.recycleView);
@@ -68,8 +59,6 @@ public class HospitalsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-
-           // Paper.init(this);
 
         reference = FirebaseDatabase.getInstance().getReference();
         mStorageRef = FirebaseStorage.getInstance().getReference();

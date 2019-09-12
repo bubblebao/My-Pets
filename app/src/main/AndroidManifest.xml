@@ -14,7 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DelailsActivity.HospitalsDetailActivity"></activity>
+        <activity android:name=".DelailsActivity.EmergencysDetailActivity"></activity>
+        <activity android:name=".DelailsActivity.EmergencyDetailActivity" />
+        <activity android:name=".DelailsActivity.DoctorsDetailActivity" />
+        <activity android:name=".DelailsActivity.HospitalsDetailActivity" />
         <activity android:name=".AddNewActivity.AddNewEmergencyActivity" />
         <activity android:name=".AddNewActivity.AddNewPetshopActivity" />
         <activity android:name=".AddNewActivity.AddNewDoctorsActivity" />

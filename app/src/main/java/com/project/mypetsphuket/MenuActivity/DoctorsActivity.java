@@ -20,10 +20,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.project.mypetsphuket.Model.Doctors;
-import com.project.mypetsphuket.Model.Images;
 import com.project.mypetsphuket.R;
 import com.project.mypetsphuket.RecycleAdepter.DocRecyclerAdepter;
-import com.project.mypetsphuket.RecycleAdepter.RecyclerAdepter;
 
 import java.util.ArrayList;
 
@@ -49,7 +47,7 @@ public class DoctorsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_doctors);
         closeTextBtn = (TextView) findViewById(R.id.close_doctors_btn);
       //  NextTextButton = (TextView) findViewById(R.id.update_settings_btn);
-      // userInfoDisplay(profileImageView, fullNameEditText, userPhoneEditText, addressEditText);
+
 
         closeTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,13 +65,21 @@ public class DoctorsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
+
         reference = FirebaseDatabase.getInstance().getReference();
         mStorageRef = FirebaseStorage.getInstance().getReference();
+
+        closeTextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                finish();
+            }
+        });
 
         doctorsList = new ArrayList<>();
 
         init();
-
 
     }
 
@@ -92,6 +98,7 @@ public class DoctorsActivity extends AppCompatActivity {
                     doctors.setUrl(snapshot.child("url").getValue().toString());
                     doctors.setName(snapshot.child("name").getValue().toString());
                     doctors.setSpecialist(snapshot.child("specialist").getValue().toString());
+                    doctors.setWorking(snapshot.child("working").getValue().toString());
                     doctors.setLocation(snapshot.child("location").getValue().toString());
                     doctors.setRating(snapshot.child("rating").getValue().toString());
 
