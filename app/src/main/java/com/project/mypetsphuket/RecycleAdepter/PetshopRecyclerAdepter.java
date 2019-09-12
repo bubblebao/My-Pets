@@ -1,6 +1,7 @@
 package com.project.mypetsphuket.RecycleAdepter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.project.mypetsphuket.DelailsActivity.HospitalsDetailActivity;
+import com.project.mypetsphuket.Interface.ItemClickListner;
 import com.project.mypetsphuket.Model.Petshops;
 import com.project.mypetsphuket.R;
 import com.squareup.picasso.Picasso;
@@ -37,35 +40,74 @@ public class PetshopRecyclerAdepter extends RecyclerView.Adapter<PetshopRecycler
     @Override
     public void onBindViewHolder(@NonNull PetshopRecyclerAdepter.ViewHolder holder, int position) {
 
-
-        holder.tvName.setText(petshopsList.get(position).getName());
-        holder.tvDescription.setText(petshopsList.get(position).getDescription());
-        holder.tvLocation.setText(petshopsList.get(position).getLocation());
-        holder.tvRating.setText(petshopsList.get(position).getRating());
+        holder.PetshopName.setText(petshopsList.get(position).getName());
+        holder.PetshopDescription.setText(petshopsList.get(position).getDescription());
+        holder.PetshopLocation.setText(petshopsList.get(position).getLocation());
+        holder.PetshopRating.setText(petshopsList.get(position).getRating());
         Picasso.get().load(petshopsList.get((position)).getUrl())
                 .into(holder.imageView);
+
+        // 5. setItemClickListner
+        holder.setItemClickListner(new ItemClickListner() {
+            @Override
+            public void onItemClickListner(View v, int position) {
+                //6. Set to passing Data
+                String gName = petshopsList.get(position).getName();
+                String gDescription = petshopsList.get(position).getDescription();
+                String gLocation = petshopsList.get(position).getLocation();
+                String gRating = petshopsList.get(position).getRating();
+                String gUrl = petshopsList.get(position).getUrl();
+
+                //7. Put Data to HospitalsDetailActivity
+                Intent intent = new Intent(mContext, HospitalsDetailActivity.class);
+                intent.putExtra("Name",gName);
+                intent.putExtra("Description",gDescription);
+                intent.putExtra("Location",gLocation);
+                intent.putExtra("Rating",gRating);
+                intent.putExtra("Url",gUrl);
+                mContext.startActivity(intent);
+
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return petshopsList.size();
     }
-    public static class ViewHolder extends RecyclerView.ViewHolder{
 
+
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+        ItemClickListner itemClickListner;
         ImageView imageView;
-        TextView tvName;
-        TextView tvDescription;
-        TextView tvLocation;
-        TextView tvRating;
+        TextView PetshopName;
+        TextView PetshopDescription;
+        TextView PetshopLocation;
+        TextView PetshopRating;
 
 
         public ViewHolder(@NonNull View itemView) {
+
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.Petshop_imageView);
-            tvName = (TextView) itemView.findViewById(R.id.Petshop_Name);
-            tvDescription = (TextView) itemView.findViewById(R.id.Petshop_Description);
-            tvLocation = (TextView) itemView.findViewById(R.id.Petshop_location);
-            tvRating = (TextView) itemView.findViewById(R.id.Petshop_Rating);
+            PetshopName = (TextView) itemView.findViewById(R.id.Petshop_Name);
+            PetshopDescription = (TextView) itemView.findViewById(R.id.Petshop_Description);
+            PetshopLocation = (TextView) itemView.findViewById(R.id.Petshop_location);
+            PetshopRating = (TextView) itemView.findViewById(R.id.Petshop_Rating);
+
+            itemView.setOnClickListener(this);
+
+        }
+
+        @Override
+        public void onClick(View v) {
+            this.itemClickListner.onItemClickListner(v, getLayoutPosition());
+        }
+
+        private void setItemClickListner(ItemClickListner itemClickListner){
+
+            this.itemClickListner = itemClickListner ;
 
         }
     }

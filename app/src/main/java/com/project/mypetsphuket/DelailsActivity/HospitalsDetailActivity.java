@@ -41,7 +41,7 @@ public class HospitalsDetailActivity extends AppCompatActivity {
         HospitalImageView = (ImageView) findViewById(R.id.Hospital_Detail_ImageView);
         HospitalName = (TextView) findViewById(R.id.Hospital_Detail_Name);
         HospitalDescription = (TextView) findViewById(R.id.Hospital_Detail_Description);
-        HospitalLocation = (TextView) findViewById(R.id.Hospital_DetailLocation);
+        HospitalLocation = (TextView) findViewById(R.id.Hospital_Detail_Location);
         HospitalRating = (TextView) findViewById(R.id.Hospital_Detail_Rate);
 
         ///Get Data form RecyclerAdepter

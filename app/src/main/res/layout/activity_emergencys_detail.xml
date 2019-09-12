@@ -1,9 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DelailsActivity.EmergencysDetailActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimary">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/close_Emergency_detail_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Close"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentStart="true"
+                    />
+
+                     <TextView
+                         android:id="@+id/Emergency_phone_call_btn"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="Call"
+                         android:textColor="@android:color/white"
+                         android:textSize="17sp"
+                         android:textStyle="bold"
+                         android:layout_marginRight="10dp"
+                         android:layout_alignParentEnd="true"
+                         />
+
+                <TextView
+                    android:id="@+id/Emergency_Detail_Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="My Pets Emergency Detials"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    />
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp">
+
+        <ImageView
+            android:id="@+id/Emergency_Detail_ImageView"
+            android:layout_marginTop="20dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ic_emergency_load"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/txt_Emergency_Name"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Emergency_Detail_ImageView"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="40dp"
+            android:text="Hospital Name   : "
+            android:textAlignment="textStart"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Emergency_Detail_Name"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Emergency_Detail_ImageView"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@id/txt_Emergency_Name"
+            android:text="Name"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/txt_Emergency_Detail_Description"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Emergency_Detail_Name"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="45dp"
+            android:text="Hospital Detial  :"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/Emergency_Detail_Description"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Emergency_Detail_Name"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="45dp"
+            android:layout_toRightOf="@id/txt_Emergency_Detail_Description"
+            android:text="Detial"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18dp" />
+
+
+        <!--TextView
+            android:id="@+id/txt_Emergency_Detail_Working"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_Emergency_Detail_Description"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="15dp"
+            android:text="Hospital location :"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/Emergency_Detail_Working"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Emergency_Detail_Description"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@id/txt_Emergency_Detail_Working"
+            android:text="Working"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18dp" /-->
+
+
+        <TextView
+            android:id="@+id/txt_Emergency_Detail_Location"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_Emergency_Detail_Description"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="15dp"
+            android:text="Hospital location :"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/Emergency_Detail_Location"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Emergency_Detail_Description"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="14dp"
+            android:layout_toRightOf="@id/txt_Emergency_Detail_Location"
+            android:text="Location "
+            android:textAlignment="textStart"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18dp" />
+
+
+        <ImageView
+            android:id="@+id/Emergency_Detail_Star"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="57dp"
+            android:layout_toRightOf="@id/Emergency_Detail_ImageView"
+            android:src="@drawable/ic_rate_star" />
+
+        <TextView
+            android:id="@+id/Emergency_Detail_Rate"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/Emergency_Detail_Star"
+            android:text="4.5"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

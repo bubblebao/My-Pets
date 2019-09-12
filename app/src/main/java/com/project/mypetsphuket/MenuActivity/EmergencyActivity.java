@@ -71,8 +71,6 @@ public class EmergencyActivity extends AppCompatActivity {
 
         init();
 
-
-
     }
 
     private void init() {
