@@ -291,18 +291,18 @@ public class AddNewPetshopActivity extends AppCompatActivity {
         HashMap<String, Object> PetshopMap = new HashMap<>();
         //   PetshopMap.put("pid", PetshopRandomKey);
 
-        PetshopMap.put("id", String.valueOf(maxId+1));
-        PetshopMap.put("url", downloadImageUrl);
-        PetshopMap.put("category", CategoryName);
         PetshopMap.put("name", Name);
+        PetshopMap.put("id", String.valueOf(maxId+1));
+        PetshopMap.put("category", CategoryName);
         PetshopMap.put("phone", Phone);
         PetshopMap.put("description", Description);
         PetshopMap.put("location", Location);
         PetshopMap.put("locationlatitude", Locationlatitude);
         PetshopMap.put("locationlongtitude", Locationlongtitude);
-        PetshopMap.put("servicrtime", Servicetime);
-        PetshopMap.put("servicrtype", Servicetype);
+        PetshopMap.put("servicetime", Servicetime);
+        PetshopMap.put("servicetype", Servicetype);
         PetshopMap.put("rating", Rating);
+        PetshopMap.put("url", downloadImageUrl);
 
         PetshopRef.child(/*CategoryName+*/String.valueOf(maxId+1)).setValue(PetshopMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

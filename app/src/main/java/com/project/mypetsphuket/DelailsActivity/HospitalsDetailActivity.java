@@ -19,6 +19,8 @@ public class HospitalsDetailActivity extends AppCompatActivity {
     private ImageView HospitalImageView;
     private TextView HospitalName;
     private TextView HospitalDescription;
+    private TextView HospitalServicetype;
+    private TextView HospitalServicetime;
     private TextView HospitalLocation;
     private TextView HospitalRating;
     private TextView  closeTextBtn;
@@ -40,7 +42,7 @@ public class HospitalsDetailActivity extends AppCompatActivity {
         //Find Object in activity_hospitals_detail
         HospitalImageView = (ImageView) findViewById(R.id.Hospital_Detail_ImageView);
         HospitalName = (TextView) findViewById(R.id.Hospital_Detail_Name);
-        HospitalDescription = (TextView) findViewById(R.id.Hospital_Detail_Description);
+        HospitalServicetype = (TextView) findViewById(R.id.Hospital_Detail_Servicetype);
         HospitalLocation = (TextView) findViewById(R.id.Hospital_Detail_Location);
         HospitalRating = (TextView) findViewById(R.id.Hospital_Detail_Rate);
 
@@ -49,13 +51,15 @@ public class HospitalsDetailActivity extends AppCompatActivity {
         String ImageView = intent.getStringExtra("Url");
         String Name = intent.getStringExtra("Name");
         String Description = intent.getStringExtra("Description");
+        String servicetype = intent.getStringExtra("servicetype");
+        String servicetime = intent.getStringExtra("servicetime");
         String Location = intent.getStringExtra("Location");
         String Rating = intent.getStringExtra("Rating");
 
         //Display Data to activity_hospitals_detail
         Picasso.get().load(ImageView).into(HospitalImageView);
         HospitalName.setText(Name);
-        HospitalDescription.setText(Description);
+        HospitalServicetype.setText(servicetype);
         HospitalLocation.setText(Location);
         HospitalRating.setText(Rating);
 

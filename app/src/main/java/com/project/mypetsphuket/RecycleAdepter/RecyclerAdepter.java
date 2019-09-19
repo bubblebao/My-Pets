@@ -44,10 +44,12 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
         // 2. Defined parameter
         ItemClickListner itemClickListner;
         ImageView imageView;
-        TextView HospitalName;
-        TextView HospitalDescription;
-        TextView HospitalLocation;
-        TextView HospitalRating;
+        TextView  HospitalName;
+        TextView  HospitalDescription;
+        TextView  Hospitalservicetype;
+        TextView  Hospitalservicetime;
+        TextView  HospitalLocation;
+        TextView  HospitalRating;
 
         public ViewHolder(@NonNull View itemView) {
 
@@ -55,7 +57,7 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.Hospital_ImageView);
             HospitalName = (TextView) itemView.findViewById(R.id.Hospital_name);
-            HospitalDescription = (TextView) itemView.findViewById(R.id.Hospital_Description);
+            Hospitalservicetype = (TextView) itemView.findViewById(R.id.Hospital_Servicetype);
             HospitalLocation = (TextView) itemView.findViewById(R.id.Hospital_Location);
             HospitalRating = (TextView) itemView.findViewById(R.id.Hospital_Rate);
 
@@ -84,7 +86,7 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.HospitalName.setText(hospitalList.get(position).getName());
-        holder.HospitalDescription.setText(hospitalList.get(position).getDescription());
+        holder.Hospitalservicetype.setText(hospitalList.get(position).getServicetype());
         holder.HospitalLocation.setText(hospitalList.get(position).getLocation());
         holder.HospitalRating.setText(hospitalList.get(position).getRating());
         Picasso.get().load(hospitalList.get((position)).getUrl())
@@ -100,6 +102,8 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
                 String gName = hospitalList.get(position).getName();
                 String gDescription = hospitalList.get(position).getDescription();
                 String gLocation = hospitalList.get(position).getLocation();
+                String gservicetype = hospitalList.get(position).getServicetype();
+                String gservicetime = hospitalList.get(position).getservicetime();
                 String gRating = hospitalList.get(position).getRating();
                 String gUrl = hospitalList.get(position).getUrl();
 
@@ -108,6 +112,8 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
                 intent.putExtra("Name",gName);
                 intent.putExtra("Description",gDescription);
                 intent.putExtra("Location",gLocation);
+                intent.putExtra("servicetype",gservicetype);
+                intent.putExtra("servicetime",gservicetime);
                 intent.putExtra("Rating",gRating);
                 intent.putExtra("Url",gUrl);
                 mContext.startActivity(intent);

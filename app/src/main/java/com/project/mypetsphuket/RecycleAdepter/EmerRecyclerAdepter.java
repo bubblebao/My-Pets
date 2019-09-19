@@ -46,10 +46,13 @@ public class EmerRecyclerAdepter extends RecyclerView.Adapter<EmerRecyclerAdepte
         // 2. Defined parameter
         ItemClickListner itemClickListner;
         ImageView imageView;
-        TextView EmergencyName;
-        TextView EmergencyDescription;
-        TextView EmergencyLocation;
-        TextView EmergencyRating;
+        TextView  EmergencyName;
+        TextView  EmergencyDescription;
+        TextView  Emergencyservicetype;
+        TextView  Emergencyservicetime;
+        TextView  EmergencyLocation;
+        TextView  EmergencyRating;
+
 
         public ViewHolder(@NonNull View itemView) {
 
@@ -57,7 +60,7 @@ public class EmerRecyclerAdepter extends RecyclerView.Adapter<EmerRecyclerAdepte
             //Find Object in RecycleView
             imageView = (ImageView) itemView.findViewById(R.id.Emergency_imageView);
             EmergencyName = (TextView) itemView.findViewById(R.id.Emergency_Name);
-            EmergencyDescription = (TextView) itemView.findViewById(R.id.Emergency_Description);
+            Emergencyservicetype = (TextView) itemView.findViewById(R.id.Emergency_servicetype);
             EmergencyLocation = (TextView) itemView.findViewById(R.id.Emergency_Location);
             EmergencyRating = (TextView) itemView.findViewById(R.id.Emergency_Rating);
 
@@ -82,7 +85,7 @@ public class EmerRecyclerAdepter extends RecyclerView.Adapter<EmerRecyclerAdepte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.EmergencyName.setText(emergencysList.get(position).getName());
-        holder.EmergencyDescription.setText(emergencysList.get(position).getDescription());
+        holder.Emergencyservicetype.setText(emergencysList.get(position).getServicetype());
         holder.EmergencyLocation.setText(emergencysList.get(position).getLocation());
         holder.EmergencyRating.setText(emergencysList.get(position).getRating());
         Picasso.get().load(emergencysList.get((position)).getUrl())
@@ -97,6 +100,8 @@ public class EmerRecyclerAdepter extends RecyclerView.Adapter<EmerRecyclerAdepte
                 String gName = emergencysList.get(position).getName();
                 String gDescription = emergencysList.get(position).getDescription();
                 String gLocation = emergencysList.get(position).getLocation();
+                String gservicetype = emergencysList.get(position).getServicetype();
+                String gservicetime = emergencysList.get(position).getServicetime();
                 String gRating = emergencysList.get(position).getRating();
                 String gUrl = emergencysList.get(position).getUrl();
 
@@ -105,6 +110,8 @@ public class EmerRecyclerAdepter extends RecyclerView.Adapter<EmerRecyclerAdepte
                 intent.putExtra("Name",gName);
                 intent.putExtra("Description",gDescription);
                 intent.putExtra("Location",gLocation);
+                intent.putExtra("servicetype",gservicetype);
+                intent.putExtra("servicetime",gservicetime);
                 intent.putExtra("Rating",gRating);
                 intent.putExtra("Url",gUrl);
                 mContext.startActivity(intent);

@@ -92,6 +92,8 @@ public class PetshopActivity extends AppCompatActivity {
                     petshops.setName(snapshot.child("name").getValue().toString());
                     petshops.setDescription(snapshot.child("description").getValue().toString());
                     petshops.setLocation(snapshot.child("location").getValue().toString());
+                    petshops.setServicetype(snapshot.child("servicetype").getValue().toString());
+                    petshops.setServicetime(snapshot.child("servicetime").getValue().toString());
                     petshops.setRating(snapshot.child("rating").getValue().toString());
 
                     petshopsList.add(petshops);

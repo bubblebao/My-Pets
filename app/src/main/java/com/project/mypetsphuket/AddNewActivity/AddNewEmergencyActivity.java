@@ -278,18 +278,18 @@ public class AddNewEmergencyActivity extends AppCompatActivity {
         HashMap<String, Object> EmergencyMap = new HashMap<>();
         //   EmergencyMap.put("pid", EmergencyRandomKey);
 
-        EmergencyMap.put("id", String.valueOf(maxId+1));
-        EmergencyMap.put("url", downloadImageUrl);
-        EmergencyMap.put("category", CategoryName);
         EmergencyMap.put("name", Name);
+        EmergencyMap.put("id", String.valueOf(maxId+1));
+        EmergencyMap.put("category", CategoryName);
         EmergencyMap.put("phone", Phone);
         EmergencyMap.put("description", Description);
         EmergencyMap.put("location", Location);
         EmergencyMap.put("locationlatitude", Locationlatitude);
         EmergencyMap.put("locationlongtitude", Locationlongtitude);
-        EmergencyMap.put("servicrtime", Servicetime);
-        EmergencyMap.put("servicrtype", Servicetype);
+        EmergencyMap.put("servicetime", Servicetime);
+        EmergencyMap.put("servicetype", Servicetype);
         EmergencyMap.put("rating", Rating);
+        EmergencyMap.put("url", downloadImageUrl);
 
         EmergencyRef.child(/*CategoryName+*/String.valueOf(maxId+1)).setValue(EmergencyMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

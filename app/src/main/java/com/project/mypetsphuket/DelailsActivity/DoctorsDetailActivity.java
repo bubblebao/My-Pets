@@ -64,6 +64,5 @@ public class DoctorsDetailActivity extends AppCompatActivity {
         DoctorRating.setText(Rating);
 
 
-
     }
 }

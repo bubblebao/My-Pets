@@ -41,7 +41,7 @@ public class PetshopRecyclerAdepter extends RecyclerView.Adapter<PetshopRecycler
     public void onBindViewHolder(@NonNull PetshopRecyclerAdepter.ViewHolder holder, int position) {
 
         holder.PetshopName.setText(petshopsList.get(position).getName());
-        holder.PetshopDescription.setText(petshopsList.get(position).getDescription());
+        holder.Petshopservicetype.setText(petshopsList.get(position).getServicetype());
         holder.PetshopLocation.setText(petshopsList.get(position).getLocation());
         holder.PetshopRating.setText(petshopsList.get(position).getRating());
         Picasso.get().load(petshopsList.get((position)).getUrl())
@@ -54,6 +54,8 @@ public class PetshopRecyclerAdepter extends RecyclerView.Adapter<PetshopRecycler
                 //6. Set to passing Data
                 String gName = petshopsList.get(position).getName();
                 String gDescription = petshopsList.get(position).getDescription();
+                String gservicetype = petshopsList.get(position).getServicetype();
+                String gservicetime = petshopsList.get(position).getServicetime();
                 String gLocation = petshopsList.get(position).getLocation();
                 String gRating = petshopsList.get(position).getRating();
                 String gUrl = petshopsList.get(position).getUrl();
@@ -63,6 +65,8 @@ public class PetshopRecyclerAdepter extends RecyclerView.Adapter<PetshopRecycler
                 intent.putExtra("Name",gName);
                 intent.putExtra("Description",gDescription);
                 intent.putExtra("Location",gLocation);
+                intent.putExtra("servicetype",gservicetype);
+                intent.putExtra("servicetime",gservicetime);
                 intent.putExtra("Rating",gRating);
                 intent.putExtra("Url",gUrl);
                 mContext.startActivity(intent);
@@ -83,6 +87,8 @@ public class PetshopRecyclerAdepter extends RecyclerView.Adapter<PetshopRecycler
         ImageView imageView;
         TextView PetshopName;
         TextView PetshopDescription;
+        TextView Petshopservicetype;
+        TextView Petshopservicetime;
         TextView PetshopLocation;
         TextView PetshopRating;
 
@@ -92,7 +98,7 @@ public class PetshopRecyclerAdepter extends RecyclerView.Adapter<PetshopRecycler
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.Petshop_imageView);
             PetshopName = (TextView) itemView.findViewById(R.id.Petshop_Name);
-            PetshopDescription = (TextView) itemView.findViewById(R.id.Petshop_Description);
+            Petshopservicetype = (TextView) itemView.findViewById(R.id.Petshop_Servicetype);
             PetshopLocation = (TextView) itemView.findViewById(R.id.Petshop_location);
             PetshopRating = (TextView) itemView.findViewById(R.id.Petshop_Rating);
 

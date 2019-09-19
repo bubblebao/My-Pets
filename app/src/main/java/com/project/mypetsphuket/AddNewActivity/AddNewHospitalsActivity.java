@@ -287,18 +287,19 @@ public class AddNewHospitalsActivity extends AppCompatActivity {
         HashMap<String, Object> HospitalMap = new HashMap<>();
      //   HospitalMap.put("pid", HospitalRandomKey);
 
-        HospitalMap.put("id", String.valueOf(maxId+1));
-        HospitalMap.put("url", downloadImageUrl);
-        HospitalMap.put("category", CategoryName);
+
         HospitalMap.put("name", Name);
+        HospitalMap.put("id", String.valueOf(maxId+1));
+        HospitalMap.put("category", CategoryName);
         HospitalMap.put("phone", Phone);
         HospitalMap.put("description", Description);
         HospitalMap.put("location", Location);
         HospitalMap.put("locationlatitude", Locationlatitude);
         HospitalMap.put("locationlongtitude", Locationlongtitude);
-        HospitalMap.put("servicrtime", Servicetime);
-        HospitalMap.put("servicrtype", Servicetype);
+        HospitalMap.put("servicetime", Servicetime);
+        HospitalMap.put("servicetype", Servicetype);
         HospitalMap.put("rating", Rating);
+        HospitalMap.put("url", downloadImageUrl);
 
         HospitalRef.child(/*CategoryName + */String.valueOf(maxId+1)).setValue(HospitalMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -19,6 +19,8 @@ public class EmergencysDetailActivity extends AppCompatActivity {
     private TextView  EmergencyName;
     private TextView  EmergencyDescription;
     private TextView  EmergencyLocation;
+    private TextView  Emergencyservicetype;
+    private TextView  Emergencyservicetime;
     private TextView  EmergencyRating;
     private TextView  closeTextBtn;
 
@@ -48,6 +50,8 @@ public class EmergencysDetailActivity extends AppCompatActivity {
         String ImageView = intent.getStringExtra("Url");
         String Name = intent.getStringExtra("Name");
         String Description = intent.getStringExtra("Description");
+   //     String servicetype = intent.getStringExtra("servicetype");
+   //     String servicetime = intent.getStringExtra("servicetime");
         String Location = intent.getStringExtra("Location");
         String Rating = intent.getStringExtra("Rating");
 

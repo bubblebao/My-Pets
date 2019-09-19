@@ -2,7 +2,499 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+<!--
+    {
+    "Admins": {
+    "1111": {
+    "name": "ad",
+    "password": "1111",
+    "phone": "1111"
+    },
+    "+66822828303": {
+    "name": "ADMIN",
+    "password": "1",
+    "phone": "+66822828303"
+    }
+    },
+    "Doctors": [
+    null,
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2Fprimary%3AProject%2Fbring.png%E0%B8%81.%E0%B8%A2.%2009%2C%202019%2007%3A21%3A07%20%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%87.jpg?alt=media&token=57c93e12-b9ec-477a-8049-5044651a936f",
+    "category": "doctor",
+    "id": "1",
+    "location": "Mae Luan",
+    "locationlatitude": "7.888367",
+    "locationlongtitude": "98.381493 ",
+    "name": "Dr. Ashish Simson",
+    "phone": "864698",
+    "rating": "4.3",
+    "servicetime": "08:30 - 22:00",
+    "specialist": "All + (Exotic) ",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Ashish%20Simson.jpg?alt=media&token=7884d18a-8a28-413c-a052-1485aed3a49a",
+    "working": "Maeluan Phuket Animal Hospital"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2Fprimary%3AProject%2FMaeluan%20Phuket%20Animal%20Hospital-2.png%E0%B8%81.%E0%B8%A2.%2009%2C%202019%2007%3A37%3A12%20%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%87.jpg?alt=media&token=2a29961e-a1ba-48f3-aae0-6d11125ea75d",
+    "category": "doctor",
+    "id": "2",
+    "location": "Mueang Phuket",
+    "locationlatitude": "854.225",
+    "locationlongtitude": "825.55",
+    "name": "Dr. Sagar Tayler ",
+    "phone": "076-213464",
+    "rating": "4.3",
+    "servicetime": "10.00 AM - 15.00 PM",
+    "specialist": "Dog",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%C2%A0Sagar%20Tayler.jpg?alt=media&token=b992dd9b-cb50-4b20-a4ff-531e4c33cb99",
+    "working": "RTB Animal Hospital"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2Fprimary%3AProject%2FMaeluan%20Phuket%20Animal%20Hospital-2.png%E0%B8%81.%E0%B8%A2.%2009%2C%202019%2007%3A37%3A12%20%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%87.jpg?alt=media&token=2a29961e-a1ba-48f3-aae0-6d11125ea75d",
+    "category": "doctor",
+    "id": "3",
+    "location": "Samkong",
+    "locationlatitude": "854.225",
+    "locationlongtitude": "825.55",
+    "name": "Dr. Diksha Sen",
+    "phone": "864698",
+    "rating": "4.3",
+    "servicetime": "10.00 AM - 15.00 PM",
+    "specialist": "Dog",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%C2%A0Diksha%C2%A0Sen.jpg?alt=media&token=88b23ad9-dc41-4719-beca-fa7fc3605a9e",
+    "working": "RTB"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Diksha%20Sen.png?alt=media&token=cea92102-4a6b-43c8-a810-2ab8dad48434",
+    "category": "doctor",
+    "id": "4",
+    "location": "Thonglor Chalong Pet Hospital",
+    "locationlatitude": "854.225",
+    "locationlongtitude": "825.55",
+    "name": "Dr. Guru Barapatre ",
+    "phone": "864698",
+    "rating": "4.3",
+    "servicetime": "10.00 AM - 15.00 PM",
+    "specialist": "Dog",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%C2%A0Guru%C2%A0Barapatre%C2%A0.jpg?alt=media&token=8090b35b-6c19-48b2-99df-12e0bb5bfdad",
+    "working": "RTB"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "doctor",
+    "id": "5",
+    "location": "Samkong",
+    "locationlatitude": "854.225",
+    "locationlongtitude": "825.55",
+    "name": "Dr. Vivek Thakur",
+    "phone": "864698",
+    "rating": "4.3",
+    "servicetime": "10.00 AM - 15.00 PM",
+    "specialist": "Dog",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%C2%A0Vivek%C2%A0Thakur.png?alt=media&token=a2a6edbd-3f7c-44b0-aff5-c5fa883bf10b",
+    "working": "RTB"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "doctor",
+    "id": "6",
+    "location": "Samkong",
+    "locationlatitude": "854.225",
+    "locationlongtitude": "825.55",
+    "name": "Dr. Narendra Sharma",
+    "phone": "864698",
+    "rating": "4.3",
+    "servicetime": "10.00 AM - 15.00 PM",
+    "specialist": "Dog",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Narendra%20Sharma.jpg?alt=media&token=b179502d-9562-4426-984b-9d4d3f32a573",
+    "working": "RTB"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "doctor",
+    "id": "7",
+    "location": "Samkong",
+    "locationlatitude": "854.225",
+    "locationlongtitude": "825.55",
+    "name": "Dr. Pawan Kumar",
+    "phone": "864698",
+    "rating": "4.3",
+    "servicetime": "10.00 AM - 15.00 PM",
+    "specialist": "Dog",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Pawan%20Kumar.jpg?alt=media&token=7b847296-a09c-44ce-a64f-e50f3ed5df35",
+    "working": "RTB"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "doctor",
+    "id": "8",
+    "location": "Samkong",
+    "locationlatitude": "854.225",
+    "locationlongtitude": "825.55",
+    "name": "Dr. Arvind Vicky",
+    "phone": "864698",
+    "rating": "4.3",
+    "servicetime": "10.00 AM - 15.00 PM",
+    "specialist": "Dog",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Arvind%20Vicky.jpg?alt=media&token=7eef28dd-9af8-4db8-8d5e-832a8da58cd7",
+    "working": "RTB"
+    }
+    ],
+    "Emergencys": [
+    null,
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "emergency",
+    "description": "Full service-veterinary medical facility",
+    "id": "1",
+    "location": "Seekor",
+    "locationlatitude": "855.555",
+    "locationlongtitude": "826.56",
+    "name": "Maeluan Phuket Animal Hospital",
+    "phone": "087539856",
+    "rating": "4.7",
+    "servicetime": "hot",
+    "servicetype": "hot",
+    "url": "https://firebasestorage.googleapis.com/v0/b/test-recycleview.appspot.com/o/Akane%20Koi%20House.png?alt=media&token=d87783ea-776f-41cd-a65f-7e174f11c25f"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "emergency",
+    "description": "Full service-veterinary medical facility",
+    "id": "2",
+    "location": "Seekor",
+    "locationlatitude": "855.555",
+    "locationlongtitude": "826.56",
+    "name": "Maeluan Phuket Animal Hospital",
+    "phone": "087539856",
+    "rating": "4.7",
+    "servicetime": "hot",
+    "servicetype": "hot",
+    "url": "https://firebasestorage.googleapis.com/v0/b/test-recycleview.appspot.com/o/young_adult_shutterstock.jpg.CROP.promo-mediumlarge.png?alt=media&token=71c51bce-9a8e-4c9a-a5e4-796210e17607"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "emergency",
+    "description": "Full service-veterinary medical facility",
+    "id": "1",
+    "location": "Seekor",
+    "locationlatitude": "855.555",
+    "locationlongtitude": "826.56",
+    "name": "Maeluan Phuket Animal Hospital",
+    "phone": "087539856",
+    "rating": "4.7",
+    "servicetime": "hot",
+    "servicetype": "hot",
+    "url": "https://firebasestorage.googleapis.com/v0/b/test-recycleview.appspot.com/o/Maeluan%20Phuket%20Animal%20Hospital.png?alt=media&token=4a3671a6-61ef-44de-9c78-52931681e6d1"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "emergency",
+    "description": "Full service-veterinary medical facility",
+    "id": "4",
+    "location": "Seekor",
+    "locationlatitude": "855.555",
+    "locationlongtitude": "826.56",
+    "name": "Maeluan Phuket Animal Hospital",
+    "phone": "087539856",
+    "rating": "4.7",
+    "servicetime": "hot",
+    "servicetype": "hot",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Emergencys%2Fprimary%3AProject%2FPhuket%20International%20Petcare%20Center.png%E0%B8%81.%E0%B8%A2.%2010%2C%202019%2020%3A56%3A54%20%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%87%20.jpg?alt=media&token=d7496509-bdf6-4ce6-ae86-89d45b859746"
+    }
+    ],
+    "Hospitals": [
+    null,
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "hospital",
+    "description": "Full service-veterinary medical facility",
+    "id": "1",
+    "location": "Mae Luan",
+    "locationlatitude": "855.555",
+    "locationlongtitude": "826.56",
+    "name": "Maeluan Phuket Animal Hospital",
+    "phone": "087539856",
+    "rating": "4.7",
+    "servicetime": "hot",
+    "servicetype": "All + (Exotic)",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Hospitals%2FMaeluan%20Animal%20Hospital.jpg?alt=media&token=3ddde1cd-3244-4fff-88f8-e3e28e0b967e"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "hospital",
+    "description": "Full service-veterinary medical facility",
+    "id": "2",
+    "location": "Mueang Phuket",
+    "locationlatitude": "855.555",
+    "locationlongtitude": "826.56",
+    "name": "RTB Animal Hospital",
+    "phone": "087539856",
+    "rating": "4.7",
+    "servicetime": "hot",
+    "servicetype": "All Service",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Hospitals%2FRTB%20Animal%20Hospital.jpg?alt=media&token=b5b62901-e5ac-44e5-9f2d-deeb77648bbd"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "hospital",
+    "description": "Full service-veterinary medical facility",
+    "id": "3",
+    "location": "Seekor",
+    "locationlatitude": "855.555",
+    "locationlongtitude": "826.56",
+    "name": "Phuket International Petcare Center",
+    "phone": "087539856",
+    "rating": "4.7",
+    "servicetime": "hot",
+    "servicetype": "All Service",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Hospitals%2FPIPC.jpg?alt=media&token=ed74202a-91f0-4267-936e-afd525bb3c6c"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "hospital",
+    "description": "Full service-veterinary medical facility",
+    "id": "4",
+    "location": "Seekor",
+    "locationlatitude": "855.555",
+    "locationlongtitude": "826.56",
+    "name": "Chaofah Andaman Pet Hospital",
+    "phone": "087539856",
+    "rating": "4.7",
+    "servicetime": "hot",
+    "servicetype": "All Service",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Hospitals%2FChaofah%20Andaman%20pet%20hospital.png?alt=media&token=6c0da81b-3f6d-4b60-a365-1ed8cff52c2d"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "hospital",
+    "description": "Full service-veterinary medical facility",
+    "id": "5",
+    "location": "Seekor",
+    "locationlatitude": "855.555",
+    "locationlongtitude": "826.56",
+    "name": "Thonglor Chalong Pet Hospital",
+    "phone": "087539856",
+    "rating": "4.7",
+    "servicetime": "hot",
+    "servicetype": "hot",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Hospitals%2FThonglor%20Chalong%20Pet%20Hospital.PNG?alt=media&token=6d9d9cb2-847d-4cea-8670-3b5909ef0382"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "hospital",
+    "description": "Full service-veterinary medical facility",
+    "id": "6",
+    "location": "Seekor",
+    "locationlatitude": "855.555",
+    "locationlongtitude": "826.56",
+    "name": "Chalong Animal Hospital",
+    "phone": "087539856",
+    "rating": "4.7",
+    "servicetime": "hot",
+    "servicetype": "hot",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Hospitals%2FChalong%20Animal%20Hospital.PNG?alt=media&token=25040aae-17e6-4409-94fd-2fb0b7728330"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "hospital",
+    "description": "Full service-veterinary medical facility",
+    "id": "7",
+    "location": "Seekor",
+    "locationlatitude": "855.555",
+    "locationlongtitude": "826.56",
+    "name": "Phuket Animal Welfare Society",
+    "phone": "087539856",
+    "rating": "4.7",
+    "servicetime": "hot",
+    "servicetype": "hot",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Hospitals%2FPhuket%20Animal%20Welfare%20Society%20(PAWS).png?alt=media&token=fd64c26b-1f2b-4d8e-9e1f-2e082aa16e18"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "hospital",
+    "description": "Full service-veterinary medical facility",
+    "id": "8",
+    "location": "Seekor",
+    "locationlatitude": "855.555",
+    "locationlongtitude": "826.56",
+    "name": "MorMod Vet&Grooming",
+    "phone": "087539856",
+    "rating": "4.7",
+    "servicetime": "hot",
+    "servicetype": "hot",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Hospitals%2FMorMod%20Vet%26Grooming.jpg?alt=media&token=fcafd168-557e-4b9e-93ff-d709870575c0"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "hospital",
+    "description": "Fish shop",
+    "id": "9",
+    "location": "Seekor",
+    "locationlatitude": "855.555",
+    "locationlongtitude": "826.56",
+    "name": "Dibuk Pet Hospital",
+    "phone": "087539856",
+    "rating": "4.5",
+    "servicetime": "hot",
+    "servicetype": "hot",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Hospitals%2FDibuk%20Pet%20Hospital.jpg?alt=media&token=bd483d6f-cde1-406a-9f31-280c9d383646"
+    }
+    ],
+    "Petshops": [
+    null,
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "petshop",
+    "description": "Fish",
+    "id": "1",
+    "location": "Talat Nuea",
+    "locationlatitude": "845.523",
+    "locationlongtitude": "545.523",
+    "name": "Phuket Pet Shop",
+    "phone": "094 8256961",
+    "rating": "4.4",
+    "servicetime": "09:00 - 19:00",
+    "servicetype": "All",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/PetShops%2FPhuket%20Pet%20Shop.jpg?alt=media&token=8b19323c-0471-4ec2-b72b-ac293f30691d"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "petshop",
+    "description": "Fish",
+    "id": "2",
+    "location": " Mueang Phuket",
+    "locationlatitude": "845.523",
+    "locationlongtitude": "545.523",
+    "name": "A-Bright",
+    "phone": "076376164",
+    "rating": "4.4",
+    "servicetime": "09:00 - 19:00",
+    "servicetype": "Groomming and Pet Shop",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/PetShops%2Fa-bright%20Pet%20Shop.jpg?alt=media&token=97164e2f-e7bc-4419-88cb-6a5002aeabc3"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "petshop",
+    "description": "Fish",
+    "id": "3",
+    "location": "Cherng Talay",
+    "locationlatitude": "845.523",
+    "locationlongtitude": "545.523",
+    "name": "Pets Magic Planet Shop",
+    "phone": "076620106",
+    "rating": "4.4",
+    "servicetime": "09:00 - 19:00",
+    "servicetype": "All",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/PetShops%2FPets%20Magic%20Planet%20Shop.jpg?alt=media&token=c3f0f752-bd84-4fe6-aa44-50f6665b7dd7"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "petshop",
+    "description": "Fish",
+    "id": "4",
+    "location": "Soi Lim Sui Ju",
+    "locationlatitude": "845.523",
+    "locationlongtitude": "545.523",
+    "name": "Akane Koi House",
+    "phone": "0866912120",
+    "rating": "4.4",
+    "servicetime": "09:00 - 19:00",
+    "servicetype": "fish center",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/PetShops%2FAkane%20Koi%20House%20Pet%20Shop.jpg?alt=media&token=66984930-91de-4fe8-8953-0c1aae3d21cf"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "petshop",
+    "description": "Fish",
+    "id": "5",
+    "location": "Chalong",
+    "locationlatitude": "845.523",
+    "locationlongtitude": "545.523",
+    "name": "Smile Pet & Grooming",
+    "phone": "0818955303",
+    "rating": "4.4",
+    "servicetime": "09:30 – 19:30 ",
+    "servicetype": "Grooming dog",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/PetShops%2FSmile%20Pet%20%26%20Grooming.jpg?alt=media&token=a8bca145-89bc-4c23-bfda-8e49a333d88e"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "petshop",
+    "description": "Fish",
+    "id": "6",
+    "location": "Thalang",
+    "locationlatitude": "845.523",
+    "locationlongtitude": "545.523",
+    "name": "Fluke Pet Shop",
+    "phone": "0819585289",
+    "rating": "4.4",
+    "servicetime": "08:00 - 20:30",
+    "servicetype": "Pet Shop & Grooming",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/PetShops%2FFluke%20Pet%20shop.jpg?alt=media&token=7a7ea5f3-f3cd-4b21-8e9d-887a8b8781bd"
+    },
+    {
+    "Image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Doctors%2FDr.%20Guru%20Barapatre.png?alt=media&token=61373acf-1c25-4546-97d3-c5fec939c308",
+    "category": "petshop",
+    "description": "Fish",
+    "id": "7",
+    "location": "Phuket Town",
+    "locationlatitude": "845.523",
+    "locationlongtitude": "545.523",
+    "name": "Fish World Phuket",
+    "phone": "0819850914",
+    "rating": "4.4",
+    "servicetime": "09:00 - 19:00",
+    "servicetype": "fish center",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/PetShops%2FFish%20World%20Pet%20Shop.gif?alt=media&token=46bd10d3-0768-41a7-925d-09c12dd83332"
+    }
+    ],
+    "Profiles": {
+    "AA": {
+    "email": "VSEDW",
+    "name": "aa",
+    "permission": true,
+    "profilePic": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/indy.png?alt=media&token=59e40cdf-012f-419f-bb55-6f5c16de3ec1"
+    },
+    "BB": {
+    "email": "thepm_@gmaom,com",
+    "name": "bb",
+    "permission": false,
+    "profilePic": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Rattanathibet%20Referral%20Animal%20Hospital.png?alt=media&token=cda483ee-8c3e-4332-90c8-2bba583ae5e0"
+    }
+    },
+    "Users": {
+    "0000": {
+    "name": "baoo",
+    "password": "0000",
+    "phone": "0000"
+    },
+    "00000": {
+    "name": "benz",
+    "password": "000000",
+    "phone": "00000"
+    },
+    "12345": {
+    "name": "asdsads",
+    "password": "12345",
+    "phone": "12345"
+    },
+    "0812737055": {
+    "name": "bao",
+    "password": "12345",
+    "phone": "0812737055"
+    },
+    "+66822828303": {
+    "address": "UK",
+    "image": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Profile%20pictures%2F%2B66822828303.jpg?alt=media&token=08d39511-9169-4899-a20d-ca4680c38d67",
+    "name": "Bob Marlay",
+    "password": "2",
+    "phone": "+66822828303",
+    "phoneOrder": "+66822828303",
+    "url": "https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Profile%20pictures%2F%2B66822828303.jpg?alt=media&token=cce46fc9-133a-42f9-b472-43d933497155"
+    }
+    }
+    }
+-->
 
     <!--         {
       "Admins" : {
@@ -25,7 +517,7 @@
         "locationlongtitude" : "825.55",
         "name" : "Dr. Vivek Thakur",
         "phone" : "864698",
-        "servicrtime" : "doh",
+        "servicetime" : "doh",
         "specialist" : "Dog",
         "working" : "bdidgbs",
         "rating" : "4.3",
@@ -38,7 +530,7 @@
         "locationlongtitude" : "855.75",
         "name" : "Dr. Sagar ",
         "phone" : "854885668",
-        "servicrtime" : "cat",
+        "servicetime" : "cat",
         "specialist" : "Cat",
         "working" : "RTB",
         "rating" : "4.3",
@@ -51,7 +543,7 @@
         "locationlongtitude" : "855.75",
         "name" : "Dr. Ashish ",
         "phone" : "8548852668",
-        "servicrtime" : "cat",
+        "servicetime" : "cat",
         "specialist" : "Cat",
         "working" : "RTB",
         "rating" : "4.1",
@@ -64,7 +556,7 @@
         "locationlongtitude" : "855.75",
         "name" : "Dr. Diksha Sen ",
         "phone" : "8548852668",
-        "servicrtime" : "cat",
+        "servicetime" : "cat",
         "specialist" : "Cat",
         "working" : "RTB",
         "rating" : "4.8",
@@ -77,7 +569,7 @@
         "locationlongtitude" : "855.75",
         "name" : "Dr. Guru Barapatre ",
         "phone" : "854885668",
-        "servicrtime" : "cat",
+        "servicetime" : "cat",
         "specialist" : "Cat",
         "working" : "RTB",
         "rating" : "4.3",
@@ -94,8 +586,8 @@
         "name" : "dhhdd",
         "phone" : "8545",
         "rating" : "4.3",
-        "servicrtime" : "hxud",
-        "servicrtype" : "hxud"
+        "servicetime" : "hxud",
+        "servicetype" : "hxud"
       } ],
       "Hospitals" : [ null, {
         "location" : "าดนดนพนพ",
@@ -108,7 +600,7 @@
         "name" : "อยู่​ไหน​ละ​ครับ​",
         "phone" : "087",
         "rating" : "4.3",
-        "servicrtype" : "อยู่​บ้าน​น้อง​เค้า​"
+        "servicetype" : "อยู่​บ้าน​น้อง​เค้า​"
       }, {
         "location" : "jugs",
         "locationlatitude" : "55556",
@@ -120,8 +612,8 @@
         "name" : "dhhfhd",
         "phone" : "5545",
         "rating" : "4.3",
-        "servicrtime" : "had dh",
-        "servicrtype" : "had dh"
+        "servicetime" : "had dh",
+        "servicetype" : "had dh"
       }, {
         "location" : "08768555",
         "locationlatitude" : "8648.555",
@@ -132,8 +624,8 @@
         "name" : "fkfhxi",
         "phone" : "087658999",
         "rating" : "4.6",
-        "servicrtime" : "pet",
-        "servicrtype" : "pet"
+        "servicetime" : "pet",
+        "servicetype" : "pet"
       } ],
       "Images" : {
         "image1" : {
@@ -166,8 +658,8 @@
         "name" : "Baan Indy",
         "phone" : "0993147733",
         "rating" : "4.3",
-        "servicrtime" : "Pet",
-        "servicrtype" : "Pet"
+        "servicetime" : "Pet",
+        "servicetype" : "Pet"
       } ],
       "Products" : {
         "2" : {

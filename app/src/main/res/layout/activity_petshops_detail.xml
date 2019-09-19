@@ -115,7 +115,7 @@
         <TextView
             android:id="@+id/Petshop_Detail_Description"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_below="@+id/Petshop_Detail_Name"
             android:layout_marginLeft="14dp"
             android:layout_marginTop="30dp"
@@ -131,7 +131,7 @@
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txt_Petshop_Detail_Description"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="110dp"
             android:layout_marginLeft="15dp"
             android:text="Petshop location :"
             android:textAlignment="textStart"

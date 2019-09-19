@@ -36,23 +36,23 @@
 
                 <TextView
                     android:id="@+id/Hospital_name"
-                    android:layout_width="150dp"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:text="Hospital Name"
                     android:textAlignment="textStart"
                     android:layout_marginLeft="8dp"
-                    android:textSize="15dp"
+                    android:textSize="12dp"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold"/>
 
                 <TextView
-                    android:id="@+id/Hospital_Description"
-                    android:layout_width="150dp"
+                    android:id="@+id/Hospital_Servicetype"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/Hospital_name"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="Hospital Description"
+                    android:text="Hospital Servicetype"
                     android:textAlignment="textStart"
                     android:textColor="@color/black_grey"
                     android:textSize="12dp" />
@@ -61,16 +61,16 @@
                     android:id="@+id/Marker"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:layout_below="@id/Hospital_Description"
+                    android:layout_below="@id/Hospital_Servicetype"
                     android:layout_marginTop="9dp"
                     android:layout_marginLeft="8dp"
                     android:src="@drawable/ic_mark_blue" />
 
                 <TextView
                     android:id="@+id/Hospital_Location"
-                    android:layout_width="150dp"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/Hospital_Description"
+                    android:layout_below="@+id/Hospital_Servicetype"
                     android:text="Hospital location"
                     android:layout_marginTop="12dp"
                     android:layout_marginLeft="5dp"
@@ -84,7 +84,7 @@
                     android:id="@+id/Hospital_Star"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_toRightOf="@id/Hospital_Description"
+                    android:layout_toRightOf="@id/Hospital_Servicetype"
                     android:layout_marginLeft="45dp"
                     android:layout_marginTop="25dp"
                     android:src="@drawable/ic_rate_star" />

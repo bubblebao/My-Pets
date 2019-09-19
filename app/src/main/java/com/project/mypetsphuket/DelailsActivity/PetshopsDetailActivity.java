@@ -16,10 +16,10 @@ public class PetshopsDetailActivity extends AppCompatActivity {
 
     private ItemClickListner itemClickListner;
     private ImageView PetshopImageView;
-    private TextView PetshopName;
-    private TextView PetshopDescription;
-    private TextView PetshopLocation;
-    private TextView PetshopRating;
+    private TextView  PetshopName;
+    private TextView  PetshopDescription;
+    private TextView  PetshopLocation;
+    private TextView  PetshopRating;
     private TextView  closeTextBtn;
 
     @Override
@@ -48,6 +48,8 @@ public class PetshopsDetailActivity extends AppCompatActivity {
         String ImageView = intent.getStringExtra("Url");
         String Name = intent.getStringExtra("Name");
         String Description = intent.getStringExtra("Description");
+        String servicetype = intent.getStringExtra("servicetype");
+        String servicetime = intent.getStringExtra("servicetime");
         String Location = intent.getStringExtra("Location");
         String Rating = intent.getStringExtra("Rating");
 

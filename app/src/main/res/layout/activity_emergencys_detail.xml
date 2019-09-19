@@ -118,7 +118,7 @@
         <TextView
             android:id="@+id/Emergency_Detail_Description"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_below="@+id/Emergency_Detail_Name"
             android:layout_marginLeft="14dp"
             android:layout_marginTop="45dp"
@@ -161,7 +161,7 @@
             android:layout_width="155dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txt_Emergency_Detail_Description"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="70dp"
             android:layout_marginLeft="15dp"
             android:text="Hospital location :"
             android:textAlignment="textStart"

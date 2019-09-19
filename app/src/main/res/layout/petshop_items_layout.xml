@@ -36,23 +36,23 @@
 
                 <TextView
                     android:id="@+id/Petshop_Name"
-                    android:layout_width="150dp"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:text="Pet shop Name"
                     android:textAlignment="textStart"
                     android:layout_marginLeft="5dp"
-                    android:textSize="15dp"
+                    android:textSize="12dp"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold"/>
 
                 <TextView
-                    android:id="@+id/Petshop_Description"
-                    android:layout_width="150dp"
+                    android:id="@+id/Petshop_Servicetype"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/Petshop_Name"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="Petshop Description"
+                    android:text="Petshop Servicetype"
                     android:textAlignment="textStart"
                     android:textColor="@color/black_grey"
                     android:textSize="12dp" />
@@ -60,15 +60,15 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:layout_below="@id/Petshop_Description"
+                    android:layout_below="@id/Petshop_Servicetype"
                     android:layout_marginTop="9dp"
                     android:src="@drawable/ic_mark_blue" />
 
                 <TextView
                     android:id="@+id/Petshop_location"
-                    android:layout_width="150dp"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/Petshop_Description"
+                    android:layout_below="@+id/Petshop_Servicetype"
                     android:text="Petshop location"
                     android:layout_marginTop="12dp"
                     android:layout_marginLeft="23dp"
@@ -80,7 +80,7 @@
                     android:id="@+id/Petshop_star"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_toRightOf="@id/Petshop_Description"
+                    android:layout_toRightOf="@id/Petshop_Servicetype"
                     android:layout_marginLeft="35dp"
                     android:layout_marginTop="25dp"
                     android:src="@drawable/ic_rate_star" />

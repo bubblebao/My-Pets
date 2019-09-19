@@ -90,6 +90,8 @@ public class EmergencyActivity extends AppCompatActivity {
                     emergencys.setName(snapshot.child("name").getValue().toString());
                     emergencys.setDescription(snapshot.child("description").getValue().toString());
                     emergencys.setLocation(snapshot.child("location").getValue().toString());
+                    emergencys.setServicetype(snapshot.child("servicetype").getValue().toString());
+                    emergencys.setServicetime(snapshot.child("servicetime").getValue().toString());
                     emergencys.setRating(snapshot.child("rating").getValue().toString());
 
                     emergencysList.add(emergencys);

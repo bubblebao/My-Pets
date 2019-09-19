@@ -297,19 +297,18 @@ public class AddNewDoctorsActivity extends AppCompatActivity {
     private void SaveDoctorInfoToDatabase() {
         HashMap<String, Object> DoctorMap = new HashMap<>();
         //   DoctorMap.put("pid", DoctorRandomKey);
-
-        DoctorMap.put("id", String.valueOf(maxId+1));
-        DoctorMap.put("url", downloadImageUrl);
-        DoctorMap.put("category", CategoryName);
         DoctorMap.put("name", Name);
+        DoctorMap.put("id", String.valueOf(maxId+1));
+        DoctorMap.put("category", CategoryName);
         DoctorMap.put("phone", Phone);
         DoctorMap.put("working", Working);
         DoctorMap.put("location", Location);
         DoctorMap.put("locationlatitude", Locationlatitude);
         DoctorMap.put("locationlongtitude", Locationlongtitude);
-        DoctorMap.put("servicetime", Servicetime);
         DoctorMap.put("specialist", Specialist);
+        DoctorMap.put("servicetime", Servicetime);
         DoctorMap.put("rating", Rating);
+        DoctorMap.put("url", downloadImageUrl);
 
         DoctorRef.child(String.valueOf(maxId+1)).setValue(DoctorMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
