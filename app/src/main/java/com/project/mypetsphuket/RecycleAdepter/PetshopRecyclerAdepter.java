@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.mypetsphuket.DelailsActivity.HospitalsDetailActivity;
+import com.project.mypetsphuket.DelailsActivity.PetshopsDetailActivity;
 import com.project.mypetsphuket.Interface.ItemClickListner;
 import com.project.mypetsphuket.Model.Petshops;
 import com.project.mypetsphuket.R;
@@ -54,19 +55,19 @@ public class PetshopRecyclerAdepter extends RecyclerView.Adapter<PetshopRecycler
                 //6. Set to passing Data
                 String gName = petshopsList.get(position).getName();
                 String gDescription = petshopsList.get(position).getDescription();
-                String gservicetype = petshopsList.get(position).getServicetype();
-                String gservicetime = petshopsList.get(position).getServicetime();
+                String gServicetype = petshopsList.get(position).getServicetype();
+                String gServicetime = petshopsList.get(position).getServicetime();
                 String gLocation = petshopsList.get(position).getLocation();
                 String gRating = petshopsList.get(position).getRating();
                 String gUrl = petshopsList.get(position).getUrl();
 
                 //7. Put Data to HospitalsDetailActivity
-                Intent intent = new Intent(mContext, HospitalsDetailActivity.class);
+                Intent intent = new Intent(mContext, PetshopsDetailActivity.class);
                 intent.putExtra("Name",gName);
                 intent.putExtra("Description",gDescription);
                 intent.putExtra("Location",gLocation);
-                intent.putExtra("servicetype",gservicetype);
-                intent.putExtra("servicetime",gservicetime);
+                intent.putExtra("Servicetype",gServicetype);
+                intent.putExtra("Servicetime",gServicetime);
                 intent.putExtra("Rating",gRating);
                 intent.putExtra("Url",gUrl);
                 mContext.startActivity(intent);

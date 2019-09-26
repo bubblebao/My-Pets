@@ -19,6 +19,8 @@ public class PetshopsDetailActivity extends AppCompatActivity {
     private TextView  PetshopName;
     private TextView  PetshopDescription;
     private TextView  PetshopLocation;
+    private TextView  PetshopServicetype;
+    private TextView  PetshopServicetime;
     private TextView  PetshopRating;
     private TextView  closeTextBtn;
 
@@ -39,7 +41,8 @@ public class PetshopsDetailActivity extends AppCompatActivity {
         //Find Object in activity_Petshops_detail
         PetshopImageView = (ImageView) findViewById(R.id.Petshop_Detail_ImageView);
         PetshopName = (TextView) findViewById(R.id.Petshop_Detail_Name);
-        PetshopDescription = (TextView) findViewById(R.id.Petshop_Detail_Description);
+        PetshopServicetype = (TextView) findViewById(R.id.Petshop_Detail_Servicetype);
+        PetshopServicetime = (TextView) findViewById(R.id.Petshop_Detail_Servicetime);
         PetshopLocation = (TextView) findViewById(R.id.Petshop_Detail_Location);
         PetshopRating = (TextView) findViewById(R.id.Petshop_Detail_Rate);
 
@@ -48,16 +51,18 @@ public class PetshopsDetailActivity extends AppCompatActivity {
         String ImageView = intent.getStringExtra("Url");
         String Name = intent.getStringExtra("Name");
         String Description = intent.getStringExtra("Description");
-        String servicetype = intent.getStringExtra("servicetype");
-        String servicetime = intent.getStringExtra("servicetime");
+        String servicetype = intent.getStringExtra("Servicetype");
+        String servicetime = intent.getStringExtra("Servicetime");
         String Location = intent.getStringExtra("Location");
         String Rating = intent.getStringExtra("Rating");
 
         //Display Data to activity_Petshops_detail
         Picasso.get().load(ImageView).into(PetshopImageView);
         PetshopName.setText(Name);
-        PetshopDescription.setText(Description);
-        PetshopLocation.setText(Location);
+        PetshopServicetype.setText(servicetype);
+        PetshopServicetime.setText(servicetime);
+        //  PetshopDescription.setText(Description);
+        PetshopLocation.setText("("+Location +")");
         PetshopRating.setText(Rating);
 
     }

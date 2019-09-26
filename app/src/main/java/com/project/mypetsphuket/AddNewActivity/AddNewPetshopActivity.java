@@ -60,7 +60,7 @@ public class AddNewPetshopActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_petshop);
 
-        parentDbName = "Petshops";
+        parentDbName = "PetShops";
 
         CategoryName = getIntent().getExtras().get("category").toString();
         Toast.makeText(AddNewPetshopActivity.this, "This is  " + CategoryName + " ready to add now ", Toast.LENGTH_SHORT).show();

@@ -86,6 +86,8 @@ public class HomeActivity extends AppCompatActivity
 
        //String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
         //userNameTextView.setText(UserPhoneKey);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
+
         userNameTextView.setText(Prevalent.currentOnlineUser.getName());
         Picasso.get().load(Prevalent.currentOnlineUser.getUrl()).placeholder(R.drawable.profile).into(profileImageView);
 

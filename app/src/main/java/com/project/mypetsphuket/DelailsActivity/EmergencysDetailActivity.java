@@ -41,7 +41,7 @@ public class EmergencysDetailActivity extends AppCompatActivity {
         //Find Object in activity_Emergencys_detail
         EmergencyImageView = (ImageView) findViewById(R.id.Emergency_Detail_ImageView);
         EmergencyName = (TextView) findViewById(R.id.Emergency_Detail_Name);
-        EmergencyDescription = (TextView) findViewById(R.id.Emergency_Detail_Description);
+        Emergencyservicetype = (TextView) findViewById(R.id.Emergency_Detail_Servicetype);
         EmergencyLocation = (TextView) findViewById(R.id.Emergency_Detail_Location);
         EmergencyRating = (TextView) findViewById(R.id.Emergency_Detail_Rate);
 
@@ -50,7 +50,7 @@ public class EmergencysDetailActivity extends AppCompatActivity {
         String ImageView = intent.getStringExtra("Url");
         String Name = intent.getStringExtra("Name");
         String Description = intent.getStringExtra("Description");
-   //     String servicetype = intent.getStringExtra("servicetype");
+        String servicetype = intent.getStringExtra("servicetype");
    //     String servicetime = intent.getStringExtra("servicetime");
         String Location = intent.getStringExtra("Location");
         String Rating = intent.getStringExtra("Rating");
@@ -58,8 +58,8 @@ public class EmergencysDetailActivity extends AppCompatActivity {
         //Display Data to activity_Emergencys_detail
         Picasso.get().load(ImageView).into(EmergencyImageView);
         EmergencyName.setText(Name);
-        EmergencyDescription.setText(Description);
-        EmergencyLocation.setText(Location);
+        Emergencyservicetype.setText(servicetype);
+        EmergencyLocation.setText("("+Location +")");
         EmergencyRating.setText(Rating);
 
     }

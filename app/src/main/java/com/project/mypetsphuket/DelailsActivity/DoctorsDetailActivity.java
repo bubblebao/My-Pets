@@ -20,6 +20,7 @@ public class DoctorsDetailActivity extends AppCompatActivity {
     private TextView  DoctorName;
     private TextView  DoctorSpecialist;
     private TextView  DoctorWorking;
+    private TextView  DoctorServicetime;
     private TextView  DoctorLocation;
     private TextView  DoctorRating;
     private TextView  closeTextBtn;
@@ -42,6 +43,7 @@ public class DoctorsDetailActivity extends AppCompatActivity {
         DoctorImageView = (ImageView) findViewById(R.id.Doctor_Detail_ImageView);
         DoctorName = (TextView) findViewById(R.id.Doctor_Detail_Name);
         DoctorSpecialist = (TextView) findViewById(R.id.Doctor_Detail_Specialist);
+
         DoctorWorking = (TextView) findViewById(R.id.Doctor_Detail_Working);
         DoctorLocation = (TextView) findViewById(R.id.Doctor_Detail_Location);
         DoctorRating = (TextView) findViewById(R.id.Doctor_Detail_Rate);
@@ -58,9 +60,9 @@ public class DoctorsDetailActivity extends AppCompatActivity {
         //10 Display Data to activity_Doctors_detail
         Picasso.get().load(ImageView).into(DoctorImageView);
         DoctorName.setText(Name);
-        DoctorSpecialist.setText(Specialist);
+        DoctorSpecialist.setText("Specialist "+Specialist);
         DoctorWorking.setText(Working);
-        DoctorLocation.setText(Location);
+        DoctorLocation.setText("("+Location +")");
         DoctorRating.setText(Rating);
 
 

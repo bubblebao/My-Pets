@@ -102,8 +102,8 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
                 String gName = hospitalList.get(position).getName();
                 String gDescription = hospitalList.get(position).getDescription();
                 String gLocation = hospitalList.get(position).getLocation();
-                String gservicetype = hospitalList.get(position).getServicetype();
-                String gservicetime = hospitalList.get(position).getservicetime();
+                String gServicetype = hospitalList.get(position).getServicetype();
+                String gServicetime = hospitalList.get(position).getservicetime();
                 String gRating = hospitalList.get(position).getRating();
                 String gUrl = hospitalList.get(position).getUrl();
 
@@ -112,8 +112,8 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
                 intent.putExtra("Name",gName);
                 intent.putExtra("Description",gDescription);
                 intent.putExtra("Location",gLocation);
-                intent.putExtra("servicetype",gservicetype);
-                intent.putExtra("servicetime",gservicetime);
+                intent.putExtra("Servicetype",gServicetype);
+                intent.putExtra("Servicetime",gServicetime);
                 intent.putExtra("Rating",gRating);
                 intent.putExtra("Url",gUrl);
                 mContext.startActivity(intent);
