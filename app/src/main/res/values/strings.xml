@@ -27,5 +27,11 @@
 
     <string name="toolbar_size">30dp</string>
 
+    <string name="Adout_Us_name"> Mongkonrat Noosuwan</string>
+    <string name="Adout_Us_phone">(+66)822828303</string>
+    <string name="Adout_Us_email">5635512090@psu.ac.th</string>
+    <string name="Adout_Us_copyright">Copyright © 2019</string>
+
+
 
 </resources>

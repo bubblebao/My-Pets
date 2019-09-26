@@ -19,7 +19,7 @@ public class EmergencysDetailActivity extends AppCompatActivity {
     private TextView  EmergencyName;
     private TextView  EmergencyDescription;
     private TextView  EmergencyLocation;
-    private TextView  Emergencyservicetype;
+    private TextView  EmergencyServicetype;
     private TextView  Emergencyservicetime;
     private TextView  EmergencyRating;
     private TextView  closeTextBtn;
@@ -41,7 +41,8 @@ public class EmergencysDetailActivity extends AppCompatActivity {
         //Find Object in activity_Emergencys_detail
         EmergencyImageView = (ImageView) findViewById(R.id.Emergency_Detail_ImageView);
         EmergencyName = (TextView) findViewById(R.id.Emergency_Detail_Name);
-        Emergencyservicetype = (TextView) findViewById(R.id.Emergency_Detail_Servicetype);
+        EmergencyServicetype = (TextView) findViewById(R.id.Emergency_Detail_Servicetype);
+        Emergencyservicetime = (TextView) findViewById(R.id.Emergency_Detail_Servicetime);
         EmergencyLocation = (TextView) findViewById(R.id.Emergency_Detail_Location);
         EmergencyRating = (TextView) findViewById(R.id.Emergency_Detail_Rate);
 
@@ -50,15 +51,16 @@ public class EmergencysDetailActivity extends AppCompatActivity {
         String ImageView = intent.getStringExtra("Url");
         String Name = intent.getStringExtra("Name");
         String Description = intent.getStringExtra("Description");
-        String servicetype = intent.getStringExtra("servicetype");
-   //     String servicetime = intent.getStringExtra("servicetime");
+        String Servicetype = intent.getStringExtra("Servicetype");
+        String Servicetime = intent.getStringExtra("Servicetime");
         String Location = intent.getStringExtra("Location");
         String Rating = intent.getStringExtra("Rating");
 
         //Display Data to activity_Emergencys_detail
         Picasso.get().load(ImageView).into(EmergencyImageView);
         EmergencyName.setText(Name);
-        Emergencyservicetype.setText(servicetype);
+        EmergencyServicetype.setText(Servicetype);
+        Emergencyservicetime.setText(Servicetime);
         EmergencyLocation.setText("("+Location +")");
         EmergencyRating.setText(Rating);
 

@@ -119,17 +119,29 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/Emergency_Detail_Name"
             android:layout_marginTop="10dp"
-            android:text="Servicetype"
+            android:text="Service"
             android:textAlignment="center"
             android:textColor="@color/black_grey"
             android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/Emergency_Detail_Servicetime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Emergency_Detail_Servicetype"
+            android:layout_marginTop="10dp"
+            android:text="Service time"
+            android:textAlignment="center"
+            android:textColor="@color/black_grey"
+            android:textSize="15dp" />
+
 
 
         <TextView
             android:id="@+id/Emergency_Detail_Location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Emergency_Detail_Servicetype"
+            android:layout_below="@+id/Emergency_Detail_Servicetime"
             android:layout_marginTop="10dp"
             android:text="Location "
             android:textAlignment="center"
