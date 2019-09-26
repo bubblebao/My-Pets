@@ -93,6 +93,7 @@ public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.
                 String gName = doctorsList.get(position).getName();
                 String gSpecialist = doctorsList.get(position).getSpecialist();
                 String gWorking = doctorsList.get(position).getWorking();
+                String gServicetime = doctorsList.get(position).getServicetime();
                 String gLocation = doctorsList.get(position).getLocation();
                 String gRating = doctorsList.get(position).getRating();
                 String gUrl = doctorsList.get(position).getUrl();
@@ -103,6 +104,7 @@ public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.
                 intent.putExtra("Name",gName);
                 intent.putExtra("Specialist",gSpecialist);
                 intent.putExtra("Working",gWorking);
+                intent.putExtra("Servicetime",gServicetime);
                 intent.putExtra("Location",gLocation);
                 intent.putExtra("Rating",gRating);
                 mContext.startActivity(intent);

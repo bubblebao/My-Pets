@@ -51,16 +51,16 @@ public class PetshopsDetailActivity extends AppCompatActivity {
         String ImageView = intent.getStringExtra("Url");
         String Name = intent.getStringExtra("Name");
         String Description = intent.getStringExtra("Description");
-        String servicetype = intent.getStringExtra("Servicetype");
-        String servicetime = intent.getStringExtra("Servicetime");
+        String Servicetype = intent.getStringExtra("Servicetype");
+        String Servicetime = intent.getStringExtra("Servicetime");
         String Location = intent.getStringExtra("Location");
         String Rating = intent.getStringExtra("Rating");
 
         //Display Data to activity_Petshops_detail
         Picasso.get().load(ImageView).into(PetshopImageView);
         PetshopName.setText(Name);
-        PetshopServicetype.setText(servicetype);
-        PetshopServicetime.setText(servicetime);
+        PetshopServicetype.setText(Servicetype);
+        PetshopServicetime.setText("Open time : "+Servicetime);
         //  PetshopDescription.setText(Description);
         PetshopLocation.setText("("+Location +")");
         PetshopRating.setText(Rating);

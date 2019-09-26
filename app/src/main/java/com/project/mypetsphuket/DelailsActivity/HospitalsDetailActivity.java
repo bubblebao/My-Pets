@@ -61,7 +61,7 @@ public class HospitalsDetailActivity extends AppCompatActivity {
         Picasso.get().load(ImageView).into(HospitalImageView);
         HospitalName.setText(Name);
         HospitalServicetype.setText(Servicetype);
-        HospitalServicetime.setText(Servicetime);
+        HospitalServicetime.setText("Servicetime : " +Servicetime);
         HospitalLocation.setText("("+Location +")");
         HospitalRating.setText(Rating);
 

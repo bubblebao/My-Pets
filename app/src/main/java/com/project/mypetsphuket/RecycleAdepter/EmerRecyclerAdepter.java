@@ -100,8 +100,8 @@ public class EmerRecyclerAdepter extends RecyclerView.Adapter<EmerRecyclerAdepte
                 String gName = emergencysList.get(position).getName();
                 String gDescription = emergencysList.get(position).getDescription();
                 String gLocation = emergencysList.get(position).getLocation();
-                String gservicetype = emergencysList.get(position).getServicetype();
-                String gservicetime = emergencysList.get(position).getServicetime();
+                String gServicetype = emergencysList.get(position).getServicetype();
+                String gServicetime = emergencysList.get(position).getServicetime();
                 String gRating = emergencysList.get(position).getRating();
                 String gUrl = emergencysList.get(position).getUrl();
 
@@ -110,8 +110,8 @@ public class EmerRecyclerAdepter extends RecyclerView.Adapter<EmerRecyclerAdepte
                 intent.putExtra("Name",gName);
                 intent.putExtra("Description",gDescription);
                 intent.putExtra("Location",gLocation);
-                intent.putExtra("servicetype",gservicetype);
-                intent.putExtra("servicetime",gservicetime);
+                intent.putExtra("Servicetype",gServicetype);
+                intent.putExtra("Servicetime",gServicetime);
                 intent.putExtra("Rating",gRating);
                 intent.putExtra("Url",gUrl);
                 mContext.startActivity(intent);
