@@ -80,22 +80,22 @@
             android:id="@+id/Doctor_Detail_Star"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="38dp"
-            android:layout_toRightOf="@id/Doctor_Detail_ImageView"
+            android:layout_toEndOf="@id/Doctor_Detail_ImageView"
             android:src="@drawable/ic_rate_star" />
 
         <TextView
             android:id="@+id/Doctor_Detail_Rate"
             android:layout_width="25dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="42dp"
             android:layout_toRightOf="@id/Doctor_Detail_Star"
             android:text="4.5"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="15dp"
+            android:textSize="17sp"
             android:textStyle="bold" />
 
 
@@ -109,7 +109,7 @@
             android:text="Name"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -121,7 +121,7 @@
               android:text="Specialist"
             android:textAlignment="center"
             android:textColor="@color/black_grey"
-            android:textSize="15dp" />
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/Doctor_Detail_Working"
@@ -132,7 +132,7 @@
             android:text="Working"
             android:textAlignment="center"
             android:textColor="@color/black_grey"
-            android:textSize="15dp"
+            android:textSize="17sp"
             />
 
         <TextView
@@ -144,7 +144,7 @@
             android:text="Service time"
             android:textAlignment="center"
             android:textColor="@color/black_grey"
-            android:textSize="15dp" />
+            android:textSize="17sp" />
 
 
         <TextView
@@ -156,7 +156,7 @@
             android:text="Location "
             android:textAlignment="center"
             android:textColor="@color/grey"
-            android:textSize="15dp" />
+            android:textSize="17sp" />
 
         <LinearLayout
             android:id="@+id/Doctor_pic"
@@ -170,7 +170,7 @@
                 android:id="@+id/MapImageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginLeft="110dp"
+                android:layout_marginStart="110dp"
                 app:srcCompat="@drawable/ic_persornal_navigation" />
 
             <ImageView
@@ -178,7 +178,7 @@
                 android:layout_width="45dp"
                 android:layout_height="50dp"
                 android:layout_toRightOf="@id/MapImageView"
-                android:layout_marginLeft="65dp"
+                android:layout_marginStart="65dp"
                 app:srcCompat="@drawable/ic_detial_phone" />
 
 
@@ -196,7 +196,7 @@
                 android:id="@+id/Persornal_ImageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 app:srcCompat="@drawable/ic_persornal_infor" />
 
             <TextView
@@ -206,9 +206,9 @@
                 android:text="Personal Information"
                 android:textAlignment="textStart"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:textColor="@color/colorPrimary"
-                android:textSize="15dp" />
+                android:textSize="17sp" />
 
 
 
@@ -225,7 +225,7 @@
                 android:id="@+id/AddressImageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 app:srcCompat="@drawable/ic_persornal_address" />
 
@@ -236,9 +236,9 @@
                 android:text="Working address"
                 android:textAlignment="textStart"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:textColor="@color/colorPrimary"
-                android:textSize="15dp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 

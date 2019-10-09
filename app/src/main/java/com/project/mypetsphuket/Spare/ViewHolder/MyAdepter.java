@@ -19,8 +19,8 @@ import java.util.ArrayList;
 
 public class MyAdepter extends RecyclerView.Adapter<MyAdepter.MyViewHolder> {
 
-    Context context;
-    ArrayList<Profile> profiles;
+    private Context context;
+    private ArrayList<Profile> profiles;
 
     public MyAdepter(Context c , ArrayList<Profile> p)
     {
@@ -55,9 +55,9 @@ public class MyAdepter extends RecyclerView.Adapter<MyAdepter.MyViewHolder> {
         ImageView profilePic;
         private MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = (TextView) itemView.findViewById(R.id.name);
-            email = (TextView) itemView.findViewById(R.id.email);
-            profilePic = (ImageView) itemView.findViewById(R.id.profilePic);
+            name =  itemView.findViewById(R.id.name);
+            email = itemView.findViewById(R.id.email);
+            profilePic =  itemView.findViewById(R.id.profilePic);
 
         }
 

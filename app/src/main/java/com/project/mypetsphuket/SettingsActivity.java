@@ -185,6 +185,8 @@ public class SettingsActivity extends AppCompatActivity {
                      if (task.isSuccessful())
                      {
                          Uri downloadUrl = task.getResult();
+
+                         assert downloadUrl != null;
                          myUrl = downloadUrl.toString();
 
                          DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -234,6 +236,7 @@ public class SettingsActivity extends AppCompatActivity {
                     if (dataSnapshot.child("url").exists()) {
 
                         //Load Get
+
                         String image = dataSnapshot.child("url").getValue().toString();
                         String name = dataSnapshot.child("name").getValue().toString();
                         String phone = dataSnapshot.child("phone").getValue().toString();

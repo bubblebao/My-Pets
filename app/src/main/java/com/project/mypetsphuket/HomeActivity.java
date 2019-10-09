@@ -41,12 +41,12 @@ import io.paperdb.Paper;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
  //   GridLayout widget GridLayout;
+    GridLayout mainGrid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
 
         Paper.init(this);
 
@@ -79,7 +79,7 @@ public class HomeActivity extends AppCompatActivity
         TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
         CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
 
-       //String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
+        //String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
         //userNameTextView.setText(UserPhoneKey);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
 

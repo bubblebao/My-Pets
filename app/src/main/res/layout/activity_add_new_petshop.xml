@@ -39,7 +39,7 @@
                                android:textColor="@android:color/white"
                                android:textSize="17sp"
                                android:textStyle="bold"
-                               android:layout_marginRight="10dp"
+                               android:layout_marginEnd="10dp"
                                android:layout_alignParentEnd="true"
                                /-->
 
@@ -95,7 +95,7 @@
                 android:padding="20dp"
                 android:hint="Name"
                 android:layout_marginLeft="45dp"
-                android:layout_marginRight="45dp"
+                android:layout_marginEnd="45dp"
                 android:background="@drawable/input_design"
                 />
 
@@ -109,7 +109,7 @@
                 android:padding="20dp"
                 android:hint="Phone Number"
                 android:layout_marginLeft="45dp"
-                android:layout_marginRight="45dp"
+                android:layout_marginEnd="45dp"
                 android:background="@drawable/input_design"
                 />
 
@@ -123,7 +123,7 @@
                 android:padding="20dp"
                 android:hint="Description"
                 android:layout_marginLeft="45dp"
-                android:layout_marginRight="45dp"
+                android:layout_marginEnd="45dp"
                 android:background="@drawable/input_design"
                 />
 
@@ -137,7 +137,7 @@
                 android:padding="20dp"
                 android:hint="Location"
                 android:layout_marginLeft="45dp"
-                android:layout_marginRight="45dp"
+                android:layout_marginEnd="45dp"
                 android:background="@drawable/input_design"
                 />
             <EditText
@@ -150,7 +150,7 @@
                 android:padding="20dp"
                 android:hint="Location latitude"
                 android:layout_marginLeft="45dp"
-                android:layout_marginRight="45dp"
+                android:layout_marginEnd="45dp"
                 android:background="@drawable/input_design"
                 />
             <EditText
@@ -163,7 +163,7 @@
                 android:padding="20dp"
                 android:hint="Location longtitude"
                 android:layout_marginLeft="45dp"
-                android:layout_marginRight="45dp"
+                android:layout_marginEnd="45dp"
                 android:background="@drawable/input_design"
                 />
             <EditText
@@ -176,7 +176,7 @@
                 android:padding="20dp"
                 android:hint="Service Type"
                 android:layout_marginLeft="45dp"
-                android:layout_marginRight="45dp"
+                android:layout_marginEnd="45dp"
                 android:background="@drawable/input_design"
                 />
 
