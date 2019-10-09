@@ -1,16 +1,11 @@
-package com.project.mypetsphuket.ViewHolder;
+package com.project.mypetsphuket.Spare.ViewHolder;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-
-import com.project.mypetsphuket.R;
-import com.squareup.picasso.Picasso;
 
 
 public class HospitalViewHolder extends RecyclerView.ViewHolder {

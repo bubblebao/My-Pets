@@ -93,7 +93,6 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         }
-
     }
 
     private void ValidatephoneNumber(final String name, final String phone, final String password)
@@ -120,8 +119,6 @@ public class RegisterActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                   if (task.isSuccessful()){
 
-
-
                                       Toast.makeText(RegisterActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
                                       CreateAccountButton.setVisibility(View.VISIBLE);
 
@@ -131,7 +128,6 @@ public class RegisterActivity extends AppCompatActivity {
 
                                   }
                                   else {
-
 
                                       Toast.makeText(RegisterActivity.this, "Network Error: Please try again after some time...", Toast.LENGTH_SHORT).show();
                                       CreateAccountButton.setVisibility(View.VISIBLE);
@@ -148,10 +144,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                     //Loading
                     CreateAccountButton.setVisibility(View.VISIBLE);
-                    loadingProgress.setVisibility(View.INVISIBLE);
-
+                    loadingProgress.setVisibility(View.GONE);
                 //    Toast.makeText(RegisterActivity.this, "Please try again using another phone number.", Toast.LENGTH_SHORT).show();
-
                //     Intent intent = new Intent(RegisterActivity.this, RegisterActivity.class);
                 //    startActivity(intent);
                 }

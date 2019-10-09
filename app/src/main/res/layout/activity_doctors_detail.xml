@@ -203,7 +203,7 @@
                 android:id="@+id/Doctor_Persornal_Infor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Persornal Information"
+                android:text="Personal Information"
                 android:textAlignment="textStart"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="10dp"

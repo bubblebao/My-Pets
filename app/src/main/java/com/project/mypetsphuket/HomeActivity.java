@@ -41,12 +41,7 @@ import io.paperdb.Paper;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-
  //   GridLayout widget GridLayout;
-    GridLayout mainGrid;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,9 +85,6 @@ public class HomeActivity extends AppCompatActivity
 
         userNameTextView.setText(Prevalent.currentOnlineUser.getName());
         Picasso.get().load(Prevalent.currentOnlineUser.getUrl()).placeholder(R.drawable.profile).into(profileImageView);
-
-
-
 
     }
 

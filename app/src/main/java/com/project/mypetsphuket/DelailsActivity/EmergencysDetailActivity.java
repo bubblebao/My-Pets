@@ -53,6 +53,7 @@ public class EmergencysDetailActivity extends AppCompatActivity {
         String Description = intent.getStringExtra("Description");
         String Servicetype = intent.getStringExtra("Servicetype");
         String Servicetime = intent.getStringExtra("Servicetime");
+        String Phone = intent.getStringExtra("Phone");
         String Location = intent.getStringExtra("Location");
         String Rating = intent.getStringExtra("Rating");
 

@@ -1,4 +1,4 @@
-package com.project.mypetsphuket.ViewHolder;
+package com.project.mypetsphuket.Spare.ViewHolder;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -12,9 +12,9 @@ import com.project.mypetsphuket.R;
 
 public class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public TextView txtProductName, txtProductDescription, txtProductPrice;
-    public ImageView imageView;
-    public onClick listner;
+    private TextView txtProductName, txtProductDescription, txtProductPrice;
+    private ImageView imageView;
+    private onClick listner;
 
 
     public ProductViewHolder(@NonNull View itemView) {

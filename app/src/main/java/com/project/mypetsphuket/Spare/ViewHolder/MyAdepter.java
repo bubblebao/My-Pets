@@ -1,4 +1,4 @@
-package com.project.mypetsphuket.ViewHolder;
+package com.project.mypetsphuket.Spare.ViewHolder;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -53,7 +53,7 @@ public class MyAdepter extends RecyclerView.Adapter<MyAdepter.MyViewHolder> {
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name,email;
         ImageView profilePic;
-        public MyViewHolder(@NonNull View itemView) {
+        private MyViewHolder(@NonNull View itemView) {
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.name);
             email = (TextView) itemView.findViewById(R.id.email);

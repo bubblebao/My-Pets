@@ -79,18 +79,18 @@
             android:id="@+id/Hospital_Detail_Star"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="38dp"
-            android:layout_toRightOf="@id/Hospital_Detail_ImageView"
+            android:layout_toEndOf="@id/Hospital_Detail_ImageView"
             android:src="@drawable/ic_rate_star" />
 
         <TextView
             android:id="@+id/Hospital_Detail_Rate"
             android:layout_width="25dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="42dp"
-            android:layout_toRightOf="@id/Hospital_Detail_Star"
+            android:layout_toEndOf="@id/Hospital_Detail_Star"
             android:text="4.5"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
@@ -108,7 +108,7 @@
             android:text="Name"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
-            android:textSize="18dp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -131,7 +131,7 @@
             android:text="Service time"
             android:textAlignment="center"
             android:textColor="@color/black_grey"
-            android:textSize="15dp" />
+            android:textSize="17sp" />
 
 
         <TextView
@@ -143,7 +143,7 @@
             android:text="Location "
             android:textAlignment="center"
             android:textColor="@color/grey"
-            android:textSize="15dp" />
+            android:textSize="17sp" />
 
         <LinearLayout
             android:id="@+id/Hospital_pic"
@@ -157,7 +157,7 @@
                 android:id="@+id/MapImageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginLeft="110dp"
+                android:layout_marginStart="110dp"
                 app:srcCompat="@drawable/ic_persornal_navigation" />
 
             <ImageView
@@ -165,7 +165,7 @@
                 android:layout_width="45dp"
                 android:layout_height="50dp"
                 android:layout_toRightOf="@id/MapImageView"
-                android:layout_marginLeft="65dp"
+                android:layout_marginStart="65dp"
                 app:srcCompat="@drawable/ic_detial_phone" />
 
 
@@ -183,17 +183,17 @@
                 android:id="@+id/Hospital_Persornal_ImageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 app:srcCompat="@drawable/ic_persornal_infor" />
 
             <TextView
                 android:id="@+id/Hospital_Hospital_Infor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hospital Information"
+                android:text="Hospital Informations"
                 android:textAlignment="textStart"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp" />
 
@@ -212,7 +212,7 @@
                 android:id="@+id/Hospital_AddressImageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 app:srcCompat="@drawable/ic_persornal_address" />
 
@@ -223,7 +223,7 @@
                 android:text="Hospital Address"
                 android:textAlignment="textStart"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp" />
 
