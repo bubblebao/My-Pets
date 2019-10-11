@@ -53,11 +53,8 @@ public class LoginActivity extends AppCompatActivity {
         //Set Button
         InputPhoneNumber = (EditText) findViewById(R.id.login_phone_number_input);
         InputPassword = (EditText) findViewById(R.id.login_password_input);
-
-
         AdminLink = (TextView) findViewById(R.id.admin_panel_link);
         NotAdminLink = (TextView) findViewById(R.id.not_admin_panel_link);
-
         LoginButton  = (Button) findViewById(R.id.login_btn);
         loadingProgress = findViewById(R.id.regProgressBar);
 
@@ -107,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
     private void LoginUser() {
 
         String phone = InputPhoneNumber.getText().toString();
+    //    String email = InputEmail.getText().toString();
         String password = InputPassword.getText().toString();
 
         LoginButton = (Button) findViewById(R.id.login_btn);
@@ -129,16 +127,19 @@ public class LoginActivity extends AppCompatActivity {
 
             Toast.makeText(this, "Please wait, We are checking login Account", Toast.LENGTH_SHORT).show();
 
-            AllowAccessToAccount(phone, password , parentDbName);
+            AllowAccessToAccount(phone , password , parentDbName);
+            //AllowAccessToAccount(phone, email, password , parentDbName);
 
         }
     }
 
-    private void AllowAccessToAccount(final String phone, final String password,final String parentDb) {
+  //  private void AllowAccessToAccount(final String phone, final String email, final String password,final String parentDb) {
+    private void AllowAccessToAccount(final String phone , final String password,final String parentDb) {
 
         if(rememberme_ckb.isChecked())
         {
             Paper.book().write(Prevalent.UserPhoneKey, phone);
+        //    Paper.book().write(Prevalent.UserEmailKey, email);
             Paper.book().write(Prevalent.UserPasswordKey, password);
             Paper.book().write(Prevalent.parentDbNameKey, parentDb);
         }
@@ -187,8 +188,9 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    LoginButton.setVisibility(View.VISIBLE);
+
                     Toast.makeText(LoginActivity.this, "Account with this " + phone + " do not exists.", Toast.LENGTH_SHORT).show();
+                    LoginButton.setVisibility(View.VISIBLE);
                   //  Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
                   //  startActivity(intent);
 

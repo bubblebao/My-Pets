@@ -4,12 +4,13 @@ import com.google.firebase.firestore.auth.User;
 
 public class Users {
 
-    private String name, phone, password, image, address ,url;
+    private String name, email , phone, password, image, address ,url;
 
     public Users() { }
 
-    public Users(String name, String phone, String password, String image, String address, String url) {
+    public Users(String name, String email, String phone, String password, String image, String address, String url) {
         this.name = name;
+        this.email = email;
         this.phone = phone;
         this.password = password;
         this.image = image;
@@ -23,6 +24,14 @@ public class Users {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPhone() {

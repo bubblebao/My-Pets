@@ -26,30 +26,24 @@ import java.util.concurrent.Delayed;
 
 public class RegisterActivity extends AppCompatActivity {
 
-
     private Button CreateAccountButton;
-    private EditText InputName, InputPhoneNumber, InputPassword;
+    private EditText InputName, InputEmail , InputPhoneNumber, InputPassword;
     private ProgressBar loadingProgress;
-
-
 
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-
         CreateAccountButton  = (Button) findViewById(R.id.register_btn);
         InputName = (EditText) findViewById(R.id.register_username_input);
-        InputPassword = (EditText) findViewById(R.id.register_password_input);
+        InputEmail = (EditText) findViewById(R.id.register_email_input);
         InputPhoneNumber = (EditText) findViewById(R.id.register_phone_number_input);
+        InputPassword = (EditText) findViewById(R.id.register_password_input);
         loadingProgress = findViewById(R.id.regProgressBar);
-
 
         //loadingProgress INVISIBLE
         loadingProgress.setVisibility(View.INVISIBLE);
-
-
 
         CreateAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +52,6 @@ public class RegisterActivity extends AppCompatActivity {
 
                 CreateAccountButton.setVisibility(View.INVISIBLE);
                 loadingProgress.setVisibility(View.VISIBLE);
-
 
                  CreateAccount();
 
@@ -69,18 +62,27 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void CreateAccount() {
 
-        final String name = InputName.getText().toString();
-        final String phone = InputPhoneNumber.getText().toString();
-        final String password = InputPassword.getText().toString();
+        final String name = InputName.getText().toString().trim();
+        final String email = InputEmail.getText().toString().trim();
+        final String phone = InputPhoneNumber.getText().toString().trim();
+        final String password = InputPassword.getText().toString().trim();
 
         if (TextUtils.isEmpty(name)) {
             Toast.makeText(this, "Please write your name", Toast.LENGTH_SHORT).show();
+            CreateAccountButton.setVisibility(View.VISIBLE);
+            //loadingProgress.setVisibility(View.GONE);
+
+        } else if (TextUtils.isEmpty(email)) {
+            Toast.makeText(this, "Please write your email", Toast.LENGTH_SHORT).show();
+            CreateAccountButton.setVisibility(View.VISIBLE);
 
         } else if (TextUtils.isEmpty(phone)) {
             Toast.makeText(this, "Please write your phone number", Toast.LENGTH_SHORT).show();
+            CreateAccountButton.setVisibility(View.VISIBLE);
 
         } else if (TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Please write your password", Toast.LENGTH_SHORT).show();
+            CreateAccountButton.setVisibility(View.VISIBLE);
 
         } else {
 
@@ -89,13 +91,13 @@ public class RegisterActivity extends AppCompatActivity {
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();             */
 
-            ValidatephoneNumber(name, phone, password);
+            ValidatephoneNumber(name, email , phone, password);
 
 
         }
     }
 
-    private void ValidatephoneNumber(final String name, final String phone, final String password)
+    private void ValidatephoneNumber(final String name, final String email, final String phone, final String password)
     {
         final DatabaseReference RootRef;
       //  final int toastDurationInMilliSeconds = 10000;
@@ -104,13 +106,18 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-                if (!(dataSnapshot.child("Users").child(phone).exists()))
-                {
+                if (!(dataSnapshot.child("Users").child(phone).exists())) {
+
+
                     HashMap<String, Object> userdataMap = new HashMap<>();
+
+                    //Set to Save
+                    userdataMap.put("name", name);
+                    userdataMap.put("email", email);
                     userdataMap.put("phone", phone);
                     userdataMap.put("password", password);
-                    userdataMap.put("name", name);
 
+                    // Save User Data
                     RootRef.child("Users").child(phone).updateChildren(userdataMap)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
 
@@ -122,18 +129,15 @@ public class RegisterActivity extends AppCompatActivity {
                                       Toast.makeText(RegisterActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
                                       CreateAccountButton.setVisibility(View.VISIBLE);
 
-
                                       Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                       startActivity(intent);
-
                                   }
                                   else {
 
-                                      Toast.makeText(RegisterActivity.this, "Network Error: Please try again after some time...", Toast.LENGTH_SHORT).show();
+                                      Toast.makeText(RegisterActivity.this, "Network Error: Please try again after some time", Toast.LENGTH_SHORT).show();
                                       CreateAccountButton.setVisibility(View.VISIBLE);
 
                                   }
-
                                 }
 
                             });

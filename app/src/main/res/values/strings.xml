@@ -32,6 +32,15 @@
     <string name="Adout_Us_email">5635512090@psu.ac.th</string>
     <string name="Adout_Us_copyright">Copyright © 2019</string>
 
+    <!-- User -->
+    <string name="user_name"> Name </string>
+    <string name="user_email"> Email </string>
+    <string name="user_phone"> Phone Number </string>
+    <string name="user_password"> Password </string>
+
+    <!-- Login -->
+    <string name="login_phone_email"> Phone or Email </string>
+    <string name="login_create_account"> Create Account </string>
 
 
 </resources>

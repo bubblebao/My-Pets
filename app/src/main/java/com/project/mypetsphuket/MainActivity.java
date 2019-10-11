@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 //
+        String UserEmailKey = Paper.book().read(Prevalent.UserEmailKey);
         String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
         String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey);
 

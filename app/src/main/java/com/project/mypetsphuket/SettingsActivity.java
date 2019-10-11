@@ -33,7 +33,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class SettingsActivity extends AppCompatActivity {
 
     private CircleImageView profileImageView;
-    private EditText fullNameEditText, userPhoneEditText, addressEditText;
+    private EditText fullNameEditText, emailEditText , userPhoneEditText, addressEditText;
     private TextView profileChangeTextBtn,  closeTextBtn, saveTextButton;
     private Uri imageUri;
     private String myUrl = "";
@@ -52,6 +52,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         profileImageView = (CircleImageView) findViewById(R.id.settings_profile_image);
         fullNameEditText = (EditText) findViewById(R.id.settings_full_name);
+        emailEditText = (EditText) findViewById(R.id.settings_email);
         userPhoneEditText = (EditText) findViewById(R.id.settings_phone_number);
 
         addressEditText = (EditText) findViewById(R.id.settings_address);
@@ -233,18 +234,20 @@ public class SettingsActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
 
 
-                    if (dataSnapshot.child("url").exists()) {
+                    if (dataSnapshot.child("phone").exists()) {
 
                         //Load Get
 
                         String image = dataSnapshot.child("url").getValue().toString();
                         String name = dataSnapshot.child("name").getValue().toString();
+                        String email = dataSnapshot.child("email").getValue().toString();
                         String phone = dataSnapshot.child("phone").getValue().toString();
                         String address = dataSnapshot.child("address").getValue().toString();
 
                         //Set Show
                         Picasso.get().load(image).into(profileImageView);
                         fullNameEditText.setText(name);
+                        emailEditText.setText(email);
                         userPhoneEditText.setText(phone);
                         addressEditText.setText(address);
                     }
