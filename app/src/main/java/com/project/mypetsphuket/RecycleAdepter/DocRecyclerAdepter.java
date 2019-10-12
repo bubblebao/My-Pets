@@ -45,6 +45,7 @@ public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.
         ItemClickListner itemClickListner;
         ImageView imageView;
         TextView DoctorName;
+        ImageView DoctorPhone;
         TextView DoctorSpecialist;
         TextView DoctorLocation;
         TextView DoctorRating;
@@ -54,6 +55,7 @@ public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.
             //Find Object in RecycleView
             imageView = (ImageView) itemView.findViewById(R.id.Doctor_imageView);
             DoctorName = (TextView) itemView.findViewById(R.id.Doctor_Name);
+      //      DoctorPhone = (ImageView) itemView.findViewById(R.id.DoctorPhoneImage);
             DoctorSpecialist = (TextView) itemView.findViewById(R.id.Doctor_Description);
             DoctorLocation = (TextView) itemView.findViewById(R.id.Doctor_location);
             DoctorRating = (TextView) itemView.findViewById(R.id.Doctor_Rating);
@@ -92,6 +94,7 @@ public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.
          // 6. Set to passing Data
                 String gName = doctorsList.get(position).getName();
                 String gSpecialist = doctorsList.get(position).getSpecialist();
+                String gPhone = doctorsList.get(position).getPhone();
                 String gWorking = doctorsList.get(position).getWorking();
                 String gServicetime = doctorsList.get(position).getServicetime();
                 String gLocation = doctorsList.get(position).getLocation();
@@ -102,6 +105,7 @@ public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.
                 Intent intent = new Intent(mContext, DoctorsDetailActivity.class);
                 intent.putExtra("Url",gUrl);
                 intent.putExtra("Name",gName);
+                intent.putExtra("Phone",gPhone);
                 intent.putExtra("Specialist",gSpecialist);
                 intent.putExtra("Working",gWorking);
                 intent.putExtra("Servicetime",gServicetime);

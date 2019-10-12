@@ -48,12 +48,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:layout_marginStart="2dp"
+                    android:gravity="center"
                     android:text="My Pets Emergency"
                     android:textColor="@android:color/white"
-                    android:gravity="center"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -148,11 +148,22 @@
             android:textColor="@color/grey"
             android:textSize="17sp" />
 
+        <TextView
+            android:id="@+id/Emergency_Detail_Phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Emergency_Detail_Location"
+            android:layout_marginTop="10dp"
+            android:text="Phone "
+            android:textAlignment="center"
+            android:textColor="@color/grey"
+            android:textSize="17sp" />
+
         <LinearLayout
             android:id="@+id/Emergency_pic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Emergency_Detail_Location"
+            android:layout_below="@id/Emergency_Detail_Phone"
             android:layout_marginTop="15dp">
 
 
@@ -164,13 +175,12 @@
                 app:srcCompat="@drawable/ic_persornal_navigation" />
 
             <ImageView
-                android:id="@+id/PhoneImageView"
+                android:id="@+id/EmergencyPhoneImage"
                 android:layout_width="45dp"
                 android:layout_height="50dp"
                 android:layout_toRightOf="@id/MapImageView"
                 android:layout_marginStart="65dp"
                 app:srcCompat="@drawable/ic_detial_phone" />
-
 
         </LinearLayout>
 

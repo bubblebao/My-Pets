@@ -158,11 +158,22 @@
             android:textColor="@color/grey"
             android:textSize="17sp" />
 
+        <TextView
+            android:id="@+id/Doctor_Detail_Phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Doctor_Detail_Location"
+            android:layout_marginTop="10dp"
+            android:text="Phone "
+            android:textAlignment="center"
+            android:textColor="@color/grey"
+            android:textSize="17sp" />
+
         <LinearLayout
             android:id="@+id/Doctor_pic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Doctor_Detail_Location"
+            android:layout_below="@id/Doctor_Detail_Phone"
             android:layout_marginTop="15dp">
 
 
@@ -174,12 +185,13 @@
                 app:srcCompat="@drawable/ic_persornal_navigation" />
 
             <ImageView
-                android:id="@+id/PhoneImageView"
+                android:id="@+id/DoctorPhoneImage"
                 android:layout_width="45dp"
                 android:layout_height="50dp"
                 android:layout_toRightOf="@id/MapImageView"
                 android:layout_marginStart="65dp"
                 app:srcCompat="@drawable/ic_detial_phone" />
+
 
 
         </LinearLayout>
@@ -210,8 +222,6 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="17sp" />
 
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -240,12 +250,9 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp" />
 
+
+
         </LinearLayout>
-
-
-
-
-
 
 
 

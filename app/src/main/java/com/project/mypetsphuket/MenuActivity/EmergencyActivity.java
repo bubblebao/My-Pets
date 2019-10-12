@@ -26,7 +26,7 @@ import com.project.mypetsphuket.RecycleAdepter.EmerRecyclerAdepter;
 import java.util.ArrayList;
 
 public class EmergencyActivity extends AppCompatActivity {
-    private TextView closeTextBtn , NextTextButton;
+    private TextView closeTextBtn , Emergencys_Call_Button;
     private static final String TAG = "EmergencyActivity";
 
     //Firebase
@@ -46,7 +46,7 @@ public class EmergencyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emergency);
         closeTextBtn = (TextView) findViewById(R.id.close_emergency_btn);
-        //NextTextButton = (TextView) findViewById(R.id.update_settings_btn);
+        Emergencys_Call_Button = (TextView) findViewById(R.id.update_settings_btn);
 
         closeTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +88,7 @@ public class EmergencyActivity extends AppCompatActivity {
 
                     emergencys.setUrl(snapshot.child("url").getValue().toString());
                     emergencys.setName(snapshot.child("name").getValue().toString());
+                    emergencys.setPhone(snapshot.child("phone").getValue().toString());
                     emergencys.setDescription(snapshot.child("description").getValue().toString());
                     emergencys.setLocation(snapshot.child("location").getValue().toString());
                     emergencys.setServicetype(snapshot.child("servicetype").getValue().toString());

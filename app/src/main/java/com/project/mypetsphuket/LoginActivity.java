@@ -40,8 +40,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private CheckBox rememberme_ckb;
 
-
-
     public LoginActivity() {
     }
 
@@ -97,9 +95,6 @@ public class LoginActivity extends AppCompatActivity {
                 parentDbName = "Users";
             }
         });
-
-
-
 
     }
 
@@ -159,8 +154,6 @@ public class LoginActivity extends AppCompatActivity {
 
                     Users usersData = dataSnapshot.child(parentDbName).child(phone).getValue(Users.class);
 
-
-
                     Encryption Encryption = new Encryption(password);
                     String passwordEncrypted = null;
                     try {
@@ -169,6 +162,7 @@ public class LoginActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
+                    Prevalent.currentOnlineUser.setPassword(passwordEncrypted);
                     if (usersData.getPhone().equals(phone)){
                         if (usersData.getPassword().equals(passwordEncrypted)){
 

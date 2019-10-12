@@ -17,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.auth.User;
 import com.project.mypetsphuket.Model.Users;
+import com.project.mypetsphuket.Prevalent.Encryption;
 import com.project.mypetsphuket.Prevalent.Prevalent;
 import com.rey.material.widget.CheckBox;
 
@@ -88,10 +89,18 @@ public class MainActivity extends AppCompatActivity {
            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                if (dataSnapshot.child(parentDbName).child(phone).exists()){
 
+                   Encryption Encryption = new Encryption(password);
+                   String passwordEncrypted = null;
+                   try {
+                       passwordEncrypted = Encryption.getEncryption();
+                   } catch (Exception e) {
+                       e.printStackTrace();
+                   }
+
                    Users usersData = dataSnapshot.child(parentDbName).child(phone).getValue(Users.class);
 
                    if (usersData.getPhone().equals(phone)){
-                       if (usersData.getPassword().equals(password)){
+                       if (usersData.getPassword().equals(passwordEncrypted)){
 
                            if (parentDbName.equals("Admins"))
                            {
@@ -122,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
 
            @Override
            public void onCancelled(@NonNull DatabaseError databaseError) {
-
 
            }
        });
