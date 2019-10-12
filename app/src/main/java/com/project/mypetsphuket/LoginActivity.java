@@ -21,6 +21,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.project.mypetsphuket.Model.Users;
+import com.project.mypetsphuket.Prevalent.Encryption;
+import com.project.mypetsphuket.Prevalent.PasswordEncryption;
 import com.project.mypetsphuket.Prevalent.Prevalent;
 
 import io.paperdb.Paper;
@@ -51,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
 
         parentDbName = "Users";
         //Set Button
-        InputPhoneNumber = (EditText) findViewById(R.id.login_phone_number_input);
+        InputPhoneNumber = (EditText) findViewById(R.id.login_phone_input);
         InputPassword = (EditText) findViewById(R.id.login_password_input);
         AdminLink = (TextView) findViewById(R.id.admin_panel_link);
         NotAdminLink = (TextView) findViewById(R.id.not_admin_panel_link);
@@ -157,8 +159,18 @@ public class LoginActivity extends AppCompatActivity {
 
                     Users usersData = dataSnapshot.child(parentDbName).child(phone).getValue(Users.class);
 
+
+
+                    Encryption Encryption = new Encryption(password);
+                    String passwordEncrypted = null;
+                    try {
+                        passwordEncrypted = Encryption.getEncryption();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                     if (usersData.getPhone().equals(phone)){
-                        if (usersData.getPassword().equals(password)){
+                        if (usersData.getPassword().equals(passwordEncrypted)){
 
                             if (parentDbName.equals("Admins"))
                             {

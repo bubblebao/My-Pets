@@ -39,7 +39,7 @@
     <string name="user_password"> Password </string>
 
     <!-- Login -->
-    <string name="login_phone_email"> Phone or Email </string>
+    <string name="login_phone_email"> Phone Number </string>
     <string name="login_create_account"> Create Account </string>
 
 

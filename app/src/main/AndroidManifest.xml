@@ -25,10 +25,10 @@
         <activity android:name=".DelailsActivity.EmergencysDetailActivity" />
         <activity android:name=".DelailsActivity.DoctorsDetailActivity" />
         <activity android:name=".DelailsActivity.HospitalsDetailActivity" />
-        <activity android:name=".AddNewActivity.AddNewEmergencyActivity" />
-        <activity android:name=".AddNewActivity.AddNewPetshopActivity" />
-        <activity android:name=".AddNewActivity.AddNewDoctorsActivity" />
-        <activity android:name=".AddNewActivity.AddNewHospitalsActivity" />
+        <activity android:name=".Admins.AddNewActivity.AddNewEmergencyActivity" />
+        <activity android:name=".Admins.AddNewActivity.AddNewPetshopActivity" />
+        <activity android:name=".Admins.AddNewActivity.AddNewDoctorsActivity" />
+        <activity android:name=".Admins.AddNewActivity.AddNewHospitalsActivity" />
         <activity android:name=".AboutUsActivity" />
         <activity android:name=".MenuActivity.MyAppointmentsActivity" />
         <activity android:name=".MenuActivity.EmergencyActivity" />
@@ -36,6 +36,7 @@
         <activity android:name=".MenuActivity.PetshopActivity" />
         <activity android:name=".MenuActivity.HospitalsActivity" />
         <activity android:name=".MenuActivity.DoctorsActivity" />
+
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
@@ -50,7 +51,7 @@
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" /> <!-- optional (needed if default theme has no action bar) -->
         <activity android:name=".AdminCategoryActivity" />
-        <activity android:name=".AddNewActivity.AdminAddNewProductActivity" />
+        <activity android:name=".Admins.AddNewActivity.AdminAddNewProductActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">

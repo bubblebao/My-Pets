@@ -55,21 +55,20 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="60dp">
+    android:layout_below="@id/app_bar_settings">
 
 
     <TextView
         android:id="@+id/txt_appointment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Appointment"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="4dp"
-        android:textColor="@color/grey"
         android:layout_centerHorizontal="true"
-        />
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:text="Appointment"
+        android:textColor="@color/grey"
+        android:textSize="17sp"
+        android:textStyle="bold" />
 <!--
     <EditText
         android:id="@+id/settings_phone_number"

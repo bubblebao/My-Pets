@@ -20,6 +20,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.project.mypetsphuket.Prevalent.Encryption;
+import com.project.mypetsphuket.Prevalent.PasswordEncryption;
+import com.project.mypetsphuket.Prevalent.PasswordEncrytion;
 
 import java.util.HashMap;
 import java.util.concurrent.Delayed;
@@ -112,10 +115,26 @@ public class RegisterActivity extends AppCompatActivity {
                     HashMap<String, Object> userdataMap = new HashMap<>();
 
                     //Set to Save
+                    String default_profile = ("https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Profile%20pictures%2Fprofile.png?alt=media&token=d4443ee6-a88a-4b5b-afaf-2ef928584c2b");
+                    //Encryption Password
+
+                    Encryption Encryption = new Encryption(password);
+                    String passwordEncrypted = null;
+                    try {
+                        passwordEncrypted = Encryption.getEncryption();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                  //   PasswordEncryption passwordEncryption = new PasswordEncryption(password);
+                 //   String passwordEncrypted = passwordEncryption.getEncryption();
+
+                    //Set to Save
                     userdataMap.put("name", name);
                     userdataMap.put("email", email);
                     userdataMap.put("phone", phone);
-                    userdataMap.put("password", password);
+                    userdataMap.put("address", "Thailand");
+                    userdataMap.put("url", default_profile);
+                    userdataMap.put("password", passwordEncrypted);
 
                     // Save User Data
                     RootRef.child("Users").child(phone).updateChildren(userdataMap)
@@ -146,14 +165,16 @@ public class RegisterActivity extends AppCompatActivity {
                 {
                     Toast.makeText(RegisterActivity.this, "This "+  phone +" already exists and , Please try again using another phone number ", Toast.LENGTH_LONG).show();
 
-                    //Loading
+                //Loading
                     CreateAccountButton.setVisibility(View.VISIBLE);
                     loadingProgress.setVisibility(View.GONE);
                 //    Toast.makeText(RegisterActivity.this, "Please try again using another phone number.", Toast.LENGTH_SHORT).show();
-               //     Intent intent = new Intent(RegisterActivity.this, RegisterActivity.class);
+                //     Intent intent = new Intent(RegisterActivity.this, RegisterActivity.class);
                 //    startActivity(intent);
                 }
             }
+
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

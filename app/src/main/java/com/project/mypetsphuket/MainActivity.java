@@ -25,7 +25,6 @@ import io.paperdb.Paper;
 public class MainActivity extends AppCompatActivity {
 
     private Button joinNewRutton , loginButton;
-    private CheckBox chkBoxRememberMe;
     private String parentDbName = "Users";
 
 
@@ -97,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                            if (parentDbName.equals("Admins"))
                            {
                                Toast.makeText(MainActivity.this, "Welcome Admin, logged in Successfully", Toast.LENGTH_SHORT).show();
-                               //    Prevalent.currentOnlineUser = usersData;
+                               // Prevalent.currentOnlineUser = usersData;
                                Intent intent = new Intent(MainActivity.this, AdminCategoryActivity.class);
                                Prevalent.currentOnlineUser = usersData;
                                startActivity(intent);
@@ -119,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
                else {
                    Toast.makeText(MainActivity.this, "login fail ", Toast.LENGTH_SHORT).show();
                }
-
            }
 
            @Override

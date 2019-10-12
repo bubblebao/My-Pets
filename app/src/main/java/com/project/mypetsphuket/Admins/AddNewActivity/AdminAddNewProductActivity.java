@@ -1,4 +1,4 @@
-package com.project.mypetsphuket.AddNewActivity;
+package com.project.mypetsphuket.Admins.AddNewActivity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
