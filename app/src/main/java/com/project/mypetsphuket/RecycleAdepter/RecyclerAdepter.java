@@ -100,6 +100,7 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
 
                 //6. Set to passing Data
                 String gName = hospitalList.get(position).getName();
+                String gPhone = hospitalList.get(position).getPhone();
                 String gDescription = hospitalList.get(position).getDescription();
                 String gLocation = hospitalList.get(position).getLocation();
                 String gServicetype = hospitalList.get(position).getServicetype();
@@ -110,6 +111,7 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
                 //7. Put Data to HospitalsDetailActivity
                 Intent intent = new Intent(mContext, HospitalsDetailActivity.class);
                 intent.putExtra("Name",gName);
+                intent.putExtra("Phone",gPhone);
                 intent.putExtra("Description",gDescription);
                 intent.putExtra("Location",gLocation);
                 intent.putExtra("Servicetype",gServicetype);

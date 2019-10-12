@@ -1,12 +1,17 @@
 package com.project.mypetsphuket.DelailsActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.project.mypetsphuket.Interface.ItemClickListner;
 import com.project.mypetsphuket.R;
@@ -16,6 +21,7 @@ public class PetshopsDetailActivity extends AppCompatActivity {
 
     private ItemClickListner itemClickListner;
     private ImageView PetshopImageView;
+    private ImageView PetshopPhone;
     private TextView  PetshopName;
     private TextView  PetshopDescription;
     private TextView  PetshopLocation;
@@ -40,6 +46,7 @@ public class PetshopsDetailActivity extends AppCompatActivity {
 
         //Find Object in activity_Petshops_detail
         PetshopImageView = (ImageView) findViewById(R.id.Petshop_Detail_ImageView);
+        PetshopPhone = (ImageView) findViewById(R.id. Petshop_PhoneImage);
         PetshopName = (TextView) findViewById(R.id.Petshop_Detail_Name);
         PetshopServicetype = (TextView) findViewById(R.id.Petshop_Detail_Servicetype);
         PetshopServicetime = (TextView) findViewById(R.id.Petshop_Detail_Servicetime);
@@ -50,6 +57,7 @@ public class PetshopsDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String ImageView = intent.getStringExtra("Url");
         String Name = intent.getStringExtra("Name");
+        final String Phone = intent.getStringExtra("Phone");
         String Description = intent.getStringExtra("Description");
         String Servicetype = intent.getStringExtra("Servicetype");
         String Servicetime = intent.getStringExtra("Servicetime");
@@ -64,6 +72,40 @@ public class PetshopsDetailActivity extends AppCompatActivity {
         //  PetshopDescription.setText(Description);
         PetshopLocation.setText("("+Location +")");
         PetshopRating.setText(Rating);
+
+        PetshopPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                String numbers = Phone.toString();
+
+                if (numbers.trim().isEmpty()){
+
+                    Toast.makeText(PetshopsDetailActivity.this, "Error", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    intent.setData(Uri.parse("tel:"+numbers));
+                }
+                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+
+                    Toast.makeText(PetshopsDetailActivity.this, "Please PERMISSION GRANTED ", Toast.LENGTH_SHORT).show();
+                    requestionPerminssion();
+
+                }else {
+
+                    startActivity(intent);
+                }
+
+            }
+        });
+
+    }
+
+    private void requestionPerminssion() {
+
+        ActivityCompat.requestPermissions(PetshopsDetailActivity.this,new String[]{Manifest.permission.CALL_PHONE},1);
 
     }
 }

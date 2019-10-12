@@ -158,7 +158,7 @@
                 app:srcCompat="@drawable/ic_persornal_navigation" />
 
             <ImageView
-                android:id="@+id/PhoneImageView"
+                android:id="@+id/Petshop_PhoneImage"
                 android:layout_width="45dp"
                 android:layout_height="50dp"
                 android:layout_toRightOf="@id/MapImageView"
@@ -169,7 +169,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/Petshop_Persornal"
+            android:id="@+id/Petshop_Information"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/Petshop_pic"
@@ -184,7 +184,7 @@
                 app:srcCompat="@drawable/ic_persornal_infor" />
 
             <TextView
-                android:id="@+id/Petshop_Petshop_Infor"
+                android:id="@+id/Petshop_Infor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Petshop Information"
@@ -201,7 +201,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Petshop_Persornal"
+            android:layout_below="@id/Petshop_Information"
             android:layout_marginTop="5dp">
 
 

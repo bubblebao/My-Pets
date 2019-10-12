@@ -54,6 +54,7 @@ public class PetshopRecyclerAdepter extends RecyclerView.Adapter<PetshopRecycler
             public void onItemClickListner(View v, int position) {
                 //6. Set to passing Data
                 String gName = petshopsList.get(position).getName();
+                String gPhone = petshopsList.get(position).getPhone();
                 String gDescription = petshopsList.get(position).getDescription();
                 String gServicetype = petshopsList.get(position).getServicetype();
                 String gServicetime = petshopsList.get(position).getServicetime();
@@ -64,6 +65,7 @@ public class PetshopRecyclerAdepter extends RecyclerView.Adapter<PetshopRecycler
                 //7. Put Data to HospitalsDetailActivity
                 Intent intent = new Intent(mContext, PetshopsDetailActivity.class);
                 intent.putExtra("Name",gName);
+                intent.putExtra("Phone",gPhone);
                 intent.putExtra("Description",gDescription);
                 intent.putExtra("Location",gLocation);
                 intent.putExtra("Servicetype",gServicetype);

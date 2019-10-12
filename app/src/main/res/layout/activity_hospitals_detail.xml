@@ -161,7 +161,7 @@
                 app:srcCompat="@drawable/ic_persornal_navigation" />
 
             <ImageView
-                android:id="@+id/PhoneImageView"
+                android:id="@+id/HospitalPhoneImage"
                 android:layout_width="45dp"
                 android:layout_height="50dp"
                 android:layout_toRightOf="@id/MapImageView"
