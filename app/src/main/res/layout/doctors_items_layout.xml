@@ -29,7 +29,7 @@
                 android:background="@drawable/ic_doctor_load" />
 
             <RelativeLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -38,8 +38,8 @@
                     android:layout_height="wrap_content"
                     android:text="Doctor Name"
                     android:textAlignment="textStart"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="12dp"
+                    android:layout_marginStart="5dp"
+                    android:textSize="13sp"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold"/>
 
@@ -48,12 +48,12 @@
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/Doctor_Name"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:text="Doctor Description"
                     android:textAlignment="textStart"
                     android:textColor="@color/black_grey"
-                    android:textSize="12dp" />
+                    android:textSize="13sp" />
 
                 <ImageView
                     android:layout_width="20dp"
@@ -68,18 +68,18 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/Doctor_Description"
                     android:text="Doctor location"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginLeft="23dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="23dp"
                     android:textAlignment="textStart"
-                    android:textSize="12dp"
+                    android:textSize="13sp"
                     android:textColor="@color/grey" />
 
                 <ImageView
                     android:id="@+id/Doctor_star"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_toRightOf="@id/Doctor_Description"
-                    android:layout_marginLeft="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
                     android:layout_marginTop="25dp"
                     android:src="@drawable/ic_rate_star" />
 
@@ -89,54 +89,13 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/Doctor_star"
                     android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginEnd="15dp"
                     android:layout_marginTop="5dp"
-                    android:layout_toRightOf="@id/Doctor_location"
-                    android:layout_marginLeft="22dp"
+                    android:layout_alignParentEnd="true"
                     android:textAlignment="center"
                     android:text="4.5"
-                    android:textSize="12dp"
+                    android:textSize="13sp"
                     android:textStyle="bold"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="50dp"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/map_mark"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="12dp"
-                    android:src="@drawable/ic_mark_blue"
-                    android:visibility="invisible"
-                    android:layout_marginTop="0dp"/>
-
-
-                <!--ImageView
-                    android:id="@+id/Doctor_Ratee"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_below="@id/map_mark"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginTop="15dp"
-                    android:src="@drawable/ic_rate_star" />
-
-
-                <TextView
-                    android:id="@+id/Doctor_Rating"
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:text="4.5"
-                    android:layout_below="@id/map_mark"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:layout_marginTop="19dp"
-                    android:layout_marginLeft="30dp"
-                    android:textAlignment="center"
-                    android:textSize="12dp"
-                    android:textStyle="bold"/-->
-
-
 
             </RelativeLayout>
 

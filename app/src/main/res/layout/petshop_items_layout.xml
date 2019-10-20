@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:text="Pet shop Name"
                     android:textAlignment="textStart"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
                     android:textSize="12dp"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold"/>
@@ -50,12 +50,12 @@
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/Petshop_Name"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:text="Petshop Servicetype"
                     android:textAlignment="textStart"
                     android:textColor="@color/black_grey"
-                    android:textSize="12dp" />
+                    android:textSize="13sp" />
 
                 <ImageView
                     android:layout_width="20dp"
@@ -70,18 +70,18 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/Petshop_Servicetype"
                     android:text="Petshop location"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginLeft="23dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="23dp"
                     android:textAlignment="textStart"
-                    android:textSize="12dp"
+                    android:textSize="13sp"
                     android:textColor="@color/grey" />
 
                 <ImageView
                     android:id="@+id/Petshop_star"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_toRightOf="@id/Petshop_Servicetype"
-                    android:layout_marginLeft="35dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
                     android:layout_marginTop="25dp"
                     android:src="@drawable/ic_rate_star" />
 
@@ -91,17 +91,16 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/Petshop_star"
                     android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginEnd="15dp"
                     android:layout_marginTop="5dp"
-                    android:layout_toRightOf="@id/Petshop_location"
-                    android:layout_marginLeft="25dp"
-                    android:textAlignment="center"
+                    android:layout_alignParentEnd="true"
                     android:text="4.5"
-                    android:textSize="12dp"
+                    android:textSize="13sp"
                     android:textStyle="bold"/>
 
             </RelativeLayout>
 
-            <RelativeLayout
+            <!--RelativeLayout
                 android:layout_width="50dp"
                 android:layout_height="wrap_content">
 
@@ -115,7 +114,7 @@
                     android:layout_marginTop="0dp"/>
 
 
-                <!--ImageView
+                <ImageView
                     android:id="@+id/Petshop_star"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -136,11 +135,11 @@
                     android:layout_marginLeft="30dp"
                     android:textAlignment="center"
                     android:textSize="12dp"
-                    android:textStyle="bold"/-->
+                    android:textStyle="bold"/>
 
 
 
-            </RelativeLayout>
+            </RelativeLayout>  -->
 
 
         </LinearLayout>
