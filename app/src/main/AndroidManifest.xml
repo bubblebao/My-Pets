@@ -15,6 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".DelailsActivity.InformationsActivity"></activity>
+        <activity android:name=".Admin.AdminServices.AdminHospitalActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,10 +28,10 @@
         <activity android:name=".DelailsActivity.EmergencysDetailActivity" />
         <activity android:name=".DelailsActivity.DoctorsDetailActivity" />
         <activity android:name=".DelailsActivity.HospitalsDetailActivity" />
-        <activity android:name=".Admins.AddNewActivity.AddNewEmergencyActivity" />
-        <activity android:name=".Admins.AddNewActivity.AddNewPetshopActivity" />
-        <activity android:name=".Admins.AddNewActivity.AddNewDoctorsActivity" />
-        <activity android:name=".Admins.AddNewActivity.AddNewHospitalsActivity" />
+        <activity android:name=".Admin.AddNewCustomers.AddNewEmergencyActivity" />
+        <activity android:name=".Admin.AddNewCustomers.AddNewPetshopActivity" />
+        <activity android:name=".Admin.AddNewCustomers.AddNewDoctorsActivity" />
+        <activity android:name=".Admin.AddNewCustomers.AddNewHospitalsActivity" />
         <activity android:name=".AboutUsActivity" />
         <activity android:name=".MenuActivity.MyAppointmentsActivity" />
         <activity android:name=".MenuActivity.EmergencyActivity" />
@@ -37,7 +39,6 @@
         <activity android:name=".MenuActivity.PetshopActivity" />
         <activity android:name=".MenuActivity.HospitalsActivity" />
         <activity android:name=".MenuActivity.DoctorsActivity" />
-
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
@@ -52,12 +53,10 @@
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" /> <!-- optional (needed if default theme has no action bar) -->
         <activity android:name=".AdminCategoryActivity" />
-        <activity android:name=".Admins.AddNewActivity.AdminAddNewProductActivity" />
+        <activity android:name=".Admin.AddNewCustomers.AdminAddNewProductActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

@@ -21,6 +21,8 @@ import com.squareup.picasso.Picasso;
 
 public class DoctorsDetailActivity extends AppCompatActivity {
 
+
+
     // 8. Defined parameter
     private ItemClickListner itemClickListner;
     private ImageView DoctorImageView;
@@ -34,7 +36,7 @@ public class DoctorsDetailActivity extends AppCompatActivity {
     private TextView  DoctorRating;
     private TextView  closeTextBtn;
 
-
+    private TextView DoctorCall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,14 +55,16 @@ public class DoctorsDetailActivity extends AppCompatActivity {
         // 9. Find Object in activity_Doctors_detail
         DoctorImageView = (ImageView) findViewById(R.id.Doctor_Detail_ImageView);
         DoctorName = (TextView) findViewById(R.id.Doctor_Detail_Name);
-        DoctorPhone = (ImageView) findViewById(R.id.DoctorPhoneImage);
+
         DoctorSpecialist = (TextView) findViewById(R.id.Doctor_Detail_Specialist);
         DoctorWorking = (TextView) findViewById(R.id.Doctor_Detail_Working);
         DoctorServicetime = (TextView) findViewById(R.id.Doctor_Detail_Servicetime);
         DoctorLocation = (TextView) findViewById(R.id.Doctor_Detail_Location);
         DoctorRating = (TextView) findViewById(R.id.Doctor_Detail_Rate);
-
         DoctorPhoneNumber = (TextView) findViewById(R.id.Doctor_Detail_Phone);
+
+        DoctorPhone = (ImageView) findViewById(R.id.DoctorPhoneImage);
+        DoctorCall = (TextView) findViewById(R.id.Doctor_Call);
 
         ///10. Get Data form RecyclerAdepter
         final Intent intent = getIntent();
@@ -82,6 +86,36 @@ public class DoctorsDetailActivity extends AppCompatActivity {
         DoctorLocation.setText("("+Location +")");
         DoctorPhoneNumber.setText(Phone);
         DoctorRating.setText(Rating);
+
+
+
+        DoctorCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                String numbers = Phone.toString();
+
+                if (numbers.trim().isEmpty()){
+
+                    Toast.makeText(DoctorsDetailActivity.this, "Error", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    intent.setData(Uri.parse("tel:"+numbers));
+                }
+                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+
+                    Toast.makeText(DoctorsDetailActivity.this, "Please PERMISSION GRANTED ", Toast.LENGTH_SHORT).show();
+                    requestionPerminssion();
+
+                }else {
+
+                    startActivity(intent);
+                }
+
+            }
+        });
 
 
         DoctorPhone.setOnClickListener(new View.OnClickListener() {

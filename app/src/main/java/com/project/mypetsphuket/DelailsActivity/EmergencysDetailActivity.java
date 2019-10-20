@@ -49,14 +49,15 @@ public class EmergencysDetailActivity extends AppCompatActivity {
         //Find Object in activity_Emergencys_detail
         EmergencyImageView = (ImageView) findViewById(R.id.Emergency_Detail_ImageView);
         EmergencyName = (TextView) findViewById(R.id.Emergency_Detail_Name);
-        EmergencysImageCall = (ImageView) findViewById(R.id.EmergencyPhoneImage);
+        EmergencysPhoneNumber = (TextView) findViewById(R.id.Emergency_Detail_Phone);
         EmergencyServicetype = (TextView) findViewById(R.id.Emergency_Detail_Servicetype);
         Emergencyservicetime = (TextView) findViewById(R.id.Emergency_Detail_Servicetime);
         EmergencyLocation = (TextView) findViewById(R.id.Emergency_Detail_Location);
         EmergencyRating = (TextView) findViewById(R.id.Emergency_Detail_Rate);
-        EmergencysCall = (TextView) findViewById(R.id.Emergency_phone_call_btn);
 
-        EmergencysPhoneNumber = (TextView) findViewById(R.id.Emergency_Detail_Phone);
+        EmergencysImageCall = (ImageView) findViewById(R.id.EmergencyPhoneImage);
+        EmergencysCall = (TextView) findViewById(R.id.Emergency_Call);
+
 
         ///Get Data form RecyclerAdepter
         Intent intent = getIntent();
@@ -77,6 +78,33 @@ public class EmergencysDetailActivity extends AppCompatActivity {
         EmergencyLocation.setText("("+Location +")");
         EmergencysPhoneNumber.setText(Phone);
         EmergencyRating.setText(Rating);
+
+        EmergencysCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                String numbers = Phone.toString();
+
+                if (numbers.trim().isEmpty()){
+
+                    Toast.makeText(EmergencysDetailActivity.this, "Error", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    intent.setData(Uri.parse("tel:"+numbers));
+                }
+                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+
+                    Toast.makeText(EmergencysDetailActivity.this, "Please PERMISSION GRANTED ", Toast.LENGTH_SHORT).show();
+                    requestionPerminssion();
+
+                }else {
+
+                    startActivity(intent);
+                }
+            }
+        });
 
         EmergencysImageCall.setOnClickListener(new View.OnClickListener() {
             @Override

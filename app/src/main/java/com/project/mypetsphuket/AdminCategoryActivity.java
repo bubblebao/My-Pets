@@ -10,10 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.project.mypetsphuket.Admins.AddNewActivity.AddNewDoctorsActivity;
-import com.project.mypetsphuket.Admins.AddNewActivity.AddNewEmergencyActivity;
-import com.project.mypetsphuket.Admins.AddNewActivity.AddNewHospitalsActivity;
-import com.project.mypetsphuket.Admins.AddNewActivity.AddNewPetshopActivity;
+import com.project.mypetsphuket.Admin.AddNewCustomers.AddNewDoctorsActivity;
+import com.project.mypetsphuket.Admin.AddNewCustomers.AddNewEmergencyActivity;
+import com.project.mypetsphuket.Admin.AddNewCustomers.AddNewHospitalsActivity;
+import com.project.mypetsphuket.Admin.AddNewCustomers.AddNewPetshopActivity;
 
 public class AdminCategoryActivity extends AppCompatActivity {
 

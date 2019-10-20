@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admins.AddNewActivity.AddNewPetshopActivity">
+    tools:context=".Admin.AddNewCustomers.AddNewPetshopActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_settings"
@@ -52,14 +52,12 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
-        >
+        android:layout_marginTop="30dp">
 
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
 
             <!-- //Use Here  -->
             <ImageView

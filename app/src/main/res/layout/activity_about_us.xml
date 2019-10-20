@@ -120,7 +120,7 @@
 
 
         <Button
-            android:id="@+id/add_new_product"
+            android:id="@+id/Call_Us"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/Adout_Us_phone"

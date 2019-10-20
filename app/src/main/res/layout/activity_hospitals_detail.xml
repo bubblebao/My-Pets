@@ -154,19 +154,22 @@
 
 
             <ImageView
-                android:id="@+id/MapImageView"
+                android:id="@+id/HospitalMapImageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="110dp"
+                android:layout_marginStart="40dp"
                 app:srcCompat="@drawable/ic_persornal_navigation" />
 
-            <ImageView
-                android:id="@+id/HospitalPhoneImage"
-                android:layout_width="45dp"
-                android:layout_height="50dp"
-                android:layout_toRightOf="@id/MapImageView"
-                android:layout_marginStart="65dp"
-                app:srcCompat="@drawable/ic_detial_phone" />
+            <TextView
+                android:id="@+id/Hospital_Map"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:text="Map"
+                android:textAlignment="textStart"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
 
 
         </LinearLayout>
@@ -176,20 +179,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/Hospital_pic"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="20sp">
 
 
             <ImageView
-                android:id="@+id/Hospital_Persornal_ImageView"
+                android:id="@+id/Hospital_InformationImageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="40dp"
                 app:srcCompat="@drawable/ic_persornal_infor" />
 
             <TextView
-                android:id="@+id/Hospital_Hospital_Infor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/Hospital_Informations"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Hospital Informations"
                 android:textAlignment="textStart"
                 android:layout_marginTop="15dp"
@@ -205,20 +208,20 @@
             android:layout_below="@id/Hospital_Persornal"
             android:layout_marginTop="5dp">
 
-
             <ImageView
-                android:id="@+id/Hospital_AddressImageView"
+                android:id="@+id/HospitalPhoneImage"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
-                app:srcCompat="@drawable/ic_persornal_address" />
+                app:srcCompat="@drawable/ic_detial_phone" />
+
 
             <TextView
-                android:id="@+id/Hospital_Address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hospital Address"
+                android:id="@+id/Hospital_Call"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:text="Call"
                 android:textAlignment="textStart"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="10dp"

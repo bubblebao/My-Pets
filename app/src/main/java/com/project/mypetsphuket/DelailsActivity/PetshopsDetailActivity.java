@@ -30,6 +30,7 @@ public class PetshopsDetailActivity extends AppCompatActivity {
     private TextView  PetshopRating;
     private TextView  closeTextBtn;
 
+    private TextView PetshopCall;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,12 +47,15 @@ public class PetshopsDetailActivity extends AppCompatActivity {
 
         //Find Object in activity_Petshops_detail
         PetshopImageView = (ImageView) findViewById(R.id.Petshop_Detail_ImageView);
-        PetshopPhone = (ImageView) findViewById(R.id. Petshop_PhoneImage);
+
         PetshopName = (TextView) findViewById(R.id.Petshop_Detail_Name);
         PetshopServicetype = (TextView) findViewById(R.id.Petshop_Detail_Servicetype);
         PetshopServicetime = (TextView) findViewById(R.id.Petshop_Detail_Servicetime);
         PetshopLocation = (TextView) findViewById(R.id.Petshop_Detail_Location);
         PetshopRating = (TextView) findViewById(R.id.Petshop_Detail_Rate);
+
+        PetshopPhone = (ImageView) findViewById(R.id. PetshopPhoneImage);
+        PetshopCall = (TextView) findViewById(R.id.Petshop_Call);
 
         ///Get Data form RecyclerAdepter
         Intent intent = getIntent();
@@ -72,6 +76,33 @@ public class PetshopsDetailActivity extends AppCompatActivity {
         //  PetshopDescription.setText(Description);
         PetshopLocation.setText("("+Location +")");
         PetshopRating.setText(Rating);
+
+        PetshopCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                String numbers = Phone.toString();
+
+                if (numbers.trim().isEmpty()){
+
+                    Toast.makeText(PetshopsDetailActivity.this, "Error", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    intent.setData(Uri.parse("tel:"+numbers));
+                }
+                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+
+                    Toast.makeText(PetshopsDetailActivity.this, "Please PERMISSION GRANTED ", Toast.LENGTH_SHORT).show();
+                    requestionPerminssion();
+
+                }else {
+
+                    startActivity(intent);
+                }
+            }
+        });
 
         PetshopPhone.setOnClickListener(new View.OnClickListener() {
             @Override

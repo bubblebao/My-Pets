@@ -17,6 +17,7 @@
             android:layout_height="wrap_content">
 
             <RelativeLayout
+                android:id="@+id/toolPetshop"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -63,7 +64,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="56dp">
+        android:layout_marginTop="40dp">
 
         <ImageView
             android:id="@+id/Petshop_Detail_ImageView"
@@ -93,7 +94,7 @@
             android:text="4.5"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="15dp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -102,7 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/Petshop_Detail_ImageView"
             android:layout_marginTop="15dp"
-            android:text="Name"
+            android:text="@string/name"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"
@@ -114,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/Petshop_Detail_Name"
             android:layout_marginTop="10dp"
-            android:text="Servicetype"
+            android:text="@string/servicetype"
             android:textAlignment="center"
             android:textColor="@color/black_grey"
             android:textSize="16sp" />
@@ -125,11 +126,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/Petshop_Detail_Servicetype"
             android:layout_marginTop="10dp"
-            android:text="Service time"
+            android:text="@string/service_time"
             android:textAlignment="center"
             android:textColor="@color/black_grey"
             android:textSize="16sp" />
-
 
         <TextView
             android:id="@+id/Petshop_Detail_Location"
@@ -137,7 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/Petshop_Detail_Servicetime"
             android:layout_marginTop="10dp"
-            android:text="Location "
+            android:text="@string/location"
             android:textAlignment="center"
             android:textColor="@color/grey"
             android:textSize="16sp" />
@@ -151,73 +151,73 @@
 
 
             <ImageView
-                android:id="@+id/MapImageView"
+                android:id="@+id/PetshopMapImageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="110dp"
+                android:layout_marginStart="40dp"
                 app:srcCompat="@drawable/ic_persornal_navigation" />
 
-            <ImageView
-                android:id="@+id/Petshop_PhoneImage"
-                android:layout_width="45dp"
-                android:layout_height="50dp"
-                android:layout_toRightOf="@id/MapImageView"
-                android:layout_marginStart="65dp"
-                app:srcCompat="@drawable/ic_detial_phone" />
-
+            <TextView
+                android:id="@+id/Petshop_Map"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Map"
+                android:textAlignment="textStart"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/Petshop_Information"
+            android:id="@+id/Petshop_Persornal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/Petshop_pic"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="20sp">
 
 
             <ImageView
                 android:id="@+id/Petshop_Persornal_ImageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="40dp"
                 app:srcCompat="@drawable/ic_persornal_infor" />
 
             <TextView
-                android:id="@+id/Petshop_Infor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Petshop Information"
+                android:id="@+id/Petshop_Petshop_Infor"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Petshop Informations"
                 android:textAlignment="textStart"
                 android:layout_marginTop="15dp"
                 android:layout_marginStart="10dp"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp" />
 
-
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Petshop_Information"
+            android:layout_below="@id/Petshop_Persornal"
             android:layout_marginTop="5dp">
 
-
             <ImageView
-                android:id="@+id/Petshop_AddressImageView"
+                android:id="@+id/PetshopPhoneImage"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
-                app:srcCompat="@drawable/ic_persornal_address" />
+                app:srcCompat="@drawable/ic_detial_phone" />
+
 
             <TextView
-                android:id="@+id/Petshop_Address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Petshop Address"
+                android:id="@+id/Petshop_Call"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Call"
                 android:textAlignment="textStart"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="10dp"
@@ -226,9 +226,6 @@
 
         </LinearLayout>
 
-
-
     </RelativeLayout>
-
 
 </RelativeLayout>

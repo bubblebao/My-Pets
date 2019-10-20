@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DelailsActivity.InformationsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_Infor"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/colorPrimary">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/close_aboutus_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Close"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentStart="true"
+                    />
+
+                <TextView
+                    android:id="@+id/Information_Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Information"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    />
+
+                <!--           <TextView
+                               android:id="@+id/petshop_next_btn"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="Update"
+                               android:textColor="@android:color/white"
+                               android:textSize="17sp"
+                               android:textStyle="bold"
+                               android:layout_marginRight="10dp"
+                               android:layout_alignParentEnd="true"
+                               /-->
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp">
+
+
+            <ImageView
+                android:id="@+id/Information_ImageView"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/ic_hospital"
+                android:scaleType="fitXY" />
+
+
+            <ImageView
+                android:id="@+id/line_Information1"
+                android:layout_width="match_parent"
+                android:layout_height="20sp"
+                android:layout_below="@id/Information_ImageView"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:src="@drawable/ic_vertical_line" />
+
+
+            <TextView
+                android:id="@+id/Information_Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="35dp"
+                android:layout_toEndOf="@id/Information_ImageView"
+                android:text="@string/name"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Information_type"
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"
+                android:layout_below="@id/Information_Name"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="2dp"
+                android:layout_toEndOf="@id/Information_ImageView"
+                android:text="Special"
+                android:textColor="@color/light_grey"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:visibility="invisible"/>
+
+            <ImageView
+                android:id="@+id/Infor_Star1"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/Information_ImageView"
+                android:layout_below="@id/Information_type"
+                android:src="@drawable/ic_rate_star" />
+
+
+            <ImageView
+                android:id="@+id/Infor_Star2"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="5dp"
+                android:layout_below="@id/Information_type"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/Infor_Star1"
+                android:src="@drawable/ic_rate_star" />
+
+            <ImageView
+                android:id="@+id/Infor_Star3"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="5dp"
+                android:layout_below="@id/Information_type"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/Infor_Star2"
+                android:src="@drawable/ic_rate_star" />
+
+            <ImageView
+                android:id="@+id/Infor_Star4"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="5dp"
+                android:layout_below="@id/Information_type"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/Infor_Star3"
+                android:src="@drawable/ic_rate_star" />
+
+            <ImageView
+                android:id="@+id/Infor_Star5"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="5dp"
+                android:layout_below="@id/Information_type"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/Infor_Star4"
+                android:src="@drawable/ic_star_blank" />
+
+
+
+
+            <TextView
+                android:id="@+id/Doctor_Detail_Specialist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line_Information1"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/about"
+                android:textColor="@color/black_grey"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Information_Description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Doctor_Detail_Specialist"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20sp"
+                android:text="@string/description"
+                android:textColor="@color/black_grey"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/line_Information2"
+                android:layout_width="match_parent"
+                android:layout_height="20sp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_below="@id/Information_Description"
+                android:src="@drawable/ic_vertical_line" />
+
+
+            <TextView
+                android:id="@+id/Information_Time_Address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line_Information2"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="25dp"
+                android:text="@string/address_and_time"
+                android:textAlignment="textStart"
+                android:textColor="@color/grey"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:id="@+id/Hospital_Persornal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Information_Time_Address">
+
+
+                <ImageView
+                    android:id="@+id/Information_Persornal_ImageView"
+                    android:layout_width="25dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    app:srcCompat="@drawable/ic_persornal_address" />
+
+                <TextView
+                    android:id="@+id/Information_Location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text = "Mae Luan"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="13sp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Information_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Hospital_Persornal">
+
+
+                <ImageView
+                    android:id="@+id/Information_AddressImageView"
+                    android:layout_width="25dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="5dp"
+                    app:srcCompat="@drawable/ic_clock" />
+
+                <TextView
+                    android:id="@+id/Information_Servicetime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_11_00_am_to_1_00_pm"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="18sp"
+                    android:layout_marginStart="15dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/line_Information3"
+                android:layout_width="match_parent"
+                android:layout_height="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_below="@id/Information_time"
+                android:src="@drawable/ic_vertical_line" />
+
+            <TextView
+                android:id="@+id/Information_Service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line_Information3"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="20sp"
+                android:text="@string/services"
+                android:textAlignment="textStart"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/grey"/>
+
+            <ImageView
+                android:id="@+id/Information_green"
+                android:layout_below="@id/Information_Service"
+                android:layout_width="18sp"
+                android:layout_height="18sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="15dp"
+                app:srcCompat="@drawable/ic_green_cycle" />
+
+            <TextView
+                android:id="@+id/Information_Detial_Service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Information_Service"
+                android:layout_toEndOf="@id/Information_green"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20sp"
+                android:text="@string/services_option"
+                android:textColor="@color/black_grey"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/line_Information4"
+                android:layout_width="match_parent"
+                android:layout_height="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_below="@id/Information_Detial_Service"
+                android:src="@drawable/ic_vertical_line" />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

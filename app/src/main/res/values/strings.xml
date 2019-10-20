@@ -41,6 +41,16 @@
     <!-- Login -->
     <string name="login_phone_email"> Phone Number </string>
     <string name="login_create_account"> Create Account </string>
+    <string name="_11_00_am_to_1_00_pm">11:00 AM to 1.00 PM</string>
+    <string name="address_and_time">Address and Time</string>
+    <string name="description">Description</string>
+    <string name="about">About</string>
+    <string name="services">Services</string>
+    <string name="services_option">Services Option</string>
+    <string name="location">Location</string>
+    <string name="service_time">Service time</string>
+    <string name="servicetype">Service_type</string>
+    <string name="name">Name</string>
 
 
 </resources>
