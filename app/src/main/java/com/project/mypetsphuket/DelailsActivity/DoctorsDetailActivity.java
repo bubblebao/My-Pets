@@ -31,7 +31,7 @@ public class DoctorsDetailActivity extends AppCompatActivity {
     private TextView  DoctorSpecialist;
     private TextView  DoctorWorking;
     private TextView  DoctorServicetime;
-    private TextView  DoctorLocation;
+    private TextView  DoctorCertication;
     private TextView  DoctorRating;
     private TextView  closeTextBtn;
 
@@ -41,7 +41,7 @@ public class DoctorsDetailActivity extends AppCompatActivity {
     private ImageView DoctorInformationImag;
     private TextView  DoctorInformation;
 
-    private String ImageView, Name, Phone, Working, Description, Servicetime, Location, Specialist, Rating;
+    private String ImageView, Name, Phone, Working, Description, Servicetime, Location, Specialist, Certificate, Rating;
 
 
     @Override
@@ -61,41 +61,24 @@ public class DoctorsDetailActivity extends AppCompatActivity {
         // 1. Find Object in activity_Doctors_detail
         DoctorImageView = (ImageView) findViewById(R.id.Doctor_Detail_ImageView);
         DoctorName = (TextView) findViewById(R.id.Doctor_Detail_Name);
-
         DoctorSpecialist = (TextView) findViewById(R.id.Doctor_Detail_Specialist);
         DoctorWorking = (TextView) findViewById(R.id.Doctor_Detail_Working);
-        DoctorLocation = (TextView) findViewById(R.id.Doctor_Detail_Location);
+        DoctorCertication = (TextView) findViewById(R.id.Doctor_Detail_Certication);
         DoctorRating = (TextView) findViewById(R.id.Doctor_Detail_Rate);
        // DoctorPhoneNumber = (TextView) findViewById(R.id.Doctor_Detail_Phone);
 
-        // 2. OnClick
         DoctorInformationImag = (ImageView) findViewById(R.id.Doctor_InformationImageView );
         DoctorInformation = (TextView) findViewById(R.id.Doctor_Informations);
 
         DoctorPhone = (ImageView) findViewById(R.id.DoctorPhoneImage);
         DoctorCall = (TextView) findViewById(R.id.Doctor_Call);
 
-        /// 3. Get Data form RecyclerAdepter
-        final Intent intent = getIntent();
-        ImageView = intent.getStringExtra("Url");
-        Name = intent.getStringExtra("Name");
-        Phone = intent.getStringExtra("Phone");
-        Description = intent.getStringExtra("Description");
-        Specialist = intent.getStringExtra("Specialist");
-        Working = intent.getStringExtra("Working");
-        Servicetime = intent.getStringExtra("Servicetime");
-        Location = intent.getStringExtra("Location");
-        Rating = intent.getStringExtra("Rating");
+        /// 2. Get Data form RecyclerAdepter
+        ReceiveDataFormRecycle();
 
-        // 4. Display Data to activity_Doctors_detail
-        Picasso.get().load(ImageView).into(DoctorImageView);
-        DoctorName.setText(Name);
-        DoctorSpecialist.setText("Specialist : "+Specialist);
-        DoctorWorking.setText(Working);
-        DoctorLocation.setText("("+Location +")");
-        DoctorRating.setText(Rating);
-        // DoctorServicetime.setText("Working time : " +Servicetime);
-        // DoctorPhoneNumber.setText(Phone);
+
+        // 3. Display Data to activity_Doctors_detail
+        DisplayDetails();
 
 
         DoctorInformationImag.setOnClickListener(new View.OnClickListener() {
@@ -135,6 +118,35 @@ public class DoctorsDetailActivity extends AppCompatActivity {
 
     }
 
+    private void DisplayDetails() {
+
+        Picasso.get().load(ImageView).into(DoctorImageView);
+        DoctorName.setText(Name);
+        DoctorSpecialist.setText("Pediatrician");
+        //DoctorSpecialist.setText("Specialist : "+Specialist);
+        DoctorWorking.setText(Working);
+        DoctorCertication.setText("("+Location +")");
+        DoctorRating.setText(Rating);
+        // DoctorServicetime.setText("Working time : " +Servicetime);
+        // DoctorPhoneNumber.setText(Phone);
+
+    }
+
+    private void ReceiveDataFormRecycle() {
+        final Intent intent = getIntent();
+        ImageView = intent.getStringExtra("Url");
+        Name = intent.getStringExtra("Name");
+        Phone = intent.getStringExtra("Phone");
+        Description = intent.getStringExtra("Description");
+        Specialist = intent.getStringExtra("Specialist");
+        Working = intent.getStringExtra("Working");
+        Servicetime = intent.getStringExtra("Servicetime");
+        Location = intent.getStringExtra("Location");
+        Certificate = intent.getStringExtra("Certificate");
+        Rating = intent.getStringExtra("Rating");
+
+    }
+
     private void StartInformationActivity() {
 
         //Set Data to InformationsActivity
@@ -145,8 +157,10 @@ public class DoctorsDetailActivity extends AppCompatActivity {
         intentInformation.putExtra("Description",Description);
         intentInformation.putExtra("Location",Location);
         intentInformation.putExtra("Servicetime",Servicetime);
-        intentInformation.putExtra("Servicetype",Specialist);
+        intentInformation.putExtra("Servicetype",Certificate);
         intentInformation.putExtra("Rating",Rating);
+        //   intentInformation.putExtra("Certificate",Certificate);
+
         startActivity(intentInformation);
 
     }

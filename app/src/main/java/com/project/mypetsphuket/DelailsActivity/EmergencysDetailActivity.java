@@ -71,7 +71,7 @@ public class EmergencysDetailActivity extends AppCompatActivity {
         ReceiveDataFormRecycle();
 
         //3. Display Data to activity_Emergencys_detail
-        ShowDetails();
+        DisplayDetails();
 
         EmergencysInformationImag.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,11 +105,9 @@ public class EmergencysDetailActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
-    private void ShowDetails() {
+    private void DisplayDetails() {
 
         Picasso.get().load(ImageView).into(EmergencyImageView);
         EmergencyName.setText(Name);
@@ -121,7 +119,7 @@ public class EmergencysDetailActivity extends AppCompatActivity {
 
     private void StartInformationActivity() {
 
-        //Set Data to InformationsActivity
+        //Set Data to Informations Activity
         Intent intentInformation = new Intent( EmergencysDetailActivity.this , InformationsActivity.class);
         intentInformation.putExtra("title","Emergency");
         intentInformation.putExtra("Url",ImageView);
@@ -135,6 +133,7 @@ public class EmergencysDetailActivity extends AppCompatActivity {
     }
 
     private void ReceiveDataFormRecycle() {
+
 
         Intent intent = getIntent();
         ImageView = intent.getStringExtra("Url");

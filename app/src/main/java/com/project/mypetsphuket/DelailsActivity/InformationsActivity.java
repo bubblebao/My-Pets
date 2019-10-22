@@ -24,13 +24,13 @@ public class InformationsActivity extends AppCompatActivity {
     private TextView  InformationServicetime;
     private TextView  InformationLocation;
     private TextView  InformationRating;
+    private TextView InformationDoctorService;
     private ImageView InformationStar1;
     private ImageView InformationStar2;
     private ImageView InformationStar3;
     private ImageView InformationStar4;
     private ImageView InformationStar5;
     private TextView  closeTextBtn;
-    private TextView InformationCall;
     private TextView  InformationTitle;
 
     private String  ImageView , Name , Description , Servicetime , Location , Servicetype ,Rating , TextTittle ,Tittle;
@@ -59,6 +59,7 @@ public class InformationsActivity extends AppCompatActivity {
         InformationLocation = (TextView) findViewById(R.id.Information_Location);
         InformationService = (TextView) findViewById(R.id.Information_Detial_Service);
         InformationTitle = (TextView) findViewById(R.id.Information_Title);
+        InformationDoctorService = (TextView) findViewById(R.id.Information_Service);
 
         InformationStar1 = (ImageView) findViewById(R.id.Infor_Star1);
         InformationStar2 = (ImageView) findViewById(R.id.Infor_Star2);
@@ -66,34 +67,54 @@ public class InformationsActivity extends AppCompatActivity {
         InformationStar4 = (ImageView) findViewById(R.id.Infor_Star4);
         InformationStar5 = (ImageView) findViewById(R.id.Infor_Star5);
 
-        ///2. Receive Data form Activity Detail
+        // 2. Receive Data form  Detail Activity
+        ReceiveDataFormRDetailActivity();
+
+        // 3. Call ShowInformations for Display Data
+        ShowInformations();
+
+    }
+
+    private void ReceiveDataFormRDetailActivity() {
+
+        // Receive Data form  Detail Activity
         Intent intent = getIntent();
         Tittle = intent.getStringExtra("title");
         ImageView = intent.getStringExtra("Url");
         Name = intent.getStringExtra("Name");
-        final  String Phone = intent.getStringExtra("Phone");
         Description = intent.getStringExtra("Description");
-        Servicetype = intent.getStringExtra("Servicetype");
-        Servicetime = intent.getStringExtra("Servicetime");
         Location = intent.getStringExtra("Location");
+        Servicetime = intent.getStringExtra("Servicetime");
+        Servicetype = intent.getStringExtra("Servicetype");
         Rating = intent.getStringExtra("Rating");
         TextTittle =(Tittle + " Informations");
-
-        // 3. Call ShowInformations for Display Data
-        ShowInformations();
     }
 
 
     private void ShowInformations() {
 
-        // 4. Display Data to activity_informations
-        Picasso.get().load(ImageView).into(InformationImageView);
-        InformationTitle.setText(TextTittle);
-        InformationName.setText(Name);
-        InformationDescription.setText(Description);
-        InformationServicetime.setText(Servicetime);
-        InformationLocation.setText(Location);
-        InformationService.setText(Servicetype);
+        // Display Data to activity_informations
+        if (Tittle.equals("Doctors") ) {
+
+            final String DoctorService = ("Certificate");
+            InformationDoctorService.setText(DoctorService);
+            Picasso.get().load(ImageView).into(InformationImageView);
+            InformationTitle.setText(TextTittle);
+            InformationName.setText(Name);
+            InformationDescription.setText(Description);
+            InformationServicetime.setText(Servicetime);
+            InformationLocation.setText(Location);
+            InformationService.setText(Servicetype);
+
+        } else
+            Picasso.get().load(ImageView).into(InformationImageView);
+            InformationTitle.setText(TextTittle);
+            InformationName.setText(Name);
+            InformationDescription.setText(Description);
+            InformationServicetime.setText(Servicetime);
+            InformationLocation.setText(Location);
+            InformationService.setText(Servicetype);
+
 
     }
 

@@ -100,6 +100,7 @@ public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.
                 String gServicetime = doctorsList.get(position).getServicetime();
                 String gLocation = doctorsList.get(position).getLocation();
                 String gRating = doctorsList.get(position).getRating();
+                String gCertificate = doctorsList.get(position).getCertificate();
                 String gUrl = doctorsList.get(position).getUrl();
 
            // 7.  Put Data to DoctorsDetailActivity
@@ -112,6 +113,7 @@ public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.
                 intent.putExtra("Working",gWorking);
                 intent.putExtra("Servicetime",gServicetime);
                 intent.putExtra("Location",gLocation);
+                intent.putExtra("Certificate",gCertificate);
                 intent.putExtra("Rating",gRating);
                 mContext.startActivity(intent);
 

@@ -29,8 +29,14 @@ public class PetshopsDetailActivity extends AppCompatActivity {
     private TextView  PetshopRating;
     private TextView  closeTextBtn;
 
+    private ImageView PetshopInformationImag;
+    private  TextView PetshopInformation;
+
     private TextView PetshopCall;
     private ImageView PetshopPhone;
+
+    private String ImageView, Name, Phone, Description, Servicetime, Location, Servicetype, Rating;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,61 +51,36 @@ public class PetshopsDetailActivity extends AppCompatActivity {
             }
         });
 
-        //Find Object in activity_Petshops_detail
+        // 1.Find Object in activity_Petshops_detail
         PetshopImageView = (ImageView) findViewById(R.id.Petshop_Detail_ImageView);
 
         PetshopName = (TextView) findViewById(R.id.Petshop_Detail_Name);
         PetshopServicetype = (TextView) findViewById(R.id.Petshop_Detail_Servicetype);
-      //  PetshopServicetime = (TextView) findViewById(R.id.Petshop_Detail_Servicetime);
+
         PetshopLocation = (TextView) findViewById(R.id.Petshop_Detail_Location);
         PetshopRating = (TextView) findViewById(R.id.Petshop_Detail_Rate);
+        //  PetshopServicetime = (TextView) findViewById(R.id.Petshop_Detail_Servicetime);
+
+        PetshopInformationImag = (ImageView) findViewById(R.id. Petshop_InformationImageView);
+        PetshopInformation = (TextView) findViewById(R.id.Petshop_Informations);
 
         PetshopPhone = (ImageView) findViewById(R.id. PetshopPhoneImage);
         PetshopCall = (TextView) findViewById(R.id.Petshop_Call);
 
-        ///Get Data form RecyclerAdepter
-        Intent intent = getIntent();
-        String ImageView = intent.getStringExtra("Url");
-        String Name = intent.getStringExtra("Name");
-        final  String Phone = intent.getStringExtra("Phone");
-        String Description = intent.getStringExtra("Description");
-        String Servicetype = intent.getStringExtra("Servicetype");
-        String Servicetime = intent.getStringExtra("Servicetime");
-        String Location = intent.getStringExtra("Location");
-        String Rating = intent.getStringExtra("Rating");
+        /// 2. Get Data form RecyclerAdepter
+        ReceiveDataFormRecycle();
 
-        //Display Data to activity_Petshops_detail
-        Picasso.get().load(ImageView).into(PetshopImageView);
-        PetshopName.setText(Name);
-        PetshopServicetype.setText(Servicetype);
-        //PetshopServicetime.setText("Open time : "+Servicetime);
-        PetshopLocation.setText("("+Location +")");
-        PetshopRating.setText(Rating);
+        // 3. Display Data to activity_Petshops_detail
+        DisplayDetails();
+
+
 
         PetshopCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Intent.ACTION_CALL);
-                String numbers = Phone.toString();
+                StartCall();
 
-                if (numbers.trim().isEmpty()){
-
-                    Toast.makeText(PetshopsDetailActivity.this, "Error", Toast.LENGTH_SHORT).show();
-
-                } else {
-
-                    intent.setData(Uri.parse("tel:"+numbers));
-                }
-                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
-
-                    Toast.makeText(PetshopsDetailActivity.this, "Please PERMISSION GRANTED ", Toast.LENGTH_SHORT).show();
-                    requestionPerminssion();
-
-                }else {
-
-                    startActivity(intent);
-                }
             }
         });
 
@@ -107,30 +88,90 @@ public class PetshopsDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Intent.ACTION_CALL);
-                String numbers = Phone.toString();
-
-                if (numbers.trim().isEmpty()){
-
-                    Toast.makeText(PetshopsDetailActivity.this, "Error", Toast.LENGTH_SHORT).show();
-
-                } else {
-
-                    intent.setData(Uri.parse("tel:"+numbers));
-                }
-                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
-
-                    Toast.makeText(PetshopsDetailActivity.this, "Please PERMISSION GRANTED ", Toast.LENGTH_SHORT).show();
-                    requestionPerminssion();
-
-                }else {
-
-                    startActivity(intent);
-                }
+                StartCall();
 
             }
         });
 
+        PetshopInformationImag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                StartInformationActivity();
+            }
+        });
+
+        PetshopInformation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StartInformationActivity();
+
+            }
+        });
+
+    }
+
+    private void StartInformationActivity() {
+
+        //Set Data to InformationsActivity
+        Intent intentInformation = new Intent( PetshopsDetailActivity.this , InformationsActivity.class);
+        intentInformation.putExtra("title","Pet Shop");
+        intentInformation.putExtra("Url",ImageView);
+        intentInformation.putExtra("Name",Name);
+        intentInformation.putExtra("Description",Description);
+        intentInformation.putExtra("Location",Location);
+        intentInformation.putExtra("Servicetime",Servicetime);
+        intentInformation.putExtra("Servicetype",Servicetype);
+        intentInformation.putExtra("Rating",Rating);
+        startActivity(intentInformation);
+
+    }
+
+    private void StartCall() {
+
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        String numbers = Phone.toString();
+
+        if (numbers.trim().isEmpty()){
+
+            Toast.makeText(PetshopsDetailActivity.this, "Error", Toast.LENGTH_SHORT).show();
+
+        } else {
+
+            intent.setData(Uri.parse("tel:"+numbers));
+        }
+        if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+
+            Toast.makeText(PetshopsDetailActivity.this, "Please PERMISSION GRANTED ", Toast.LENGTH_SHORT).show();
+            requestionPerminssion();
+
+        }else {
+
+            startActivity(intent);
+        }
+    }
+
+    private void DisplayDetails() {
+
+        Picasso.get().load(ImageView).into(PetshopImageView);
+        PetshopName.setText(Name);
+        PetshopServicetype.setText(Servicetype);
+        PetshopLocation.setText("("+Location +")");
+        PetshopRating.setText(Rating);
+        //PetshopServicetime.setText("Open time : "+Servicetime);
+    }
+
+    private void ReceiveDataFormRecycle() {
+
+        Intent intent = getIntent();
+        ImageView = intent.getStringExtra("Url");
+        Name = intent.getStringExtra("Name");
+        Phone = intent.getStringExtra("Phone");
+        Description = intent.getStringExtra("Description");
+        Servicetype = intent.getStringExtra("Servicetype");
+        Servicetime = intent.getStringExtra("Servicetime");
+        Location = intent.getStringExtra("Location");
+        Rating = intent.getStringExtra("Rating");
     }
 
     private void requestionPerminssion() {

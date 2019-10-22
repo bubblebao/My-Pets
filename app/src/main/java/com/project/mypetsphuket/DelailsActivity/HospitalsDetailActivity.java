@@ -64,10 +64,9 @@ public class HospitalsDetailActivity extends AppCompatActivity {
         HospitalImageView = (ImageView) findViewById(R.id.Hospital_Detail_ImageView);
         HospitalName = (TextView) findViewById(R.id.Hospital_Detail_Name);
         HospitalServicetype = (TextView) findViewById(R.id.Hospital_Detail_Servicetype);
-      //  HospitalServicetime = (TextView) findViewById(R.id.Hospital_Detail_Servicetime);
         HospitalLocation = (TextView) findViewById(R.id.Hospital_Detail_Location);
         HospitalRating = (TextView) findViewById(R.id.Hospital_Detail_Rate);
-
+        //  HospitalServicetime = (TextView) findViewById(R.id.Hospital_Detail_Servicetime);
 
         HospitalInformationImag = (ImageView) findViewById(R.id. Hospital_InformationImageView);
         HospitalInformation = (TextView) findViewById(R.id.Hospital_Informations);
@@ -79,8 +78,7 @@ public class HospitalsDetailActivity extends AppCompatActivity {
         ReceiveDataFormRecycle();
 
         //3. Display Data to activity_hospitals_detail
-        ShowDetails();
-
+        DisplayDetails();
 
 
         HospitalInformationImag.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +119,7 @@ public class HospitalsDetailActivity extends AppCompatActivity {
 
     }
 
-    private void ShowDetails() {
+    private void DisplayDetails() {
 
         Picasso.get().load(ImageView).into(HospitalImageView);
         HospitalName.setText(Name);
