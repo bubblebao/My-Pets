@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DelailsActivity.InformationsActivity"></activity>
+        <activity android:name=".DelailsActivity.InformationsActivity"
+            android:parentActivityName=".DelailsActivity.HospitalsDetailActivity"></activity>
         <activity android:name=".Admin.AdminServices.AdminHospitalActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>

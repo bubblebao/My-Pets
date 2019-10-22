@@ -51,6 +51,7 @@
     <string name="service_time">Service time</string>
     <string name="servicetype">Service_type</string>
     <string name="name">Name</string>
+    <string name="hospitals">Hospitals</string>
 
 
 </resources>

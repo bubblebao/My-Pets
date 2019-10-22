@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.mypetsphuket.DelailsActivity.HospitalsDetailActivity;
+import com.project.mypetsphuket.DelailsActivity.InformationsActivity;
 import com.project.mypetsphuket.Interface.ItemClickListner;
 import com.project.mypetsphuket.Model.Hospitals;
 import com.project.mypetsphuket.R;
@@ -120,32 +121,24 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
                 intent.putExtra("Url",gUrl);
                 mContext.startActivity(intent);
 
+
+
+                /*8. Put Data to InformationsActivity
+                Intent intentInformation = new Intent(mContext, InformationsActivity.class);
+                intent.putExtra("Url",gUrl);
+                intent.putExtra("Name",gName);
+                intent.putExtra("Description",gDescription);
+                intent.putExtra("Location",gLocation);
+                intent.putExtra("Servicetime",gServicetime);
+                intent.putExtra("Servicetype",gServicetype);
+                intent.putExtra("Rating",gRating);
+
+                mContext.startActivity(intentInformation);  */
+
             }
 
         });
 
-  /*      holder.setItemClickListner(new ItemClickListner() {
-            @Override
-            public void onItemClickListner(View v, int position) {
-
-                    if (hospitalList.get(position).getName().equals("RTB")){
-
-
-                    }if (hospitalList.get(position).getName().equals("Siriroth")){
-
-
-                    }
-                    if (hospitalList.get(position).getName().equals("ISSO")){
-
-
-                    }
-                    if (hospitalList.get(position).getName().equals("Akane")){
-
-
-                    }
-
-            }
-        });   */
 
     }
     @Override

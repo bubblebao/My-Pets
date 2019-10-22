@@ -104,7 +104,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/Hospital_Detail_ImageView"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:text="Name"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
@@ -116,13 +116,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/Hospital_Detail_Name"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:text="Servicetype"
             android:textAlignment="center"
-            android:textColor="@color/black_grey"
+            android:textColor="@color/colorButton"
             android:textSize="17sp" />
 
-        <TextView
+        <!--TextView
             android:id="@+id/Hospital_Detail_Servicetime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -131,18 +131,18 @@
             android:text="Service time"
             android:textAlignment="center"
             android:textColor="@color/black_grey"
-            android:textSize="17sp" />
+            android:textSize="17sp" /-->
 
 
         <TextView
             android:id="@+id/Hospital_Detail_Location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Hospital_Detail_Servicetime"
-            android:layout_marginTop="10dp"
+            android:layout_below="@+id/Hospital_Detail_Servicetype"
+            android:layout_marginTop="5dp"
             android:text="Location "
             android:textAlignment="center"
-            android:textColor="@color/grey"
+            android:textColor="@color/colorAccent"
             android:textSize="17sp" />
 
         <LinearLayout
@@ -150,7 +150,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/Hospital_Detail_Location"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="10dp">
 
 
             <ImageView

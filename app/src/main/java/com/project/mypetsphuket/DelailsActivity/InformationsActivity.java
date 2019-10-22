@@ -31,8 +31,9 @@ public class InformationsActivity extends AppCompatActivity {
     private ImageView InformationStar5;
     private TextView  closeTextBtn;
     private TextView InformationCall;
+    private TextView  InformationTitle;
 
-    private String ImageView , Name , Description , Servicetime , Location , Servicetype ,Rating;
+    private String  ImageView , Name , Description , Servicetime , Location , Servicetype ,Rating , TextTittle ,Tittle;
 
 
 
@@ -50,13 +51,14 @@ public class InformationsActivity extends AppCompatActivity {
             }
         });
 
-        // 9. Find Object in activity_Informations_detail
+        //1. Find Object in activity_Informations_detail
         InformationImageView = (ImageView) findViewById(R.id.Information_ImageView);
         InformationName = (TextView) findViewById(R.id.Information_Name);
         InformationDescription = (TextView) findViewById(R.id.Information_Description);
         InformationServicetime = (TextView) findViewById(R.id.Information_Servicetime);
         InformationLocation = (TextView) findViewById(R.id.Information_Location);
         InformationService = (TextView) findViewById(R.id.Information_Detial_Service);
+        InformationTitle = (TextView) findViewById(R.id.Information_Title);
 
         InformationStar1 = (ImageView) findViewById(R.id.Infor_Star1);
         InformationStar2 = (ImageView) findViewById(R.id.Infor_Star2);
@@ -64,38 +66,35 @@ public class InformationsActivity extends AppCompatActivity {
         InformationStar4 = (ImageView) findViewById(R.id.Infor_Star4);
         InformationStar5 = (ImageView) findViewById(R.id.Infor_Star5);
 
+        ///2. Receive Data form Activity Detail
+        Intent intent = getIntent();
+        Tittle = intent.getStringExtra("title");
+        ImageView = intent.getStringExtra("Url");
+        Name = intent.getStringExtra("Name");
+        final  String Phone = intent.getStringExtra("Phone");
+        Description = intent.getStringExtra("Description");
+        Servicetype = intent.getStringExtra("Servicetype");
+        Servicetime = intent.getStringExtra("Servicetime");
+        Location = intent.getStringExtra("Location");
+        Rating = intent.getStringExtra("Rating");
+        TextTittle =(Tittle + " Informations");
 
-        ///Save Data to Informations
-        SaveInformation();
-
-        //Display Data to activity_hospitals_detail
-
-
+        // 3. Call ShowInformations for Display Data
+        ShowInformations();
     }
 
+
     private void ShowInformations() {
+
+        // 4. Display Data to activity_informations
         Picasso.get().load(ImageView).into(InformationImageView);
+        InformationTitle.setText(TextTittle);
         InformationName.setText(Name);
         InformationDescription.setText(Description);
         InformationServicetime.setText(Servicetime);
         InformationLocation.setText(Location);
         InformationService.setText(Servicetype);
-        //  HospitalRating.setText(Rating);
 
     }
 
-
-    private void SaveInformation() {
-
-         Informations informationsData = new Informations();
-         ImageView = informationsData.getUrl();
-         Name = informationsData.getName();
-         Description = informationsData.getDescription();
-         Location = informationsData.getLocation();
-         Servicetime = informationsData.getServicetime();
-         Servicetype = informationsData.getServicetype();
-         Rating = informationsData.getRating();
-
-        ShowInformations();
-    }
 }

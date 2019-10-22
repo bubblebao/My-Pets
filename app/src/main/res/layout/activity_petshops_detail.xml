@@ -102,7 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/Petshop_Detail_ImageView"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:text="@string/name"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
@@ -114,32 +114,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/Petshop_Detail_Name"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:text="@string/servicetype"
             android:textAlignment="center"
-            android:textColor="@color/black_grey"
+            android:textColor="@color/colorButton"
             android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/Petshop_Detail_Servicetime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Petshop_Detail_Servicetype"
-            android:layout_marginTop="10dp"
-            android:text="@string/service_time"
-            android:textAlignment="center"
-            android:textColor="@color/black_grey"
-            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/Petshop_Detail_Location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Petshop_Detail_Servicetime"
-            android:layout_marginTop="10dp"
+            android:layout_below="@+id/Petshop_Detail_Servicetype"
+            android:layout_marginTop="5dp"
             android:text="@string/location"
             android:textAlignment="center"
-            android:textColor="@color/grey"
+            android:textColor="@color/colorAccent"
             android:textSize="16sp" />
 
         <LinearLayout
@@ -147,7 +137,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/Petshop_Detail_Location"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="10dp">
 
 
             <ImageView
@@ -179,14 +169,14 @@
 
 
             <ImageView
-                android:id="@+id/Petshop_Persornal_ImageView"
+                android:id="@+id/Petshop_InformationImageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="40dp"
                 app:srcCompat="@drawable/ic_persornal_infor" />
 
             <TextView
-                android:id="@+id/Petshop_Petshop_Infor"
+                android:id="@+id/Petshop_Informations"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Petshop Informations"

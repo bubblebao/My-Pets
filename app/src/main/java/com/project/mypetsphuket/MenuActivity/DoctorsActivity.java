@@ -99,6 +99,7 @@ public class DoctorsActivity extends AppCompatActivity {
                     doctors.setName(snapshot.child("name").getValue().toString());
                     doctors.setSpecialist(snapshot.child("specialist").getValue().toString());
                     doctors.setPhone(snapshot.child("phone").getValue().toString());
+                    doctors.setDescription(snapshot.child("description").getValue().toString());
                     doctors.setWorking(snapshot.child("working").getValue().toString());
                     doctors.setLocation(snapshot.child("location").getValue().toString());
                     doctors.setServicetime(snapshot.child("servicetime").getValue().toString());

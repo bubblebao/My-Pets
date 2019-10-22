@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.project.mypetsphuket.Interface.ItemClickListner;
+import com.project.mypetsphuket.Model.Informations;
 import com.project.mypetsphuket.R;
 import com.squareup.picasso.Picasso;
 
@@ -22,13 +24,26 @@ public class HospitalsDetailActivity extends AppCompatActivity {
 
     private ItemClickListner itemClickListner;
     private ImageView HospitalImageView;
-    private ImageView HospitalPhone;
+
     private TextView  HospitalName;
-    private TextView HospitalDescription;
-    private TextView HospitalServicetype;
-    private TextView HospitalServicetime;
-    private TextView HospitalLocation;
-    private TextView HospitalRating;
+    private TextView  HospitalDescription;
+    private TextView  HospitalServicetype;
+    private TextView  HospitalServicetime;
+    private TextView  HospitalLocation;
+    private TextView  HospitalRating;
+
+    private ImageView HospitalInformationImag;
+    private TextView  HospitalInformation;
+
+    private ImageView HospitalPhone;
+    private TextView  HospitalCall;
+
+
+
+    private String ImageView, Name, Phone, Description, Servicetime, Location, Servicetype, Rating;
+
+
+
     private TextView  closeTextBtn;
 
     @Override
@@ -45,65 +60,128 @@ public class HospitalsDetailActivity extends AppCompatActivity {
             }
         });
 
-        //Find Object in activity_hospitals_detail
+        //1.Find Object in activity_hospitals_detail
         HospitalImageView = (ImageView) findViewById(R.id.Hospital_Detail_ImageView);
-        HospitalPhone = (ImageView) findViewById(R.id. HospitalPhoneImage);
         HospitalName = (TextView) findViewById(R.id.Hospital_Detail_Name);
         HospitalServicetype = (TextView) findViewById(R.id.Hospital_Detail_Servicetype);
-        HospitalServicetime = (TextView) findViewById(R.id.Hospital_Detail_Servicetime);
+      //  HospitalServicetime = (TextView) findViewById(R.id.Hospital_Detail_Servicetime);
         HospitalLocation = (TextView) findViewById(R.id.Hospital_Detail_Location);
         HospitalRating = (TextView) findViewById(R.id.Hospital_Detail_Rate);
 
-        ///Get Data form RecyclerAdepter
-        Intent intent = getIntent();
-        String ImageView = intent.getStringExtra("Url");
-        String Name = intent.getStringExtra("Name");
-        final String Phone = intent.getStringExtra("Phone");
-        String Description = intent.getStringExtra("Description");
-        String Servicetype = intent.getStringExtra("Servicetype");
-        String Servicetime = intent.getStringExtra("Servicetime");
-        String Location = intent.getStringExtra("Location");
-        String Rating = intent.getStringExtra("Rating");
 
-        //Display Data to activity_hospitals_detail
-        Picasso.get().load(ImageView).into(HospitalImageView);
-        HospitalName.setText(Name);
-        HospitalServicetype.setText(Servicetype);
-        HospitalServicetime.setText("Servicetime : " +Servicetime);
-        HospitalLocation.setText("("+Location +")");
-        HospitalRating.setText(Rating);
+        HospitalInformationImag = (ImageView) findViewById(R.id. Hospital_InformationImageView);
+        HospitalInformation = (TextView) findViewById(R.id.Hospital_Informations);
 
-        HospitalPhone.setOnClickListener(new View.OnClickListener() {
+        HospitalPhone = (ImageView) findViewById(R.id. HospitalPhoneImage);
+        HospitalCall = (TextView) findViewById(R.id.Hospital_Call);
+
+        ///2. Get Data form RecyclerAdepter
+        ReceiveDataFormRecycle();
+
+        //3. Display Data to activity_hospitals_detail
+        ShowDetails();
+
+
+
+        HospitalInformationImag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Intent.ACTION_CALL);
-                String numbers = Phone.toString();
+                StartInformationActivity();
 
-                if (numbers.trim().isEmpty()){
+            }
+        });
 
-                    Toast.makeText(HospitalsDetailActivity.this, "Error", Toast.LENGTH_SHORT).show();
+        HospitalInformation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-                } else {
-
-                    intent.setData(Uri.parse("tel:"+numbers));
-                }
-                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
-
-                    Toast.makeText(HospitalsDetailActivity.this, "Please PERMISSION GRANTED ", Toast.LENGTH_SHORT).show();
-                    requestionPerminssion();
-
-                }else {
-
-                    startActivity(intent);
-                }
-
+                StartInformationActivity();
             }
         });
 
 
 
+        HospitalCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                StartCall();
+            }
+        });
+
+        HospitalPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                StartCall();
+
+            }
+        });
+
+    }
+
+    private void ShowDetails() {
+
+        Picasso.get().load(ImageView).into(HospitalImageView);
+        HospitalName.setText(Name);
+        HospitalServicetype.setText(Servicetype);
+        HospitalLocation.setText("("+Location +")");
+        HospitalRating.setText(Rating);
+        // HospitalServicetime.setText("Servicetime : " +Servicetime);
+    }
+
+    private void ReceiveDataFormRecycle() {
+
+        Intent intent = getIntent();
+        ImageView = intent.getStringExtra("Url");
+        Name = intent.getStringExtra("Name");
+        Phone = intent.getStringExtra("Phone");
+        Description = intent.getStringExtra("Description");
+        Servicetype = intent.getStringExtra("Servicetype");
+        Servicetime = intent.getStringExtra("Servicetime");
+        Location = intent.getStringExtra("Location");
+        Rating = intent.getStringExtra("Rating");
+
+    }
+
+    private void StartCall() {
+
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        String numbers = Phone.toString();
+
+        if (numbers.trim().isEmpty()){
+
+            Toast.makeText(HospitalsDetailActivity.this, "Error", Toast.LENGTH_SHORT).show();
+
+        } else {
+
+            intent.setData(Uri.parse("tel:"+numbers));
+        }
+        if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+
+            Toast.makeText(HospitalsDetailActivity.this, "Please PERMISSION GRANTED ", Toast.LENGTH_SHORT).show();
+            requestionPerminssion();
+
+        }else {
+
+            startActivity(intent);
+        }
+    }
+
+    private void StartInformationActivity() {
+
+        //Set Data to InformationsActivity
+        Intent intentInformation = new Intent( HospitalsDetailActivity.this , InformationsActivity.class);
+        intentInformation.putExtra("title","Hospital");
+        intentInformation.putExtra("Url",ImageView);
+        intentInformation.putExtra("Name",Name);
+        intentInformation.putExtra("Description",Description);
+        intentInformation.putExtra("Location",Location);
+        intentInformation.putExtra("Servicetime",Servicetime);
+        intentInformation.putExtra("Servicetype",Servicetype);
+        intentInformation.putExtra("Rating",Rating);
+        startActivity(intentInformation);
 
     }
 

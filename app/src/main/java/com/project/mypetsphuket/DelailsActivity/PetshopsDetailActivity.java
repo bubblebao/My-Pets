@@ -21,7 +21,6 @@ public class PetshopsDetailActivity extends AppCompatActivity {
 
     private ItemClickListner itemClickListner;
     private ImageView PetshopImageView;
-    private ImageView PetshopPhone;
     private TextView  PetshopName;
     private TextView  PetshopDescription;
     private TextView  PetshopLocation;
@@ -31,6 +30,7 @@ public class PetshopsDetailActivity extends AppCompatActivity {
     private TextView  closeTextBtn;
 
     private TextView PetshopCall;
+    private ImageView PetshopPhone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +50,7 @@ public class PetshopsDetailActivity extends AppCompatActivity {
 
         PetshopName = (TextView) findViewById(R.id.Petshop_Detail_Name);
         PetshopServicetype = (TextView) findViewById(R.id.Petshop_Detail_Servicetype);
-        PetshopServicetime = (TextView) findViewById(R.id.Petshop_Detail_Servicetime);
+      //  PetshopServicetime = (TextView) findViewById(R.id.Petshop_Detail_Servicetime);
         PetshopLocation = (TextView) findViewById(R.id.Petshop_Detail_Location);
         PetshopRating = (TextView) findViewById(R.id.Petshop_Detail_Rate);
 
@@ -61,7 +61,7 @@ public class PetshopsDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String ImageView = intent.getStringExtra("Url");
         String Name = intent.getStringExtra("Name");
-        final String Phone = intent.getStringExtra("Phone");
+        final  String Phone = intent.getStringExtra("Phone");
         String Description = intent.getStringExtra("Description");
         String Servicetype = intent.getStringExtra("Servicetype");
         String Servicetime = intent.getStringExtra("Servicetime");
@@ -72,8 +72,7 @@ public class PetshopsDetailActivity extends AppCompatActivity {
         Picasso.get().load(ImageView).into(PetshopImageView);
         PetshopName.setText(Name);
         PetshopServicetype.setText(Servicetype);
-        PetshopServicetime.setText("Open time : "+Servicetime);
-        //  PetshopDescription.setText(Description);
+        //PetshopServicetime.setText("Open time : "+Servicetime);
         PetshopLocation.setText("("+Location +")");
         PetshopRating.setText(Rating);
 

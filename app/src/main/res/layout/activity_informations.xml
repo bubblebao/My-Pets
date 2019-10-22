@@ -69,8 +69,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp">
+            android:layout_height="wrap_content">
 
 
             <ImageView
@@ -89,8 +88,8 @@
                 android:layout_height="20sp"
                 android:layout_below="@id/Information_ImageView"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
                 android:src="@drawable/ic_vertical_line" />
 
 
@@ -180,7 +179,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/line_Information1"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/about"
                 android:textColor="@color/black_grey"
                 android:textSize="17sp"
@@ -188,7 +187,7 @@
 
             <TextView
                 android:id="@+id/Information_Description"
-                android:layout_width="match_parent"
+                android:layout_width="371dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/Doctor_Detail_Specialist"
                 android:layout_marginStart="40dp"
@@ -203,8 +202,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="20sp"
                 android:layout_marginTop="5dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
                 android:layout_below="@id/Information_Description"
                 android:src="@drawable/ic_vertical_line" />
 
@@ -214,7 +213,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/line_Information2"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginStart="25dp"
                 android:text="@string/address_and_time"
                 android:textAlignment="textStart"
@@ -235,7 +234,7 @@
                     android:layout_width="25dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="25dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     app:srcCompat="@drawable/ic_persornal_address" />
 
                 <TextView
@@ -244,7 +243,7 @@
                     android:layout_height="wrap_content"
                     android:text = "Mae Luan"
                     android:textAlignment="textStart"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="18dp"
                     android:layout_marginStart="13sp"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp" />
@@ -284,8 +283,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="20sp"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
                 android:layout_below="@id/Information_time"
                 android:src="@drawable/ic_vertical_line" />
 
@@ -295,7 +294,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/line_Information3"
                 android:layout_marginTop="5dp"
-                android:layout_marginStart="25dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginEnd="20sp"
                 android:text="@string/services"
                 android:textAlignment="textStart"
@@ -319,7 +318,7 @@
                 android:layout_below="@+id/Information_Service"
                 android:layout_toEndOf="@id/Information_green"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="11dp"
                 android:layout_marginEnd="20sp"
                 android:text="@string/services_option"
                 android:textColor="@color/black_grey"
@@ -330,8 +329,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="20sp"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="20dp"
                 android:layout_below="@id/Information_Detial_Service"
                 android:src="@drawable/ic_vertical_line" />
 
