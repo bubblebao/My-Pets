@@ -70,7 +70,7 @@
 
                             <ImageView
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="80dp"
                                 android:layout_gravity="center_horizontal"
                                 android:src="@drawable/ic_doctor" />
 
@@ -272,7 +272,7 @@
 
                             <ImageView
                                 android:layout_width="wrap_content"
-                                android:layout_height="68dp"
+                                android:layout_height="85dp"
                                 android:layout_gravity="center_horizontal"
                                 android:src="@drawable/ic_pet_service" />
 

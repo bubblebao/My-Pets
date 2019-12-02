@@ -35,7 +35,8 @@ public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.
     @NonNull
     @Override
     public DocRecyclerAdepter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.doctors_items_layout,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.
+                doctors_items_layout,parent,false);
         return new ViewHolder(view);
     }
 

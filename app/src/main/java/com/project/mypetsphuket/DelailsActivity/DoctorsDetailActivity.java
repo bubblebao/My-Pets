@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.project.mypetsphuket.Interface.ItemClickListner;
+import com.project.mypetsphuket.MapActivity;
 import com.project.mypetsphuket.R;
 import com.squareup.picasso.Picasso;
 
@@ -40,6 +41,11 @@ public class DoctorsDetailActivity extends AppCompatActivity {
 
     private ImageView DoctorInformationImag;
     private TextView  DoctorInformation;
+
+    private ImageView DoctorMapImag;
+    private TextView  DoctorMap;
+
+
 
     private String ImageView, Name, Phone, Working, Description, Servicetime, Location, Specialist, Certificate, Rating;
 
@@ -67,6 +73,9 @@ public class DoctorsDetailActivity extends AppCompatActivity {
         DoctorRating = (TextView) findViewById(R.id.Doctor_Detail_Rate);
        // DoctorPhoneNumber = (TextView) findViewById(R.id.Doctor_Detail_Phone);
 
+        DoctorMapImag = (ImageView) findViewById(R.id.DoctorMapImageView );
+        DoctorMap = (TextView) findViewById(R.id.Doctor_Map);
+
         DoctorInformationImag = (ImageView) findViewById(R.id.Doctor_InformationImageView );
         DoctorInformation = (TextView) findViewById(R.id.Doctor_Informations);
 
@@ -79,6 +88,25 @@ public class DoctorsDetailActivity extends AppCompatActivity {
 
         // 3. Display Data to activity_Doctors_detail
         DisplayDetails();
+
+        DoctorMapImag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(DoctorsDetailActivity.this, MapActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        DoctorMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(DoctorsDetailActivity.this, MapActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         DoctorInformationImag.setOnClickListener(new View.OnClickListener() {
@@ -171,15 +199,18 @@ public class DoctorsDetailActivity extends AppCompatActivity {
 
         if (numbers.trim().isEmpty()){
 
-            Toast.makeText(DoctorsDetailActivity.this, "Error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(DoctorsDetailActivity.this, "Error",
+                    Toast.LENGTH_SHORT).show();
 
         } else {
 
             intent.setData(Uri.parse("tel:"+numbers));
         }
-        if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+        if (ActivityCompat.checkSelfPermission(getApplicationContext(),
+                Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
 
-            Toast.makeText(DoctorsDetailActivity.this, "Please PERMISSION GRANTED ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(DoctorsDetailActivity.this, "Please PERMISSION GRANTED ",
+                    Toast.LENGTH_SHORT).show();
             requestionPerminssion();
 
         }else {
@@ -190,6 +221,7 @@ public class DoctorsDetailActivity extends AppCompatActivity {
 
     private void requestionPerminssion(){
 
-        ActivityCompat.requestPermissions(DoctorsDetailActivity.this,new String[]{Manifest.permission.CALL_PHONE},1);
+        ActivityCompat.requestPermissions(
+                DoctorsDetailActivity.this,new String[]{Manifest.permission.CALL_PHONE},1);
     }
 }

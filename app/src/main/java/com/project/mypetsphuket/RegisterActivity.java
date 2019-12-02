@@ -115,7 +115,8 @@ public class RegisterActivity extends AppCompatActivity {
                     HashMap<String, Object> userdataMap = new HashMap<>();
 
                     //Set to Save
-                    String default_profile = ("https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com/o/Profile%20pictures%2Fprofile.png?alt=media&token=d4443ee6-a88a-4b5b-afaf-2ef928584c2b");
+                    String default_profile = ("https://firebasestorage.googleapis.com/v0/b/my-pets-phuket-bb27e.appspot.com" +
+                            "/o/Profile%20pictures%2Fprofile.png?alt=media&token=d4443ee6-a88a-4b5b-afaf-2ef928584c2b");
                     //Encryption Password
 
                     Encryption Encryption = new Encryption(password);
@@ -125,6 +126,7 @@ public class RegisterActivity extends AppCompatActivity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+
                   //   PasswordEncryption passwordEncryption = new PasswordEncryption(password);
                  //   String passwordEncrypted = passwordEncryption.getEncryption();
 
@@ -135,7 +137,6 @@ public class RegisterActivity extends AppCompatActivity {
                     userdataMap.put("address", "Thailand");
                     userdataMap.put("url", default_profile);
                     userdataMap.put("password", passwordEncrypted);
-
                     // Save User Data
                     RootRef.child("Users").child(phone).updateChildren(userdataMap)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -145,7 +146,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                   if (task.isSuccessful()){
 
-                                      Toast.makeText(RegisterActivity.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
+                                      Toast.makeText(RegisterActivity.this, "Congratulations, " +
+                                              "your account has been created.", Toast.LENGTH_SHORT).show();
                                       CreateAccountButton.setVisibility(View.VISIBLE);
 
                                       Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
@@ -153,7 +155,8 @@ public class RegisterActivity extends AppCompatActivity {
                                   }
                                   else {
 
-                                      Toast.makeText(RegisterActivity.this, "Network Error: Please try again after some time", Toast.LENGTH_SHORT).show();
+                                      Toast.makeText(RegisterActivity.this, "Network Error: " +
+                                              "Please try again after some time", Toast.LENGTH_SHORT).show();
                                       CreateAccountButton.setVisibility(View.VISIBLE);
 
                                   }
