@@ -99,10 +99,12 @@ public class EmerRecyclerAdepter extends RecyclerView.Adapter<EmerRecyclerAdepte
                 //6. Set to passing Data
                 String gName = emergencysList.get(position).getName();
                 String gDescription = emergencysList.get(position).getDescription();
-                String gLocation = emergencysList.get(position).getLocation();
                 String gServicetype = emergencysList.get(position).getServicetype();
                 String gServicetime = emergencysList.get(position).getServicetime();
                 String gPhone = emergencysList.get(position).getPhone();
+                String gLocation = emergencysList.get(position).getLocation();
+                String gLatitude = emergencysList.get(position).getLocationlatitude();
+                String gLongtitude = emergencysList.get(position).getLocationlongtitude();
                 String gRating = emergencysList.get(position).getRating();
                 String gUrl = emergencysList.get(position).getUrl();
 
@@ -111,6 +113,8 @@ public class EmerRecyclerAdepter extends RecyclerView.Adapter<EmerRecyclerAdepte
                 intent.putExtra("Name",gName);
                 intent.putExtra("Description",gDescription);
                 intent.putExtra("Location",gLocation);
+                intent.putExtra("Latitude",gLatitude);
+                intent.putExtra("Longtitude",gLongtitude);
                 intent.putExtra("Servicetype",gServicetype);
                 intent.putExtra("Servicetime",gServicetime);
                 intent.putExtra("Phone",gPhone);

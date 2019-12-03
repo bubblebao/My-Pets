@@ -93,6 +93,8 @@ public class PetshopActivity extends AppCompatActivity {
                     petshops.setPhone(snapshot.child("phone").getValue().toString());
                     petshops.setDescription(snapshot.child("description").getValue().toString());
                     petshops.setLocation(snapshot.child("location").getValue().toString());
+                    petshops.setLocationlatitude(snapshot.child("locationlatitude").getValue().toString());
+                    petshops.setLocationlongtitude(snapshot.child("locationlongtitude").getValue().toString());
                     petshops.setServicetype(snapshot.child("servicetype").getValue().toString());
                     petshops.setServicetime(snapshot.child("servicetime").getValue().toString());
                     petshops.setRating(snapshot.child("rating").getValue().toString());

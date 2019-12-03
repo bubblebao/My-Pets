@@ -36,18 +36,22 @@ public class DoctorsDetailActivity extends AppCompatActivity {
     private TextView  DoctorRating;
     private TextView  closeTextBtn;
 
+    private ImageView DoctorMapImag;
+    private TextView  DoctorMap;
+
+
     private ImageView DoctorPhone;
     private TextView  DoctorCall;
 
     private ImageView DoctorInformationImag;
     private TextView  DoctorInformation;
 
-    private ImageView DoctorMapImag;
-    private TextView  DoctorMap;
 
 
 
-    private String ImageView, Name, Phone, Working, Description, Servicetime, Location, Specialist, Certificate, Rating;
+
+    private String Id , ImageView, Name, Phone, Working, Description, Servicetime,
+    Longtitude,Latitude , Location  , Specialist, Certificate, Rating;
 
 
     @Override
@@ -93,8 +97,7 @@ public class DoctorsDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(DoctorsDetailActivity.this, MapActivity.class);
-                startActivity(intent);
+                StartMapActivity();
 
             }
         });
@@ -103,8 +106,8 @@ public class DoctorsDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(DoctorsDetailActivity.this, MapActivity.class);
-                startActivity(intent);
+                StartMapActivity();
+
             }
         });
 
@@ -150,7 +153,7 @@ public class DoctorsDetailActivity extends AppCompatActivity {
 
         Picasso.get().load(ImageView).into(DoctorImageView);
         DoctorName.setText(Name);
-        DoctorSpecialist.setText("Pediatrician");
+        DoctorSpecialist.setText("(Pediatrician)");
         //DoctorSpecialist.setText("Specialist : "+Specialist);
         DoctorWorking.setText(Working);
         DoctorCertication.setText("("+Location +")");
@@ -162,6 +165,7 @@ public class DoctorsDetailActivity extends AppCompatActivity {
 
     private void ReceiveDataFormRecycle() {
         final Intent intent = getIntent();
+        Id = intent.getStringExtra("Id");
         ImageView = intent.getStringExtra("Url");
         Name = intent.getStringExtra("Name");
         Phone = intent.getStringExtra("Phone");
@@ -170,8 +174,29 @@ public class DoctorsDetailActivity extends AppCompatActivity {
         Working = intent.getStringExtra("Working");
         Servicetime = intent.getStringExtra("Servicetime");
         Location = intent.getStringExtra("Location");
+        Latitude = intent.getStringExtra("Latitude");
+        Longtitude = intent.getStringExtra("Longtitude");
         Certificate = intent.getStringExtra("Certificate");
         Rating = intent.getStringExtra("Rating");
+
+    }
+
+    private void StartMapActivity() {
+
+        //Set Data to InformationsActivity
+        Intent intentInformation = new Intent( DoctorsDetailActivity.this , MapActivity.class);
+        //intentInformation.putExtra("Id",Id);
+        intentInformation.putExtra("title","Doctors");
+        intentInformation.putExtra("Url",ImageView);
+        intentInformation.putExtra("Name",Name);
+        intentInformation.putExtra("Working",Working);
+        intentInformation.putExtra("Location",Location);
+        intentInformation.putExtra("Servicetime",Servicetime);
+        intentInformation.putExtra("Rating",Rating);
+        intentInformation.putExtra("Latitude",Latitude);
+        intentInformation.putExtra("Longtitude",Longtitude);
+
+        startActivity(intentInformation);
 
     }
 

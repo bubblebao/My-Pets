@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.project.mypetsphuket.Interface.ItemClickListner;
+import com.project.mypetsphuket.MapActivity;
 import com.project.mypetsphuket.R;
 import com.squareup.picasso.Picasso;
 
@@ -29,13 +30,17 @@ public class PetshopsDetailActivity extends AppCompatActivity {
     private TextView  PetshopRating;
     private TextView  closeTextBtn;
 
+    private ImageView PetshopMapImag;
+    private TextView  PetshopMap;
+
     private ImageView PetshopInformationImag;
     private  TextView PetshopInformation;
 
     private TextView PetshopCall;
     private ImageView PetshopPhone;
 
-    private String ImageView, Name, Phone, Description, Servicetime, Location, Servicetype, Rating;
+    private String ImageView, Name, Phone, Description, Servicetime,
+            Location, Longtitude, Latitude ,Servicetype, Rating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +58,14 @@ public class PetshopsDetailActivity extends AppCompatActivity {
 
         // 1.Find Object in activity_Petshops_detail
         PetshopImageView = (ImageView) findViewById(R.id.Petshop_Detail_ImageView);
-
         PetshopName = (TextView) findViewById(R.id.Petshop_Detail_Name);
         PetshopServicetype = (TextView) findViewById(R.id.Petshop_Detail_Servicetype);
-
         PetshopLocation = (TextView) findViewById(R.id.Petshop_Detail_Location);
         PetshopRating = (TextView) findViewById(R.id.Petshop_Detail_Rate);
         //  PetshopServicetime = (TextView) findViewById(R.id.Petshop_Detail_Servicetime);
+
+        PetshopMapImag = (ImageView) findViewById(R.id.PetshopMapImageView );
+        PetshopMap = (TextView) findViewById(R.id.Petshop_Map);
 
         PetshopInformationImag = (ImageView) findViewById(R.id. Petshop_InformationImageView);
         PetshopInformation = (TextView) findViewById(R.id.Petshop_Informations);
@@ -74,6 +80,23 @@ public class PetshopsDetailActivity extends AppCompatActivity {
         DisplayDetails();
 
 
+        PetshopMapImag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                StartMapActivity();
+
+            }
+        });
+
+        PetshopMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                StartMapActivity();
+
+            }
+        });
 
         PetshopCall.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,11 +134,55 @@ public class PetshopsDetailActivity extends AppCompatActivity {
 
     }
 
+    private void ReceiveDataFormRecycle() {
+
+        Intent intent = getIntent();
+        ImageView = intent.getStringExtra("Url");
+        Name = intent.getStringExtra("Name");
+        Phone = intent.getStringExtra("Phone");
+        Description = intent.getStringExtra("Description");
+        Servicetype = intent.getStringExtra("Servicetype");
+        Servicetime = intent.getStringExtra("Servicetime");
+        Location = intent.getStringExtra("Location");
+        Latitude = intent.getStringExtra("Latitude");
+        Longtitude = intent.getStringExtra("Longtitude");
+        Rating = intent.getStringExtra("Rating");
+    }
+
+    private void DisplayDetails() {
+
+        Picasso.get().load(ImageView).into(PetshopImageView);
+        PetshopName.setText(Name);
+        PetshopServicetype.setText(Servicetype);
+        PetshopLocation.setText("("+Location +")");
+        PetshopRating.setText(Rating);
+        //PetshopServicetime.setText("Open time : "+Servicetime);
+    }
+
+
+    private void StartMapActivity() {
+
+        //Set Data to InformationsActivity
+        Intent intentInformation = new Intent( PetshopsDetailActivity.this , MapActivity.class);
+        //intentInformation.putExtra("Id",Id);
+        intentInformation.putExtra("title","Petshops");
+        intentInformation.putExtra("Url",ImageView);
+        intentInformation.putExtra("Name",Name);
+        intentInformation.putExtra("Working",Description);
+        intentInformation.putExtra("Location",Location);
+        intentInformation.putExtra("Latitude",Latitude);
+        intentInformation.putExtra("Longtitude",Longtitude);
+        intentInformation.putExtra("Servicetime",Servicetime);
+        intentInformation.putExtra("Rating",Rating);
+
+        startActivity(intentInformation);
+    }
+
     private void StartInformationActivity() {
 
         //Set Data to InformationsActivity
         Intent intentInformation = new Intent( PetshopsDetailActivity.this , InformationsActivity.class);
-        intentInformation.putExtra("title","Pet Shop");
+        intentInformation.putExtra("title","PetShops");
         intentInformation.putExtra("Url",ImageView);
         intentInformation.putExtra("Name",Name);
         intentInformation.putExtra("Description",Description);
@@ -126,6 +193,8 @@ public class PetshopsDetailActivity extends AppCompatActivity {
         startActivity(intentInformation);
 
     }
+
+
 
     private void StartCall() {
 
@@ -151,28 +220,8 @@ public class PetshopsDetailActivity extends AppCompatActivity {
         }
     }
 
-    private void DisplayDetails() {
 
-        Picasso.get().load(ImageView).into(PetshopImageView);
-        PetshopName.setText(Name);
-        PetshopServicetype.setText(Servicetype);
-        PetshopLocation.setText("("+Location +")");
-        PetshopRating.setText(Rating);
-        //PetshopServicetime.setText("Open time : "+Servicetime);
-    }
 
-    private void ReceiveDataFormRecycle() {
-
-        Intent intent = getIntent();
-        ImageView = intent.getStringExtra("Url");
-        Name = intent.getStringExtra("Name");
-        Phone = intent.getStringExtra("Phone");
-        Description = intent.getStringExtra("Description");
-        Servicetype = intent.getStringExtra("Servicetype");
-        Servicetime = intent.getStringExtra("Servicetime");
-        Location = intent.getStringExtra("Location");
-        Rating = intent.getStringExtra("Rating");
-    }
 
     private void requestionPerminssion() {
 

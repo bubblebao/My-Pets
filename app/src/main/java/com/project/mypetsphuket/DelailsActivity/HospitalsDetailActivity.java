@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.project.mypetsphuket.Interface.ItemClickListner;
+import com.project.mypetsphuket.MapActivity;
 import com.project.mypetsphuket.Model.Informations;
 import com.project.mypetsphuket.R;
 import com.squareup.picasso.Picasso;
@@ -32,6 +33,9 @@ public class HospitalsDetailActivity extends AppCompatActivity {
     private TextView  HospitalLocation;
     private TextView  HospitalRating;
 
+    private ImageView HospitalMapImag;
+    private TextView  HospitalMap;
+
     private ImageView HospitalInformationImag;
     private TextView  HospitalInformation;
 
@@ -40,7 +44,9 @@ public class HospitalsDetailActivity extends AppCompatActivity {
 
 
 
-    private String ImageView, Name, Phone, Description, Servicetime, Location, Servicetype, Rating;
+
+
+    private String ImageView, Name, Phone, Description, Servicetime, Location, Longtitude, Latitude , Servicetype, Rating;
 
 
 
@@ -68,6 +74,9 @@ public class HospitalsDetailActivity extends AppCompatActivity {
         HospitalRating = (TextView) findViewById(R.id.Hospital_Detail_Rate);
         //  HospitalServicetime = (TextView) findViewById(R.id.Hospital_Detail_Servicetime);
 
+        HospitalMapImag = (ImageView) findViewById(R.id.HospitalMapImageView );
+        HospitalMap = (TextView) findViewById(R.id.Hospital_Map);
+
         HospitalInformationImag = (ImageView) findViewById(R.id. Hospital_InformationImageView);
         HospitalInformation = (TextView) findViewById(R.id.Hospital_Informations);
 
@@ -79,6 +88,24 @@ public class HospitalsDetailActivity extends AppCompatActivity {
 
         //3. Display Data to activity_hospitals_detail
         DisplayDetails();
+
+        HospitalMapImag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                StartMapActivity();
+
+            }
+        });
+
+        HospitalMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                StartMapActivity();
+
+            }
+        });
 
 
         HospitalInformationImag.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +146,7 @@ public class HospitalsDetailActivity extends AppCompatActivity {
 
     }
 
+
     private void DisplayDetails() {
 
         Picasso.get().load(ImageView).into(HospitalImageView);
@@ -139,7 +167,46 @@ public class HospitalsDetailActivity extends AppCompatActivity {
         Servicetype = intent.getStringExtra("Servicetype");
         Servicetime = intent.getStringExtra("Servicetime");
         Location = intent.getStringExtra("Location");
+        Latitude = intent.getStringExtra("Latitude");
+        Longtitude = intent.getStringExtra("Longtitude");
         Rating = intent.getStringExtra("Rating");
+
+    }
+
+    private void StartMapActivity() {
+
+        //Set Data to InformationsActivity
+        Intent intentInformation = new Intent( HospitalsDetailActivity.this , MapActivity.class);
+        //intentInformation.putExtra("Id",Id);
+        intentInformation.putExtra("title","Hospitals");
+        intentInformation.putExtra("Url",ImageView);
+        intentInformation.putExtra("Name",Name);
+        intentInformation.putExtra("Description",Description);
+        intentInformation.putExtra("Location",Location);
+        intentInformation.putExtra("Latitude",Latitude);
+        intentInformation.putExtra("Longtitude",Longtitude);
+        intentInformation.putExtra("Servicetime",Servicetime);
+        intentInformation.putExtra("Rating",Rating);
+
+
+
+        startActivity(intentInformation);
+
+    }
+
+    private void StartInformationActivity() {
+
+        //Set Data to InformationsActivity
+        Intent intentInformation = new Intent( HospitalsDetailActivity.this , InformationsActivity.class);
+        intentInformation.putExtra("title","Hospital");
+        intentInformation.putExtra("Url",ImageView);
+        intentInformation.putExtra("Name",Name);
+        intentInformation.putExtra("Description",Description);
+        intentInformation.putExtra("Location",Location);
+        intentInformation.putExtra("Servicetime",Servicetime);
+        intentInformation.putExtra("Servicetype",Servicetype);
+        intentInformation.putExtra("Rating",Rating);
+        startActivity(intentInformation);
 
     }
 
@@ -167,21 +234,7 @@ public class HospitalsDetailActivity extends AppCompatActivity {
         }
     }
 
-    private void StartInformationActivity() {
 
-        //Set Data to InformationsActivity
-        Intent intentInformation = new Intent( HospitalsDetailActivity.this , InformationsActivity.class);
-        intentInformation.putExtra("title","Hospital");
-        intentInformation.putExtra("Url",ImageView);
-        intentInformation.putExtra("Name",Name);
-        intentInformation.putExtra("Description",Description);
-        intentInformation.putExtra("Location",Location);
-        intentInformation.putExtra("Servicetime",Servicetime);
-        intentInformation.putExtra("Servicetype",Servicetype);
-        intentInformation.putExtra("Rating",Rating);
-        startActivity(intentInformation);
-
-    }
 
     private void requestionPerminssion() {
 

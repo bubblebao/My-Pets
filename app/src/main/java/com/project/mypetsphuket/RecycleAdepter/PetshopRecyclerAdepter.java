@@ -38,51 +38,6 @@ public class PetshopRecyclerAdepter extends RecyclerView.Adapter<PetshopRecycler
         return new ViewHolder(view);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull PetshopRecyclerAdepter.ViewHolder holder, int position) {
-
-        holder.PetshopName.setText(petshopsList.get(position).getName());
-        holder.Petshopservicetype.setText(petshopsList.get(position).getServicetype());
-        holder.PetshopLocation.setText(petshopsList.get(position).getLocation());
-        holder.PetshopRating.setText(petshopsList.get(position).getRating());
-        Picasso.get().load(petshopsList.get((position)).getUrl())
-                .into(holder.imageView);
-
-        // 5. setItemClickListner
-        holder.setItemClickListner(new ItemClickListner() {
-            @Override
-            public void onItemClickListner(View v, int position) {
-                //6. Set to passing Data
-                String gName = petshopsList.get(position).getName();
-                String gPhone = petshopsList.get(position).getPhone();
-                String gDescription = petshopsList.get(position).getDescription();
-                String gServicetype = petshopsList.get(position).getServicetype();
-                String gServicetime = petshopsList.get(position).getServicetime();
-                String gLocation = petshopsList.get(position).getLocation();
-                String gRating = petshopsList.get(position).getRating();
-                String gUrl = petshopsList.get(position).getUrl();
-
-                //7. Put Data to HospitalsDetailActivity
-                Intent intent = new Intent(mContext, PetshopsDetailActivity.class);
-                intent.putExtra("Name",gName);
-                intent.putExtra("Phone",gPhone);
-                intent.putExtra("Description",gDescription);
-                intent.putExtra("Location",gLocation);
-                intent.putExtra("Servicetype",gServicetype);
-                intent.putExtra("Servicetime",gServicetime);
-                intent.putExtra("Rating",gRating);
-                intent.putExtra("Url",gUrl);
-                mContext.startActivity(intent);
-
-            }
-        });
-    }
-
-    @Override
-    public int getItemCount() {
-        return petshopsList.size();
-    }
-
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
@@ -119,6 +74,56 @@ public class PetshopRecyclerAdepter extends RecyclerView.Adapter<PetshopRecycler
             this.itemClickListner = itemClickListner ;
 
         }
+    }
+
+
+    @Override
+    public void onBindViewHolder(@NonNull PetshopRecyclerAdepter.ViewHolder holder, int position) {
+
+        holder.PetshopName.setText(petshopsList.get(position).getName());
+        holder.Petshopservicetype.setText(petshopsList.get(position).getServicetype());
+        holder.PetshopLocation.setText(petshopsList.get(position).getLocation());
+        holder.PetshopRating.setText(petshopsList.get(position).getRating());
+        Picasso.get().load(petshopsList.get((position)).getUrl())
+                .into(holder.imageView);
+
+        // 5. setItemClickListner
+        holder.setItemClickListner(new ItemClickListner() {
+            @Override
+            public void onItemClickListner(View v, int position) {
+                //6. Set to passing Data
+                String gName = petshopsList.get(position).getName();
+                String gPhone = petshopsList.get(position).getPhone();
+                String gDescription = petshopsList.get(position).getDescription();
+                String gServicetype = petshopsList.get(position).getServicetype();
+                String gServicetime = petshopsList.get(position).getServicetime();
+                String gLocation = petshopsList.get(position).getLocation();
+                String gLatitude = petshopsList.get(position).getLocationlatitude();
+                String gLongtitude = petshopsList.get(position).getLocationlongtitude();
+                String gRating = petshopsList.get(position).getRating();
+                String gUrl = petshopsList.get(position).getUrl();
+
+                //7. Put Data to HospitalsDetailActivity
+                Intent intent = new Intent(mContext, PetshopsDetailActivity.class);
+                intent.putExtra("Name",gName);
+                intent.putExtra("Phone",gPhone);
+                intent.putExtra("Description",gDescription);
+                intent.putExtra("Location",gLocation);
+                intent.putExtra("Latitude",gLatitude);
+                intent.putExtra("Longtitude",gLongtitude);
+                intent.putExtra("Servicetype",gServicetype);
+                intent.putExtra("Servicetime",gServicetime);
+                intent.putExtra("Rating",gRating);
+                intent.putExtra("Url",gUrl);
+                mContext.startActivity(intent);
+
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return petshopsList.size();
     }
 
 }

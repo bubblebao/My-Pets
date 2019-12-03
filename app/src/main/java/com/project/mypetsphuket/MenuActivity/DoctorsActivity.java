@@ -95,6 +95,7 @@ public class DoctorsActivity extends AppCompatActivity {
 
                     Doctors doctors = new Doctors();
 
+                    doctors.setId(snapshot.child("id").getValue().toString());
                     doctors.setUrl(snapshot.child("url").getValue().toString());
                     doctors.setName(snapshot.child("name").getValue().toString());
                     doctors.setSpecialist(snapshot.child("specialist").getValue().toString());
@@ -105,6 +106,9 @@ public class DoctorsActivity extends AppCompatActivity {
                     doctors.setServicetime(snapshot.child("servicetime").getValue().toString());
                     doctors.setCertificate(snapshot.child("certificate").getValue().toString());
                     doctors.setRating(snapshot.child("rating").getValue().toString());
+
+                    doctors.setLocationlatitude(snapshot.child("locationlatitude").getValue().toString());
+                    doctors.setLocationlongtitude(snapshot.child("locationlongtitude").getValue().toString());
 
                     doctorsList.add(doctors);
                 }

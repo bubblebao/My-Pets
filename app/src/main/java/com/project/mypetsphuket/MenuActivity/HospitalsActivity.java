@@ -101,6 +101,8 @@ public class HospitalsActivity extends AppCompatActivity {
                     hospitals.setservicetime(snapshot.child("servicetime").getValue().toString());
                     hospitals.setRating(snapshot.child("rating").getValue().toString());
                     hospitals.setLocation(snapshot.child("location").getValue().toString());
+                    hospitals.setLocationlatitude(snapshot.child("locationlatitude").getValue().toString());
+                    hospitals.setLocationlongtitude(snapshot.child("locationlongtitude").getValue().toString());
 
                     hospitalList.add(hospitals);
                 }

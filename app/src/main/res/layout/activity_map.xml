@@ -6,10 +6,96 @@
     android:layout_height="match_parent"
     tools:context=".MapActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimary">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/titilbar">
+
+                <TextView
+                    android:id="@+id/close_Map_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Close"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentStart="true"
+                    />
+
+                <!--     <TextView
+                         android:id="@+id/update_account_settings_btn"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="Update"
+                         android:textColor="@android:color/white"
+                         android:textSize="17sp"
+                         android:textStyle="bold"
+                         android:layout_marginRight="10dp"
+                         android:layout_alignParentEnd="true"
+                         />  -->
+
+                <TextView
+                    android:id="@+id/title_googleMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="My Pets Doctor Detials"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    />
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/white"
+        >
+
+        <TextView
+            android:id="@+id/location_Map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:textColor="@android:color/darker_gray"
+            android:gravity="center"
+            android:layout_marginTop="15sp"
+            android:textSize="20dp"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="100dp"
+            android:textStyle="bold"
+            android:background="@color/white"
+
+            />
+
+
+
+
+    </RelativeLayout>
+
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="50dp"
+        android:layout_marginTop="70dp"
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment" />
 

@@ -33,7 +33,8 @@ public class InformationsActivity extends AppCompatActivity {
     private TextView  closeTextBtn;
     private TextView  InformationTitle;
 
-    private String  ImageView , Name , Description , Servicetime , Location , Servicetype ,Rating , TextTittle ,Tittle;
+    private String  ImageView , Name , Description , Servicetime , Location ,
+            Servicetype ,Rating , TextTittle ,Tittle;
 
 
 
@@ -68,14 +69,14 @@ public class InformationsActivity extends AppCompatActivity {
         InformationStar5 = (ImageView) findViewById(R.id.Infor_Star5);
 
         // 2. Receive Data form  Detail Activity
-        ReceiveDataFormRDetailActivity();
+        ReceiveDataFormDetailActivity();
 
         // 3. Call ShowInformations for Display Data
         ShowInformations();
 
     }
 
-    private void ReceiveDataFormRDetailActivity() {
+    private void ReceiveDataFormDetailActivity() {
 
         // Receive Data form  Detail Activity
         Intent intent = getIntent();

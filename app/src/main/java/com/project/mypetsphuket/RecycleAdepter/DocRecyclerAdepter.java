@@ -20,6 +20,13 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+
+// //    String[] latlong =  Latitude,Longtitude.split(",");
+//          double latitude = Double.parseDouble(Latitude);
+//          double longitude = Double.parseDouble(Longtitude);
+
+//LatLng Doctor = new LatLng(Double.parseDouble(Latitude) , Double.parseDouble(Longtitude) );
+
 public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.ViewHolder> {
 
     private static final String TAG = "DocRecyclerAdepter";
@@ -35,8 +42,7 @@ public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.
     @NonNull
     @Override
     public DocRecyclerAdepter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.
-                doctors_items_layout,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.doctors_items_layout,parent,false);
         return new ViewHolder(view);
     }
 
@@ -56,7 +62,6 @@ public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.
             //Find Object in RecycleView
             imageView = (ImageView) itemView.findViewById(R.id.Doctor_imageView);
             DoctorName = (TextView) itemView.findViewById(R.id.Doctor_Name);
-      //      DoctorPhone = (ImageView) itemView.findViewById(R.id.DoctorPhoneImage);
             DoctorSpecialist = (TextView) itemView.findViewById(R.id.Doctor_Description);
             DoctorLocation = (TextView) itemView.findViewById(R.id.Doctor_location);
             DoctorRating = (TextView) itemView.findViewById(R.id.Doctor_Rating);
@@ -99,13 +104,19 @@ public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.
                 String gDescription = doctorsList.get(position).getDescription();
                 String gWorking = doctorsList.get(position).getWorking();
                 String gServicetime = doctorsList.get(position).getServicetime();
+                String gID = doctorsList.get(position).getId();
                 String gLocation = doctorsList.get(position).getLocation();
+
+                String gLatitude = doctorsList.get(position).getLocationlatitude();
+                String gLongtitude = doctorsList.get(position).getLocationlongtitude();
+
                 String gRating = doctorsList.get(position).getRating();
                 String gCertificate = doctorsList.get(position).getCertificate();
                 String gUrl = doctorsList.get(position).getUrl();
 
            // 7.  Put Data to DoctorsDetailActivity
                 Intent intent = new Intent(mContext, DoctorsDetailActivity.class);
+                intent.putExtra("Id",gID);
                 intent.putExtra("Url",gUrl);
                 intent.putExtra("Name",gName);
                 intent.putExtra("Phone",gPhone);
@@ -114,6 +125,8 @@ public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.
                 intent.putExtra("Working",gWorking);
                 intent.putExtra("Servicetime",gServicetime);
                 intent.putExtra("Location",gLocation);
+                intent.putExtra("Latitude",gLatitude);
+                intent.putExtra("Longtitude",gLongtitude);
                 intent.putExtra("Certificate",gCertificate);
                 intent.putExtra("Rating",gRating);
                 mContext.startActivity(intent);

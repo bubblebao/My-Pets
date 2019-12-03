@@ -104,6 +104,8 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
                 String gPhone = hospitalList.get(position).getPhone();
                 String gDescription = hospitalList.get(position).getDescription();
                 String gLocation = hospitalList.get(position).getLocation();
+                String gLatitude = hospitalList.get(position).getLocationlatitude();
+                String gLongtitude = hospitalList.get(position).getLocationlongtitude();
                 String gServicetype = hospitalList.get(position).getServicetype();
                 String gServicetime = hospitalList.get(position).getservicetime();
                 String gRating = hospitalList.get(position).getRating();
@@ -115,25 +117,14 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
                 intent.putExtra("Phone",gPhone);
                 intent.putExtra("Description",gDescription);
                 intent.putExtra("Location",gLocation);
+                intent.putExtra("Latitude",gLatitude);
+                intent.putExtra("Longtitude",gLongtitude);
                 intent.putExtra("Servicetype",gServicetype);
                 intent.putExtra("Servicetime",gServicetime);
                 intent.putExtra("Rating",gRating);
                 intent.putExtra("Url",gUrl);
                 mContext.startActivity(intent);
 
-
-
-                /*8. Put Data to InformationsActivity
-                Intent intentInformation = new Intent(mContext, InformationsActivity.class);
-                intent.putExtra("Url",gUrl);
-                intent.putExtra("Name",gName);
-                intent.putExtra("Description",gDescription);
-                intent.putExtra("Location",gLocation);
-                intent.putExtra("Servicetime",gServicetime);
-                intent.putExtra("Servicetype",gServicetype);
-                intent.putExtra("Rating",gRating);
-
-                mContext.startActivity(intentInformation);  */
 
             }
 

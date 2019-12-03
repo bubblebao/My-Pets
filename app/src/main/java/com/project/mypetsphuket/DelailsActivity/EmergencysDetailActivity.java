@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.project.mypetsphuket.Interface.ItemClickListner;
+import com.project.mypetsphuket.MapActivity;
 import com.project.mypetsphuket.R;
 import com.squareup.picasso.Picasso;
 
@@ -28,6 +29,9 @@ public class EmergencysDetailActivity extends AppCompatActivity {
     private TextView  EmergencyRating;
     private TextView  closeTextBtn;
 
+    private ImageView EmergencyMapImag;
+    private TextView  EmergencyMap;
+
     private ImageView EmergencysCallImage;
     private TextView  EmergencysCall;
 
@@ -35,7 +39,8 @@ public class EmergencysDetailActivity extends AppCompatActivity {
     private TextView  EmergencysInformations;
 
 
-    private String ImageView, Name, Phone, Description, Servicetime, Location, Servicetype, Rating;
+    private String ImageView, Name, Phone, Description, Servicetime,
+            Location, Longtitude, Latitude ,Servicetype, Rating;
 
 
     @Override
@@ -61,6 +66,9 @@ public class EmergencysDetailActivity extends AppCompatActivity {
         // EmergencysPhoneNumber = (TextView) findViewById(R.id.Emergency_Detail_Phone);
         // Emergencyservicetime = (TextView) findViewById(R.id.Emergency_Detail_Servicetime);
 
+        EmergencyMapImag = (ImageView) findViewById(R.id.EmergencyMapImageView );
+        EmergencyMap = (TextView) findViewById(R.id.Emergency_Map);
+
         EmergencysInformationImag = (ImageView) findViewById(R.id.Emergency_InformationImageView);
         EmergencysInformations = (TextView) findViewById(R.id.Emergency_Informations);
 
@@ -72,6 +80,24 @@ public class EmergencysDetailActivity extends AppCompatActivity {
 
         //3. Display Data to activity_Emergencys_detail
         DisplayDetails();
+
+        EmergencyMapImag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                StartMapActivity();
+
+            }
+        });
+
+        EmergencyMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                StartMapActivity();
+
+            }
+        });
 
         EmergencysInformationImag.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,6 +143,43 @@ public class EmergencysDetailActivity extends AppCompatActivity {
 
     }
 
+
+
+    private void ReceiveDataFormRecycle() {
+
+        Intent intent = getIntent();
+        ImageView = intent.getStringExtra("Url");
+        Name = intent.getStringExtra("Name");
+        Description = intent.getStringExtra("Description");
+        Location = intent.getStringExtra("Location");
+        Latitude = intent.getStringExtra("Latitude");
+        Longtitude = intent.getStringExtra("Longtitude");
+        Servicetype = intent.getStringExtra("Servicetype");
+        Servicetime = intent.getStringExtra("Servicetime");
+        Phone = intent.getStringExtra("Phone");
+        Rating = intent.getStringExtra("Rating");
+
+    }
+
+    private void StartMapActivity() {
+
+        //Set Data to InformationsActivity
+        Intent intentInformation = new Intent( EmergencysDetailActivity.this , MapActivity.class);
+        //intentInformation.putExtra("Id",Id);
+        intentInformation.putExtra("title","Emergencys");
+        intentInformation.putExtra("Url",ImageView);
+        intentInformation.putExtra("Name",Name);
+        intentInformation.putExtra("Description",Description);
+        intentInformation.putExtra("Location",Location);
+        intentInformation.putExtra("Latitude",Latitude);
+        intentInformation.putExtra("Longtitude",Longtitude);
+        intentInformation.putExtra("Servicetime",Servicetime);
+        intentInformation.putExtra("Rating",Rating);
+
+        startActivity(intentInformation);
+    }
+
+
     private void StartInformationActivity() {
 
         //Set Data to Informations Activity
@@ -126,26 +189,14 @@ public class EmergencysDetailActivity extends AppCompatActivity {
         intentInformation.putExtra("Name",Name);
         intentInformation.putExtra("Description",Description);
         intentInformation.putExtra("Location",Location);
+        intentInformation.putExtra("Latitude",Latitude);
+        intentInformation.putExtra("Longtitude",Longtitude);
         intentInformation.putExtra("Servicetime",Servicetime);
         intentInformation.putExtra("Servicetype",Servicetype);
         intentInformation.putExtra("Rating",Rating);
         startActivity(intentInformation);
     }
 
-    private void ReceiveDataFormRecycle() {
-
-
-        Intent intent = getIntent();
-        ImageView = intent.getStringExtra("Url");
-        Name = intent.getStringExtra("Name");
-        Description = intent.getStringExtra("Description");
-        Location = intent.getStringExtra("Location");
-        Servicetype = intent.getStringExtra("Servicetype");
-        Servicetime = intent.getStringExtra("Servicetime");
-        Phone = intent.getStringExtra("Phone");
-        Rating = intent.getStringExtra("Rating");
-
-    }
 
     private void StartCall() {
 

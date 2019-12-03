@@ -2,11 +2,13 @@ package com.project.mypetsphuket.Model;
 
 public class Doctors {
 
-    private String name, phone , certificate , description ,  url,  working , location, locationlatitude, locationlongtitude,servicetime, specialist , rating;
+    private String id, name, phone, certificate, description, url, working, location, locationlatitude, locationlongtitude, servicetime, specialist, rating;
 
-    public Doctors() { }
+    public Doctors() {
+    }
 
-    public Doctors(String name, String phone, String certificate, String description, String url, String working, String location, String locationlatitude, String locationlongtitude, String servicetime, String specialist, String rating) {
+    public Doctors(String id, String name, String phone, String certificate, String description, String url, String working, String location, String locationlatitude, String locationlongtitude, String servicetime, String specialist, String rating) {
+        this.id = id;
         this.name = name;
         this.phone = phone;
         this.certificate = certificate;
@@ -19,6 +21,14 @@ public class Doctors {
         this.servicetime = servicetime;
         this.specialist = specialist;
         this.rating = rating;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
