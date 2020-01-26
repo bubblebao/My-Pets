@@ -1,35 +1,45 @@
 package com.project.mypetsphuket.MenuActivity;
 
+import androidx.annotation.BinderThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.view.ViewParent;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.ui.auth.AuthUI;
-import com.firebase.ui.auth.IdpResponse;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.project.mypetsphuket.HomeActivity;
-import com.project.mypetsphuket.LoginActivity;
-import com.project.mypetsphuket.Prevalent.Prevalent;
 import com.project.mypetsphuket.R;
+import com.project.mypetsphuket.RecycleAdepter.MyViewPagerAdapter;
+import com.shuhart.stepview.StepView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+
+
 public class AppointmentsActivity extends AppCompatActivity {
-    private static final int MY_REQUEST_CODE = 7077;
     private TextView   closeTextBtn , NextTextButton;
-    List<AuthUI.IdpConfig> providers;
+
+    @BindView(R.id.step_view)
+    StepView stepView;
+    @BindView(R.id.view_pager)
+    ViewPager viewPager;
+    @BindView(R.id.btn_previous_step)
+    Button btn_prevous_step;
+    @BindView(R.id.btn_next_step)
+    Button btn_next_step;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,87 +47,74 @@ public class AppointmentsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_appointments);
 
         closeTextBtn = (TextView) findViewById(R.id.close_appointment_btn);
-        NextTextButton = (TextView) findViewById(R.id.appointment_next_btn);
+        ButterKnife.bind(AppointmentsActivity.this);
+
+        setupStepView();
+        setColorButtom();
+
+        //view
+        viewPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager()));
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 0)
+                    btn_prevous_step.setEnabled(false);
+                else
+                    btn_next_step.setEnabled(true);
+                setColorButtom();
+            }
 
 
-        // userInfoDisplay(profileImageView, fullNameEditText, userPhoneEditText, addressEditText);
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+
         closeTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-
-                AuthUI.getInstance()
-                        .signOut(AppointmentsActivity.this)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-
-                                closeTextBtn.setEnabled(false);
-                                showSignInOptions();
-
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                        Toast.makeText(AppointmentsActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                    }
-                });
+                finish();
             }
         });
-
-        //init Provider
-               providers = Arrays.asList(
-                new AuthUI.IdpConfig.EmailBuilder().build(),
-                new AuthUI.IdpConfig.PhoneBuilder().build()   //Email
-                  //Phone
-
-               );
-
-          /*
-                new AuthUI.IdpConfig.GoogleBuilder().build(),
-                new AuthUI.IdpConfig.FacebookBuilder().build(),
-                new AuthUI.IdpConfig.TwitterBuilder().build());   */
-
-          showSignInOptions();
     }
 
-    private void showSignInOptions() {
+    private void setColorButtom() {
 
-        startActivityForResult(
-                AuthUI.getInstance().createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .setTheme(R.style.MyTheme)
-                .build(),MY_REQUEST_CODE
-        );
+        if (btn_next_step.isEnabled()){
 
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == MY_REQUEST_CODE){
-
-            IdpResponse response = IdpResponse.fromResultIntent(data);
-
-            if (requestCode == RESULT_OK){
-
-                //get user
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                //show Email
-                Intent intent = new Intent(AppointmentsActivity.this, HomeActivity.class);
-                startActivity(intent);
-               // Toast.makeText(AppointmentsActivity.this, ""+user.getEmail(), Toast.LENGTH_SHORT).show();
-
-            }else {
-
-             //   Toast.makeText(AppointmentsActivity.this, ""+response.getError().getMessage(), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(AppointmentsActivity.this, HomeActivity.class);
-                startActivity(intent);
-
-            }
-
+            btn_next_step.setBackgroundResource(R.color.colorButton);
         }
+        else {
+
+            btn_next_step.setBackgroundResource(R.color.dark_grey);
+        }
+        if (btn_prevous_step.isEnabled()){
+
+            btn_prevous_step.setBackgroundResource(R.color.colorButton);
+        }
+        else {
+
+            btn_prevous_step.setBackgroundResource(R.color.dark_grey);
+        }
+
     }
+
+    private void setupStepView() {
+        List<String> stepList = new ArrayList<>();
+        stepList.add("Choose");
+        stepList.add("Select");
+        stepList.add("Time");
+        stepList.add("Confirm");
+        stepView.setSteps(stepList);
+    }
+
+
 }

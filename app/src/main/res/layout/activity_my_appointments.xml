@@ -55,56 +55,50 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp">
+        android:layout_below="@id/app_bar_settings">
 
 
-        <TextView
-            android:id="@+id/appointments_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="My Appointments"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="4dp"
-            android:textColor="@android:color/black"
-            android:layout_centerHorizontal="true"
-            />
 
-        <!--
 
-            <EditText
-                android:id="@+id/settings_phone_number"
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/layout_Button"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:padding="4dp"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_previous_step"
+                android:layout_width="0dp"
+                android:layout_marginEnd="4dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/profile_image_change_btn"
-                android:hint="Phone Number..."
-                android:layout_margin="15dp"
-                android:padding="10dp"
+                android:background="@color/colorPrimaryBlue"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:text="Previous"
+                android:enabled="false"
+
                 />
 
-            <EditText
-                android:id="@+id/settings_full_name"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btn_next_step"
+                android:layout_width="0dp"
+                android:layout_marginEnd="4dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/settings_phone_number"
-                android:hint="Full Name..."
-                android:layout_margin="15dp"
-                android:padding="10dp"
+                android:background="@color/colorPrimaryBlue"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:text="Next"
+                android:enabled="false"
+
                 />
 
-            <EditText
-                android:id="@+id/settings_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/settings_full_name"
-                android:hint="Address..."
-                android:layout_margin="15dp"
-                android:padding="10dp"
-                />
 
-      -->
-        </RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

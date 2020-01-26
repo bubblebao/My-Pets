@@ -17,7 +17,6 @@ public class MyAppointmentsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_appointments);
 
         closeTextBtn = (TextView) findViewById(R.id.close_my_appointment_btn);
-        NextTextButton = (TextView) findViewById(R.id.appointment_next_btn);
 
 
         // userInfoDisplay(profileImageView, fullNameEditText, userPhoneEditText, addressEditText);
