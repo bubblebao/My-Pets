@@ -79,6 +79,7 @@
 
     </androidx.viewpager.widget.ViewPager>
 
+
     <LinearLayout
         android:id="@+id/layout_Button"
         android:orientation="horizontal"
@@ -87,6 +88,7 @@
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 
         <Button
             android:id="@+id/btn_previous_step"

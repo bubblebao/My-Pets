@@ -4,10 +4,15 @@ import androidx.annotation.BinderThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.ViewParent;
@@ -15,6 +20,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.project.mypetsphuket.Prevalent.Common;
+import com.project.mypetsphuket.Prevalent.Prevalent;
 import com.project.mypetsphuket.R;
 import com.project.mypetsphuket.RecycleAdepter.MyViewPagerAdapter;
 import com.shuhart.stepview.StepView;
@@ -25,11 +32,13 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
+import butterknife.OnClick;
 
 
 public class AppointmentsActivity extends AppCompatActivity {
     private TextView   closeTextBtn , NextTextButton;
+
+    LocalBroadcastManager localBroadcastManager;
 
     @BindView(R.id.step_view)
     StepView stepView;
@@ -40,6 +49,42 @@ public class AppointmentsActivity extends AppCompatActivity {
     @BindView(R.id.btn_next_step)
     Button btn_next_step;
 
+    @OnClick(R.id.btn_next_step)
+    void nextClick(){
+
+    /*    if (Prevalent.step < 3 || Prevalent.step > 0){
+
+            Prevalent.step++; //+
+        }
+          if (Prevalent.step == 1){
+
+              if(Prevalent.currentSelect != null)
+                  loadObject(Prevalent.currentSelect.getId());
+
+
+          }  */
+
+
+    Toast.makeText(this,""+Prevalent.currentSelect.getName(),Toast.LENGTH_SHORT).show();
+
+    }
+
+
+    //Broadcast Reciver
+    private BroadcastReceiver buttonNextReciver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Prevalent.currentSelect = intent.getParcelableExtra(Prevalent.KEY_ITEM_STORE);
+            btn_next_step.setEnabled(true);
+            setColorButtom();
+        }
+    };
+
+    @Override
+    protected void onDestroy() {
+        localBroadcastManager.unregisterReceiver(buttonNextReciver);
+        super.onDestroy();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +93,9 @@ public class AppointmentsActivity extends AppCompatActivity {
 
         closeTextBtn = (TextView) findViewById(R.id.close_appointment_btn);
         ButterKnife.bind(AppointmentsActivity.this);
+
+        localBroadcastManager = LocalBroadcastManager.getInstance(this);
+        localBroadcastManager.registerReceiver(buttonNextReciver ,new IntentFilter(Prevalent.KEY_ENABLE_NEXT));
 
         setupStepView();
         setColorButtom();
@@ -110,7 +158,6 @@ public class AppointmentsActivity extends AppCompatActivity {
     private void setupStepView() {
         List<String> stepList = new ArrayList<>();
         stepList.add("Choose");
-        stepList.add("Select");
         stepList.add("Time");
         stepList.add("Confirm");
         stepView.setSteps(stepList);

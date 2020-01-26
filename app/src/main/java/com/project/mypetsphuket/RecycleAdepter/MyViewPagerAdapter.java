@@ -27,8 +27,7 @@ public class MyViewPagerAdapter extends FragmentPagerAdapter {
                 return BookingStep2Fragment.getInstance();
             case 2:
                 return BookingStep3Fragment.getInstance();
-            case 3:
-                return BookingStep4Fragment.getInstance();
+
 
         }
         return null;
@@ -36,6 +35,6 @@ public class MyViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return 3;
     }
 }

@@ -1,25 +1,11 @@
 package com.project.mypetsphuket.Model;
 
-public class DoctorAndHospital {
+import android.os.Parcel;
+import android.os.Parcelable;
 
-    public DoctorAndHospital() {}
+public class DoctorAndHospital  implements Parcelable {
 
-    private String id, name, phone, certificate, servicetype, url, address , working, location, locationlatitude, locationlongtitude, servicetime, specialist;
-
-    public DoctorAndHospital(String id, String name, String phone, String certificate, String servicetype, String url, String address, String working, String location, String locationlatitude, String locationlongtitude, String servicetime, String specialist) {
-        this.id = id;
-        this.name = name;
-        this.phone = phone;
-        this.certificate = certificate;
-        this.servicetype = servicetype;
-        this.url = url;
-        this.address = address;
-        this.working = working;
-        this.location = location;
-        this.locationlatitude = locationlatitude;
-        this.locationlongtitude = locationlongtitude;
-        this.servicetime = servicetime;
-        this.specialist = specialist;
+    public DoctorAndHospital() {
     }
 
     public String getId() {
@@ -125,5 +111,60 @@ public class DoctorAndHospital {
     public void setSpecialist(String specialist) {
         this.specialist = specialist;
     }
-}
 
+    public static Creator<DoctorAndHospital> getCREATOR() {
+        return CREATOR;
+    }
+
+    private String id, name, phone, certificate, servicetype, url, address, working, location, locationlatitude, locationlongtitude, servicetime, specialist;
+
+    protected DoctorAndHospital(Parcel in) {
+        id = in.readString();
+        name = in.readString();
+        phone = in.readString();
+        certificate = in.readString();
+        servicetype = in.readString();
+        url = in.readString();
+        address = in.readString();
+        working = in.readString();
+        location = in.readString();
+        locationlatitude = in.readString();
+        locationlongtitude = in.readString();
+        servicetime = in.readString();
+        specialist = in.readString();
+    }
+
+    public static final Creator<DoctorAndHospital> CREATOR = new Creator<DoctorAndHospital>() {
+        @Override
+        public DoctorAndHospital createFromParcel(Parcel in) {
+            return new DoctorAndHospital(in);
+        }
+
+        @Override
+        public DoctorAndHospital[] newArray(int size) {
+            return new DoctorAndHospital[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(name);
+        dest.writeString(phone);
+        dest.writeString(certificate);
+        dest.writeString(servicetype);
+        dest.writeString(url);
+        dest.writeString(address);
+        dest.writeString(working);
+        dest.writeString(location);
+        dest.writeString(locationlatitude);
+        dest.writeString(locationlongtitude);
+        dest.writeString(servicetime);
+        dest.writeString(specialist);
+    }
+}
