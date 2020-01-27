@@ -53,7 +53,7 @@ public class BookingStep1Fragment extends Fragment implements AllServiceLoadList
     RecyclerView recycler_book;
 
     Unbinder unbinder;
-    AlertDialog dialog;
+
 
     static BookingStep1Fragment instance;
 

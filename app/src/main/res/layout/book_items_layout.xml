@@ -13,15 +13,13 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <TextView
-            android:id="@+id/txt_book_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Doctor #1"
-            android:textStyle="bold"
-            android:gravity="center_horizontal"
-            android:textSize="20sp"
-            android:textColor="@color/colorPrimaryBlue" />
+        <ImageView
+            android:id="@+id/Doctor_imageView"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:background="@drawable/ic_doctor_load" />
 
         <TextView
             android:id="@+id/txt_book_location"

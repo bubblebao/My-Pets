@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -48,6 +50,8 @@ public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView txt_item_name , txt_item_address;
         CardView card_book;
+        ImageView Book_Imag;
+        RatingBar ratingBar;
 
         IRecycleItemSelectedListener iRecycleItemSelectedListener;
 
@@ -63,6 +67,7 @@ public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHold
             super(itemView);
 
             txt_item_name =  itemView.findViewById(R.id.txt_book_name);
+
             txt_item_address = itemView.findViewById(R.id.txt_book_location);
             card_book = (CardView) itemView.findViewById(R.id.card_booking);
 
