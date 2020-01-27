@@ -26,6 +26,7 @@ import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.project.mypetsphuket.Interface.AllServiceLoadListener;
 import com.project.mypetsphuket.Interface.IBranchLoadListener;
 import com.project.mypetsphuket.Model.DoctorAndHospital;
+import com.project.mypetsphuket.Prevalent.Prevalent;
 import com.project.mypetsphuket.R;
 import com.project.mypetsphuket.RecycleAdepter.MyItemAdapter;
 
@@ -129,7 +130,7 @@ public class BookingStep1Fragment extends Fragment implements AllServiceLoadList
     }
 
     private void loadBranchofItem(String itemName) {
-
+        Prevalent.setCity(itemName);
         branchRef = FirebaseFirestore.getInstance()
                 .collection("All")
                 .document(itemName)

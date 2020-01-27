@@ -40,12 +40,12 @@ public class DoctorAndHospital  implements Parcelable {
         this.rating = rating;
     }
 
-    public String getServicetype() {
-        return servicetype;
+    public String getcategory() {
+        return category;
     }
 
-    public void setServicetype(String servicetype) {
-        this.servicetype = servicetype;
+    public void setcategory(String category) {
+        this.category = category;
     }
 
     public String getUrl() {
@@ -80,12 +80,12 @@ public class DoctorAndHospital  implements Parcelable {
         this.location = location;
     }
 
-    public String getLocationlatitude() {
-        return locationlatitude;
+    public String getselect() {
+        return select;
     }
 
-    public void setLocationlatitude(String locationlatitude) {
-        this.locationlatitude = locationlatitude;
+    public void setselect(String select) {
+        this.select = select;
     }
 
     public String getLocationlongtitude() {
@@ -116,19 +116,19 @@ public class DoctorAndHospital  implements Parcelable {
         return CREATOR;
     }
 
-    private String id, name, phone , servicetype, url, address, working, location, locationlatitude, locationlongtitude, servicetime, specialist;
+    private String id, url ,name, phone , category, select , address, working, location, locationlongtitude, servicetime, specialist;
     private Long rating;
     protected DoctorAndHospital(Parcel in) {
         id = in.readString();
         name = in.readString();
         phone = in.readString();
         rating = in.readLong();
-        servicetype = in.readString();
+        category = in.readString();
         url = in.readString();
         address = in.readString();
         working = in.readString();
         location = in.readString();
-        locationlatitude = in.readString();
+        select = in.readString();
         locationlongtitude = in.readString();
         servicetime = in.readString();
         specialist = in.readString();
@@ -157,12 +157,12 @@ public class DoctorAndHospital  implements Parcelable {
         dest.writeString(name);
         dest.writeString(phone);
         dest.writeLong(rating);
-        dest.writeString(servicetype);
+        dest.writeString(category);
         dest.writeString(url);
         dest.writeString(address);
         dest.writeString(working);
         dest.writeString(location);
-        dest.writeString(locationlatitude);
+        dest.writeString(select);
         dest.writeString(locationlongtitude);
         dest.writeString(servicetime);
         dest.writeString(specialist);

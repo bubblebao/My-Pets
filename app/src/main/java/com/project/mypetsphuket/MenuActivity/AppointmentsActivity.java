@@ -29,7 +29,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.project.mypetsphuket.Model.DoctorAndHospital;
-import com.project.mypetsphuket.Model.User_Select;
 import com.project.mypetsphuket.Prevalent.NonSwipeViewPager;
 import com.project.mypetsphuket.Prevalent.Prevalent;
 import com.project.mypetsphuket.R;
