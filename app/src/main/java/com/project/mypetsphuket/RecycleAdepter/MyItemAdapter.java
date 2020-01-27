@@ -88,7 +88,9 @@ public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.txt_item_name.setText(doctorAndHospitalList.get(position).getName());
+        holder.ratingBar.setRating(doctorAndHospitalList.get(position).getRating());
         Picasso.get().load(doctorAndHospitalList.get((position)).getUrl()).into(holder.book_ImagView);
+
 
         if (!cardViewsList.contains(holder.card_book))
             cardViewsList.add(holder.card_book);

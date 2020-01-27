@@ -122,7 +122,8 @@ public class BookingStep1Fragment extends Fragment implements AllServiceLoadList
                 if (position>0){
 
                     loadBranchofItem(item.toString());
-                }
+                }else
+                    recycler_book.setVisibility(View.GONE);
             }
         });
     }
@@ -162,6 +163,7 @@ public class BookingStep1Fragment extends Fragment implements AllServiceLoadList
     public void onIBranchLoadSuccess(List<DoctorAndHospital> NameList) {
         MyItemAdapter adapter = new MyItemAdapter(getActivity(),NameList);
         recycler_book.setAdapter(adapter);
+        recycler_book.setVisibility(View.VISIBLE);
 
 
     }

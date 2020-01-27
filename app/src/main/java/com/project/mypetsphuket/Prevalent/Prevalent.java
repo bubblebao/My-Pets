@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class Prevalent {
 
+    public static final String KEY_SNAPSHOT_LOAD_DONE = "SNAPSHOT_DONE";
     public static Users currentOnlineUser;
 
 
@@ -26,4 +27,5 @@ public class Prevalent {
     public static final String KEY_STEP = "STEP";
 
     public static DoctorAndHospital currentSelect;
+    public static String Select;
 }

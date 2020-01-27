@@ -14,12 +14,23 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewParent;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.project.mypetsphuket.Model.DoctorAndHospital;
+import com.project.mypetsphuket.Model.User_Select;
+import com.project.mypetsphuket.Prevalent.NonSwipeViewPager;
 import com.project.mypetsphuket.Prevalent.Prevalent;
 import com.project.mypetsphuket.R;
 import com.project.mypetsphuket.RecycleAdepter.MyViewPagerAdapter;
@@ -39,15 +50,29 @@ public class AppointmentsActivity extends AppCompatActivity {
 
     LocalBroadcastManager localBroadcastManager;
 
+
+    //Variable
+    CollectionReference allServiceRef;
+    CollectionReference branchRef;
+
     @BindView(R.id.step_view)
     StepView stepView;
     @BindView(R.id.view_pager)
-    ViewPager viewPager;
+    NonSwipeViewPager viewPager;
     @BindView(R.id.btn_previous_step)
     Button btn_prevous_step;
     @BindView(R.id.btn_next_step)
     Button btn_next_step;
 
+    @OnClick(R.id.btn_previous_step)
+    void  previousStep(){
+
+        if (Prevalent.step == 2 || Prevalent.step > 0 ){
+            Prevalent.step--;
+            viewPager.setCurrentItem(Prevalent.step);
+
+        }
+    }
     @OnClick(R.id.btn_next_step)
     void nextClick(){
 
@@ -83,6 +108,44 @@ public class AppointmentsActivity extends AppCompatActivity {
 
     private void loadObject(String id) {
 
+        if (!TextUtils.isEmpty((CharSequence) Prevalent.currentSelect)) {
+            {
+                branchRef = FirebaseFirestore.getInstance()
+                        .collection("All")
+                        .document(id)
+                        .collection("Branch");
+            }
+            branchRef.get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            ArrayList<DoctorAndHospital> doctorAndHospitals = new ArrayList<>();
+                            for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+
+                                DoctorAndHospital doctorAndHospital = documentSnapshot.toObject(DoctorAndHospital.class);
+                                doctorAndHospital.setId(documentSnapshot.getId());
+                       /*         doctorAndHospital.setName(documentSnapshot.getData().get("name").toString());
+                                doctorAndHospital.setPhone(documentSnapshot.getData().get("phone").toString());
+                                doctorAndHospital.setServicetime(documentSnapshot.getData().get("servicetime").toString());
+                                doctorAndHospital.setAddress(documentSnapshot.getData().get("address").toString());
+                                doctorAndHospital.setRating(documentSnapshot.getLong("rating"));
+                                doctorAndHospitals.add(doctorAndHospital);  */
+                            }
+
+                            //Sent Brostcast
+                            Intent intent = new Intent(Prevalent.KEY_SNAPSHOT_LOAD_DONE);
+                            intent.putParcelableArrayListExtra(Prevalent.KEY_SNAPSHOT_LOAD_DONE,doctorAndHospitals);
+                            localBroadcastManager.sendBroadcast(intent);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+
+                }
+            });
+
+        }
     }
 
 
@@ -98,7 +161,7 @@ public class AppointmentsActivity extends AppCompatActivity {
             else if (step == 2)
                 Prevalent.currentSelect = intent.getParcelableExtra(Prevalent.KEY_ITEM_STORE);
 
-
+            btn_next_step.setEnabled(true);
             setColorButtom();
 
         }
@@ -126,6 +189,7 @@ public class AppointmentsActivity extends AppCompatActivity {
         setColorButtom();
 
         //view
+        viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager()));
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -135,10 +199,14 @@ public class AppointmentsActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                if (position == 0)
+                if (position == 0){
                     btn_prevous_step.setEnabled(false);
+                    btn_next_step.setEnabled(false);
+                }
                 else
                     btn_prevous_step.setEnabled(true);
+                    btn_next_step.setEnabled(true);
+
                 setColorButtom();
             }
 
