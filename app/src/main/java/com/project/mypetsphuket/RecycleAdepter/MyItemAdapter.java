@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +20,7 @@ import com.project.mypetsphuket.Model.DoctorAndHospital;
 import com.project.mypetsphuket.Model.Doctors;
 import com.project.mypetsphuket.Prevalent.Prevalent;
 import com.project.mypetsphuket.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +50,8 @@ public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHold
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView txt_item_name , txt_item_address;
+        ImageView book_ImagView;
+        RatingBar ratingBar;
         CardView card_book;
 
         IRecycleItemSelectedListener iRecycleItemSelectedListener;
@@ -63,8 +68,12 @@ public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHold
             super(itemView);
 
             txt_item_name =  itemView.findViewById(R.id.txt_book_name);
-            txt_item_address = itemView.findViewById(R.id.txt_book_location);
             card_book = (CardView) itemView.findViewById(R.id.card_booking);
+
+            book_ImagView = (ImageView) itemView.findViewById(R.id.Book_imageView);
+            txt_item_name =  itemView.findViewById(R.id.txt_book_name);
+
+            ratingBar = itemView.findViewById(R.id.rtb_booking);
 
             itemView.setOnClickListener(this);
         }
@@ -79,7 +88,8 @@ public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.txt_item_name.setText(doctorAndHospitalList.get(position).getName());
-        holder.txt_item_address.setText(doctorAndHospitalList.get(position).getAddress());
+        Picasso.get().load(doctorAndHospitalList.get((position)).getUrl()).into(holder.book_ImagView);
+
         if (!cardViewsList.contains(holder.card_book))
             cardViewsList.add(holder.card_book);
 

@@ -22,6 +22,8 @@ public class Prevalent {
     public static final String KEY_ENABLE_NEXT = "ENABLE_BUTTON_NEXT";
     public static final String KEY_ITEM_STORE = "ITEM_SAVE" ;
 
+    public static final String KEY_DISPLAY_TIME_SLOT = "DISPLAY_TIME_SLOT" ;
+    public static final String KEY_STEP = "STEP";
 
     public static DoctorAndHospital currentSelect;
 }

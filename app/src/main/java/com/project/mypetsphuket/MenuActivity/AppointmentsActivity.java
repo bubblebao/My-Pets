@@ -20,7 +20,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.project.mypetsphuket.Prevalent.Common;
 import com.project.mypetsphuket.Prevalent.Prevalent;
 import com.project.mypetsphuket.R;
 import com.project.mypetsphuket.RecycleAdepter.MyViewPagerAdapter;
@@ -52,20 +51,37 @@ public class AppointmentsActivity extends AppCompatActivity {
     @OnClick(R.id.btn_next_step)
     void nextClick(){
 
-    /*    if (Prevalent.step < 3 || Prevalent.step > 0){
+        if (Prevalent.step < 2 || Prevalent.step == 0) {
 
             Prevalent.step++; //+
+
+            if (Prevalent.step == 1) {
+
+                if (Prevalent.currentSelect != null)
+                    loadObject(Prevalent.currentSelect.getId());
+
+
+            }else if (Prevalent.step == 2) {// time slot
+
+                if (Prevalent.currentSelect != null)
+                    loadTimeSlotOfBooking(Prevalent.currentSelect.getId());
+            }
+
+            viewPager.setCurrentItem(Prevalent.step);
+
         }
-          if (Prevalent.step == 1){
+        //  Toast.makeText(this,""+Prevalent.currentSelect.getName(),Toast.LENGTH_SHORT).show();
 
-              if(Prevalent.currentSelect != null)
-                  loadObject(Prevalent.currentSelect.getId());
+    }
 
+    private void loadTimeSlotOfBooking(String id) {
+        //Send local Braodcast step2
+        Intent intent = new Intent(Prevalent.KEY_DISPLAY_TIME_SLOT);
+        localBroadcastManager.sendBroadcast(intent);
 
-          }  */
+    }
 
-
-    Toast.makeText(this,""+Prevalent.currentSelect.getName(),Toast.LENGTH_SHORT).show();
+    private void loadObject(String id) {
 
     }
 
@@ -74,9 +90,17 @@ public class AppointmentsActivity extends AppCompatActivity {
     private BroadcastReceiver buttonNextReciver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Prevalent.currentSelect = intent.getParcelableExtra(Prevalent.KEY_ITEM_STORE);
-            btn_next_step.setEnabled(true);
+
+
+            int step = intent.getIntExtra(Prevalent.KEY_STEP ,0 );
+            if (step == 1)
+                Prevalent.currentSelect = intent.getParcelableExtra(Prevalent.KEY_ITEM_STORE);
+            else if (step == 2)
+                Prevalent.currentSelect = intent.getParcelableExtra(Prevalent.KEY_ITEM_STORE);
+
+
             setColorButtom();
+
         }
     };
 
@@ -92,6 +116,7 @@ public class AppointmentsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_appointments);
 
         closeTextBtn = (TextView) findViewById(R.id.close_appointment_btn);
+
         ButterKnife.bind(AppointmentsActivity.this);
 
         localBroadcastManager = LocalBroadcastManager.getInstance(this);
@@ -113,7 +138,7 @@ public class AppointmentsActivity extends AppCompatActivity {
                 if (position == 0)
                     btn_prevous_step.setEnabled(false);
                 else
-                    btn_next_step.setEnabled(true);
+                    btn_prevous_step.setEnabled(true);
                 setColorButtom();
             }
 

@@ -32,12 +32,12 @@ public class DoctorAndHospital  implements Parcelable {
         this.phone = phone;
     }
 
-    public String getCertificate() {
-        return certificate;
+    public Long getRating() {
+        return rating;
     }
 
-    public void setCertificate(String certificate) {
-        this.certificate = certificate;
+    public void setRating(Long rating) {
+        this.rating = rating;
     }
 
     public String getServicetype() {
@@ -116,13 +116,13 @@ public class DoctorAndHospital  implements Parcelable {
         return CREATOR;
     }
 
-    private String id, name, phone, certificate, servicetype, url, address, working, location, locationlatitude, locationlongtitude, servicetime, specialist;
-
+    private String id, name, phone , servicetype, url, address, working, location, locationlatitude, locationlongtitude, servicetime, specialist;
+    private Long rating;
     protected DoctorAndHospital(Parcel in) {
         id = in.readString();
         name = in.readString();
         phone = in.readString();
-        certificate = in.readString();
+        rating = in.readLong();
         servicetype = in.readString();
         url = in.readString();
         address = in.readString();
@@ -156,7 +156,7 @@ public class DoctorAndHospital  implements Parcelable {
         dest.writeString(id);
         dest.writeString(name);
         dest.writeString(phone);
-        dest.writeString(certificate);
+        dest.writeLong(rating);
         dest.writeString(servicetype);
         dest.writeString(url);
         dest.writeString(address);
