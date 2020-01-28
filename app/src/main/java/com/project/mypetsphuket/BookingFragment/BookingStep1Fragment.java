@@ -1,7 +1,6 @@
 package com.project.mypetsphuket.BookingFragment;
 
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -24,11 +23,12 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.project.mypetsphuket.Interface.AllServiceLoadListener;
+import com.project.mypetsphuket.Interface.IAllAreaLoadListener;
 import com.project.mypetsphuket.Interface.IBranchLoadListener;
-import com.project.mypetsphuket.Model.DoctorAndHospital;
+import com.project.mypetsphuket.Model.BookingHospitals;
 import com.project.mypetsphuket.Prevalent.Prevalent;
 import com.project.mypetsphuket.R;
-import com.project.mypetsphuket.RecycleAdepter.MyItemAdapter;
+import com.project.mypetsphuket.RecycleAdepter.MyHospitalAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,19 +38,19 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 
-public class BookingStep1Fragment extends Fragment implements AllServiceLoadListener, IBranchLoadListener {
+public class BookingStep1Fragment extends Fragment implements AllServiceLoadListener, IBranchLoadListener, IAllAreaLoadListener {
 
 
     //Variable
-    CollectionReference allServiceRef;
+    CollectionReference allAreaRef;
     CollectionReference branchRef;
 
-    AllServiceLoadListener allServiceLoadListener;
+    IAllAreaLoadListener iAllAreaLoadListener;
     IBranchLoadListener iBranchLoadListener;
 
     @BindView(R.id.spinner)
     MaterialSpinner spinner;
-    @BindView(R.id.RecycleView_Book)
+    @BindView(R.id.RecycleView_hospital_Book)
     RecyclerView recycler_book;
 
     Unbinder unbinder;
@@ -68,8 +68,8 @@ public class BookingStep1Fragment extends Fragment implements AllServiceLoadList
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        allServiceRef = FirebaseFirestore.getInstance().collection("All");
-        allServiceLoadListener = this;
+        allAreaRef = FirebaseFirestore.getInstance().collection("AllArea");
+        iAllAreaLoadListener = this;
         iBranchLoadListener = this;
 
 
@@ -84,7 +84,7 @@ public class BookingStep1Fragment extends Fragment implements AllServiceLoadList
         unbinder = ButterKnife.bind(this,itemView);
 
         initView();
-        loadAllItem();
+        loadAllArea();
         return itemView;
     }
 
@@ -94,56 +94,63 @@ public class BookingStep1Fragment extends Fragment implements AllServiceLoadList
         recycler_book.addItemDecoration(new SPItemDecoration(4));
     }
 
-    private void loadAllItem() {
-            allServiceRef.get()
+    private void loadAllArea() {
+          allAreaRef.get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             List<String> list = new  ArrayList<>();
-                            list.add("Please Choose");
+                            list.add("Please Choose your area");
                             for (QueryDocumentSnapshot documentSnapshot:task.getResult())
                                 list.add(documentSnapshot.getId());
-                            allServiceLoadListener.onAllServiceLoadSuccess(list);
+                            iAllAreaLoadListener.onAllServiceLoadSuccess(list);
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    allServiceLoadListener.onAllServiceLoadFailed(e.getMessage());
+                    iAllAreaLoadListener.onAllServiceLoadFailed(e.getMessage());
                 }
             });
     }
 
     @Override
-    public void onAllServiceLoadSuccess(List<String> NameList) {
-        spinner.setItems(NameList);
+    public void onAllServiceLoadSuccess(List<String> areaNameList) {
+        spinner.setItems(areaNameList);
         spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
                 if (position>0){
 
-                    loadBranchofItem(item.toString());
+                    loadBranchofArea(item.toString());
                 }else
                     recycler_book.setVisibility(View.GONE);
             }
         });
     }
 
-    private void loadBranchofItem(String itemName) {
-        Prevalent.setCity(itemName);
+    private void loadBranchofArea(String cityName) {
+
+        Prevalent.city = cityName;
+
         branchRef = FirebaseFirestore.getInstance()
-                .collection("All")
-                .document(itemName)
+                .collection("AllArea")
+                .document(cityName)
                 .collection("Branch");
 
         branchRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-                List<DoctorAndHospital> list = new ArrayList<>();
+                List<BookingHospitals> list = new ArrayList<>();
                 if (task.isSuccessful()){
-                    for (QueryDocumentSnapshot documentSnapshot:task.getResult())
-                        list.add(documentSnapshot.toObject(DoctorAndHospital.class));
+
+                    for (QueryDocumentSnapshot documentSnapshot:task.getResult()) {
+
+                        BookingHospitals bookingHospitals = documentSnapshot.toObject(BookingHospitals.class);
+                        bookingHospitals.setHospitalId(documentSnapshot.getId());
+                        list.add(bookingHospitals);
+                    }
                     iBranchLoadListener.onIBranchLoadSuccess(list);
                 }
             }
@@ -161,8 +168,8 @@ public class BookingStep1Fragment extends Fragment implements AllServiceLoadList
     }
 
     @Override
-    public void onIBranchLoadSuccess(List<DoctorAndHospital> NameList) {
-        MyItemAdapter adapter = new MyItemAdapter(getActivity(),NameList);
+    public void onIBranchLoadSuccess(List<BookingHospitals> NameList) {
+        MyHospitalAdapter adapter = new MyHospitalAdapter(getActivity(),NameList);
         recycler_book.setAdapter(adapter);
         recycler_book.setVisibility(View.VISIBLE);
 

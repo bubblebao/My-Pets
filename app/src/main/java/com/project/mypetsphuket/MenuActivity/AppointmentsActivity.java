@@ -28,6 +28,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.project.mypetsphuket.Model.BookingDoctor;
 import com.project.mypetsphuket.Model.DoctorAndHospital;
 import com.project.mypetsphuket.Prevalent.NonSwipeViewPager;
 import com.project.mypetsphuket.Prevalent.Prevalent;
@@ -53,6 +54,7 @@ public class AppointmentsActivity extends AppCompatActivity {
     //Variable
     CollectionReference allServiceRef;
     CollectionReference branchRef;
+    CollectionReference doctorRef;
 
     @BindView(R.id.step_view)
     StepView stepView;
@@ -66,8 +68,10 @@ public class AppointmentsActivity extends AppCompatActivity {
     @OnClick(R.id.btn_previous_step)
     void  previousStep(){
 
-        if (Prevalent.step == 2 || Prevalent.step > 0 ){
+        if (Prevalent.step == 3 || Prevalent.step > 0 ){
+
             Prevalent.step--;
+
             viewPager.setCurrentItem(Prevalent.step);
 
         }
@@ -75,66 +79,74 @@ public class AppointmentsActivity extends AppCompatActivity {
     @OnClick(R.id.btn_next_step)
     void nextClick(){
 
-        if (Prevalent.step < 2 || Prevalent.step == 0) {
+        if (Prevalent.step < 3 || Prevalent.step == 0) {
 
             Prevalent.step++; //+
 
             if (Prevalent.step == 1) {
 
-                if (Prevalent.currentSelect != null)
-                    loadObject(Prevalent.currentSelect.getId());
+                if (Prevalent.currentHospital != null)
+                   // Toast.makeText(this,""+Prevalent.currentHospital.getName(),Toast.LENGTH_SHORT).show();
+                    loadDoctorByHospitals(Prevalent.currentHospital.getHospitalId() );
 
 
-            }else if (Prevalent.step == 2) {// time slot
+            }
+            viewPager.setCurrentItem(Prevalent.step);
+
+    /*      else if (Prevalent.step == 3) {// time slot
+
 
                 if (Prevalent.currentSelect != null)
                     loadTimeSlotOfBooking(Prevalent.currentSelect.getId());
-            }
+
 
             viewPager.setCurrentItem(Prevalent.step);
-
+*/
         }
         //  Toast.makeText(this,""+Prevalent.currentSelect.getName(),Toast.LENGTH_SHORT).show();
 
     }
 
-    private void loadTimeSlotOfBooking(String id) {
+/*    private void loadTimeSlotOfBooking(String id) {
         //Send local Braodcast step2
         Intent intent = new Intent(Prevalent.KEY_DISPLAY_TIME_SLOT);
         localBroadcastManager.sendBroadcast(intent);
 
-    }
+    }  */
 
-    private void loadObject(String id) {
+    private void loadDoctorByHospitals(String HospitalId) {
 
-        if (!TextUtils.isEmpty((CharSequence) Prevalent.currentSelect)) {
+        String HosId = Prevalent.currentHospital.getHospitalId();
+
+        if (!TextUtils.isEmpty(Prevalent.city)) {
             {
-                branchRef = FirebaseFirestore.getInstance()
-                        .collection("All")
-                        .document(id)
-                        .collection("Branch");
+                ///AllArea/Chalong/Branch/UQ4vnPVWYdMtPQ6FuSEv/Doctors
+                doctorRef = FirebaseFirestore.getInstance()
+                        .collection("AllArea")
+                        .document(Prevalent.city)
+                        .collection("Branch")
+                        .document(HosId)
+                        .collection("Doctors");
             }
-            branchRef.get()
+               doctorRef.get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            ArrayList<DoctorAndHospital> doctorAndHospitals = new ArrayList<>();
-                            for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                            ArrayList<BookingDoctor> bookingDoctors = new ArrayList<>();
+                            for (QueryDocumentSnapshot doctorSnapshot : task.getResult()) {
 
-                                DoctorAndHospital doctorAndHospital = documentSnapshot.toObject(DoctorAndHospital.class);
-                                doctorAndHospital.setId(documentSnapshot.getId());
-                       /*         doctorAndHospital.setName(documentSnapshot.getData().get("name").toString());
-                                doctorAndHospital.setPhone(documentSnapshot.getData().get("phone").toString());
-                                doctorAndHospital.setServicetime(documentSnapshot.getData().get("servicetime").toString());
-                                doctorAndHospital.setAddress(documentSnapshot.getData().get("address").toString());
-                                doctorAndHospital.setRating(documentSnapshot.getLong("rating"));
-                                doctorAndHospitals.add(doctorAndHospital);  */
+                                BookingDoctor bookingDoctor = doctorSnapshot.toObject(BookingDoctor.class);
+                                bookingDoctor.setDoctorId(doctorSnapshot.getId());
+                                bookingDoctor.setPassword(""); //Remove Password
+
+                                bookingDoctors.add(bookingDoctor);
                             }
 
                             //Sent Brostcast
-                            Intent intent = new Intent(Prevalent.KEY_SNAPSHOT_LOAD_DONE);
-                            intent.putParcelableArrayListExtra(Prevalent.KEY_SNAPSHOT_LOAD_DONE,doctorAndHospitals);
+                            Intent intent = new Intent(Prevalent.KEY_DOCTOR_LOAD_DONE);
+                            intent.putParcelableArrayListExtra(Prevalent.KEY_DOCTOR_LOAD_DONE,bookingDoctors);
                             localBroadcastManager.sendBroadcast(intent);
+
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -154,15 +166,18 @@ public class AppointmentsActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
 
 
-            int step = intent.getIntExtra(Prevalent.KEY_STEP ,0 );
+            Prevalent.currentHospital = intent.getParcelableExtra(Prevalent.KEY_HOSPITAL_STORE);
+            btn_next_step.setEnabled(true);
+            setColorButtom();
+    /*        int step = intent.getIntExtra(Prevalent.KEY_STEP ,0 );
             if (step == 1)
-                Prevalent.currentSelect = intent.getParcelableExtra(Prevalent.KEY_ITEM_STORE);
+                Prevalent.currentHospital = intent.getParcelableExtra(Prevalent.KEY_HOSPITAL_STORE);
             else if (step == 2)
-                Prevalent.currentSelect = intent.getParcelableExtra(Prevalent.KEY_ITEM_STORE);
+                Prevalent.currentHospital = intent.getParcelableExtra(Prevalent.KEY_HOSPITAL_STORE);
 
             btn_next_step.setEnabled(true);
             setColorButtom();
-
+*/
         }
     };
 
@@ -188,7 +203,7 @@ public class AppointmentsActivity extends AppCompatActivity {
         setColorButtom();
 
         //view
-        viewPager.setOffscreenPageLimit(3);
+        viewPager.setOffscreenPageLimit(4);
         viewPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager()));
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -198,6 +213,9 @@ public class AppointmentsActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
+
+                //Show Step
+                stepView.go(position,true);
                 if (position == 0){
                     btn_prevous_step.setEnabled(false);
                     btn_next_step.setEnabled(false);
@@ -249,7 +267,8 @@ public class AppointmentsActivity extends AppCompatActivity {
 
     private void setupStepView() {
         List<String> stepList = new ArrayList<>();
-        stepList.add("Choose");
+        stepList.add("Choose Area");
+        stepList.add("Doctor");
         stepList.add("Time");
         stepList.add("Confirm");
         stepView.setSteps(stepList);

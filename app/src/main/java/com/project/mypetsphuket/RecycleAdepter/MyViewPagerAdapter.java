@@ -27,6 +27,8 @@ public class MyViewPagerAdapter extends FragmentPagerAdapter {
                 return BookingStep2Fragment.getInstance();
             case 2:
                 return BookingStep3Fragment.getInstance();
+            case 3:
+                return BookingStep4Fragment.getInstance();
 
 
         }

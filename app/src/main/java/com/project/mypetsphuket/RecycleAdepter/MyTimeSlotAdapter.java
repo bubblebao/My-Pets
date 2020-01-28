@@ -62,9 +62,11 @@ public class MyTimeSlotAdapter extends RecyclerView.Adapter<MyTimeSlotAdapter.My
         {
             holder.txt_time_slot_decription.setText("Available");
             holder.txt_time_slot_decription.setTextColor(context.getResources()
-            .getColor(android.R.color.black));
-            holder.txt_time_slot.setTextColor(context.getResources().getColor(android.R.color.black));
-            holder.card_tiom_slot.setCardBackgroundColor(context.getResources().getColor(R.color.white));
+                    .getColor(android.R.color.black));
+            holder.txt_time_slot.setTextColor(context.getResources()
+                    .getColor(android.R.color.black));
+            holder.card_tiom_slot.setCardBackgroundColor(context.getResources()
+                    .getColor(R.color.white));
 
         }
         else //position Full

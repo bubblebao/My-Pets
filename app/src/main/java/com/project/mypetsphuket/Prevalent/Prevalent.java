@@ -1,16 +1,15 @@
 package com.project.mypetsphuket.Prevalent;
 
+import android.os.Parcelable;
+
+import com.project.mypetsphuket.Model.BookingHospitals;
 import com.project.mypetsphuket.Model.DoctorAndHospital;
-import com.project.mypetsphuket.Model.UserSelect;
 import com.project.mypetsphuket.Model.Users;
 
 public class Prevalent {
 
-    public static final String KEY_SNAPSHOT_LOAD_DONE = "SNAPSHOT_DONE";
-    public static final int TIME_SLOT_TOTAL = 20 ;
-
     public static Users currentOnlineUser;
-    public static UserSelect UserSelect;
+    public static BookingHospitals currentHospital;
     public static String city = "";
 
     public static final String UserPhoneKey = "UserPhone";
@@ -20,24 +19,19 @@ public class Prevalent {
 
     public static int step = 0;
     public static final String KEY_ENABLE_NEXT = "ENABLE_BUTTON_NEXT";
-    public static final String KEY_ITEM_STORE = "ITEM_SAVE" ;
+    public static final String KEY_HOSPITAL_STORE = "HOSPITAL_SAVE" ;
 
     public static final String KEY_DISPLAY_TIME_SLOT = "DISPLAY_TIME_SLOT" ;
     public static final String KEY_STEP = "STEP";
 
+    public static final String KEY_DOCTOR_LOAD_DONE = "DOCTOR_LOAD_DONE";
 
+    public static final int TIME_SLOT_TOTAL = 20 ;
     public static DoctorAndHospital currentSelect;
 
     public Prevalent() {
     }
 
-    public static String getCity() {
-        return city;
-    }
-
-    public static void setCity(String city) {
-        Prevalent.city = city;
-    }
 
     public static String convertTimetoString(int slot) {
 

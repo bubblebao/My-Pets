@@ -91,7 +91,7 @@
 
 
         <Button
-            android:id="@+id/btn_previoubook_step"
+            android:id="@+id/btn_previous_step"
             android:layout_width="0dp"
             android:layout_marginEnd="4dp"
             android:layout_height="wrap_content"

@@ -11,13 +11,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.FragmentActivity;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.mypetsphuket.Interface.IRecycleItemSelectedListener;
-import com.project.mypetsphuket.Model.DoctorAndHospital;
-import com.project.mypetsphuket.Model.Doctors;
+import com.project.mypetsphuket.Model.BookingHospitals;
 import com.project.mypetsphuket.Prevalent.Prevalent;
 import com.project.mypetsphuket.R;
 import com.squareup.picasso.Picasso;
@@ -25,16 +23,16 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHolder> {
+public class MyHospitalAdapter extends RecyclerView.Adapter<MyHospitalAdapter.MyViewHolder> {
 
     Context context;
-    List<DoctorAndHospital> doctorAndHospitalList;
+    List<BookingHospitals> bookingHospitalsList;
     List<CardView> cardViewsList;
     LocalBroadcastManager localBroadcastManager;
 
-    public MyItemAdapter(Context context, List<DoctorAndHospital> doctorAndHospitalList) {
+    public MyHospitalAdapter(Context context, List<BookingHospitals> bookingHospitalsList) {
         this.context = context;
-        this.doctorAndHospitalList = doctorAndHospitalList;
+        this.bookingHospitalsList = bookingHospitalsList;
         cardViewsList = new ArrayList<>();
         localBroadcastManager = LocalBroadcastManager.getInstance(context);
     }
@@ -56,9 +54,6 @@ public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHold
 
         IRecycleItemSelectedListener iRecycleItemSelectedListener;
 
-        public IRecycleItemSelectedListener getiRecycleItemSelectedListener() {
-            return iRecycleItemSelectedListener;
-        }
 
         public void setiRecycleItemSelectedListener(IRecycleItemSelectedListener iRecycleItemSelectedListener) {
             this.iRecycleItemSelectedListener = iRecycleItemSelectedListener;
@@ -87,15 +82,15 @@ public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.txt_item_name.setText(doctorAndHospitalList.get(position).getName());
-        holder.ratingBar.setRating(doctorAndHospitalList.get(position).getRating());
-        Picasso.get().load(doctorAndHospitalList.get((position)).getUrl()).into(holder.book_ImagView);
+        holder.txt_item_name.setText(bookingHospitalsList.get(position).getName());
+        holder.ratingBar.setRating(bookingHospitalsList.get(position).getRating());
+        Picasso.get().load(bookingHospitalsList.get((position)).getUrl()).into(holder.book_ImagView);
 
 
         if (!cardViewsList.contains(holder.card_book))
             cardViewsList.add(holder.card_book);
 
-        holder.setiRecycleItemSelectedListener(new IRecycleItemSelectedListener() {
+         holder.setiRecycleItemSelectedListener(new IRecycleItemSelectedListener() {
             @Override
             public void onItemSelectedListener(View view, int position) {
                 //White Backgrond All Card
@@ -108,7 +103,7 @@ public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHold
 
                 //Send Broadcast to booking enable
                 Intent intent = new Intent(Prevalent.KEY_ENABLE_NEXT);
-                intent.putExtra(Prevalent.KEY_ITEM_STORE , doctorAndHospitalList.get(position));
+                intent.putExtra(Prevalent.KEY_HOSPITAL_STORE , bookingHospitalsList.get(position));
                 localBroadcastManager.sendBroadcast(intent);
 
 
@@ -119,7 +114,7 @@ public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.MyViewHold
 
     @Override
     public int getItemCount() {
-        return doctorAndHospitalList.size();
+        return bookingHospitalsList.size();
     }
 
 
