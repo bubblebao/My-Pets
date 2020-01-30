@@ -29,7 +29,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.project.mypetsphuket.Model.BookingDoctor;
-import com.project.mypetsphuket.Model.DoctorAndHospital;
 import com.project.mypetsphuket.Prevalent.NonSwipeViewPager;
 import com.project.mypetsphuket.Prevalent.Prevalent;
 import com.project.mypetsphuket.R;
@@ -90,7 +89,18 @@ public class AppointmentsActivity extends AppCompatActivity {
                     loadDoctorByHospitals(Prevalent.currentHospital.getHospitalId() );
 
 
-            }
+            } else if (Prevalent.step == 2) {// time slot
+
+            if (Prevalent.currentDoctor != null)
+
+                   loadTimeSlotOfBooking(Prevalent.currentDoctor.getDoctorId());
+
+            //          StoreHospitalID(Prevalent.currentHospital.getHospitalId(),Prevalent.currentHospital.getName());
+            //        Toast.makeText(this,""+Prevalent.currentHospital.getHospitalId(),Toast.LENGTH_SHORT).show();
+            //      Toast.makeText(this,""+Prevalent.currentDoctor.getDoctorId(),Toast.LENGTH_SHORT).show();
+
+            //  Toast.makeText(this,""+Prevalent.currentSelect.getName(),Toast.LENGTH_SHORT).show();
+        }
             viewPager.setCurrentItem(Prevalent.step);
 
     /*      else if (Prevalent.step == 3) {// time slot
@@ -104,6 +114,15 @@ public class AppointmentsActivity extends AppCompatActivity {
 */
         }
         //  Toast.makeText(this,""+Prevalent.currentSelect.getName(),Toast.LENGTH_SHORT).show();
+
+    }
+
+    private void loadTimeSlotOfBooking(String doctorId) {
+
+//Send local Braodcast to Fragment Book 3
+
+        Intent intent = new Intent(Prevalent.KEY_DISPLAY_TIME_SLOT);
+        localBroadcastManager.sendBroadcast(intent);
 
     }
 
@@ -165,19 +184,24 @@ public class AppointmentsActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
 
-
             Prevalent.currentHospital = intent.getParcelableExtra(Prevalent.KEY_HOSPITAL_STORE);
+
             btn_next_step.setEnabled(true);
             setColorButtom();
-    /*        int step = intent.getIntExtra(Prevalent.KEY_STEP ,0 );
+            int step = intent.getIntExtra(Prevalent.KEY_STEP ,0 );
             if (step == 1)
                 Prevalent.currentHospital = intent.getParcelableExtra(Prevalent.KEY_HOSPITAL_STORE);
             else if (step == 2)
-                Prevalent.currentHospital = intent.getParcelableExtra(Prevalent.KEY_HOSPITAL_STORE);
+                Prevalent.currentDoctor = intent.getParcelableExtra(Prevalent.KEY_DOCTOR_SELECTED);
+            else if (step == 3){
 
+                Prevalent.currentHospital = intent.getParcelableExtra(Prevalent.KEY_HOSPITAL_STORE);
+                Prevalent.currentTimeSlot = intent.getIntExtra(Prevalent.KEY_TIME_SLOT,-1);
+
+            }
             btn_next_step.setEnabled(true);
             setColorButtom();
-*/
+
         }
     };
 
@@ -197,7 +221,7 @@ public class AppointmentsActivity extends AppCompatActivity {
         ButterKnife.bind(AppointmentsActivity.this);
 
         localBroadcastManager = LocalBroadcastManager.getInstance(this);
-        localBroadcastManager.registerReceiver(buttonNextReciver ,new IntentFilter(Prevalent.KEY_ENABLE_NEXT));
+        localBroadcastManager.registerReceiver(buttonNextReciver ,new IntentFilter(Prevalent.KEY_ENABLE_BUTTON_NEXT));
 
         setupStepView();
         setColorButtom();

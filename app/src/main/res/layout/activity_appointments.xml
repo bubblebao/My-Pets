@@ -66,7 +66,7 @@
         app:sv_stepViewStyle="@style/StepView"
         app:sv_doneStepMarkColor="@color/colorPrimary"
         app:sv_stepNumberTextSize="12sp"
-        app:sv_animationType="All">
+        app:sv_animationType="Circle">
     </com.shuhart.stepview.StepView>
 
     <com.project.mypetsphuket.Prevalent.NonSwipeViewPager

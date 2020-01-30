@@ -2,6 +2,7 @@ package com.project.mypetsphuket.RecycleAdepter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,7 @@ public class MyHospitalAdapter extends RecyclerView.Adapter<MyHospitalAdapter.My
     List<BookingHospitals> bookingHospitalsList;
     List<CardView> cardViewsList;
     LocalBroadcastManager localBroadcastManager;
+    private static final String TAG = "Hospital id";
 
     public MyHospitalAdapter(Context context, List<BookingHospitals> bookingHospitalsList) {
         this.context = context;
@@ -62,12 +64,9 @@ public class MyHospitalAdapter extends RecyclerView.Adapter<MyHospitalAdapter.My
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            txt_item_name =  itemView.findViewById(R.id.txt_book_name);
-            card_book = (CardView) itemView.findViewById(R.id.card_booking);
-
             book_ImagView = (ImageView) itemView.findViewById(R.id.Book_imageView);
             txt_item_name =  itemView.findViewById(R.id.txt_book_name);
-
+            card_book = (CardView) itemView.findViewById(R.id.card_booking);
             ratingBar = itemView.findViewById(R.id.rtb_booking);
 
             itemView.setOnClickListener(this);
@@ -76,6 +75,7 @@ public class MyHospitalAdapter extends RecyclerView.Adapter<MyHospitalAdapter.My
         @Override
         public void onClick(View v) {
             iRecycleItemSelectedListener.onItemSelectedListener(v ,getAdapterPosition());
+
         }
     }
 
@@ -95,15 +95,18 @@ public class MyHospitalAdapter extends RecyclerView.Adapter<MyHospitalAdapter.My
             public void onItemSelectedListener(View view, int position) {
                 //White Backgrond All Card
 
+   //             Log.v(TAG, "index=" + position + Prevalent.KEY_HOSPITAL_STORE);
+
                 for (CardView cardView:cardViewsList)
                     cardView.setCardBackgroundColor(context.getResources().getColor(android.R.color.white));
 
-                //Set Select
+                //Set Select BackGround
                 holder.card_book.setCardBackgroundColor(context.getResources().getColor(android.R.color.holo_purple));
 
                 //Send Broadcast to booking enable
-                Intent intent = new Intent(Prevalent.KEY_ENABLE_NEXT);
+                Intent intent = new Intent(Prevalent.KEY_ENABLE_BUTTON_NEXT);
                 intent.putExtra(Prevalent.KEY_HOSPITAL_STORE , bookingHospitalsList.get(position));
+                intent.putExtra(Prevalent.KEY_STEP,1);
                 localBroadcastManager.sendBroadcast(intent);
 
 

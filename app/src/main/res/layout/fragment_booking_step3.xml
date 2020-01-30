@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="8dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <!--tools:context=".BookingFragment.BookingStep1Fragment"> -->
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".BookingFragment.BookingStep3Fragment">
 
     <devs.mulham.horizontalcalendar.HorizontalCalendarView
         android:id="@+id/calendar_book_View"
@@ -17,7 +17,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_time_slot"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

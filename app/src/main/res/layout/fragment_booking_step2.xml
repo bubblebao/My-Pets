@@ -7,13 +7,6 @@
     android:padding="8dp"
     tools:context=".BookingFragment.BookingStep2Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:text="2" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_book_doctor"

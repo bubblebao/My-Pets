@@ -1,16 +1,18 @@
 package com.project.mypetsphuket.Model;
 
 public class TimeSlot {
-    private Long Slot;
+
+    private Long slot;
 
     public TimeSlot() {
     }
 
     public Long getSlot() {
-        return Slot;
+        return slot;
     }
 
     public void setSlot(Long slot) {
-        Slot = slot;
+        this.slot = slot;
     }
 }
+

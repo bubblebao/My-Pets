@@ -31,7 +31,6 @@ public class DoctorsActivity extends AppCompatActivity {
 
     //Firebase
     private DatabaseReference reference;
-    private StorageReference mStorageRef;
 
     //widgets
     private Context mcontext = DoctorsActivity.this;
@@ -67,7 +66,7 @@ public class DoctorsActivity extends AppCompatActivity {
 
 
         reference = FirebaseDatabase.getInstance().getReference();
-        mStorageRef = FirebaseStorage.getInstance().getReference();
+
 
         closeTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
