@@ -72,6 +72,10 @@ public class AppointmentsActivity extends AppCompatActivity {
             Prevalent.step--;
 
             viewPager.setCurrentItem(Prevalent.step);
+            if (Prevalent.step < 3) {
+                btn_next_step.setEnabled(true);
+                setColorButtom();
+            }
 
         }
     }
@@ -85,35 +89,30 @@ public class AppointmentsActivity extends AppCompatActivity {
             if (Prevalent.step == 1) {
 
                 if (Prevalent.currentHospital != null)
-                   // Toast.makeText(this,""+Prevalent.currentHospital.getName(),Toast.LENGTH_SHORT).show();
-                    loadDoctorByHospitals(Prevalent.currentHospital.getHospitalId() );
 
+                    loadDoctorByHospitals(Prevalent.currentHospital.getHospitalId() );
 
             } else if (Prevalent.step == 2) {// time slot
 
-            if (Prevalent.currentDoctor != null)
+                     if (Prevalent.currentDoctor != null)
+                     loadTimeSlotOfBooking(Prevalent.currentDoctor.getDoctorId());
 
-                   loadTimeSlotOfBooking(Prevalent.currentDoctor.getDoctorId());
+            }else if (Prevalent.step == 3) {// confirm
 
-            //          StoreHospitalID(Prevalent.currentHospital.getHospitalId(),Prevalent.currentHospital.getName());
-            //        Toast.makeText(this,""+Prevalent.currentHospital.getHospitalId(),Toast.LENGTH_SHORT).show();
-            //      Toast.makeText(this,""+Prevalent.currentDoctor.getDoctorId(),Toast.LENGTH_SHORT).show();
+                if (Prevalent.currentTimeSlot != -1)
+                    confirmbooking();
 
-            //  Toast.makeText(this,""+Prevalent.currentSelect.getName(),Toast.LENGTH_SHORT).show();
-        }
-            viewPager.setCurrentItem(Prevalent.step);
-
-    /*      else if (Prevalent.step == 3) {// time slot
-
-
-                if (Prevalent.currentSelect != null)
-                    loadTimeSlotOfBooking(Prevalent.currentSelect.getId());
-
+            }
 
             viewPager.setCurrentItem(Prevalent.step);
-*/
+
         }
-        //  Toast.makeText(this,""+Prevalent.currentSelect.getName(),Toast.LENGTH_SHORT).show();
+    }
+
+    private void confirmbooking() {
+
+        Intent intent = new Intent(Prevalent.KEY_COMFIRM_BOOKING);
+        localBroadcastManager.sendBroadcast(intent);
 
     }
 
@@ -135,7 +134,6 @@ public class AppointmentsActivity extends AppCompatActivity {
 
     private void loadDoctorByHospitals(String HospitalId) {
 
-        String HosId = Prevalent.currentHospital.getHospitalId();
 
         if (!TextUtils.isEmpty(Prevalent.city)) {
             {
@@ -144,7 +142,7 @@ public class AppointmentsActivity extends AppCompatActivity {
                         .collection("AllArea")
                         .document(Prevalent.city)
                         .collection("Branch")
-                        .document(HosId)
+                        .document(HospitalId)
                         .collection("Doctors");
             }
                doctorRef.get()
@@ -184,7 +182,6 @@ public class AppointmentsActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            Prevalent.currentHospital = intent.getParcelableExtra(Prevalent.KEY_HOSPITAL_STORE);
 
             btn_next_step.setEnabled(true);
             setColorButtom();
@@ -193,12 +190,10 @@ public class AppointmentsActivity extends AppCompatActivity {
                 Prevalent.currentHospital = intent.getParcelableExtra(Prevalent.KEY_HOSPITAL_STORE);
             else if (step == 2)
                 Prevalent.currentDoctor = intent.getParcelableExtra(Prevalent.KEY_DOCTOR_SELECTED);
-            else if (step == 3){
-
-                Prevalent.currentHospital = intent.getParcelableExtra(Prevalent.KEY_HOSPITAL_STORE);
+            else if (step == 3)
                 Prevalent.currentTimeSlot = intent.getIntExtra(Prevalent.KEY_TIME_SLOT,-1);
 
-            }
+
             btn_next_step.setEnabled(true);
             setColorButtom();
 

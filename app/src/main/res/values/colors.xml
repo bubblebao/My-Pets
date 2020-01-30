@@ -6,12 +6,14 @@
 
     <color name="colorPrimaryBlue">#46A0CF</color>
 
-    <color name="colorButton">#36A9DD</color>
+    <color name="colorButton">#BE36A9DD</color>
+    <color name="colorBackGround">#97F3AEAE</color>
 
     <color name="green">#38DB38</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
     <color name="grey">#616161</color>
+    <color name="pink">#5CF8E4E4</color>
     <color name="silver">#969696</color>
     <color name="blue">#0288D1</color>
     <color name="light_grey">#FFBDBDBD</color>
@@ -19,6 +21,10 @@
     <color name="dark_grey">#464545</color>
     <color name="transparent_black">#CC000000</color>
     <color name="stock_activity_background">#FFFAFAFA</color>
+
+    <color name="green_light">#A3EB53</color>
+    <color name="green_like">#D2EEBA</color>
+
 
     <color name="background_CardView">#FFFFFF</color>
     <color name="background_CardView_Emer">#EDEDF5</color>

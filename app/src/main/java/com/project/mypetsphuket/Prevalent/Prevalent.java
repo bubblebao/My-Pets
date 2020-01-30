@@ -5,12 +5,16 @@ import com.project.mypetsphuket.Model.BookingHospitals;
 import com.project.mypetsphuket.Model.HospitalId;
 import com.project.mypetsphuket.Model.TimeSlot;
 import com.project.mypetsphuket.Model.Users;
+import com.project.mypetsphuket.Spare.Products;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Prevalent {
 
     public static final String KEY_DOCTOR_SELECTED = "DOCTOR_SELECTED";
     public static final String KEY_COMFIRM_BOOKING = "COMFIRM_BOOKING";
-    public static final String KEY_TIME_SLOT = "TIME_SLOT";
+//    public static final String KEY_TIME_SLOT = "TIME_SLOT";
 
     public static final String UserPhoneKey = "UserPhone";
     public static final String UserEmailKey = "UserEmail";
@@ -25,37 +29,23 @@ public class Prevalent {
     public static final String KEY_STEP = "STEP";
 
     public static final String KEY_DOCTOR_LOAD_DONE = "DOCTOR_LOAD_DONE";
+    public static final Object DISABLE_TAG = "DISABLE";
+    public static final String KEY_TIME_SLOT = "TIME_SLOT";
+
+    public  static SimpleDateFormat simpleDataFormat = new SimpleDateFormat("dd_MM_yyyy");
 
     public static int step = 0;
     public static final int TIME_SLOT_TOTAL = 20;
     public static Users currentOnlineUser;
     public static BookingHospitals currentHospital;
     public static BookingDoctor currentDoctor;
-    public static HospitalId currentHospitalId;
+    public static int currentTimeSlot = -1;
+    public static Calendar currentDate = Calendar.getInstance();
 
 
     public static String city = "";
-    public static int currentTimeSlot = -1;
-    public static String hospitalID = "";
-    public static String doctorID = "";
-
-    public static String getHospitalID() {
-        return hospitalID;
-    }
 
 
-
-    public static void setHospitalID(String hospitalID) {
-        Prevalent.hospitalID = hospitalID;
-    }
-
-    public static String getDoctorID() {
-        return doctorID;
-    }
-
-    public static void setDoctorID(String doctorID) {
-        Prevalent.doctorID = doctorID;
-    }
 
     public Prevalent() {
     }
