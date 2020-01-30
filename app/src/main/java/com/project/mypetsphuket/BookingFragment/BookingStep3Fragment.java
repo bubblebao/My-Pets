@@ -100,9 +100,6 @@ public class BookingStep3Fragment extends Fragment implements ITimeSlotLoadListe
         localBroadcastManager.registerReceiver(displayTimeSlot , new IntentFilter(Prevalent.KEY_DISPLAY_TIME_SLOT));
         simpleDataFormat = new SimpleDateFormat("dd_MM_yyyy");  // like  29_01_2020
 
-        selected_date = Calendar.getInstance();
-        //Init date
-        selected_date.add(Calendar.DATE ,0);
     }
 
     @Nullable

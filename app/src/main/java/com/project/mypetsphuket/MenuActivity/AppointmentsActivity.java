@@ -49,10 +49,7 @@ public class AppointmentsActivity extends AppCompatActivity {
 
     LocalBroadcastManager localBroadcastManager;
 
-
     //Variable
-    CollectionReference allServiceRef;
-    CollectionReference branchRef;
     CollectionReference doctorRef;
 
     @BindView(R.id.step_view)
@@ -118,19 +115,13 @@ public class AppointmentsActivity extends AppCompatActivity {
 
     private void loadTimeSlotOfBooking(String doctorId) {
 
-//Send local Braodcast to Fragment Book 3
+    //Send local Braodcast to Fragment Book 3
 
         Intent intent = new Intent(Prevalent.KEY_DISPLAY_TIME_SLOT);
         localBroadcastManager.sendBroadcast(intent);
 
     }
 
-/*    private void loadTimeSlotOfBooking(String id) {
-        //Send local Braodcast step2
-        Intent intent = new Intent(Prevalent.KEY_DISPLAY_TIME_SLOT);
-        localBroadcastManager.sendBroadcast(intent);
-
-    }  */
 
     private void loadDoctorByHospitals(String HospitalId) {
 
@@ -183,8 +174,7 @@ public class AppointmentsActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
 
 
-            btn_next_step.setEnabled(true);
-            setColorButtom();
+         ///   setColorButtom();
             int step = intent.getIntExtra(Prevalent.KEY_STEP ,0 );
             if (step == 1)
                 Prevalent.currentHospital = intent.getParcelableExtra(Prevalent.KEY_HOSPITAL_STORE);
@@ -243,6 +233,8 @@ public class AppointmentsActivity extends AppCompatActivity {
                     btn_prevous_step.setEnabled(true);
                     btn_next_step.setEnabled(true);
 
+
+                btn_next_step.setEnabled(false);
                 setColorButtom();
             }
 

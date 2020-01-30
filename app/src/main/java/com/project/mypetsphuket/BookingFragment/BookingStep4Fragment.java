@@ -44,13 +44,11 @@ public class BookingStep4Fragment extends Fragment {
     LocalBroadcastManager localBroadcastManager;
     Unbinder unbinder;
 
-    DocumentReference bookingData;
-
 
     @BindView(R.id.txt_confirm_doctor_time)
     TextView txt_confirm_doctor_time;
-    @BindView(R.id.txt_book_doctor_name)
-    TextView txt_book_doctor_name;
+    @BindView(R.id.txt_confirm_doctor_name)
+    TextView txt_confirm_doctor_name;
     @BindView(R.id.txt_confirm_hospital_name)
     TextView txt_confirm_hospital_name;
     @BindView(R.id.txt_confirm_hospital_phone)
@@ -74,8 +72,8 @@ public class BookingStep4Fragment extends Fragment {
         bookingInformation.setHospitalId(Prevalent.currentHospital.getHospitalId());
         bookingInformation.setHospitalName(Prevalent.currentHospital.getName());
         bookingInformation.setTime(new StringBuilder(Prevalent.convertTimeSlotToString(Prevalent.currentTimeSlot)
-        ).append(" at ")
-                .append(simpleDataFormat.format(Prevalent.currentDate.getTime())).toString());
+        ).append(" at ").append(simpleDataFormat.format(Prevalent.currentDate.getTime())).toString());
+
         bookingInformation.setSlot(Long.valueOf(Prevalent.currentTimeSlot));
 
     //submit to Doctor document
@@ -90,12 +88,13 @@ public class BookingStep4Fragment extends Fragment {
                 .document(String.valueOf(Prevalent.currentTimeSlot));
 
         //Write data
-        bookingData.set(bookingInformation).addOnSuccessListener(new OnSuccessListener<Void>() {
+        bookingData.set(bookingInformation)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 resetStaticData();
                 getActivity().finish();
-                Toast.makeText(getContext(), "Success!" ,Toast.LENGTH_SHORT ).show();
+                Toast.makeText(getContext(), "Booking Success!" ,Toast.LENGTH_SHORT ).show();
             }
 
         }).addOnFailureListener(new OnFailureListener() {
@@ -125,7 +124,7 @@ public class BookingStep4Fragment extends Fragment {
     };
 
     private void setData() {
-        txt_book_doctor_name.setText(Prevalent.currentDoctor.getName());
+        txt_confirm_doctor_name.setText(Prevalent.currentDoctor.getName());
         txt_confirm_doctor_time.setText(new StringBuilder(Prevalent.convertTimeSlotToString(Prevalent.currentTimeSlot)
         ).append(" at ")
         .append(simpleDataFormat.format(Prevalent.currentDate.getTime())));
@@ -149,7 +148,7 @@ public class BookingStep4Fragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Display Confirm
-        simpleDataFormat = new SimpleDateFormat("dd_MM_yyyy");
+        simpleDataFormat = new SimpleDateFormat("dd/MM/yyyy");
         localBroadcastManager = LocalBroadcastManager.getInstance(getContext());
         localBroadcastManager.registerReceiver(confirmBookingRececeiver , new IntentFilter(Prevalent.KEY_COMFIRM_BOOKING));
 
@@ -168,8 +167,10 @@ public class BookingStep4Fragment extends Fragment {
 
         View itemView = inflater.inflate(R.layout.fragment_booking_step4,container,false);
 
-        unbinder = ButterKnife.bind(itemView);
-    return itemView;
+      //  unbinder = ButterKnife.bind(this ,itemView);
+        unbinder = ButterKnife.bind(this,itemView);
+
+        return itemView;
 
     }
 }

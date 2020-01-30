@@ -6,16 +6,6 @@
     android:background="@color/pink"
     android:orientation="vertical"
     android:layout_height="match_parent">
-    <!--tools:context=".BookingFragment.BookingStep1Fragment"> -->
-
-    <!--ImageView
-        android:id="@+id/imageView_logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center"
-        app:srcCompat="@drawable/mypet_logo" /-->
-
 
 
     <LinearLayout
@@ -26,7 +16,6 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/confirm_information"
             android:textAllCaps="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
