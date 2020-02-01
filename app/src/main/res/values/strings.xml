@@ -9,11 +9,17 @@
     <string name="menu_appointments">Appointments</string>
     <string name="menu_emergancy">Emergancy</string>
     <string name="menu_pet_service">Pets Services</string>
+    <string name="menu_myappointments">My Appointment</string>
 
     <string name="title_activity_home">Home</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+
+    <string name="address_bullet">\u2022 Address : </string>
+    <string name="time_bullet">\u2022 Time : </string>
+    <string name="doctor_bullet">\u2022 Doctor : </string>
+    <string name="bullet">\u2022 Time remain</string>
 
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>

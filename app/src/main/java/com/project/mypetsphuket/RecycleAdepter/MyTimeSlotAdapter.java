@@ -101,6 +101,7 @@ public class MyTimeSlotAdapter extends RecyclerView.Adapter<MyTimeSlotAdapter.My
                     holder.txt_time_slot_decription.setText("FULL");
                     holder.txt_time_slot_decription.setTextColor(context.getResources().getColor(R.color.white));
                     holder.txt_time_slot.setTextColor(context.getResources().getColor(android.R.color.white));
+                    holder.card_time_slot.setEnabled(false);
 
 
                 }

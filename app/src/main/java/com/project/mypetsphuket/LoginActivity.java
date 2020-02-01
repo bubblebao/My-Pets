@@ -35,7 +35,6 @@ public class LoginActivity extends AppCompatActivity {
     private TextView AdminLink, NotAdminLink;
     //Button
     private Button LoginButton;
-    private ProgressBar loadingBar;
     private ProgressBar loadingProgress;
 
     private CheckBox rememberme_ckb;

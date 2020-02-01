@@ -3,6 +3,7 @@ package com.project.mypetsphuket;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,10 +17,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.auth.User;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.project.mypetsphuket.Model.Users;
 import com.project.mypetsphuket.Prevalent.Encryption;
 import com.project.mypetsphuket.Prevalent.Prevalent;
 import com.rey.material.widget.CheckBox;
+
+import java.util.List;
 
 import io.paperdb.Paper;
 
@@ -35,6 +43,41 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Paper.init(this);
+
+
+
+        Dexter.withActivity(this)
+                .withPermissions(new String[]{
+                        Manifest.permission.READ_CALENDAR,
+                        Manifest.permission.WRITE_CALENDAR
+                }).withListener(new MultiplePermissionsListener() {
+            @Override
+            public void onPermissionsChecked(MultiplePermissionsReport report) {
+
+                //    String UserEmailKey = Paper.book().read(Prevalent.UserEmailKey);
+                String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
+                String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey);
+
+                if (UserPhoneKey != ""&& UserPasswordKey !=""){
+
+                    if (!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey)){
+
+                        AllowAccess(UserPhoneKey,UserPasswordKey);
+
+                        Toast.makeText(MainActivity.this, "logged in", Toast.LENGTH_SHORT).show();
+
+
+                    }
+                }
+            }
+
+            @Override
+            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+
+            }
+        }).check();
+
+
 
 
         joinNewRutton = (Button) findViewById(R.id.main_join_now_btn);
@@ -59,21 +102,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 //
-        String UserEmailKey = Paper.book().read(Prevalent.UserEmailKey);
-        String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
-        String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey);
 
-        if (UserPhoneKey != ""&& UserPasswordKey !=""){
-
-            if (!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey)){
-                
-                AllowAccess(UserPhoneKey,UserPasswordKey);
-
-                Toast.makeText(MainActivity.this, "logged in", Toast.LENGTH_SHORT).show();
-
-                
-            }
-        }
 
     }
 
