@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,6 +55,8 @@ public class MyAppointmentsActivity extends AppCompatActivity   {
     private Button changeBookingButton;
     private Button deleteBookingButton;
 
+    ProgressBar my_ProgressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,12 +73,15 @@ public class MyAppointmentsActivity extends AppCompatActivity   {
         card_booking_info = (CardView) findViewById(R.id.card_booking_info);
         txt_not_appoinment = (TextView) findViewById(R.id.not_have_appointment);
 
-       changeBookingButton  = (Button) findViewById(R.id.btn_change_booking);
+        changeBookingButton  = (Button) findViewById(R.id.btn_change_booking);
         deleteBookingButton  = (Button) findViewById(R.id.btn_delete_booking);
+
+        my_ProgressBar = findViewById(R.id.myApointmentProgressBar);
 
 
         card_booking_info.setVisibility(View.GONE);
         txt_not_appoinment.setVisibility(View.VISIBLE);
+        my_ProgressBar.setVisibility(View.GONE);
 
         loadUserBooking();
     //    BookingInfoLoadDone();
@@ -92,6 +98,9 @@ public class MyAppointmentsActivity extends AppCompatActivity   {
             @Override
             public void onClick(View v) {
                  deleteBookingFromDoctor();
+
+                my_ProgressBar.setVisibility(View.VISIBLE);
+                deleteBookingButton.setVisibility(View.GONE);
             }
         });
 
@@ -110,6 +119,8 @@ public class MyAppointmentsActivity extends AppCompatActivity   {
 
         if (Prevalent.currentBooking != null){
 
+            //AllArea/Chalong/Branch/UQ4vnPVWYdMtPQ6FuSEv/Doctors/NUQFMyPBzWIHiSDgXD5R/01_02_2020/0
+            //AllArea/Chalong/Branch/UQ4vnPVWYdMtPQ6FuSEv/Doctors/NUQFMyPBzWIHiSDgXD5R/01_02_2020/10
             //Get booking infor in Barber opject
             DocumentReference doctorBookingInfo = FirebaseFirestore.getInstance()
                     .collection("AllArea")
@@ -139,6 +150,9 @@ public class MyAppointmentsActivity extends AppCompatActivity   {
 
         }else {
             Toast.makeText(MyAppointmentsActivity.this, "Current Not must not be Null.", Toast.LENGTH_SHORT).show();
+
+            deleteBookingButton.setVisibility(View.VISIBLE);
+            my_ProgressBar.setVisibility(View.GONE);
         }
 
     }
@@ -164,15 +178,18 @@ public class MyAppointmentsActivity extends AppCompatActivity   {
                 @Override
                 public void onSuccess(Void aVoid) {
                     //After delete form user
-                    Toast.makeText(MyAppointmentsActivity.this, "Success Delete Booked !", Toast.LENGTH_SHORT).show();
+
                     loadUserBooking();
 
+                    Toast.makeText(MyAppointmentsActivity.this, "Success Delete Booked !", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MyAppointmentsActivity.this, HomeActivity.class);
                     startActivity(intent);
                 }
             });
 
         }else{
+            deleteBookingButton.setVisibility(View.VISIBLE);
+            my_ProgressBar.setVisibility(View.GONE);
             Toast.makeText(MyAppointmentsActivity.this, "Booking Information ID must not be Null.", Toast.LENGTH_SHORT).show();
         }
 
@@ -217,6 +234,8 @@ public class MyAppointmentsActivity extends AppCompatActivity   {
 
                             BookingInfoLoadDone(bookingInformation , queryDocumentSnapshot.getId());
                             Toast.makeText(MyAppointmentsActivity.this,"Success",Toast.LENGTH_SHORT).show();
+                            deleteBookingButton.setVisibility(View.VISIBLE);
+                            my_ProgressBar.setVisibility(View.GONE);
 
                             break;
                         }
@@ -231,6 +250,7 @@ public class MyAppointmentsActivity extends AppCompatActivity   {
 
                  Toast.makeText(MyAppointmentsActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
                  txt_not_appoinment.setVisibility(View.VISIBLE);
+
             }
         });
     }
@@ -254,6 +274,7 @@ public class MyAppointmentsActivity extends AppCompatActivity   {
 
             txt_not_appoinment.setVisibility(View.GONE);
             card_booking_info.setVisibility(View.VISIBLE);
+
         }
 
     }
