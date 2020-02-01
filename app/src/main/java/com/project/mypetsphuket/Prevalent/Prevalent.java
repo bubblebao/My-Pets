@@ -1,7 +1,9 @@
 package com.project.mypetsphuket.Prevalent;
 
+import com.google.firebase.Timestamp;
 import com.project.mypetsphuket.Model.BookingDoctor;
 import com.project.mypetsphuket.Model.BookingHospitals;
+import com.project.mypetsphuket.Model.BookingInformation;
 import com.project.mypetsphuket.Model.HospitalId;
 import com.project.mypetsphuket.Model.TimeSlot;
 import com.project.mypetsphuket.Model.Users;
@@ -9,6 +11,7 @@ import com.project.mypetsphuket.Spare.Products;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Prevalent {
 
@@ -45,6 +48,8 @@ public class Prevalent {
 
     public static String city = "";
 
+    public static BookingInformation currentBooking;
+    public static String currentBookingID = "";
 
 
     public Prevalent() {
@@ -118,5 +123,13 @@ public class Prevalent {
                 return "Closed";
 
         }
+    }
+
+    public static String convertTimeSlotToStringKey(Timestamp timestamp) {
+            Date date = timestamp.toDate();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd_MM_yyyy");
+            return simpleDateFormat.format(date);
+
+
     }
 }

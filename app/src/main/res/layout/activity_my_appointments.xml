@@ -83,14 +83,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="379dp"
+                android:layout_height="350dp"
                 android:orientation="vertical"
                 android:padding="8dp">
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="387dp"
+                    android:layout_height="350dp"
                     android:background="@drawable/rounded_dialog"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -256,26 +256,25 @@
 
 
                         <Button
-                            android:id="@+id/btn_change_appointment"
+                            android:id="@+id/btn_change_booking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="4dp"
                             android:layout_weight="1"
                             android:background="@color/colorPrimaryBlue"
-                            android:enabled="false"
                             android:text="Change"
+                            android:visibility="invisible"
                             android:textColor="@color/white"
 
                             />
 
                         <Button
-                            android:id="@+id/btn_cancle_appointment"
+                            android:id="@+id/btn_delete_booking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="4dp"
                             android:layout_weight="1"
                             android:background="@color/colorPrimaryBlue"
-                            android:enabled="false"
                             android:text="Delete"
                             android:textColor="@color/white"
 

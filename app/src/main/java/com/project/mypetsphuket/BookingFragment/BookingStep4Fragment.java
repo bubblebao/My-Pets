@@ -103,7 +103,10 @@ public class BookingStep4Fragment extends Fragment {
 
         bookingInformation.setDone(false);
 
+
         bookingInformation.setTimestamp(timestamp);
+
+        bookingInformation.setCityBook(Prevalent.currentHospital.getAddress());
         bookingInformation.setDoctorId(Prevalent.currentDoctor.getDoctorId());
         bookingInformation.setDoctorName(Prevalent.currentDoctor.getName());
         bookingInformation.setCustomerName(Prevalent.currentOnlineUser.getName());
@@ -115,7 +118,7 @@ public class BookingStep4Fragment extends Fragment {
         ).append(" at ").append(simpleDataFormat.format(bookingDateWithourHouse.getTime())).toString());
         bookingInformation.setSlot(Long.valueOf(Prevalent.currentTimeSlot));
 
-    //submit to Doctor document
+       //submit to Doctor document
         DocumentReference bookingData = FirebaseFirestore.getInstance()
                 .collection("AllArea")
                 .document(Prevalent.city)
