@@ -106,7 +106,7 @@ public class BookingStep4Fragment extends Fragment {
 
         bookingInformation.setTimestamp(timestamp);
 
-        bookingInformation.setCityBook(Prevalent.currentHospital.getAddress());
+        bookingInformation.setCityBook(Prevalent.city);
         bookingInformation.setDoctorId(Prevalent.currentDoctor.getDoctorId());
         bookingInformation.setDoctorName(Prevalent.currentDoctor.getName());
         bookingInformation.setCustomerName(Prevalent.currentOnlineUser.getName());

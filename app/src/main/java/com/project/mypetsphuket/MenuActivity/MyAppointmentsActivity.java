@@ -149,7 +149,7 @@ public class MyAppointmentsActivity extends AppCompatActivity   {
 
 
         }else {
-            Toast.makeText(MyAppointmentsActivity.this, "Current Not must not be Null.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MyAppointmentsActivity.this, "Current Booking must not be Null.", Toast.LENGTH_SHORT).show();
 
             deleteBookingButton.setVisibility(View.VISIBLE);
             my_ProgressBar.setVisibility(View.GONE);
