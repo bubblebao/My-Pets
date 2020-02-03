@@ -1,6 +1,7 @@
 package com.project.mypetsphuket.BookingFragment;
 
 
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -36,6 +37,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.project.mypetsphuket.Model.BookingInformation;
+
+import com.project.mypetsphuket.Model.Mynotification;
 import com.project.mypetsphuket.Prevalent.Prevalent;
 import com.project.mypetsphuket.R;
 
@@ -44,11 +47,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
+import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import dmax.dialog.SpotsDialog;
 
 
 public class BookingStep4Fragment extends Fragment {
@@ -57,6 +62,7 @@ public class BookingStep4Fragment extends Fragment {
     LocalBroadcastManager localBroadcastManager;
     Unbinder unbinder;
 
+    AlertDialog dialog;
 
     @BindView(R.id.txt_confirm_doctor_time)
     TextView txt_confirm_doctor_time;
@@ -77,6 +83,8 @@ public class BookingStep4Fragment extends Fragment {
 
     @OnClick(R.id.book_comfirm_button)
     void confirmBooking(){
+
+        dialog.show();
 
         book_comfirm_button.setVisibility(View.INVISIBLE);
         booking_progressBar.setVisibility(View.VISIBLE);
@@ -180,26 +188,65 @@ public class BookingStep4Fragment extends Fragment {
                             userBooking.document()
                                     .set(bookingInformation)
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
+
+
                                         @Override
                                         public void onSuccess(Void aVoid) {
 
-                             //               addToCalendar(Prevalent.bookingDate ,
-                             //               Prevalent.convertTimeSlotToString(Prevalent.currentTimeSlot));
-                                            resetStaticData();
-                                            getActivity().finish();
-                                            book_comfirm_button.setVisibility(View.VISIBLE);
-                                            booking_progressBar.setVisibility(View.INVISIBLE);
-                                            Toast.makeText(getContext(), "Booking Success!" ,Toast.LENGTH_SHORT ).show();
+
+                                            Mynotification mynotification = new Mynotification();
+                                            mynotification.setUid(UUID.randomUUID().toString());
+                                            mynotification.setTitle("New Booking");
+                                            mynotification.setContent("You have a new appointment from My Pet!");
+                                            mynotification.setRead(false);
+
+                                            FirebaseFirestore.getInstance()
+                                                    .collection("AllArea")
+                                                    .document(Prevalent.city)
+                                                    .collection("Branch")
+                                                    .document(Prevalent.currentHospital.getHospitalId())
+                                                    .collection("Doctors")
+                                                    .document(Prevalent.currentDoctor.getDoctorId())
+                                                    .collection("Notifications")
+                                                    .document(mynotification.getUid())
+                                                    .set(mynotification)
+                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void aVoid) {
+
+
+                                                            book_comfirm_button.setVisibility(View.VISIBLE);
+                                                            booking_progressBar.setVisibility(View.INVISIBLE);
+                                                            dialog.dismiss();
+
+                                                            resetStaticData();
+                                                            getActivity().finish();
+
+
+                                                            Toast.makeText(getContext(), "Booking Success!" ,Toast.LENGTH_SHORT ).show();
+
+
+
+                                                        }
+                                                    });
+
+
+
+
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
+                                    if (dialog.isShowing())
+                                        dialog.dismiss();
                                     book_comfirm_button.setVisibility(View.VISIBLE);
                                     booking_progressBar.setVisibility(View.INVISIBLE);
                                     Toast.makeText(getContext(), e.getMessage() ,Toast.LENGTH_SHORT ).show();
                                 }
                             });
                         }else {
+                            if (dialog.isShowing())
+                                dialog.dismiss();
 
                             resetStaticData();
                             getActivity().finish();
@@ -378,6 +425,8 @@ public class BookingStep4Fragment extends Fragment {
         localBroadcastManager = LocalBroadcastManager.getInstance(getContext());
         localBroadcastManager.registerReceiver(confirmBookingRececeiver , new IntentFilter(Prevalent.KEY_COMFIRM_BOOKING));
 
+        dialog = new SpotsDialog.Builder().setContext(getContext()).setCancelable(false)
+                .build();
     }
 
     @Override

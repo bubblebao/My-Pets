@@ -58,10 +58,9 @@ public class BookingStep3Fragment extends Fragment implements ITimeSlotLoadListe
     DocumentReference doctorRef;
 
     Unbinder unbinder;
+
     LocalBroadcastManager localBroadcastManager;
-    Calendar select_date;
     SimpleDateFormat simpleDataFormat;
-    Calendar selected_date;
 
     @BindView(R.id.recycle_time_slot)
     RecyclerView recycle_time_slot;
@@ -143,7 +142,7 @@ public class BookingStep3Fragment extends Fragment implements ITimeSlotLoadListe
                     Prevalent.bookingDate = date;
 
                     loadAvailableTimeSlotofDoctor(Prevalent.currentDoctor.getDoctorId(),
-                            simpleDataFormat.format(date.getTime()));
+                            Prevalent.simpleDataFormat.format(date.getTime()));
                 }
             }
         });
