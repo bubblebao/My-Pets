@@ -132,4 +132,7 @@ public class Prevalent {
 
 
     }
+
+    public static void updateToket(String s) {
+    }
 }

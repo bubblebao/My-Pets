@@ -4,7 +4,7 @@ import com.google.firebase.Timestamp;
 
 public class BookingInformation {
 
-    private  String cityBook , customerName , getCustomerPhone , time , doctorId,  doctorName , HospitalId , HospitalName , HospitalAddress;
+    private  String cityBook , customerImg , customerName , customerPhone , time , doctorId,  doctorName , HospitalId , HospitalName , HospitalAddress;
     private Long slot;
     private Timestamp timestamp;
     private boolean done;
@@ -12,9 +12,11 @@ public class BookingInformation {
     public BookingInformation() {
     }
 
-    public BookingInformation(String customerName, String getCustomerPhone, String time, String doctorId, String doctorName, String hospitalId, String hospitalName, String hospitalAddress, Long slot) {
+    public BookingInformation(String cityBook, String customerImg, String customerName, String customerPhone, String time, String doctorId, String doctorName, String hospitalId, String hospitalName, String hospitalAddress, Long slot, Timestamp timestamp, boolean done) {
+        this.cityBook = cityBook;
+        this.customerImg = customerImg;
         this.customerName = customerName;
-        this.getCustomerPhone = getCustomerPhone;
+        this.customerPhone = customerPhone;
         this.time = time;
         this.doctorId = doctorId;
         this.doctorName = doctorName;
@@ -22,6 +24,24 @@ public class BookingInformation {
         HospitalName = hospitalName;
         HospitalAddress = hospitalAddress;
         this.slot = slot;
+        this.timestamp = timestamp;
+        this.done = done;
+    }
+
+    public String getCityBook() {
+        return cityBook;
+    }
+
+    public void setCityBook(String cityBook) {
+        this.cityBook = cityBook;
+    }
+
+    public String getCustomerImg() {
+        return customerImg;
+    }
+
+    public void setCustomerImg(String customerImg) {
+        this.customerImg = customerImg;
     }
 
     public String getCustomerName() {
@@ -32,12 +52,12 @@ public class BookingInformation {
         this.customerName = customerName;
     }
 
-    public String getGetCustomerPhone() {
-        return getCustomerPhone;
+    public String getCustomerPhone() {
+        return customerPhone;
     }
 
-    public void setGetCustomerPhone(String getCustomerPhone) {
-        this.getCustomerPhone = getCustomerPhone;
+    public void setCustomerPhone(String customerPhone) {
+        this.customerPhone = customerPhone;
     }
 
     public String getTime() {
@@ -110,14 +130,6 @@ public class BookingInformation {
 
     public void setDone(boolean done) {
         this.done = done;
-    }
-
-    public String getCityBook() {
-        return cityBook;
-    }
-
-    public void setCityBook(String cityBook) {
-        this.cityBook = cityBook;
     }
 }
 

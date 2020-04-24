@@ -118,7 +118,8 @@ public class BookingStep4Fragment extends Fragment {
         bookingInformation.setDoctorId(Prevalent.currentDoctor.getDoctorId());
         bookingInformation.setDoctorName(Prevalent.currentDoctor.getName());
         bookingInformation.setCustomerName(Prevalent.currentOnlineUser.getName());
-        bookingInformation.setGetCustomerPhone(Prevalent.currentOnlineUser.getPhone());
+        bookingInformation.setCustomerPhone(Prevalent.currentOnlineUser.getPhone());
+        bookingInformation.setCustomerImg(Prevalent.currentOnlineUser.getUrl());
         bookingInformation.setHospitalAddress(Prevalent.currentHospital.getAddress());
         bookingInformation.setHospitalId(Prevalent.currentHospital.getHospitalId());
         bookingInformation.setHospitalName(Prevalent.currentHospital.getName());

@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:text="Your Are Not Booking Now"
+            android:text="You have not booked now."
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textSize="18sp"
