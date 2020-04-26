@@ -1,6 +1,7 @@
 package com.project.mypetsphuket.BookingFragment;
 
 
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -28,6 +29,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import dmax.dialog.SpotsDialog;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -92,6 +94,7 @@ public class BookingStep2Fragment extends Fragment {
     }
 
     private void init() {
+
 
         recycleView_Doctor_Book.setHasFixedSize(true);
         recycleView_Doctor_Book.setLayoutManager(new GridLayoutManager(getActivity(),2));

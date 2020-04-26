@@ -1,6 +1,7 @@
 package com.project.mypetsphuket.BookingFragment;
 
 
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -45,6 +46,7 @@ import butterknife.Unbinder;
 import devs.mulham.horizontalcalendar.HorizontalCalendar;
 import devs.mulham.horizontalcalendar.HorizontalCalendarView;
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener;
+import dmax.dialog.SpotsDialog;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,6 +60,10 @@ public class BookingStep3Fragment extends Fragment implements ITimeSlotLoadListe
     DocumentReference doctorRef;
 
     Unbinder unbinder;
+
+    AlertDialog dialog;
+
+    Calendar selected_date;
 
     LocalBroadcastManager localBroadcastManager;
     SimpleDateFormat simpleDataFormat;
@@ -98,6 +104,12 @@ public class BookingStep3Fragment extends Fragment implements ITimeSlotLoadListe
         localBroadcastManager = LocalBroadcastManager.getInstance(getContext());
         localBroadcastManager.registerReceiver(displayTimeSlot , new IntentFilter(Prevalent.KEY_DISPLAY_TIME_SLOT));
         simpleDataFormat = new SimpleDateFormat("dd_MM_yyyy");  // like  29_01_2020
+
+        dialog = new SpotsDialog.Builder().setContext(getContext()).setCancelable(false)
+                .build();
+
+        selected_date = Calendar.getInstance();
+        selected_date.add(Calendar.DATE,0);
 
     }
 
@@ -149,7 +161,7 @@ public class BookingStep3Fragment extends Fragment implements ITimeSlotLoadListe
     }
 
     private void loadAvailableTimeSlotofDoctor(String doctorId, String datebook) {
-
+        dialog.show();
 
         doctorRef = FirebaseFirestore.getInstance()
                 .collection("AllArea")
@@ -228,18 +240,21 @@ public class BookingStep3Fragment extends Fragment implements ITimeSlotLoadListe
 
         MyTimeSlotAdapter adapter = new MyTimeSlotAdapter(getContext(),timeSlotList);
         recycle_time_slot.setAdapter(adapter);
+        dialog.dismiss();
 
     }
 
     @Override
     public void onTimeSlotLoadFailed(String message) {
         Toast.makeText(getContext(),message,Toast.LENGTH_SHORT).show();
+        dialog.dismiss();
     }
 
     @Override
     public void onTimeSlotEmpty() {
         MyTimeSlotAdapter adapter = new MyTimeSlotAdapter(getContext());
         recycle_time_slot.setAdapter(adapter);
+        dialog.dismiss();
 
     }
 }

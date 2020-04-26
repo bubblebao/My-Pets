@@ -1,6 +1,7 @@
 package com.project.mypetsphuket.BookingFragment;
 
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -36,6 +37,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import dmax.dialog.SpotsDialog;
 
 
 public class BookingStep1Fragment extends Fragment implements AllServiceLoadListener, IBranchLoadListener, IAllAreaLoadListener {
@@ -54,6 +56,7 @@ public class BookingStep1Fragment extends Fragment implements AllServiceLoadList
     RecyclerView recycler_book;
 
     Unbinder unbinder;
+    AlertDialog dialog;
 
 
     static BookingStep1Fragment instance;
@@ -68,9 +71,12 @@ public class BookingStep1Fragment extends Fragment implements AllServiceLoadList
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        dialog = new SpotsDialog.Builder().setContext(getContext()).setCancelable(false)
+                .build();
         allAreaRef = FirebaseFirestore.getInstance().collection("AllArea");
         iAllAreaLoadListener = this;
         iBranchLoadListener = this;
+
 
 
     }
@@ -89,6 +95,9 @@ public class BookingStep1Fragment extends Fragment implements AllServiceLoadList
     }
 
     private void initView() {
+
+
+
         recycler_book.setHasFixedSize(true);
         recycler_book.setLayoutManager(new GridLayoutManager(getActivity(),2));
         recycler_book.addItemDecoration(new SPItemDecoration(4));
@@ -131,6 +140,7 @@ public class BookingStep1Fragment extends Fragment implements AllServiceLoadList
 
     private void loadBranchofArea(String cityName) {
 
+        dialog.show();
         Prevalent.city = cityName;
 
         branchRef = FirebaseFirestore.getInstance()
@@ -151,6 +161,7 @@ public class BookingStep1Fragment extends Fragment implements AllServiceLoadList
                         bookingHospitals.setHospitalId(documentSnapshot.getId());
                         list.add(bookingHospitals);
                     }
+
                     iBranchLoadListener.onIBranchLoadSuccess(list);
                 }
             }
@@ -173,6 +184,8 @@ public class BookingStep1Fragment extends Fragment implements AllServiceLoadList
         recycler_book.setAdapter(adapter);
         recycler_book.setVisibility(View.VISIBLE);
 
+        dialog.dismiss();
+
 
     }
 
@@ -180,5 +193,6 @@ public class BookingStep1Fragment extends Fragment implements AllServiceLoadList
     public void onIBranchLoadFailed(String message) {
 
         Toast.makeText(getActivity(),message,Toast.LENGTH_SHORT).show();
+        dialog.dismiss();
     }
 }

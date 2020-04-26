@@ -34,6 +34,11 @@ public class Prevalent {
     public static final String KEY_DOCTOR_LOAD_DONE = "DOCTOR_LOAD_DONE";
     public static final Object DISABLE_TAG = "DISABLE";
     public static final String KEY_TIME_SLOT = "TIME_SLOT";
+    public static final String TITTLE_KEY = "TITTLE" ;
+    public static final String CONTENT_KEY = "CONTENT";
+    public static final String LOGGED_KEY = "UserLogged";
+    public static  String IS_LODIN = "IsLogin";
+
 
     public  static SimpleDateFormat simpleDataFormat = new SimpleDateFormat("dd_MM_yyyy");
 

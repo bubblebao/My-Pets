@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -42,12 +43,15 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import dmax.dialog.SpotsDialog;
 
 
 public class AppointmentsActivity extends AppCompatActivity {
     private TextView   closeTextBtn , NextTextButton;
 
     LocalBroadcastManager localBroadcastManager;
+
+    AlertDialog dialog;
 
     //Variable
     CollectionReference doctorRef;
@@ -125,6 +129,7 @@ public class AppointmentsActivity extends AppCompatActivity {
 
     private void loadDoctorByHospitals(String HospitalId) {
 
+        dialog.show();
 
         if (!TextUtils.isEmpty(Prevalent.city)) {
             {
@@ -146,8 +151,8 @@ public class AppointmentsActivity extends AppCompatActivity {
                                 BookingDoctor bookingDoctor = doctorSnapshot.toObject(BookingDoctor.class);
                                 bookingDoctor.setDoctorId(doctorSnapshot.getId());
                                 bookingDoctor.setPassword(""); //Remove Password
-
                                 bookingDoctors.add(bookingDoctor);
+
                             }
 
                             //Sent Brostcast
@@ -155,10 +160,16 @@ public class AppointmentsActivity extends AppCompatActivity {
                             intent.putParcelableArrayListExtra(Prevalent.KEY_DOCTOR_LOAD_DONE,bookingDoctors);
                             localBroadcastManager.sendBroadcast(intent);
 
+                            dialog.dismiss();
+
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
+
+                    dialog.dismiss();
+
+
 
 
                 }
@@ -204,6 +215,9 @@ public class AppointmentsActivity extends AppCompatActivity {
         closeTextBtn = (TextView) findViewById(R.id.close_appointment_btn);
 
         ButterKnife.bind(AppointmentsActivity.this);
+
+        dialog = new SpotsDialog.Builder().setContext(this).build();
+
 
         localBroadcastManager = LocalBroadcastManager.getInstance(this);
         localBroadcastManager.registerReceiver(buttonNextReciver ,new IntentFilter(Prevalent.KEY_ENABLE_BUTTON_NEXT));

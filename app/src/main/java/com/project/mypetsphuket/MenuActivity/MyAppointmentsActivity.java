@@ -1,6 +1,7 @@
 package com.project.mypetsphuket.MenuActivity;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -22,7 +23,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.protobuf.Empty;
@@ -57,6 +61,9 @@ public class MyAppointmentsActivity extends AppCompatActivity   {
 
     ProgressBar my_ProgressBar;
 
+    ListenerRegistration userBookingListener = null;
+    EventListener<QuerySnapshot> userBookingEvent = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,8 +90,11 @@ public class MyAppointmentsActivity extends AppCompatActivity   {
         txt_not_appoinment.setVisibility(View.VISIBLE);
         my_ProgressBar.setVisibility(View.GONE);
 
+
+        initRealtimeUserBooking();
         loadUserBooking();
     //    BookingInfoLoadDone();
+
 
         changeBookingButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +122,19 @@ public class MyAppointmentsActivity extends AppCompatActivity   {
             }
         });
 
+
+    }
+
+    private void initRealtimeUserBooking() {
+
+        if (userBookingEvent == null){
+            userBookingEvent = new EventListener<QuerySnapshot>() {
+                @Override
+                public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                    loadUserBooking();
+                }
+            };
+        }
 
     }
 
@@ -233,7 +256,7 @@ public class MyAppointmentsActivity extends AppCompatActivity   {
                    //         iBookingInfoLoadListener.onBookingInfoLoadSuccess(bookingInformation);
 
                             BookingInfoLoadDone(bookingInformation , queryDocumentSnapshot.getId());
-                            Toast.makeText(MyAppointmentsActivity.this,"Success",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MyAppointmentsActivity.this,"Success loaded Booking !",Toast.LENGTH_SHORT).show();
                             deleteBookingButton.setVisibility(View.VISIBLE);
                             my_ProgressBar.setVisibility(View.GONE);
 
@@ -253,6 +276,18 @@ public class MyAppointmentsActivity extends AppCompatActivity   {
 
             }
         });
+
+        if (userBookingEvent != null){
+            {
+                if (userBookingListener == null){
+
+                    userBookingListener = userBooking
+                            .addSnapshotListener(userBookingEvent);
+                }
+            }
+
+        }
+
     }
 
     private void BookingInfoLoadDone(BookingInformation bookingInformation ,String bookingID) {
@@ -279,4 +314,10 @@ public class MyAppointmentsActivity extends AppCompatActivity   {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        if (userBookingListener!=null)
+            userBookingListener.remove();
+        super.onDestroy();
+    }
 }
