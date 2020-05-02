@@ -81,8 +81,12 @@ public class MyDoctorAdapter extends RecyclerView.Adapter<MyDoctorAdapter.MyView
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         holder.txt_doctor_name.setText(bookingDoctorList.get(position).getName());
-        holder.doctor_RatingBar.setRating((float)bookingDoctorList.get(position).getRating());
         Picasso.get().load(bookingDoctorList.get(position).getUrl()).into(holder.doctor_book_ImagView);
+
+        if (bookingDoctorList.get(position).getRatingTime()!= null)
+            holder.doctor_RatingBar.setRating(bookingDoctorList.get(position).getRating().floatValue()/bookingDoctorList.get(position).getRatingTime());
+        else
+            holder.doctor_RatingBar.setRating(0);
 
         if (!cardViewList.contains(holder.card_doctor))
             cardViewList.add(holder.card_doctor);

@@ -5,17 +5,20 @@ import android.os.Parcelable;
 
 public class BookingDoctor implements Parcelable {
       private String url , DoctorId , name , username , password;
-      private Long rating;
+      private Long ratingTime;
+      private Double rating;
 
     public BookingDoctor() {
     }
 
-    public BookingDoctor(String url, String doctorId, String name, String username, String password, Long rating) {
+
+    public BookingDoctor(String url, String doctorId, String name, String username, String password, Long ratingTime, Double rating) {
         this.url = url;
         DoctorId = doctorId;
         this.name = name;
         this.username = username;
         this.password = password;
+        this.ratingTime = ratingTime;
         this.rating = rating;
     }
 
@@ -28,7 +31,8 @@ public class BookingDoctor implements Parcelable {
         if (in.readByte() == 0) {
             rating = null;
         } else {
-            rating = in.readLong();
+            rating = in.readDouble();
+            ratingTime = in.readLong();
         }
     }
 
@@ -43,7 +47,8 @@ public class BookingDoctor implements Parcelable {
             dest.writeByte((byte) 0);
         } else {
             dest.writeByte((byte) 1);
-            dest.writeLong(rating);
+            dest.writeLong(ratingTime);
+            dest.writeDouble(rating);
         }
     }
 
@@ -104,11 +109,19 @@ public class BookingDoctor implements Parcelable {
         this.password = password;
     }
 
-    public Long getRating() {
+    public Long getRatingTime() {
+        return ratingTime;
+    }
+
+    public void setRatingTime(Long ratingTime) {
+        this.ratingTime = ratingTime;
+    }
+
+    public Double getRating() {
         return rating;
     }
 
-    public void setRating(Long rating) {
+    public void setRating(Double rating) {
         this.rating = rating;
     }
 }

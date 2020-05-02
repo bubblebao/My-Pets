@@ -24,7 +24,7 @@ public class MyFCMService extends FirebaseMessagingService {
     public void onNewToken(@NonNull String s) {
      //   Log.d("TAG", "the token ref: ",)
           super.onNewToken(s);
-          Prevalent.updateToket(s);
+          Prevalent.updateToken(s);
     }
 
     @Override

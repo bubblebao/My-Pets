@@ -152,7 +152,6 @@ public class BookingStep3Fragment extends Fragment implements ITimeSlotLoadListe
                 if (Prevalent.bookingDate.getTimeInMillis() != date.getTimeInMillis()){
 
                     Prevalent.bookingDate = date;
-
                     loadAvailableTimeSlotofDoctor(Prevalent.currentDoctor.getDoctorId(),
                             Prevalent.simpleDataFormat.format(date.getTime()));
                 }

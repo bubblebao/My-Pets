@@ -194,7 +194,6 @@ public class BookingStep4Fragment extends Fragment {
                                         @Override
                                         public void onSuccess(Void aVoid) {
 
-
                                             Mynotification mynotification = new Mynotification();
                                             mynotification.setUid(UUID.randomUUID().toString());
                                             mynotification.setTitle("New Booking");
@@ -223,9 +222,7 @@ public class BookingStep4Fragment extends Fragment {
                                                             resetStaticData();
                                                             getActivity().finish();
 
-
                                                             Toast.makeText(getContext(), "Booking Success!" ,Toast.LENGTH_SHORT ).show();
-
 
 
                                                         }

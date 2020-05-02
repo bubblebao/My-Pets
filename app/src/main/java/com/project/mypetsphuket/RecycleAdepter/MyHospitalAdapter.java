@@ -69,6 +69,8 @@ public class MyHospitalAdapter extends RecyclerView.Adapter<MyHospitalAdapter.My
             card_book = (CardView) itemView.findViewById(R.id.card_booking);
             ratingBar = itemView.findViewById(R.id.rtb_booking);
 
+            ratingBar.setVisibility(View.GONE);
+
             itemView.setOnClickListener(this);
         }
 
@@ -85,6 +87,8 @@ public class MyHospitalAdapter extends RecyclerView.Adapter<MyHospitalAdapter.My
         holder.txt_item_name.setText(bookingHospitalsList.get(position).getName());
         holder.ratingBar.setRating(bookingHospitalsList.get(position).getRating());
         Picasso.get().load(bookingHospitalsList.get((position)).getUrl()).into(holder.book_ImagView);
+
+
 
 
         if (!cardViewsList.contains(holder.card_book))
