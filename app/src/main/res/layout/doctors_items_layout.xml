@@ -75,26 +75,27 @@
                     android:textSize="13sp"
                     android:textColor="@color/grey" />
 
+
                 <ImageView
                     android:id="@+id/Doctor_star"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="15dp"
+                    android:layout_marginEnd="27dp"
                     android:layout_marginTop="25dp"
                     android:src="@drawable/ic_rate_star" />
 
                 <TextView
                     android:id="@+id/Doctor_Rating"
-                    android:layout_width="20dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/Doctor_star"
                     android:textColor="@color/colorPrimaryDark"
-                    android:layout_marginEnd="15dp"
+                    android:layout_marginEnd="30sp"
                     android:layout_marginTop="0dp"
                     android:layout_alignParentEnd="true"
                     android:textAlignment="center"
-                    android:text="4.5"
+                    android:text="4.58"
                     android:textSize="13sp"
                     android:textStyle="bold"/>
 

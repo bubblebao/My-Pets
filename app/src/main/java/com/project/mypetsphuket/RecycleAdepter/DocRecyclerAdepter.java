@@ -20,6 +20,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+
 
 // //    String[] latlong =  Latitude,Longtitude.split(",");
 //          double latitude = Double.parseDouble(Latitude);
@@ -89,6 +91,8 @@ public class DocRecyclerAdepter extends RecyclerView.Adapter<DocRecyclerAdepter.
         holder.DoctorSpecialist.setText(doctorsList.get(position).getSpecialist());
         holder.DoctorLocation.setText(doctorsList.get(position).getLocation());
         holder.DoctorRating.setText(doctorsList.get(position).getRating());
+
+
         Picasso.get().load(doctorsList.get((position)).getUrl())
                 .into(holder.imageView);
 

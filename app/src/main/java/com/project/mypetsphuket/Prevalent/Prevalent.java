@@ -3,6 +3,7 @@ package com.project.mypetsphuket.Prevalent;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,11 +17,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.mypetsphuket.HomeActivity;
+import com.project.mypetsphuket.MainActivity;
 import com.project.mypetsphuket.Model.BookingDoctor;
 import com.project.mypetsphuket.Model.BookingHospitals;
 import com.project.mypetsphuket.Model.BookingInformation;
@@ -30,8 +34,10 @@ import com.project.mypetsphuket.Model.Rating;
 import com.project.mypetsphuket.Model.TimeSlot;
 import com.project.mypetsphuket.Model.Users;
 import com.project.mypetsphuket.R;
+import com.project.mypetsphuket.SettingsActivity;
 import com.project.mypetsphuket.Spare.Products;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -82,6 +88,8 @@ public class Prevalent {
     public static BookingDoctor currentDoctor;
     public static int currentTimeSlot = -1;
     public static Calendar bookingDate = Calendar.getInstance();
+
+    private static  Double ratingNow ;
 
 
     public static String city = "";
@@ -227,12 +235,24 @@ public class Prevalent {
                                     Long ratingTimes = doctorsRate.getRatingTime();
                                     float userRating = rating_bar.getRating();
 
+                                    Long ratingCount;
+
                                     Double finalRating = (original_rating+userRating);
 
+
+                                    ratingCount = ++ratingTimes;
+
+
+                             //       ratingNow = finalRating/ratingCount;
+
+
+
+
+                                    ratingNow = Math.round((finalRating/ratingCount) * 100.0) / 100.0;
                                     //Update_data
                                     Map<String,Object> data_update = new HashMap<>();
                                     data_update.put("rating" , finalRating);
-                                    data_update.put("ratingTime" , ++ratingTimes);
+                                    data_update.put("ratingTime" , ratingCount);
 
                                     doctorNeedRateRef.update(data_update)
                                             .addOnFailureListener(new OnFailureListener() {
@@ -247,7 +267,9 @@ public class Prevalent {
                                             if (task.isSuccessful()){
 
                                                 Toast.makeText(context, "Thank for rating !" + Prevalent.RATING_INFORMATION_KEY , Toast.LENGTH_SHORT).show();
+
                                                 SetDoneRatingToUser(context);
+                                                SetRatingToDoctorRealTimeDB(context,ratingNow);
 
                                                 Paper.init(context);
                                                 Paper.book().delete(Prevalent.RATING_INFORMATION_KEY);
@@ -267,7 +289,9 @@ public class Prevalent {
                             }).setNeutralButton("NEVER", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
+                                    SetRatingToDoctorRealTimeDB(context,ratingNow);
                                     SetDoneRatingToUser(context);
+
 
                                     Paper.init(context);
                                     Paper.book().delete(Prevalent.RATING_INFORMATION_KEY);
@@ -285,6 +309,20 @@ public class Prevalent {
 
     }
 
+    private static void SetRatingToDoctorRealTimeDB(Context context, Double ratingNow) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Doctors");
+
+        HashMap<String, Object> userMap = new HashMap<>();
+
+
+        userMap.put("rating", ratingNow.floatValue());
+        ref.child(Prevalent.currentRating.getDoctorID()).updateChildren(userMap);
+
+
+        Toast.makeText(context, "Set Rating To DoctorReal TimeDB update successfully.", Toast.LENGTH_SHORT).show();
+
+    }
+
     private static void SetDoneRatingToUser(Context context) {
 
         DocumentReference ratingRef;
@@ -297,7 +335,7 @@ public class Prevalent {
         ratingRef = FirebaseFirestore.getInstance()
                 .collection("User")
                 .document(Prevalent.currentOnlineUser.getPhone())
-                .collection("Booking")
+                .collection("Rating")
                 .document(Prevalent.simpleDataFormat.format(Prevalent.bookingDate.getTime()));
 
         ratingRef.update("done" , true)
@@ -305,7 +343,7 @@ public class Prevalent {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(context, "Done is TRUE !" +Prevalent.currentRating.isDone() , Toast.LENGTH_SHORT).show();
+                       //     Toast.makeText(context, "Done is TRUE !" +Prevalent.currentRating.isDone() , Toast.LENGTH_SHORT).show();
                             Log.d("TAG", "Done successfully updated!");
                         }else {
                             Toast.makeText(context, "Done is Not update!", Toast.LENGTH_SHORT).show();

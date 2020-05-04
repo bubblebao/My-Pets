@@ -154,6 +154,8 @@ public class HospitalsDetailActivity extends AppCompatActivity {
         HospitalServicetype.setText(Servicetype);
         HospitalLocation.setText("("+Location +")");
         HospitalRating.setText(Rating);
+
+        HospitalRating.setVisibility(View.INVISIBLE);
         // HospitalServicetime.setText("Servicetime : " +Servicetime);
     }
 

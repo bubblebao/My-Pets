@@ -31,6 +31,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.project.mypetsphuket.MenuActivity.AppointmentsActivity;
 import com.project.mypetsphuket.MenuActivity.DoctorsActivity;
 import com.project.mypetsphuket.MenuActivity.EmergencyActivity;
+import com.project.mypetsphuket.MenuActivity.HistoryActivity;
 import com.project.mypetsphuket.MenuActivity.HospitalsActivity;
 import com.project.mypetsphuket.MenuActivity.MyAppointmentsActivity;
 import com.project.mypetsphuket.MenuActivity.PetshopActivity;
@@ -131,7 +132,7 @@ public class HomeActivity extends AppCompatActivity
         ratingRef = FirebaseFirestore.getInstance()
                 .collection("User")
                 .document(Prevalent.currentOnlineUser.getPhone())
-                .collection("Booking")
+                .collection("Rating")
                 .document(Prevalent.simpleDataFormat.format(Prevalent.bookingDate.getTime()));
 
         ratingRef.get()
@@ -338,7 +339,7 @@ public class HomeActivity extends AppCompatActivity
 
                     }
                     else if (finalI == 4){
-                        Intent intent = new Intent(HomeActivity.this, EmergencyActivity.class);
+                        Intent intent = new Intent(HomeActivity.this, HistoryActivity.class);
                         //intent.putExtra("info", "This is activity from card item index  " + finalI);
                         startActivity(intent);
 
@@ -411,7 +412,7 @@ public class HomeActivity extends AppCompatActivity
         } else if (id == R.id.nav_emergancy) {
 
 
-            Intent intent = new Intent(HomeActivity.this, EmergencyActivity.class);
+            Intent intent = new Intent(HomeActivity.this, HistoryActivity.class);
             startActivity(intent);
 
 

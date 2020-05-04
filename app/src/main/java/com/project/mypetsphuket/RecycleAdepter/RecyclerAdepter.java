@@ -62,6 +62,8 @@ public class RecyclerAdepter extends RecyclerView.Adapter<RecyclerAdepter.ViewHo
             HospitalLocation = (TextView) itemView.findViewById(R.id.Hospital_Location);
             HospitalRating = (TextView) itemView.findViewById(R.id.Hospital_Rate);
 
+            HospitalRating.setVisibility(View.GONE);
+
             // 3 .Set OnClickListener
             itemView.setOnClickListener(this);
         }

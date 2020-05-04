@@ -86,7 +86,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="15dp"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_rate_star" />
+                    android:src="@drawable/ic_rate_star"
+                    android:visibility="invisible"/>
 
                 <TextView
                     android:id="@+id/Hospital_Rate"

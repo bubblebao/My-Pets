@@ -82,6 +82,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="38dp"
             android:layout_toEndOf="@id/Petshop_Detail_ImageView"
+            android:visibility="invisible"
             android:src="@drawable/ic_rate_star" />
 
         <TextView
@@ -95,6 +96,7 @@
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
+            android:visibility="invisible"
             android:textStyle="bold" />
 
         <TextView

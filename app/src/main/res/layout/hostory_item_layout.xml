@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_booking_date"
+            android:textColor="@color/black"
+            android:background="@color/colorPrimary"
+            android:paddingStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <TextView
+            android:id="@+id/txt_hospital_name"
+            android:text="Hospital #1"
+            android:textAllCaps="true"
+            android:layout_marginTop="8dp"
+            android:paddingStart="10dp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_mark_blue" />
+
+            <TextView
+                android:id="@+id/txt_hospital_address"
+                android:text="Kathu"
+                android:textSize="14sp"
+                android:textAllCaps="true"
+                android:layout_marginTop="12dp"
+                android:paddingStart="10dp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:text="Booking Information "
+            android:textAllCaps="true"
+            android:layout_marginTop="8dp"
+            android:paddingStart="10dp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_appointments" />
+
+            <TextView
+                android:id="@+id/txt_booking_time_text"
+                android:text="Kathu"
+                android:textSize="14sp"
+                android:textAllCaps="true"
+                android:layout_marginTop="15sp"
+                android:paddingStart="10dp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_doctor_load" />
+
+            <TextView
+                android:id="@+id/txt_booking_doctor_text"
+                android:text="Kathu"
+                android:textSize="14sp"
+                android:textAllCaps="true"
+                android:layout_marginTop="15sp"
+                android:paddingStart="10dp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
